@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		37CC40E923A767C000CC1D19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC40E823A767C000CC1D19 /* AppDelegate.swift */; };
-		37CC40EB23A767C000CC1D19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC40EA23A767C000CC1D19 /* SceneDelegate.swift */; };
 		37CC40ED23A767C000CC1D19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC40EC23A767C000CC1D19 /* ViewController.swift */; };
 		37CC40F023A767C000CC1D19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37CC40EE23A767C000CC1D19 /* Main.storyboard */; };
 		37CC40F323A767C000CC1D19 /* AirService.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37CC40F123A767C000CC1D19 /* AirService.xcdatamodeld */; };
@@ -30,7 +29,6 @@
 /* Begin PBXFileReference section */
 		37CC40E523A767C000CC1D19 /* AirService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirService.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37CC40E823A767C000CC1D19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		37CC40EA23A767C000CC1D19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		37CC40EC23A767C000CC1D19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		37CC40EF23A767C000CC1D19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		37CC40F223A767C000CC1D19 /* AirService.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AirService.xcdatamodel; sourceTree = "<group>"; };
@@ -81,14 +79,10 @@
 		37CC40E723A767C000CC1D19 /* AirService */ = {
 			isa = PBXGroup;
 			children = (
-				37CC40E823A767C000CC1D19 /* AppDelegate.swift */,
-				37CC40EA23A767C000CC1D19 /* SceneDelegate.swift */,
-				37CC40EC23A767C000CC1D19 /* ViewController.swift */,
-				37CC40EE23A767C000CC1D19 /* Main.storyboard */,
-				37CC40F423A767C200CC1D19 /* Assets.xcassets */,
-				37CC40F623A767C200CC1D19 /* LaunchScreen.storyboard */,
-				37CC40F923A767C200CC1D19 /* Info.plist */,
-				37CC40F123A767C000CC1D19 /* AirService.xcdatamodeld */,
+				37CC410E23A76FB200CC1D19 /* Model */,
+				37CC411023A76FC300CC1D19 /* View */,
+				37CC410F23A76FBA00CC1D19 /* Controller */,
+				37CC411123A76FFA00CC1D19 /* Supporting Files */,
 			);
 			path = AirService;
 			sourceTree = "<group>";
@@ -102,6 +96,41 @@
 			path = AirServiceTests;
 			sourceTree = "<group>";
 		};
+		37CC410E23A76FB200CC1D19 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				37CC40F123A767C000CC1D19 /* AirService.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		37CC410F23A76FBA00CC1D19 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				37CC40EC23A767C000CC1D19 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		37CC411023A76FC300CC1D19 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				37CC40EE23A767C000CC1D19 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		37CC411123A76FFA00CC1D19 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				37CC40F423A767C200CC1D19 /* Assets.xcassets */,
+				37CC40F623A767C200CC1D19 /* LaunchScreen.storyboard */,
+				37CC40E823A767C000CC1D19 /* AppDelegate.swift */,
+				37CC40F923A767C200CC1D19 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,6 +141,7 @@
 				37CC40E123A767C000CC1D19 /* Sources */,
 				37CC40E223A767C000CC1D19 /* Frameworks */,
 				37CC40E323A767C000CC1D19 /* Resources */,
+				37CC410D23A769A600CC1D19 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -198,6 +228,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		37CC410D23A769A600CC1D19 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		37CC40E123A767C000CC1D19 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -206,7 +256,6 @@
 				37CC40F323A767C000CC1D19 /* AirService.xcdatamodeld in Sources */,
 				37CC40ED23A767C000CC1D19 /* ViewController.swift in Sources */,
 				37CC40E923A767C000CC1D19 /* AppDelegate.swift in Sources */,
-				37CC40EB23A767C000CC1D19 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,7 +347,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -352,7 +401,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -368,7 +417,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C88WF6385D;
-				INFOPLIST_FILE = AirService/Info.plist;
+				INFOPLIST_FILE = "AirService/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -386,7 +436,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C88WF6385D;
-				INFOPLIST_FILE = AirService/Info.plist;
+				INFOPLIST_FILE = "AirService/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
