@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37365A2923B0CCBE0072EA90 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37365A2823B0CCBE0072EA90 /* Countries.swift */; };
+		37365A2B23B0CE960072EA90 /* Pollutants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37365A2A23B0CE960072EA90 /* Pollutants.swift */; };
+		37365A2D23B0CFF50072EA90 /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37365A2C23B0CFF50072EA90 /* Cities.swift */; };
+		37365A2F23B0D4AB0072EA90 /* LatestMeasures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37365A2E23B0D4AB0072EA90 /* LatestMeasures.swift */; };
 		37CC40E923A767C000CC1D19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC40E823A767C000CC1D19 /* AppDelegate.swift */; };
 		37CC40ED23A767C000CC1D19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC40EC23A767C000CC1D19 /* ViewController.swift */; };
 		37CC40F023A767C000CC1D19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37CC40EE23A767C000CC1D19 /* Main.storyboard */; };
@@ -27,6 +31,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		37365A2823B0CCBE0072EA90 /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
+		37365A2A23B0CE960072EA90 /* Pollutants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pollutants.swift; sourceTree = "<group>"; };
+		37365A2C23B0CFF50072EA90 /* Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
+		37365A2E23B0D4AB0072EA90 /* LatestMeasures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestMeasures.swift; sourceTree = "<group>"; };
 		37CC40E523A767C000CC1D19 /* AirService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirService.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37CC40E823A767C000CC1D19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37CC40EC23A767C000CC1D19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +108,10 @@
 			isa = PBXGroup;
 			children = (
 				37CC40F123A767C000CC1D19 /* AirService.xcdatamodeld */,
+				37365A2C23B0CFF50072EA90 /* Cities.swift */,
+				37365A2823B0CCBE0072EA90 /* Countries.swift */,
+				37365A2A23B0CE960072EA90 /* Pollutants.swift */,
+				37365A2E23B0D4AB0072EA90 /* LatestMeasures.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -253,8 +265,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37365A2D23B0CFF50072EA90 /* Cities.swift in Sources */,
 				37CC40F323A767C000CC1D19 /* AirService.xcdatamodeld in Sources */,
+				37365A2F23B0D4AB0072EA90 /* LatestMeasures.swift in Sources */,
 				37CC40ED23A767C000CC1D19 /* ViewController.swift in Sources */,
+				37365A2923B0CCBE0072EA90 /* Countries.swift in Sources */,
+				37365A2B23B0CE960072EA90 /* Pollutants.swift in Sources */,
 				37CC40E923A767C000CC1D19 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
