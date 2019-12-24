@@ -13,7 +13,7 @@ import Foundation
  */
 struct Countries: Decodable {
     let meta: MetaDataCountries
-    let results: ResultsDataCountries
+    let results: [ResultsDataCountries]
 }
 
 struct MetaDataCountries: Decodable {

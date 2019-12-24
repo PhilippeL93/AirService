@@ -19,9 +19,18 @@ struct MetaDataPollutants: Decodable {
     var website: URL
 }
 
-struct ResultsDataPollutants: Decodable {
-    var id: String
-    var name: Double
-    var description: String
-    var preferredUnit: String
+struct ResultsDataPollutants {
+    let ident: String
+    let name: Double
+    let description: String
+    let preferredUnit: String
+}
+
+extension ResultsDataPollutants: Decodable {
+    enum CodingKeys: String, CodingKey {
+        case ident = "id"
+        case name
+        case description
+        case preferredUnit
+    }
 }

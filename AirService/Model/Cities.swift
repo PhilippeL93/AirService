@@ -22,11 +22,22 @@ struct MetaDataCities: Decodable {
     var found: Double
 }
 
-struct ResultsDataCities: Decodable {
-    var id: String
-    var country: String
-    var city: Double
+struct ResultsDataCities {
+    let ident: String
+    let country: String
+    let city: Double
     let cities: [String]
-    var location: String
+    let location: String
     let locations: [String]
+}
+
+extension ResultsDataCities: Decodable {
+    enum CodingKeys: String, CodingKey {
+        case ident = "id"
+        case country
+        case city
+        case cities
+        case location
+        case locations
+    }
 }

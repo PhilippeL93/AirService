@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,13 +11,18 @@
 		37365A2B23B0CE960072EA90 /* Pollutants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37365A2A23B0CE960072EA90 /* Pollutants.swift */; };
 		37365A2D23B0CFF50072EA90 /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37365A2C23B0CFF50072EA90 /* Cities.swift */; };
 		37365A2F23B0D4AB0072EA90 /* LatestMeasures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37365A2E23B0D4AB0072EA90 /* LatestMeasures.swift */; };
+		37365A3123B11A410072EA90 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37365A3023B11A410072EA90 /* ApiService.swift */; };
+		37365A3323B11ACE0072EA90 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37365A3223B11ACE0072EA90 /* Errors.swift */; };
+		37365A3523B132070072EA90 /* ListCountries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37365A3423B132070072EA90 /* ListCountries.swift */; };
+		37365A3723B133470072EA90 /* ListCountriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37365A3623B133470072EA90 /* ListCountriesService.swift */; };
 		37CC40E923A767C000CC1D19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC40E823A767C000CC1D19 /* AppDelegate.swift */; };
 		37CC40ED23A767C000CC1D19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC40EC23A767C000CC1D19 /* ViewController.swift */; };
 		37CC40F023A767C000CC1D19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37CC40EE23A767C000CC1D19 /* Main.storyboard */; };
-		37CC40F323A767C000CC1D19 /* AirService.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37CC40F123A767C000CC1D19 /* AirService.xcdatamodeld */; };
 		37CC40F523A767C200CC1D19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37CC40F423A767C200CC1D19 /* Assets.xcassets */; };
 		37CC40F823A767C200CC1D19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37CC40F623A767C200CC1D19 /* LaunchScreen.storyboard */; };
 		37CC410323A767C200CC1D19 /* AirServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC410223A767C200CC1D19 /* AirServiceTests.swift */; };
+		4F57DC7E7FC8694903B9C344 /* Pods_AirServiceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAA7E7AD97DF6A7D82BDA4DB /* Pods_AirServiceTests.framework */; };
+		D109CDD35C56A1292C83DCB6 /* Pods_AirService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC1242151BD198F6F8D917B8 /* Pods_AirService.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,21 +36,30 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C32AFBA6D5C7AFA72E83A7B /* Pods-AirService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirService.debug.xcconfig"; path = "Target Support Files/Pods-AirService/Pods-AirService.debug.xcconfig"; sourceTree = "<group>"; };
 		37365A2823B0CCBE0072EA90 /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		37365A2A23B0CE960072EA90 /* Pollutants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pollutants.swift; sourceTree = "<group>"; };
 		37365A2C23B0CFF50072EA90 /* Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
 		37365A2E23B0D4AB0072EA90 /* LatestMeasures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestMeasures.swift; sourceTree = "<group>"; };
+		37365A3023B11A410072EA90 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		37365A3223B11ACE0072EA90 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		37365A3423B132070072EA90 /* ListCountries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCountries.swift; sourceTree = "<group>"; };
+		37365A3623B133470072EA90 /* ListCountriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCountriesService.swift; sourceTree = "<group>"; };
+		37B15CBBA4D1FEAF1D7F1CB2 /* Pods-AirServiceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirServiceTests.debug.xcconfig"; path = "Target Support Files/Pods-AirServiceTests/Pods-AirServiceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		37CC40E523A767C000CC1D19 /* AirService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirService.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37CC40E823A767C000CC1D19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37CC40EC23A767C000CC1D19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		37CC40EF23A767C000CC1D19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		37CC40F223A767C000CC1D19 /* AirService.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AirService.xcdatamodel; sourceTree = "<group>"; };
 		37CC40F423A767C200CC1D19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37CC40F723A767C200CC1D19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37CC40F923A767C200CC1D19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37CC40FE23A767C200CC1D19 /* AirServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		37CC410223A767C200CC1D19 /* AirServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirServiceTests.swift; sourceTree = "<group>"; };
 		37CC410423A767C200CC1D19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F811413E2CBF19803E0BF8C /* Pods-AirServiceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirServiceTests.release.xcconfig"; path = "Target Support Files/Pods-AirServiceTests/Pods-AirServiceTests.release.xcconfig"; sourceTree = "<group>"; };
+		924833D78FC6F7E3A949BE2E /* Pods-AirService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirService.release.xcconfig"; path = "Target Support Files/Pods-AirService/Pods-AirService.release.xcconfig"; sourceTree = "<group>"; };
+		DAA7E7AD97DF6A7D82BDA4DB /* Pods_AirServiceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AirServiceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC1242151BD198F6F8D917B8 /* Pods_AirService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AirService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D109CDD35C56A1292C83DCB6 /* Pods_AirService.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F57DC7E7FC8694903B9C344 /* Pods_AirServiceTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +88,8 @@
 				37CC40E723A767C000CC1D19 /* AirService */,
 				37CC410123A767C200CC1D19 /* AirServiceTests */,
 				37CC40E623A767C000CC1D19 /* Products */,
+				3EDEE9813B068B97B926E19A /* Pods */,
+				6CB34DF4C190B810E07DF489 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,11 +125,13 @@
 		37CC410E23A76FB200CC1D19 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				37CC40F123A767C000CC1D19 /* AirService.xcdatamodeld */,
+				37365A3023B11A410072EA90 /* ApiService.swift */,
 				37365A2C23B0CFF50072EA90 /* Cities.swift */,
 				37365A2823B0CCBE0072EA90 /* Countries.swift */,
 				37365A2A23B0CE960072EA90 /* Pollutants.swift */,
 				37365A2E23B0D4AB0072EA90 /* LatestMeasures.swift */,
+				37365A3423B132070072EA90 /* ListCountries.swift */,
+				37365A3623B133470072EA90 /* ListCountriesService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -120,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				37CC40EC23A767C000CC1D19 /* ViewController.swift */,
+				37365A3223B11ACE0072EA90 /* Errors.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -143,6 +164,26 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		3EDEE9813B068B97B926E19A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2C32AFBA6D5C7AFA72E83A7B /* Pods-AirService.debug.xcconfig */,
+				924833D78FC6F7E3A949BE2E /* Pods-AirService.release.xcconfig */,
+				37B15CBBA4D1FEAF1D7F1CB2 /* Pods-AirServiceTests.debug.xcconfig */,
+				3F811413E2CBF19803E0BF8C /* Pods-AirServiceTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		6CB34DF4C190B810E07DF489 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC1242151BD198F6F8D917B8 /* Pods_AirService.framework */,
+				DAA7E7AD97DF6A7D82BDA4DB /* Pods_AirServiceTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,10 +191,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 37CC410723A767C200CC1D19 /* Build configuration list for PBXNativeTarget "AirService" */;
 			buildPhases = (
+				8EC00DEE25240924A9C0303E /* [CP] Check Pods Manifest.lock */,
 				37CC40E123A767C000CC1D19 /* Sources */,
 				37CC40E223A767C000CC1D19 /* Frameworks */,
 				37CC40E323A767C000CC1D19 /* Resources */,
 				37CC410D23A769A600CC1D19 /* ShellScript */,
+				9029644FADC1C4F728BC6AF1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -168,9 +211,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 37CC410A23A767C200CC1D19 /* Build configuration list for PBXNativeTarget "AirServiceTests" */;
 			buildPhases = (
+				18C20523FBE0C3728BC0C4BF /* [CP] Check Pods Manifest.lock */,
 				37CC40FA23A767C200CC1D19 /* Sources */,
 				37CC40FB23A767C200CC1D19 /* Frameworks */,
 				37CC40FC23A767C200CC1D19 /* Resources */,
+				1DB3C489C719C28DB2A2AE11 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -241,6 +286,45 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		18C20523FBE0C3728BC0C4BF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AirServiceTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1DB3C489C719C28DB2A2AE11 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AirServiceTests/Pods-AirServiceTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AirServiceTests/Pods-AirServiceTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AirServiceTests/Pods-AirServiceTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		37CC410D23A769A600CC1D19 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -258,6 +342,45 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
+		8EC00DEE25240924A9C0303E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AirService-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9029644FADC1C4F728BC6AF1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AirService/Pods-AirService-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AirService/Pods-AirService-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AirService/Pods-AirService-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -265,12 +388,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37365A3523B132070072EA90 /* ListCountries.swift in Sources */,
 				37365A2D23B0CFF50072EA90 /* Cities.swift in Sources */,
-				37CC40F323A767C000CC1D19 /* AirService.xcdatamodeld in Sources */,
 				37365A2F23B0D4AB0072EA90 /* LatestMeasures.swift in Sources */,
 				37CC40ED23A767C000CC1D19 /* ViewController.swift in Sources */,
 				37365A2923B0CCBE0072EA90 /* Countries.swift in Sources */,
 				37365A2B23B0CE960072EA90 /* Pollutants.swift in Sources */,
+				37365A3123B11A410072EA90 /* ApiService.swift in Sources */,
+				37365A3323B11ACE0072EA90 /* Errors.swift in Sources */,
+				37365A3723B133470072EA90 /* ListCountriesService.swift in Sources */,
 				37CC40E923A767C000CC1D19 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,6 +555,7 @@
 		};
 		37CC410823A767C200CC1D19 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C32AFBA6D5C7AFA72E83A7B /* Pods-AirService.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -448,6 +575,7 @@
 		};
 		37CC410923A767C200CC1D19 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 924833D78FC6F7E3A949BE2E /* Pods-AirService.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -467,6 +595,7 @@
 		};
 		37CC410B23A767C200CC1D19 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37B15CBBA4D1FEAF1D7F1CB2 /* Pods-AirServiceTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -489,6 +618,7 @@
 		};
 		37CC410C23A767C200CC1D19 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F811413E2CBF19803E0BF8C /* Pods-AirServiceTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -540,19 +670,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		37CC40F123A767C000CC1D19 /* AirService.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				37CC40F223A767C000CC1D19 /* AirService.xcdatamodel */,
-			);
-			currentVersion = 37CC40F223A767C000CC1D19 /* AirService.xcdatamodel */;
-			path = AirService.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 37CC40DD23A767C000CC1D19 /* Project object */;
 }

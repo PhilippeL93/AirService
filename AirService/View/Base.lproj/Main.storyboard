@@ -53,7 +53,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="7n1-39-TOa">
-                            <rect key="frame" x="0.0" y="0.0" width="430" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.31097954509999998" green="0.62962019440000005" blue="0.89022809270000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <textInputTraits key="textInputTraits"/>
@@ -104,11 +104,60 @@
                             <outlet property="delegate" destination="tdt-v8-ZnM" id="7dS-wb-2g0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="k4J-1d-sTE"/>
+                    <navigationItem key="navigationItem" id="k4J-1d-sTE">
+                        <barButtonItem key="rightBarButtonItem" title="Country" image="Settings" id="s0n-rf-b01">
+                            <connections>
+                                <segue destination="dP0-bp-gZW" kind="presentation" id="MAM-lO-ii1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CnY-V0-Hej" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2160.8000000000002" y="183.95802098950526"/>
+            <point key="canvasLocation" x="2161" y="182"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="cvs-Bk-NN8">
+            <objects>
+                <viewController id="dP0-bp-gZW" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GLg-kR-L1K">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gjE-bD-t87">
+                                <rect key="frame" x="27.5" y="215.5" width="320" height="216"/>
+                                <color key="backgroundColor" red="0.13216774610000001" green="0.63918938619999999" blue="0.91535598039999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8C2-y0-OOF" userLabel="BackButton">
+                                <rect key="frame" x="24" y="20" width="48" height="30"/>
+                                <state key="normal" title="&lt; Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sélectionnez le pays ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7w-2I-EHy">
+                                <rect key="frame" x="103" y="78" width="169" height="20"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.31097954509999998" green="0.62962019440000005" blue="0.89022809270000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8C2-y0-OOF" firstAttribute="leading" secondItem="y6i-VF-cfw" secondAttribute="leading" constant="24" id="C7b-ep-ACr"/>
+                            <constraint firstItem="gjE-bD-t87" firstAttribute="centerX" secondItem="GLg-kR-L1K" secondAttribute="centerX" id="YZo-Ow-s1q"/>
+                            <constraint firstItem="C7w-2I-EHy" firstAttribute="centerX" secondItem="GLg-kR-L1K" secondAttribute="centerX" id="c6D-b7-b12"/>
+                            <constraint firstItem="8C2-y0-OOF" firstAttribute="top" secondItem="y6i-VF-cfw" secondAttribute="top" constant="20" id="h0c-kH-tUi"/>
+                            <constraint firstItem="C7w-2I-EHy" firstAttribute="top" secondItem="8C2-y0-OOF" secondAttribute="bottom" constant="28" id="nq7-t4-nc5"/>
+                            <constraint firstItem="gjE-bD-t87" firstAttribute="centerY" secondItem="GLg-kR-L1K" secondAttribute="centerY" id="tV3-u9-aQI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="y6i-VF-cfw"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e3X-F0-5ry" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3062" y="182"/>
         </scene>
         <!--My Cities Item-->
         <scene sceneID="R7c-mg-iEO">
@@ -476,6 +525,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Settings" width="40" height="40"/>
         <image name="favorites_unfilled" width="24" height="24"/>
         <image name="magnifying_unfilled_30" width="30" height="30"/>
     </resources>
