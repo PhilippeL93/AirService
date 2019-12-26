@@ -12,23 +12,23 @@ import Foundation
 /*    statement of JSON received by API
  */
 struct Countries: Decodable {
-    let meta: MetaDataCountries
+//    let meta: MetaDataCountries
     let results: [ResultsDataCountries]
 }
 
-struct MetaDataCountries: Decodable {
-    var name: String
-    var license: String
-    var website: URL
-    var page: Double
-    var limit: Double
-    var found: Double
-}
+//struct MetaDataCountries: Decodable {
+//    let name: String
+//    let license: String
+//    let website: String
+//    let page: Int
+//    let limit: Int
+//    let found: Int
+//}
 
 struct ResultsDataCountries: Decodable {
     var code: String
-    var count: Double
-    var locations: Double
-    var cities: Double
-    var name: String
+    var count: Int
+    var locations: Int
+    var cities: Int
+    var name: String?
 }

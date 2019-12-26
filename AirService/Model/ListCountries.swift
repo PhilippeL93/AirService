@@ -10,8 +10,8 @@ import Foundation
 
 struct ListCountrie {
     var code: String
-    var count: Double
-    var locations: Double
-    var cities: Double
+    var count: Int
+    var locations: Int
+    var cities: Int
     var name: String
 }

@@ -9,26 +9,27 @@
 import Foundation
 
 struct Cities: Decodable {
-    let meta: MetaDataCities
-    let results: ResultsDataCities
+//    let meta: MetaDataCities
+    let results: [ResultsDataCities]
 }
 
-struct MetaDataCities: Decodable {
-    var name: String
-    var license: String
-    var website: URL
-    var page: Double
-    var limit: Double
-    var found: Double
-}
+//struct MetaDataCities: Decodable {
+//    var name: String
+//    var license: String
+//    var website: URL
+//    var page: Double
+//    var limit: Double
+//    var found: Double
+//}
 
 struct ResultsDataCities {
     let ident: String
     let country: String
-    let city: Double
+    let city: String
     let cities: [String]
     let location: String
     let locations: [String]
+    let lastUpdated: String
 }
 
 extension ResultsDataCities: Decodable {
@@ -39,5 +40,6 @@ extension ResultsDataCities: Decodable {
         case cities
         case location
         case locations
+        case lastUpdated
     }
 }

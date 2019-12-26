@@ -47,7 +47,7 @@
         <!--Cities Table View Controller-->
         <scene sceneID="lw1-Pr-5HM">
             <objects>
-                <tableViewController id="tdt-v8-ZnM" userLabel="Cities Table View Controller" sceneMemberID="viewController">
+                <tableViewController id="tdt-v8-ZnM" userLabel="Cities Table View Controller" customClass="CitiesViewController" customModule="AirService" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Et1-is-cID" userLabel="Cities Table View">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -59,7 +59,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CitiesCell" rowHeight="60" id="rp2-OQ-kIE" userLabel="Cities Table View Cell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CitiesCell" rowHeight="60" id="rp2-OQ-kIE" userLabel="Cities Table View Cell" customClass="PresentCitiesCell">
                                 <rect key="frame" x="0.0" y="72" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rp2-OQ-kIE" id="Noy-bG-izL" userLabel="Cities Content View">
@@ -97,6 +97,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="citiesLabel" destination="e78-Nt-cHL" id="fGj-Lr-KaL"/>
+                                    <outlet property="qualityLabel" destination="dom-Bs-w8n" id="SCy-dy-ZaM"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -111,53 +115,76 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="7n1-39-TOa" id="oCm-o4-mny"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CnY-V0-Hej" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="O91-GT-tgA">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="tdt-v8-ZnM" id="oRb-2S-ROw"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2161" y="182"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="cvs-Bk-NN8">
             <objects>
-                <viewController id="dP0-bp-gZW" sceneMemberID="viewController">
+                <viewController id="dP0-bp-gZW" userLabel="Settings View Controller" customClass="SettingsViewController" customModule="AirService" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GLg-kR-L1K">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gjE-bD-t87">
-                                <rect key="frame" x="27.5" y="215.5" width="320" height="216"/>
-                                <color key="backgroundColor" red="0.13216774610000001" green="0.63918938619999999" blue="0.91535598039999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8C2-y0-OOF" userLabel="BackButton">
                                 <rect key="frame" x="24" y="20" width="48" height="30"/>
                                 <state key="normal" title="&lt; Back">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="dismiss" destination="jcx-nQ-w3i" eventType="touchUpInside" id="0uK-bY-7cc"/>
+                                    <action selector="dismiss" destination="dP0-bp-gZW" eventType="touchUpInside" id="RhJ-aA-QQD"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sélectionnez le pays ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7w-2I-EHy">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sélectionnez le pays ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7w-2I-EHy" userLabel="Question">
                                 <rect key="frame" x="103" y="78" width="169" height="20"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gjE-bD-t87" userLabel="Countries Picker View">
+                                <rect key="frame" x="16" y="215.5" width="343" height="216"/>
+                                <color key="backgroundColor" red="0.10497049792282877" green="0.5163249101901829" blue="0.74282460232622949" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="dP0-bp-gZW" id="z9X-OK-36p"/>
+                                    <outlet property="delegate" destination="dP0-bp-gZW" id="WwT-4g-uVj"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="0.31097954509999998" green="0.62962019440000005" blue="0.89022809270000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8C2-y0-OOF" firstAttribute="leading" secondItem="y6i-VF-cfw" secondAttribute="leading" constant="24" id="C7b-ep-ACr"/>
+                            <constraint firstItem="gjE-bD-t87" firstAttribute="leading" secondItem="y6i-VF-cfw" secondAttribute="leading" constant="16" id="SIy-sd-gHb"/>
                             <constraint firstItem="gjE-bD-t87" firstAttribute="centerX" secondItem="GLg-kR-L1K" secondAttribute="centerX" id="YZo-Ow-s1q"/>
                             <constraint firstItem="C7w-2I-EHy" firstAttribute="centerX" secondItem="GLg-kR-L1K" secondAttribute="centerX" id="c6D-b7-b12"/>
+                            <constraint firstItem="y6i-VF-cfw" firstAttribute="trailing" secondItem="gjE-bD-t87" secondAttribute="trailing" constant="16" id="dAW-OH-f5d"/>
                             <constraint firstItem="8C2-y0-OOF" firstAttribute="top" secondItem="y6i-VF-cfw" secondAttribute="top" constant="20" id="h0c-kH-tUi"/>
                             <constraint firstItem="C7w-2I-EHy" firstAttribute="top" secondItem="8C2-y0-OOF" secondAttribute="bottom" constant="28" id="nq7-t4-nc5"/>
+                            <constraint firstItem="y6i-VF-cfw" firstAttribute="trailing" secondItem="8C2-y0-OOF" secondAttribute="trailing" constant="303" id="poS-Br-Iv9"/>
                             <constraint firstItem="gjE-bD-t87" firstAttribute="centerY" secondItem="GLg-kR-L1K" secondAttribute="centerY" id="tV3-u9-aQI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="y6i-VF-cfw"/>
                     </view>
+                    <connections>
+                        <outlet property="countryPickerView" destination="gjE-bD-t87" id="C0O-hk-vKR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e3X-F0-5ry" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="jcx-nQ-w3i" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3062" y="182"/>
+            <point key="canvasLocation" x="3061.5999999999999" y="181.25937031484258"/>
         </scene>
         <!--My Cities Item-->
         <scene sceneID="R7c-mg-iEO">

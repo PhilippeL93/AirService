@@ -21,7 +21,7 @@ class ListCountriesService {
     private(set) var listCountries: [ListCountrie] = []
 
     // MARK: - functions
-    ///    function add in order to add recipe to list of countries
+    ///    function add in order to add country to list of countries
     ///
     func add(listCountrie: ListCountrie) {
         listCountries.append(listCountrie)

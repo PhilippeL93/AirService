@@ -1,5 +1,5 @@
 //
-//  ApiService.swift
+//  ApiServiceCountries.swift
 //  AirService
 //
 //  Created by Philippe on 23/12/2019.
@@ -23,40 +23,42 @@ extension URL {
 }
 
 // MARK: - class
-class ApiService {
+class ApiServiceCountries {
 
-    private let apiServiceUrl = "https://api.openaq.org/v1/"
+    private let apiServiceUrl = "https://api.openaq.org/v1/countries?"
+//    https://api.openaq.org/v1/countries       limit=9999
+//    https://api.openaq.org/v1/parameters
+//    https://api.openaq.org/v1/locations?      country=FR    limit=9999
+//    https://api.openaq.org/v1/latest?         location=FR09404
 
     // MARK: - functions
-    /// function getSearchRecipes generate a call to API with Alamofire
+    /// function getApiCountries generate a call to API with Alamofire
     /// - preparing var for call
     /// - call function request of Alamofire (AF.request(url).responseJSON)
     /// - at call return
     /// - switch result = success ok
-    ///     - call createSearchRecipesObjectWith in order to deparse JSON
-    ///         - if data like searchRecipes
+    ///     - call createCountriesObjectWith in order to deparse JSON
+    ///         - if data like countries
     ///             - continue
     ///         - else
     ///             - exit of call with completion = false
-    ///         - if count of recipes > 0
+    ///         - if count of countries > 0
     ///             - continue
     ///         - else
     ///             - exit of call with completion = false
-    ///         - call function createListRecipe
+    ///         - call function createListCountries
     ///         - exit of call with completion = true
     /// - other exit of call with completion = false
     ///
-    func getApi(ingredientToSearch: String, completion: @escaping (Bool, Errors?) -> Void) {
+    func getApiCountries(completion: @escaping (Bool, Errors?) -> Void) {
 
         let queryParams: [String: String] = [
-            "countries": "",
             "limit": "9999"
         ]
         let api = apiServiceUrl
         guard let url = URL(string: api)?.appendParameters(params: queryParams)
             else { return completion(false, .noURL) }
 
-        DispatchQueue.global(qos: .userInteractive).async {
             AF.request(url).responseJSON { response in
                 switch response.result {
                 case .success:
@@ -73,7 +75,7 @@ class ApiService {
                             completion(false, .noCountries)
                             return
                         }
-                        self.createListRecipe(type: countries)
+                        self.createListCountries(type: countries)
                         completion(true, nil)
                     }
                     )
@@ -81,13 +83,12 @@ class ApiService {
                     completion(false, .noInternetConnection)
                 }
             }
-        }
     }
 
-    /// function createListRecipe
-    ///     - loop in order to create listRecipe contening recipes found
+    /// function createListCountries
+    ///     - loop in order to create listCountries contening contries found
     ///
-    private func createListRecipe(type: Countries) {
+    private func createListCountries(type: Countries) {
         do {
             for indice in 0...type.results.count-1 {
                 let listCountries = ListCountrie(
@@ -95,7 +96,7 @@ class ApiService {
                     count: type.results[indice].count,
                     locations: type.results[indice].locations,
                     cities: type.results[indice].cities,
-                    name: type.results[indice].name
+                    name: type.results[indice].name ?? " "
                 )
                 ListCountriesService.shared.add(listCountrie: listCountries)
             }
@@ -104,8 +105,8 @@ class ApiService {
         }
     }
 
-    /// function createSearchRecipesObjectWith
-    /// using JSONDecoder and structure SearchRecipes in order to deparse JSON recceived
+    /// function createCountriesObjectWith
+    /// using JSONDecoder and structure Countries in order to deparse JSON recceived
     ///
     private func createCountriesObjectWith(json: Data, completion: @escaping (_ data: Countries?) -> Void) {
         do {
