@@ -31,13 +31,13 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var countryPickerView: UIPickerView!
 
 //    private func callAPI() {
-////        toggleActivityIndicator(shown: true)
+//       toggleActivityIndicator(shown: true)
 //
-////        let ingredientToSearch = prepareIngredientsToSearch()
+//        let ingredientToSearch = prepareIngredientsToSearch()
 //
 //        apiFetcher.getApiCountries() { (success, errors ) in
 //            DispatchQueue.main.async {
-////                self.toggleActivityIndicator(shown: false)
+//               self.toggleActivityIndicator(shown: false)
 //                if success {
 //                } else {
 //                    guard let errors = errors else {

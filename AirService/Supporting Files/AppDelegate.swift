@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        apiFetcher.getApiCountries() { (success, errors ) in
+        apiFetcher.getApiCountries { (success, errors ) in
             DispatchQueue.main.async {
                 //                self.toggleActivityIndicator(shown: false)
                 if success {

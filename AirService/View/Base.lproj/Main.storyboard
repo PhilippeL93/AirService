@@ -59,7 +59,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CitiesCell" rowHeight="60" id="rp2-OQ-kIE" userLabel="Cities Table View Cell" customClass="PresentCitiesCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListCitiesCell" rowHeight="60" id="rp2-OQ-kIE" userLabel="Cities Table View Cell" customClass="PresentCitiesCell" customModule="AirService" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rp2-OQ-kIE" id="Noy-bG-izL" userLabel="Cities Content View">
@@ -117,6 +117,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="7n1-39-TOa" id="oCm-o4-mny"/>
+                        <outlet property="tableView" destination="Et1-is-cID" id="NEZ-Jw-H7S"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CnY-V0-Hej" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

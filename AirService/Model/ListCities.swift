@@ -14,5 +14,6 @@ struct ListCitie {
     let city: String
     let cities: [String]
     let location: String
+    let locations: [String]
 //    let quality: Int
 }

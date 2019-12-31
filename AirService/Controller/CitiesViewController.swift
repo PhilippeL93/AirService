@@ -11,9 +11,9 @@ import CoreLocation
 
 extension CLLocation {
     func fetchCityAndCountry(completion: @escaping
-        (_ city: String?, _ country: String?, _ isoCountryCode: String?, _ error: Error?) -> Void) {
+         (_ isoCountryCode: String?, _ error: Error?) -> Void) {
         CLGeocoder().reverseGeocodeLocation(self) {
-            completion($0?.first?.locality, $0?.first?.country, $0?.first?.isoCountryCode, $1)
+            completion($0?.first?.isoCountryCode, $1)
         }
     }
 }
@@ -36,6 +36,8 @@ class CitiesViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
 
+    @IBOutlet var tableView: UITableView!
+
     @IBOutlet weak var searchBar: UISearchBar!
 
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
@@ -48,14 +50,16 @@ class CitiesViewController: UIViewController, CLLocationManagerDelegate {
     private let apiFetcher = ApiServiceCities()
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        self.locationManager.stopUpdatingLocation()
         let userLocation = locations[0]
         let location = CLLocation(latitude: userLocation.coordinate.latitude,
                                   longitude: userLocation.coordinate.longitude)
-        location.fetchCityAndCountry { city, country, isoCountryCode, error in
-            guard let city = city, let country = country, let isoCountryCode = isoCountryCode,
+        location.fetchCityAndCountry { isoCountryCode, error in
+            guard let isoCountryCode = isoCountryCode,
                 error == nil else { return }
-            print(city + ", " + country + ", " + isoCountryCode)
-
+//            guard let city = city, let country = country, let isoCountryCode = isoCountryCode,
+//                error == nil else { return }
+//            print(city + ", " + country + ", " + isoCountryCode)
             self.apiFetcher.getApiCities(countryToSearch: isoCountryCode) { (success, errors ) in
                 DispatchQueue.main.async {
                     //                self.toggleActivityIndicator(shown: false)
@@ -67,8 +71,11 @@ class CitiesViewController: UIViewController, CLLocationManagerDelegate {
                         self.getErrors(type: errors)
                     }
                 }
+                self.cities = ListCitiesService.shared.listCities
+                self.tableView.reloadData()
             }
         }
+
     }
 }
 
@@ -84,8 +91,25 @@ extension CitiesViewController: UITableViewDataSource {
             as? PresentCitiesCell else {
                 return UITableViewCell()
         }
-        let city = ListCitiesService.shared.listCities[indexPath.row].ident
-        //            let quality = ListCitiesService.shared.listCities[indexPath.row].quality
+        var city: String = ""
+
+        switch cities[indexPath.row].country {
+        case "FR":
+            for indiceLocation in 0...cities[indexPath.row].locations.count-1
+                where cities[indexPath.row].locations[indiceLocation] != cities[indexPath.row].location {
+                    city = cities[indexPath.row].locations[indiceLocation]  + ", " +
+                        cities[indexPath.row].city
+            }
+            if city.isEmpty {
+                city = cities[indexPath.row].city
+            }
+        case "US":
+            city = cities[indexPath.row].city + ", " +
+                cities[indexPath.row].location
+        default:
+            city = cities[indexPath.row].city
+        }
+
         let quality = 150
 
         cell.configure(with: city, quality: quality)
@@ -94,6 +118,6 @@ extension CitiesViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ListCitiesService.shared.listCities.count
+        return cities.count
     }
 }

@@ -68,30 +68,30 @@ class ApiServiceCities {
 //        guard let url = URL(string: api)?.appendParameters(params: queryParams)
 //            else { return completion(false, .noURL) }
 
-            AF.request(url).responseJSON { response in
-                switch response.result {
-                case .success:
-                    guard let data = response.data else {
-                        completion(false, .noData)
+        AF.request(url).responseJSON { response in
+            switch response.result {
+            case .success:
+                guard let data = response.data else {
+                    completion(false, .noData)
+                    return
+                }
+                self.createCitiesObjectWith(json: data, completion: { (cities) in
+                    guard let cities = cities else {
+                        completion(false, .dataNotCompliant)
                         return
                     }
-                    self.createCitiesObjectWith(json: data, completion: { (cities) in
-                        guard let cities = cities else {
-                            completion(false, .dataNotCompliant)
-                            return
-                        }
-                        guard cities.results.count > 0 else {
-                            completion(false, .noCities)
-                            return
-                        }
-                        self.createListCities(type: cities)
-                        completion(true, nil)
+                    guard cities.results.count > 0 else {
+                        completion(false, .noCities)
+                        return
                     }
-                    )
-                case .failure:
-                    completion(false, .noInternetConnection)
+                    self.createListCities(type: cities)
+                    completion(true, nil)
                 }
+                )
+            case .failure:
+                completion(false, .noInternetConnection)
             }
+        }
     }
 
     /// function createListCountries
@@ -103,19 +103,25 @@ class ApiServiceCities {
 //    autres pays ville = locations et quartier de la ville = locationssss
 
     private func createListCities(type: Cities) {
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let currentDateCompare = formatter.string(from: date)
+
         do {
-            for indice in 0...type.results.count-1 {
-                for indiceLocation in 0...type.results[indice].locations.count-1 {
-                    if type.results[indice].locations[indiceLocation] == type.results[indice].location {
+            for indice in 0...type.results.count-1
+                where type.results[indice].lastUpdated.hasPrefix(currentDateCompare) {
+                for indiceLocation in 0...type.results[indice].locations.count-1
+                    where type.results[indice].locations[indiceLocation] == type.results[indice].location {
                         let listCities = ListCitie(
                             ident: type.results[indice].ident,
                             country: type.results[indice].country,
                             city: type.results[indice].city,
                             cities: type.results[indice].cities,
-                            location: type.results[indice].location
+                            location: type.results[indice].location,
+                            locations: type.results[indice].locations
                         )
                         ListCitiesService.shared.add(listCitie: listCities)
-                    }
                 }
             }
             //        } catch {
