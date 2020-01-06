@@ -14,6 +14,7 @@ enum Errors: String {
     case noData = "No Data extracted from API"
     case dataNotCompliant = "data not compliant with api"
     case noCountries = "No countries found"
+    case noMeasurements = "No measure found"
     case noCities = "No cities found"
     case noURL = "URL not compliant"
 }

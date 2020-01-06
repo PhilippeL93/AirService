@@ -36,6 +36,8 @@ extension UIViewController {
             alert(message: Errors.noURL.rawValue, title: "Error")
         case .dataNotCompliant:
             alert(message: Errors.dataNotCompliant.rawValue, title: "Error")
+        case .noMeasurements:
+            alert(message: Errors.noMeasurements.rawValue, title: "Error")
 //        case .forbidCharacter:
 //            alert(message: Errors.forbidCharacter.rawValue, title: "Error")
 //        case .favoriteListEmpty:

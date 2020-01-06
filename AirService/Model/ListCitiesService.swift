@@ -26,4 +26,10 @@ class ListCitiesService {
     func add(listCitie: ListCitie) {
         listCities.append(listCitie)
     }
+
+    ///    function removeAll in order to remove all cities found
+    ///
+    func removeAll() {
+        listCities.removeAll()
+    }
 }

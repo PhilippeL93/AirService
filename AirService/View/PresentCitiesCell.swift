@@ -10,15 +10,17 @@ import UIKit
 
 class PresentCitiesCell: UITableViewCell {
 
-    @IBOutlet weak var citiesLabel: UITextField!
-    @IBOutlet weak var qualityLabel: UITextField!
+//    @IBOutlet weak var citiesLabel: UITextField!
+//    @IBOutlet weak var qualityLabel: UITextField!
+
+    @IBOutlet weak var citiesLabel: UILabel!
 
     // MARK: - function
     ///   function configure in order to display data in custom cell
     ///
-    func configure(with city: String, quality: Int) {
+    func configure(with city: String) {
 
         citiesLabel.text = city
-        qualityLabel.text = String(quality)
+//        qualityLabel.text = String(quality)
     }
 }

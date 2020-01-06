@@ -9,31 +9,30 @@
 import Foundation
 
 struct LatestMeasures: Decodable {
-    let meta: MetaDataLatestMeasures
-    let results: [ResultsDataLatestMeasures]
+//    let meta: MetaDataLatestMeasures
+    var results: [ResultsDataLatestMeasures]
 }
 
-struct MetaDataLatestMeasures: Decodable {
-    var name: String
-    var license: String
-    var website: URL
-    var page: Double
-    var limit: Double
-    var found: Double
-}
+//struct MetaDataLatestMeasures: Decodable {
+//    var name: String
+//    var license: String
+//    var website: URL
+//    var page: Double
+//    var limit: Double
+//    var found: Double
+//}
 
 struct ResultsDataLatestMeasures: Decodable {
     var location: String
     var city: String
     var country: String
-    var distance: Double
-    let measurements: [MeasuresDetail]
+    var measurements: [MeasuresDetail]
 }
 
 struct MeasuresDetail: Decodable {
-    var parameters: String
+    var parameter: String
     var value: Double
-    var lastUpdated: Date
+    var lastUpdated: String
     var unit: String
     var sourceName: String
 }

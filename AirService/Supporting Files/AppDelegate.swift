@@ -10,32 +10,32 @@ import UIKit
 import CoreLocation
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var locationManager: CLLocationManager = CLLocationManager()
+//    var locationManager: CLLocationManager = CLLocationManager()
 
     private let apiFetcher = ApiServiceCountries()
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        locationManager.delegate = self
+//        locationManager.delegate = self
         return true
     }
 
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        apiFetcher.getApiCountries { (success, errors ) in
-            DispatchQueue.main.async {
-                //                self.toggleActivityIndicator(shown: false)
-                if success {
-                } else {
-                    guard let errors = errors else {
-                        return
-                    }
-//                    self.getErrors(type: errors)
-                }
-            }
-        }
-    }
+//    func applicationDidBecomeActive(_ application: UIApplication) {
+//        apiFetcher.getApiCountries { (success, errors ) in
+//            DispatchQueue.main.async {
+//                //                self.toggleActivityIndicator(shown: false)
+//                if success {
+//                } else {
+//                    guard let errors = errors else {
+//                        return
+//                    }
+////                    self.getErrors(type: errors)
+//                }
+//            }
+//        }
+//    }
 }

@@ -9,19 +9,6 @@
 import Foundation
 import Alamofire
 
-// MARK: - extension
-///    function appendParameters in order to create URL with URLQueryItem
-///
-extension URL {
-    func appendParameters( params: Parameters) -> URL? {
-        var components = URLComponents(string: self.absoluteString)
-        components?.queryItems = params.map { element in
-            URLQueryItem(name: element.key, value: element.value as? String)
-        }
-        return components?.url
-    }
-}
-
 // MARK: - class
 class ApiServiceCountries {
 
@@ -29,7 +16,6 @@ class ApiServiceCountries {
 //    https://api.openaq.org/v1/countries       limit=9999
 //    https://api.openaq.org/v1/parameters
 //    https://api.openaq.org/v1/locations?      country=FR    limit=9999
-//    https://api.openaq.org/v1/latest?         location=FR09404
 
     // MARK: - functions
     /// function getApiCountries generate a call to API with Alamofire

@@ -34,20 +34,29 @@ class CitiesViewController: UIViewController, CLLocationManagerDelegate {
         } else {
             print("PLease turn on location services or GPS")
         }
+        self.searchBar.delegate = self
     }
-
-    @IBOutlet var tableView: UITableView!
 
     @IBOutlet weak var searchBar: UISearchBar!
 
+    @IBOutlet weak var tableView: UITableView!
+
+    @IBAction func settingCountry(_ sender: Any) {
+    }
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         searchBar.resignFirstResponder()
     }
 
     var locationManager = CLLocationManager()
     var cities = ListCitiesService.shared.listCities
+    var measures = ListLatestMeasuresService.shared.listLatestMeasures
+    var searchActive: Bool = false
+    var filtered: [String] = []
+    var isoCountryCodeToSearch = ""
+    var errorsLocation: Errors?
 
-    private let apiFetcher = ApiServiceCities()
+    private let apiFetchCities = ApiServiceCities()
+    private let apiFetchMeasures = ApiServiceLatestMeasures()
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.locationManager.stopUpdatingLocation()
@@ -57,36 +66,102 @@ class CitiesViewController: UIViewController, CLLocationManagerDelegate {
         location.fetchCityAndCountry { isoCountryCode, error in
             guard let isoCountryCode = isoCountryCode,
                 error == nil else { return }
-//            guard let city = city, let country = country, let isoCountryCode = isoCountryCode,
-//                error == nil else { return }
-//            print(city + ", " + country + ", " + isoCountryCode)
-            self.apiFetcher.getApiCities(countryToSearch: isoCountryCode) { (success, errors ) in
-                DispatchQueue.main.async {
-                    //                self.toggleActivityIndicator(shown: false)
-                    if success {
-                    } else {
-                        guard let errors = errors else {
-                            return
-                        }
-                        self.getErrors(type: errors)
-                    }
-                }
-                self.cities = ListCitiesService.shared.listCities
-                self.tableView.reloadData()
-            }
+            self.isoCountryCodeToSearch = isoCountryCode
         }
-
     }
 }
 
-// MARK: - extension Data
+// MARK: - extension Delegate for searchBar
+extension CitiesViewController: UISearchBarDelegate {
+
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        print("searchBarTextDidBeginEditing")
+        searchActive = true
+    }
+
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        print("searchBarTextDidEndEditing")
+//        cities.removeAll()
+        self.tableView.reloadData()
+        searchActive = false
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print("searchBarCancelButtonClicked")
+        searchBar.resignFirstResponder()
+        searchBar.text = ""
+        searchActive = false
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("searchBarSearchButtonClicked")
+        searchActive = false
+    }
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+
+        if searchText.count <= 2 {
+            searchActive = false
+            self.cities.removeAll()
+            self.tableView.reloadData()
+        } else {
+            self.apiFetchCities.getApiCities(countryToSearch: isoCountryCodeToSearch,
+                                             cityToSearch: searchText,
+                                             typeOfSearch: "location[]") { (success, errors ) in
+                DispatchQueue.main.async {
+                    if success {
+                        self.apiFetchCities.getApiCities(countryToSearch: self.isoCountryCodeToSearch,
+                                                         cityToSearch: searchText,
+                                                         typeOfSearch: "city") { (success, errors ) in
+                            DispatchQueue.main.async {
+                                if success {
+                                    } else {
+                                    guard let errors = errors else {
+                                        return }
+                                        self.getErrors(type: errors)
+                                        }
+                            }
+                            self.cities = ListCitiesService.shared.listCities
+                            self.tableView.reloadData()
+                        }
+                    } else {
+                        self.errorsLocation = errors
+                        print("errorsLocation ========== \(String(describing: self.errorsLocation))")
+                        self.apiFetchCities.getApiCities(countryToSearch: self.isoCountryCodeToSearch,
+                                                                     cityToSearch: searchText,
+                                                                     typeOfSearch: "city") { (success, errors ) in
+                            DispatchQueue.main.async {
+                                if success {
+                                    } else {
+                                    guard let errors = errors else {
+                                        return }
+                                        self.getErrors(type: errors)
+                                        }
+                                    }
+                            self.cities = ListCitiesService.shared.listCities
+                            self.tableView.reloadData()
+                        }
+                    }
+                }
+            }
+            if(filtered.count == 0) {
+                searchActive = false
+            } else {
+                searchActive = true
+            }
+            self.tableView.reloadData()
+        }
+    }
+
+}
+
+// MARK: - extension Data for tableView
 extension CitiesViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ListCitiesCell", for: indexPath)
             as? PresentCitiesCell else {
                 return UITableViewCell()
@@ -110,9 +185,7 @@ extension CitiesViewController: UITableViewDataSource {
             city = cities[indexPath.row].city
         }
 
-        let quality = 150
-
-        cell.configure(with: city, quality: quality)
+        cell.configure(with: city)
 
         return cell
     }
