@@ -10,14 +10,23 @@ import Foundation
 
 class SettingsService {
     private struct Keys {
-        static let country = "country"
+        static let countryISO = "countryISO"
+        static let localization = "localization"
     }
-    static var country: String {
+    static var countryISO: String {
         get {
-            return UserDefaults.standard.string(forKey: Keys.country) ?? "FR"
+            return UserDefaults.standard.string(forKey: Keys.countryISO) ?? "FR"
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: Keys.country)
+            UserDefaults.standard.set(newValue, forKey: Keys.countryISO)
+        }
+    }
+    static var localization: String {
+        get {
+            return UserDefaults.standard.string(forKey: Keys.localization) ?? "GeoLocalization"
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: Keys.localization)
         }
     }
 }

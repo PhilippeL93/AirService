@@ -15,5 +15,7 @@ struct ListCitie {
     let cities: [String]
     let location: String
     let locations: [String]
+    let favorite: String
+    let source: String
 //    let quality: Int
 }

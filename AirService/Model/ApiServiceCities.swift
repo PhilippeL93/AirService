@@ -53,7 +53,7 @@ class ApiServiceCities {
         url = api + parameters
 
         urlString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? url
-        print("urlString \(urlString)")
+
         if typeOfSearch == "location[]" {
             ListCitiesService.shared.removeAll()
             request?.cancel()
@@ -75,7 +75,7 @@ class ApiServiceCities {
                         completion(false, .noCities)
                         return
                     }
-                    self.createListCities(type: cities)
+                    self.createListCities(type: cities, typeOfSearch: typeOfSearch)
                     completion(true, nil)
                 }
                 )
@@ -92,28 +92,47 @@ class ApiServiceCities {
 //    faire test sur pays FR et US afin de prendre la ville dans locationsssss
 //    autres pays ville = locations et quartier de la ville = locationssss
 
-    private func createListCities(type: Cities) {
-//        let date = Date()
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "yyyy-MM-dd"
-//        let currentDateCompare = formatter.string(from: date)
-//        ListCitiesService.shared.removeAll()
+    private func createListCities(type: Cities, typeOfSearch: String) {
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let currentDateCompare = formatter.string(from: date)
+        var duplicateFound: Bool = false
+
         do {
-            for indice in 0...type.results.count-1 {
-//                where type.results[indice].lastUpdated.hasPrefix(currentDateCompare) {
-                for indiceLocation in 0...type.results[indice].locations.count-1
-                    where type.results[indice].locations[indiceLocation] == type.results[indice].location {
-                        let listCities = ListCitie(
-                            ident: type.results[indice].ident,
-                            country: type.results[indice].country,
-                            city: type.results[indice].city,
-                            cities: type.results[indice].cities,
-                            location: type.results[indice].location,
-                            locations: type.results[indice].locations
-                        )
-//                        print("\(type.results[indice].location)")
-                        ListCitiesService.shared.add(listCitie: listCities)
-                }
+            for indice in 0...type.results.count-1
+                where type.results[indice].lastUpdated.hasPrefix(currentDateCompare) {
+                    for indiceLocation in 0...type.results[indice].locations.count-1
+                        where type.results[indice].locations[indiceLocation] == type.results[indice].location {
+                            let listCities = ListCitie(
+                                ident: type.results[indice].ident,
+                                country: type.results[indice].country,
+                                city: type.results[indice].city,
+                                cities: type.results[indice].cities,
+                                location: type.results[indice].location,
+                                locations: type.results[indice].locations,
+                                favorite: "",
+                                source: typeOfSearch
+                            )
+                            duplicateFound = false
+                            if ListCitiesService.shared.listCities.count > 0 {
+                                for indiceDuplicate in 0...ListCitiesService.shared.listCities.count-1
+                                    where listCities.ident ==
+                                        ListCitiesService.shared.listCities[indiceDuplicate].ident {
+                                        duplicateFound = true
+                                }
+                            }
+                            if duplicateFound == false {
+                                if type.results[indice].country != "FR" {
+                                    ListCitiesService.shared.add(listCitie: listCities)
+                                } else {
+                                    if type.results[indice].location.contains("FR") &&
+                                        type.results[indice].locations.count >= 2 {
+                                       ListCitiesService.shared.add(listCitie: listCities)
+                                    }
+                                }
+                            }
+                    }
             }
             //        } catch {
             //            print(error)

@@ -8,56 +8,65 @@
 
 import UIKit
 
+protocol SettingsViewControllerDelegate: AnyObject {
+    func refresh()
+}
+
 class SettingsViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        callAPI()
-        countries = ListCountriesService.shared.listCountries
-//        let country = SettingsService.country
-//        currencyLabel.text = currency
+    @IBAction func saveSettings(_ sender: Any) {
+        SettingsService.countryISO = getSelectedCountry()
+        let localizationIndex = choiceOfLocalization.selectedSegmentIndex
+        SettingsService.localization = (localizationIndex == 0) ? "GeoLocalization" : "country"
+        self.delegate?.refresh()
+        dismiss(animated: true, completion: nil)
     }
 
-    private let apiFetcher = ApiServiceCountries()
-
-    var countries = ListCountriesService.shared.listCountries
-
     @IBAction func dismiss() {
-//        guard let country = getSelectedCountry() else { return }
-//        SettingsService.country = country
         dismiss(animated: true, completion: nil)
     }
 
     @IBOutlet weak var countryPickerView: UIPickerView!
 
-//    private func callAPI() {
-//       toggleActivityIndicator(shown: true)
-//
-//        let ingredientToSearch = prepareIngredientsToSearch()
-//
-//        apiFetcher.getApiCountries() { (success, errors ) in
-//            DispatchQueue.main.async {
-//               self.toggleActivityIndicator(shown: false)
-//                if success {
-//                } else {
-//                    guard let errors = errors else {
-//                        return
-//                    }
-//                    self.getErrors(type: errors)
-//                }
-//            }
-//        }
-//    }
+    @IBOutlet weak var choiceOfLocalization: UISegmentedControl!
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        callAPI()
+        //        countries = ListCountriesService.shared.listCountries
+        //        let country = SettingsService.country
+        //        currencyLabel.text = currency
+    }
+
+        private let apiFetcher = ApiServiceCountries()
+
+        var countries = ListCountriesService.shared.listCountries
+        weak var delegate: SettingsViewControllerDelegate?
+
+    private func callAPI() {
+        self.apiFetcher.getApiCountries { (success, errors ) in
+            DispatchQueue.main.async {
+                if success {
+                    self.countries = ListCountriesService.shared.listCountries
+                    self.countryPickerView.reloadAllComponents()
+                } else {
+                    guard let errors = errors else {
+                        return
+                    }
+                    self.getErrors(type: errors)
+                }
+            }
+        }
+    }
+
+    private func getSelectedCountry() -> String {
+        if countries.count > 0 {
+            let index = countryPickerView.selectedRow(inComponent: 0)
+                return countries[index].code
+            }
+            return ""
+    }
 }
-
-//func getSelectedCountry() {
-//    if countries.count > 0 {
-//        let index = countryPickerView.selectedRow(inComponent: 0)
-//            return persons[index]
-//        }
-//        return nil
-//}
 
 extension SettingsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

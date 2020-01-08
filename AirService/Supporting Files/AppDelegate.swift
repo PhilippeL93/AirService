@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,23 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-//        locationManager.delegate = self
+        FirebaseApp.configure()
         return true
     }
-
-//    func applicationDidBecomeActive(_ application: UIApplication) {
-//        apiFetcher.getApiCountries { (success, errors ) in
-//            DispatchQueue.main.async {
-//                //                self.toggleActivityIndicator(shown: false)
-//                if success {
-//                } else {
-//                    guard let errors = errors else {
-//                        return
-//                    }
-////                    self.getErrors(type: errors)
-//                }
-//            }
-//        }
-//    }
 }
