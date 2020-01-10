@@ -36,12 +36,15 @@ class ApiServiceLatestMeasures {
     ///         - exit of call with completion = true
     /// - other exit of call with completion = false
     ///
-    func getApiLatestMeasures(typeOfSearch: String, itemToSearch: String, completion: @escaping
+    func getApiLatestMeasures(countryToSearch: String, locationToSearch: String,
+                              cityToSearch: String, completion: @escaping
         (Bool, Errors?) -> Void) {
 
         let queryParams: [String: String] = [
             "limit": "9999",
-            typeOfSearch: itemToSearch
+            "country": countryToSearch,
+            "location": locationToSearch,
+            "city": cityToSearch
         ]
         let api = apiServiceUrl
         guard let url = URL(string: api)?.appendParameters(params: queryParams)

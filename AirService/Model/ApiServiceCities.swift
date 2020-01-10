@@ -100,10 +100,11 @@ class ApiServiceCities {
         var duplicateFound: Bool = false
 
         do {
-            for indice in 0...type.results.count-1
-                where type.results[indice].lastUpdated.hasPrefix(currentDateCompare) {
+            for indice in 0...type.results.count-1 {
+//                where type.results[indice].lastUpdated.hasPrefix(currentDateCompare) {
                     for indiceLocation in 0...type.results[indice].locations.count-1
                         where type.results[indice].locations[indiceLocation] == type.results[indice].location {
+                            let favorite = getFavorite(ident: type.results[indice].ident)
                             let listCities = ListCitie(
                                 ident: type.results[indice].ident,
                                 country: type.results[indice].country,
@@ -111,7 +112,7 @@ class ApiServiceCities {
                                 cities: type.results[indice].cities,
                                 location: type.results[indice].location,
                                 locations: type.results[indice].locations,
-                                favorite: "",
+                                favorite: favorite,
                                 source: typeOfSearch
                             )
                             duplicateFound = false
@@ -123,12 +124,20 @@ class ApiServiceCities {
                                 }
                             }
                             if duplicateFound == false {
-                                if type.results[indice].country != "FR" {
+                                if type.results[indice].country != "FR" && type.results[indice].country != "DE" {
                                     ListCitiesService.shared.add(listCitie: listCities)
                                 } else {
-                                    if type.results[indice].location.contains("FR") &&
-                                        type.results[indice].locations.count >= 2 {
-                                       ListCitiesService.shared.add(listCitie: listCities)
+                                    if type.results[indice].country == "FR" {
+                                        if type.results[indice].location.contains("FR") &&
+                                            type.results[indice].locations.count >= 2 {
+                                                ListCitiesService.shared.add(listCitie: listCities)
+                                        }
+                                    }
+                                    if type.results[indice].country == "DE" {
+                                        if type.results[indice].location.contains("DE") &&
+                                            type.results[indice].locations.count >= 2 {
+                                                ListCitiesService.shared.add(listCitie: listCities)
+                                        }
                                     }
                                 }
                             }
@@ -150,5 +159,27 @@ class ApiServiceCities {
         } catch _ {
             return completion(nil)
         }
+    }
+
+    private func getFavorite(ident: String) -> Bool {
+//        guard let favoriteCityList = UserDefaults.standard.object(forKey: "favoriteCity") as? [String] else {
+//            return false
+//        }
+//        if favoriteCityList.count >= 1 {
+//            for indiceFavorite in 0...favoriteCityList.count-1
+//                where ident == favoriteCityList[indiceFavorite] {
+//                   return true
+//            }
+//        }
+        guard let favoriteCityList = UserDefaults.standard.object(forKey: "favoriteCity") as? [CityFavorite] else {
+            return false
+        }
+        if favoriteCityList.count >= 1 {
+            for indiceFavorite in 0...favoriteCityList.count-1
+                where ident == favoriteCityList[indiceFavorite].ident {
+                   return true
+            }
+        }
+        return false
     }
 }

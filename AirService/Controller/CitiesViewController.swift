@@ -35,24 +35,7 @@ class CitiesViewController: UIViewController, CLLocationManagerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if SettingsService.localization == "GeoLocalization" {
-            if CLLocationManager.locationServicesEnabled() == true {
-                if CLLocationManager.authorizationStatus() == .restricted ||
-                    CLLocationManager.authorizationStatus() == .denied ||
-                    CLLocationManager.authorizationStatus() == .notDetermined {
-                    locationManager.requestWhenInUseAuthorization()
-                }
-                locationManager.desiredAccuracy = kCLLocationAccuracyBest
-                locationManager.delegate = self
-                locationManager.startUpdatingLocation()
-            } else {
-                print("PLease turn on location services or GPS")
-            }
-        } else {
-            isoCountryCodeToSearch = SettingsService.countryISO
-            countryLabel.text = Locale.current.localizedString(forRegionCode: SettingsService.countryISO)!
-            country = self.countryLabel.text!
-        }
+        refresh()
         self.searchBar.delegate = self
     }
 
@@ -63,7 +46,6 @@ class CitiesViewController: UIViewController, CLLocationManagerDelegate {
 
     var locationManager = CLLocationManager()
     var cities = ListCitiesService.shared.listCities
-    var measures = ListLatestMeasuresService.shared.listLatestMeasures
     var searchActive: Bool = false
     var filtered: [String] = []
     var isoCountryCodeToSearch = ""
@@ -71,7 +53,6 @@ class CitiesViewController: UIViewController, CLLocationManagerDelegate {
     var errorsLocation: Errors?
 
     private let apiFetchCities = ApiServiceCities()
-    private let apiFetchMeasures = ApiServiceLatestMeasures()
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.locationManager.stopUpdatingLocation()
@@ -92,17 +73,14 @@ class CitiesViewController: UIViewController, CLLocationManagerDelegate {
 extension CitiesViewController: UISearchBarDelegate {
 
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        print("searchBarTextDidBeginEditing")
         searchActive = true
     }
 
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        print("searchBarTextDidEndEditing")
         searchActive = false
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        print("searchBarCancelButtonClicked")
         searchBar.resignFirstResponder()
         searchBar.text = ""
         cities.removeAll()
@@ -111,7 +89,6 @@ extension CitiesViewController: UISearchBarDelegate {
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print("searchBarSearchButtonClicked")
         searchActive = false
     }
 
@@ -125,21 +102,18 @@ extension CitiesViewController: UISearchBarDelegate {
             self.apiFetchCities.getApiCities(countryToSearch: isoCountryCodeToSearch,
                                              cityToSearch: searchText,
                                              typeOfSearch: "location[]") { (success, errors ) in
-//                                                DispatchQueue.main.async {
-                                                    if success {
-                                                        self.searchAPIWithCity(searchText: searchText)
-                                                    } else {
-                                                        self.errorsLocation = errors
-                                                        self.searchAPIWithCity(searchText: searchText)
-                                                    }
-//                                                }
+                                                if success {
+                                                    self.searchAPIWithCity(searchText: searchText)
+                                                } else {
+                                                    self.errorsLocation = errors
+                                                    self.searchAPIWithCity(searchText: searchText)
+                                                }
             }
             if(filtered.count == 0) {
                 searchActive = false
             } else {
                 searchActive = true
             }
-//            self.tableView.reloadData()
         }
     }
 
@@ -150,12 +124,25 @@ extension CitiesViewController: UISearchBarDelegate {
                                             DispatchQueue.main.async {
                                                 if success {
                                                     self.cities = ListCitiesService.shared.listCities
-                                                    self.tableView.reloadData()
+                                                    if self.cities.count >= 1 {
+                                                        self.tableView.reloadData()
+                                                    } else {
+                                                        self.getErrors(type: .noCities)
+                                                    }
                                                 } else {
-                                                    guard let errors = errors else {
-                                                        return }
-                                                    if self.errorsLocation != nil {
-                                                        self.getErrors(type: errors)
+                                                    if self.errorsLocation == nil {
+                                                        self.cities = ListCitiesService.shared.listCities
+                                                        if self.cities.count >= 1 {
+                                                            self.tableView.reloadData()
+                                                        } else {
+                                                            self.getErrors(type: .noCities)
+                                                        }
+                                                    } else {
+                                                        guard let errors = errors else {
+                                                            return }
+                                                        if self.errorsLocation != nil {
+                                                            self.getErrors(type: errors)
+                                                        }
                                                     }
                                                 }
                                             }
@@ -177,10 +164,11 @@ extension CitiesViewController: UITableViewDataSource {
         }
         var city: String = ""
         var location: String = ""
+        var favorite: Bool = false
 
         switch cities[indexPath.row].source {
         case "city":
-            if cities[indexPath.row].country == "FR" {
+            if cities[indexPath.row].country == "FR" || cities[indexPath.row].country == "DE" {
                 for indiceLocation in 0...cities[indexPath.row].locations.count-1
                     where cities[indexPath.row].locations[indiceLocation] != cities[indexPath.row].location {
                         city = cities[indexPath.row].locations[indiceLocation]
@@ -191,7 +179,7 @@ extension CitiesViewController: UITableViewDataSource {
                 location = cities[indexPath.row].location
             }
         case "location[]":
-            if cities[indexPath.row].country == "FR" {
+            if cities[indexPath.row].country == "FR" || cities[indexPath.row].country == "DE" {
                 for indiceLocation in 0...cities[indexPath.row].locations.count-1
                     where cities[indexPath.row].locations[indiceLocation] != cities[indexPath.row].location {
                         city = cities[indexPath.row].locations[indiceLocation]
@@ -205,8 +193,9 @@ extension CitiesViewController: UITableViewDataSource {
             city = cities[indexPath.row].city
             location = cities[indexPath.row].location
         }
+        favorite = cities[indexPath.row].favorite
 
-        cell.configure(with: city, location: location)
+        cell.configure(with: city, location: location, favorite: favorite)
 
         return cell
     }
@@ -237,5 +226,9 @@ extension CitiesViewController: SettingsViewControllerDelegate {
             countryLabel.text = Locale.current.localizedString(forRegionCode: SettingsService.countryISO)!
             country = self.countryLabel.text!
         }
+        searchBar.text = ""
+        cities.removeAll()
+        tableView.reloadData()
     }
+
 }

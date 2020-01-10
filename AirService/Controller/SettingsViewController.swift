@@ -15,9 +15,11 @@ protocol SettingsViewControllerDelegate: AnyObject {
 class SettingsViewController: UIViewController {
 
     @IBAction func saveSettings(_ sender: Any) {
-        SettingsService.countryISO = getSelectedCountry()
         let localizationIndex = choiceOfLocalization.selectedSegmentIndex
         SettingsService.localization = (localizationIndex == 0) ? "GeoLocalization" : "country"
+        if SettingsService.localization == "country" {
+            SettingsService.countryISO = getSelectedCountry()
+        }
         self.delegate?.refresh()
         dismiss(animated: true, completion: nil)
     }
@@ -33,9 +35,11 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         callAPI()
-        //        countries = ListCountriesService.shared.listCountries
-        //        let country = SettingsService.country
-        //        currencyLabel.text = currency
+        if SettingsService.localization == "GeoLocalization" {
+            choiceOfLocalization.selectedSegmentIndex = 0
+        } else {
+            choiceOfLocalization.selectedSegmentIndex = 1
+        }
     }
 
         private let apiFetcher = ApiServiceCountries()
@@ -47,8 +51,7 @@ class SettingsViewController: UIViewController {
         self.apiFetcher.getApiCountries { (success, errors ) in
             DispatchQueue.main.async {
                 if success {
-                    self.countries = ListCountriesService.shared.listCountries
-                    self.countryPickerView.reloadAllComponents()
+                    self.updateBeforeLoad()
                 } else {
                     guard let errors = errors else {
                         return
@@ -59,12 +62,27 @@ class SettingsViewController: UIViewController {
         }
     }
 
+    private func updateBeforeLoad() {
+        countries = ListCountriesService.shared.listCountries
+        countryPickerView.reloadAllComponents()
+        let row = getSelectedRow()
+        countryPickerView.selectRow(row, inComponent: 0, animated: true)
+    }
+
     private func getSelectedCountry() -> String {
         if countries.count > 0 {
             let index = countryPickerView.selectedRow(inComponent: 0)
                 return countries[index].code
             }
             return ""
+    }
+
+    private func getSelectedRow() -> Int {
+        for indice in 0...countries.count-1
+            where countries[indice].code == SettingsService.countryISO {
+                return indice
+        }
+        return -1
     }
 }
 
