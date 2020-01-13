@@ -26,4 +26,16 @@ class ListLatestMeasuresService {
     func add(listLatestMeasure: ListLatestMeasure) {
         listLatestMeasures.append(listLatestMeasure)
     }
+
+    ///    function removeIngredient in order to remove ingredients to search
+    ///
+    func removeFavorite(at index: Int) {
+        listLatestMeasures.remove(at: index)
+    }
+
+    ///    function removeAll in order to remove all cities found
+    ///
+    func removeAll() {
+        listLatestMeasures.removeAll()
+    }
 }

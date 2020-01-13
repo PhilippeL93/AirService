@@ -24,17 +24,35 @@ class PresentFavoritesCell: UITableViewCell {
 
     @IBOutlet weak var hourLastUpdated: UITextField!
 
-    var measures = ListLatestMeasuresService.shared.listLatestMeasures
-
     ///   function configure in order to display data in custom cell
     ///
-    func configure(with city: String) {
+    func configure(with cityFavorite: ListLatestMeasure) {
 
-        qualityName.text = "Très bien"
-        qualityIndicator.text = "15"
-        cityName.text = city
-        department.text = "Department"
-        pollutant.text = "pollutant"
-        hourLastUpdated.text = "heure"
+        var color: UIColor
+
+        qualityName.text = cityFavorite.qualityName
+        qualityIndicator.text = String(format: "%.0f", cityFavorite.qualityIndicator)
+        cityName.text = cityFavorite.city
+        department.text = cityFavorite.location
+        pollutant.text = cityFavorite.pollutant
+        hourLastUpdated.text = cityFavorite.hourLastUpdated
+
+        switch cityFavorite.qualityColor {
+        case "green" :
+            color = UIColor.green
+        case "yellow" :
+            color = UIColor.yellow
+        case "orange" :
+            color = UIColor.orange
+        case "red" :
+            color = UIColor.red
+        case "purple" :
+            color = UIColor.purple
+        default:
+            color = UIColor.white
+        }
+        qualityName.layer.backgroundColor = color.cgColor
+        qualityImage.layer.backgroundColor = color.cgColor
+        qualityIndicator.layer.backgroundColor = color.cgColor
     }
 }

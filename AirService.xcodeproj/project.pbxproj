@@ -22,6 +22,9 @@
 		37365A3523B132070072EA90 /* ListCountries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37365A3423B132070072EA90 /* ListCountries.swift */; };
 		37365A3723B133470072EA90 /* ListCountriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37365A3623B133470072EA90 /* ListCountriesService.swift */; };
 		37365A3B23B206C10072EA90 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37365A3A23B206C10072EA90 /* SettingsService.swift */; };
+		37524B3323C8EEB100EFFA79 /* CityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37524B3223C8EEB100EFFA79 /* CityDetailViewController.swift */; };
+		37524B3523C9B72700EFFA79 /* StringShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37524B3423C9B72700EFFA79 /* StringShared.swift */; };
+		37524B3723CC816F00EFFA79 /* MeasuresFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37524B3623CC816F00EFFA79 /* MeasuresFavorite.swift */; };
 		379163E123B22411008A848F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379163E023B22411008A848F /* SettingsViewController.swift */; };
 		379163E323B24ED8008A848F /* SharedAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379163E223B24ED8008A848F /* SharedAlert.swift */; };
 		379163E523B4AA34008A848F /* ApiServiceCities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379163E423B4AA34008A848F /* ApiServiceCities.swift */; };
@@ -76,6 +79,9 @@
 		37365A3423B132070072EA90 /* ListCountries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCountries.swift; sourceTree = "<group>"; };
 		37365A3623B133470072EA90 /* ListCountriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCountriesService.swift; sourceTree = "<group>"; };
 		37365A3A23B206C10072EA90 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
+		37524B3223C8EEB100EFFA79 /* CityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailViewController.swift; sourceTree = "<group>"; };
+		37524B3423C9B72700EFFA79 /* StringShared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringShared.swift; sourceTree = "<group>"; };
+		37524B3623CC816F00EFFA79 /* MeasuresFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuresFavorite.swift; sourceTree = "<group>"; };
 		379163E023B22411008A848F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		379163E223B24ED8008A848F /* SharedAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedAlert.swift; sourceTree = "<group>"; };
 		379163E423B4AA34008A848F /* ApiServiceCities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceCities.swift; sourceTree = "<group>"; };
@@ -197,6 +203,8 @@
 				37C8316323BCD6290030FE9B /* CarbonMonoxide.swift */,
 				37C8316923BCD69A0030FE9B /* ParticulateTwoFive.swift */,
 				37C8316B23BCDB860030FE9B /* QualityLevel.swift */,
+				37524B3423C9B72700EFFA79 /* StringShared.swift */,
+				37524B3623CC816F00EFFA79 /* MeasuresFavorite.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -211,6 +219,7 @@
 				379163E223B24ED8008A848F /* SharedAlert.swift */,
 				37365A3223B11ACE0072EA90 /* Errors.swift */,
 				37325CA023C723A2007EE0B9 /* MyCitiesViewController.swift */,
+				37524B3223C8EEB100EFFA79 /* CityDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -483,6 +492,7 @@
 			files = (
 				37365A3523B132070072EA90 /* ListCountries.swift in Sources */,
 				379163EB23B4AF8C008A848F /* ListCities.swift in Sources */,
+				37524B3723CC816F00EFFA79 /* MeasuresFavorite.swift in Sources */,
 				379163E323B24ED8008A848F /* SharedAlert.swift in Sources */,
 				37365A2D23B0CFF50072EA90 /* Cities.swift in Sources */,
 				37325C9D23C71175007EE0B9 /* FavoriteViewController.swift in Sources */,
@@ -497,10 +507,12 @@
 				37C8316623BCD64A0030FE9B /* NitrogenDioxide.swift in Sources */,
 				37C8316023BCD3C30030FE9B /* Ozone.swift in Sources */,
 				379163E523B4AA34008A848F /* ApiServiceCities.swift in Sources */,
+				37524B3323C8EEB100EFFA79 /* CityDetailViewController.swift in Sources */,
 				37365A2B23B0CE960072EA90 /* Pollutants.swift in Sources */,
 				37325CA123C723A2007EE0B9 /* MyCitiesViewController.swift in Sources */,
 				37C8316223BCD5E20030FE9B /* SulfurDioxide.swift in Sources */,
 				37C8315A23BB9A440030FE9B /* SharedURL.swift in Sources */,
+				37524B3523C9B72700EFFA79 /* StringShared.swift in Sources */,
 				37365A3123B11A410072EA90 /* ApiServiceCountries.swift in Sources */,
 				37325C9F23C72332007EE0B9 /* DetailViewController.swift in Sources */,
 				37C8316C23BCDB860030FE9B /* QualityLevel.swift in Sources */,

@@ -12,8 +12,12 @@ struct ListLatestMeasure {
     let location: String
     let city: String
     let country: String
+    let qualityIndicator: Double
+    let qualityName: String
+    let qualityColor: String
+    let pollutant: String
+    let hourLastUpdated: String
     var measurements: [MeasuresDetail]
-    let indice: Int
 }
 
 //struct MeasuresDetail {

@@ -14,7 +14,7 @@ struct NitrogenDioxide {
     var indice = 0
     var value = 0.0
 
-    static let listNitrogenDioxide = [
+    static let list = [
         NitrogenDioxide(indice: 1, value: 25),
         NitrogenDioxide(indice: 2, value: 49),
         NitrogenDioxide(indice: 3, value: 74),

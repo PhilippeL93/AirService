@@ -21,38 +21,39 @@ class PresentCitiesCell: UITableViewCell {
     }
 
     var cities = ListCitiesService.shared.listCities
-    var favoriteCities = SettingsService.favoriteCityList
-//    var favoriteCityList: [String]?
-    var favoriteCityList: [CityFavorite]?
+//    var favoriteCities = SettingsService.favoriteCitiesList
+    var citiesFavorite: [CitiesFavorite]?
 
     // MARK: - function
 
     func manageFavorite() {
-        favoriteCityList = UserDefaults.standard.object(forKey: "favoriteCity") as? [CityFavorite]
+        citiesFavorite = SettingsService.favoriteCitiesList
 
         if favoriteButton.tintColor == #colorLiteral(red: 0.2673686743, green: 0.5816780329, blue: 0.3659712374, alpha: 1) {
             favoriteButton.tintColor = .white
 
-            for indice in 0...cities.count-1
-                where cities[indice].city == citiesLabel.text && cities[indice].location == locationLabel.text {
-                    favoriteCityList?.remove(at: indice)
+            guard let countOfFavorites = citiesFavorite?.count else {
+                return
+            }
+            for indice in 0...countOfFavorites-1
+                where citiesFavorite?[indice].city == citiesLabel.text && citiesFavorite?[indice].locations == locationLabel.text {
+                    citiesFavorite?.remove(at: indice)
+                    SettingsService.favoriteCitiesList = (citiesFavorite ?? [])!
+                    return
             }
         } else {
-//            favoriteCityList = UserDefaults.standard.object(forKey: "favoriteCity") as? [String]
             for indice in 0...cities.count-1
-                where cities[indice].city == citiesLabel.text && cities[indice].location == locationLabel.text {
-//                    favoriteCityList?.append(cities[indice].ident)
-                    let cityFavorite = CityFavorite(
+                where cities[indice].city == citiesLabel.text && cities[indice].locations == locationLabel.text {
+                    let cityFavorite = CitiesFavorite(
                         ident: cities[indice].ident,
                         country: cities[indice].country,
                         city: cities[indice].city,
-                        location: cities[indice].location
+                        location: cities[indice].location,
+                        locations: cities[indice].locations
                     )
-//                    ListCitiesService.shared.add(listCitie: listCities)
-                    favoriteCityList?.append(cityFavorite)
+                    citiesFavorite?.append(cityFavorite)
             }
-//            SettingsService.favoriteCityList = favoriteCityList ?? [""]
-            SettingsService.favoriteCityList = (favoriteCityList ?? [])!
+            SettingsService.favoriteCitiesList = (citiesFavorite ?? [])!
             favoriteButton.tintColor = #colorLiteral(red: 0.2673686743, green: 0.5816780329, blue: 0.3659712374, alpha: 1)
         }
     }
@@ -63,7 +64,7 @@ class PresentCitiesCell: UITableViewCell {
         citiesLabel.text = city
         locationLabel.text = location
         if favorite == true {
-            favoriteButton.tintColor = #colorLiteral(red: 0.2673686743, green: 0.5816780329, blue: 0.3659712374, alpha: 1)
+             favoriteButton.tintColor = #colorLiteral(red: 0.2673686743, green: 0.5816780329, blue: 0.3659712374, alpha: 1)
         } else {
             favoriteButton.tintColor = .white
         }

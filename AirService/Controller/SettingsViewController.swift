@@ -28,6 +28,8 @@ class SettingsViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
     @IBOutlet weak var countryPickerView: UIPickerView!
 
     @IBOutlet weak var choiceOfLocalization: UISegmentedControl!
@@ -48,10 +50,13 @@ class SettingsViewController: UIViewController {
         weak var delegate: SettingsViewControllerDelegate?
 
     private func callAPI() {
+        toggleActivityIndicator(shown: true)
+
         self.apiFetcher.getApiCountries { (success, errors ) in
             DispatchQueue.main.async {
+                self.toggleActivityIndicator(shown: false)
                 if success {
-                    self.updateBeforeLoad()
+                    self.updateBeforeLoadView()
                 } else {
                     guard let errors = errors else {
                         return
@@ -62,7 +67,7 @@ class SettingsViewController: UIViewController {
         }
     }
 
-    private func updateBeforeLoad() {
+    private func updateBeforeLoadView() {
         countries = ListCountriesService.shared.listCountries
         countryPickerView.reloadAllComponents()
         let row = getSelectedRow()
@@ -83,6 +88,15 @@ class SettingsViewController: UIViewController {
                 return indice
         }
         return -1
+    }
+
+    ///
+    /// function toggleActivityIndicator
+    ///     - depending of calling show :o
+    ///         - to unhidde/hidde activity indicator
+    ///
+    private func toggleActivityIndicator(shown: Bool) {
+        activityIndicator.isHidden = !shown
     }
 }
 

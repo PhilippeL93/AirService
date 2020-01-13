@@ -12,9 +12,8 @@ class SettingsService {
     private struct Keys {
         static let countryISO = "countryISO"
         static let localization = "localization"
-        static let favoriteCity = "favoriteCity"
-//        private var favoriteCityList = [String] ()
-        private var favoriteCityList: [CityFavorite]
+        static let favoriteCities = "favoriteCities"
+        private var favoriteCitiesList: [CitiesFavorite]?
     }
 
     static var countryISO: String {
@@ -33,27 +32,29 @@ class SettingsService {
             UserDefaults.standard.set(newValue, forKey: Keys.localization)
         }
     }
-//    static var favoriteCityList: [String] {
-//        get {
-//            UserDefaults.standard.object(forKey: Keys.favoriteCity) as? [String] ?? [""]
-//        }
-//        set {
-//            UserDefaults.standard.set(newValue, forKey: Keys.favoriteCity)
-//        }
-//    }
-    static var favoriteCityList: [CityFavorite] {
+    static var favoriteCitiesList: [CitiesFavorite] {
         get {
-            UserDefaults.standard.object(forKey: Keys.favoriteCity) as? [CityFavorite] ?? []
+            guard let dataCities = UserDefaults.standard.object(forKey: Keys.favoriteCities) as? Data else {
+                return []
+            }
+            guard let data = try? JSONDecoder().decode([CitiesFavorite].self, from: dataCities) else {
+                return []
+            }
+            return data
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: Keys.favoriteCity)
+            guard let data = try? JSONEncoder().encode(newValue) else {
+                return
+            }
+            UserDefaults.standard.set(data, forKey: Keys.favoriteCities)
         }
     }
 }
 
-struct CityFavorite {
+struct CitiesFavorite: Codable {
     let ident: String
     let country: String
     let city: String
     let location: String
+    let locations: String
 }

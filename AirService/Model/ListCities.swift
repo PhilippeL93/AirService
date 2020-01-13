@@ -12,10 +12,11 @@ struct ListCitie {
     let ident: String
     let country: String
     let city: String
-    let cities: [String]
+//    let cities: [String]
     let location: String
-    let locations: [String]
+    let locations: String
+//    let locations: [String]
     let favorite: Bool
-    let source: String
+//    let source: String
 //    let quality: Int
 }

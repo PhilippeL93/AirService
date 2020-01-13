@@ -86,8 +86,6 @@ class ApiServiceCountries {
                 )
                 ListCountriesService.shared.add(listCountrie: listCountries)
             }
-//        } catch {
-//            print(error)
         }
     }
 

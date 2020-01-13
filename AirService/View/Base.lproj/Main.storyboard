@@ -246,6 +246,10 @@
                                     <action selector="saveSettings:" destination="dP0-bp-gZW" eventType="touchUpInside" id="qAr-fU-Qlq"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="kqh-hg-fVa">
+                                <rect key="frame" x="166" y="307" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.31097954509999998" green="0.62962019440000005" blue="0.89022809270000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -268,6 +272,7 @@
                         <viewLayoutGuide key="safeArea" id="y6i-VF-cfw"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="kqh-hg-fVa" id="nAG-uc-4sP"/>
                         <outlet property="choiceOfLocalization" destination="tbT-Rh-Udo" id="LLv-yd-ebE"/>
                         <outlet property="countryPickerView" destination="gjE-bD-t87" id="C0O-hk-vKR"/>
                     </connections>
@@ -320,7 +325,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="D0d-hQ-5aG" userLabel="Stack View Quality">
                                                             <rect key="frame" x="0.0" y="0.0" width="70" height="140"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LQF-h3-cBw" userLabel="Quality Name">
+                                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LQF-h3-cBw" userLabel="Quality Name">
                                                                     <rect key="frame" x="0.0" y="0.0" width="70" height="20"/>
                                                                     <color key="backgroundColor" red="0.54255888149999998" green="0.91535598039999999" blue="0.29812567400000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <constraints>
@@ -336,7 +341,7 @@
                                                                         <constraint firstAttribute="width" secondItem="pqS-T8-ZMJ" secondAttribute="height" multiplier="1:1" id="Ghx-sv-T4x"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xzw-sq-Efv" userLabel="Indicator Q">
+                                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xzw-sq-Efv" userLabel="Indicator Q">
                                                                     <rect key="frame" x="0.0" y="120" width="70" height="20"/>
                                                                     <color key="backgroundColor" red="0.54255888149999998" green="0.91535598039999999" blue="0.29812567400000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <constraints>
@@ -356,7 +361,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2bD-4T-z4h" userLabel="Stack View Detail">
                                                             <rect key="frame" x="90" y="0.0" width="243" height="140"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TZ6-jx-bw1" userLabel="City Name">
+                                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TZ6-jx-bw1" userLabel="City Name">
                                                                     <rect key="frame" x="0.0" y="0.0" width="243" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="243" id="n7u-eZ-fe0"/>
@@ -365,7 +370,7 @@
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q2A-1d-hbd" userLabel="Department">
+                                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q2A-1d-hbd" userLabel="Department">
                                                                     <rect key="frame" x="0.0" y="40" width="243" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="243" id="DeP-DR-LoA"/>
@@ -374,7 +379,7 @@
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cWf-l9-caD" userLabel="Pollutant">
+                                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cWf-l9-caD" userLabel="Pollutant">
                                                                     <rect key="frame" x="0.0" y="80" width="243" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="Sf2-WY-w9d"/>
@@ -383,7 +388,7 @@
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qmW-Zh-hTF" userLabel="Hour">
+                                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qmW-Zh-hTF" userLabel="Hour">
                                                                     <rect key="frame" x="0.0" y="120" width="243" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="smr-XK-rj1"/>
@@ -420,7 +425,6 @@
                                             <outlet property="qualityImage" destination="pqS-T8-ZMJ" id="tcj-AO-Kwu"/>
                                             <outlet property="qualityIndicator" destination="Xzw-sq-Efv" id="84f-sO-Coa"/>
                                             <outlet property="qualityName" destination="LQF-h3-cBw" id="zeG-BK-EHE"/>
-                                            <segue destination="Udi-L8-rwd" kind="showDetail" id="YCH-e4-YbZ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -503,13 +507,13 @@
         <!--City Detail View Controller-->
         <scene sceneID="4nQ-cW-meH">
             <objects>
-                <viewController id="Udi-L8-rwd" userLabel="City Detail View Controller" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="cityDetail" id="Udi-L8-rwd" userLabel="City Detail View Controller" customClass="CityDetailViewController" customModule="AirService" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MSi-jO-K8f">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="R6E-AB-CS4">
-                                <rect key="frame" x="16" y="10" width="343" height="524.5"/>
+                                <rect key="frame" x="16" y="41" width="343" height="524.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DlE-SY-HFg" userLabel="Stack View CD">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="54.5"/>
@@ -610,16 +614,28 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="sSL-2x-lHH" userLabel="Pollutant One Two">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="34"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="PM2.5" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lhS-NH-ACH" userLabel="Pollutant One">
-                                                        <rect key="frame" x="0.0" y="0.0" width="171" height="34"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CO : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FVv-I4-ejo" userLabel="LabelCO">
+                                                        <rect key="frame" x="0.0" y="0.0" width="62.5" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lhS-NH-ACH" userLabel="PollutantCO">
+                                                        <rect key="frame" x="63.5" y="0.0" width="107.5" height="34"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="34" id="X0t-tJ-VsC"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="PM10" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sJj-lm-fnQ" userLabel="Pollutant Two">
-                                                        <rect key="frame" x="172" y="0.0" width="171" height="34"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NO2 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHP-H2-efI" userLabel="LabelNO2">
+                                                        <rect key="frame" x="172" y="0.0" width="62.5" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sJj-lm-fnQ" userLabel="PollutantNO2">
+                                                        <rect key="frame" x="235.5" y="0.0" width="107.5" height="34"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="34" id="Jyu-2c-IGe"/>
                                                         </constraints>
@@ -628,23 +644,42 @@
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstItem="qHP-H2-efI" firstAttribute="height" secondItem="FVv-I4-ejo" secondAttribute="height" id="2vX-uW-qYH"/>
+                                                    <constraint firstItem="qHP-H2-efI" firstAttribute="width" secondItem="FVv-I4-ejo" secondAttribute="width" id="D2I-mj-u0K"/>
+                                                    <constraint firstItem="sJj-lm-fnQ" firstAttribute="height" secondItem="lhS-NH-ACH" secondAttribute="height" id="F3L-kX-pEw"/>
+                                                    <constraint firstItem="sJj-lm-fnQ" firstAttribute="width" secondItem="lhS-NH-ACH" secondAttribute="width" id="Loh-gZ-vRe"/>
                                                     <constraint firstItem="sJj-lm-fnQ" firstAttribute="width" secondItem="lhS-NH-ACH" secondAttribute="width" id="SqJ-mA-dFD"/>
+                                                    <constraint firstItem="lhS-NH-ACH" firstAttribute="height" secondItem="FVv-I4-ejo" secondAttribute="height" id="ZMU-ch-FBj"/>
                                                     <constraint firstItem="sJj-lm-fnQ" firstAttribute="height" secondItem="lhS-NH-ACH" secondAttribute="height" id="g47-9N-IWa"/>
+                                                    <constraint firstItem="sJj-lm-fnQ" firstAttribute="height" secondItem="FVv-I4-ejo" secondAttribute="height" id="rdf-tD-WZj"/>
+                                                    <constraint firstItem="lhS-NH-ACH" firstAttribute="height" secondItem="FVv-I4-ejo" secondAttribute="height" id="v42-h2-3ND"/>
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ojv-WE-UGP" userLabel="Pollutant Three Four">
                                                 <rect key="frame" x="0.0" y="35" width="343" height="34"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="SO2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lt9-AA-b1o" userLabel="Pollutant Three">
-                                                        <rect key="frame" x="0.0" y="0.0" width="171" height="34"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O3 : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUZ-6S-2Qf" userLabel="LabelO3">
+                                                        <rect key="frame" x="0.0" y="0.0" width="62.5" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lt9-AA-b1o" userLabel="PollutantO3">
+                                                        <rect key="frame" x="63.5" y="0.0" width="107.5" height="34"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="34" id="fBT-YI-lwi"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="NO2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZeC-J6-pTV" userLabel="Pollutant Four">
-                                                        <rect key="frame" x="172" y="0.0" width="171" height="34"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PM 2.5 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yA5-xg-015" userLabel="LabelPM25">
+                                                        <rect key="frame" x="172" y="0.0" width="62.5" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZeC-J6-pTV" userLabel="PollutantPM25">
+                                                        <rect key="frame" x="235.5" y="0.0" width="107.5" height="34"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="34" id="CKp-c2-lhq"/>
                                                         </constraints>
@@ -660,16 +695,28 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Rww-f5-2xs" userLabel="Pollutant Five Six">
                                                 <rect key="frame" x="0.0" y="70" width="343" height="34"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="03" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s85-4M-KjF" userLabel="Pollutant Five">
-                                                        <rect key="frame" x="0.0" y="0.0" width="171" height="34"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PM 10 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdg-Ta-Umr" userLabel="LabelPM10">
+                                                        <rect key="frame" x="0.0" y="0.0" width="62.5" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s85-4M-KjF" userLabel="PollutantPM10">
+                                                        <rect key="frame" x="63.5" y="0.0" width="107.5" height="34"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="34" id="GkK-BW-bvo"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="CO" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rhJ-J6-tV2" userLabel="Pollutant Six">
-                                                        <rect key="frame" x="172" y="0.0" width="171" height="34"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SO2 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdj-u8-Zbx" userLabel="LabelSO2">
+                                                        <rect key="frame" x="172" y="0.0" width="62.5" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rhJ-J6-tV2" userLabel="PollutantSO2">
+                                                        <rect key="frame" x="235.5" y="0.0" width="107.5" height="34"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="34" id="8je-hg-35o"/>
                                                         </constraints>
@@ -683,6 +730,28 @@
                                                 </constraints>
                                             </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="rhJ-J6-tV2" firstAttribute="width" secondItem="lhS-NH-ACH" secondAttribute="width" id="0hr-Z2-MDy"/>
+                                            <constraint firstItem="lt9-AA-b1o" firstAttribute="height" secondItem="FVv-I4-ejo" secondAttribute="height" id="64N-3T-eMp"/>
+                                            <constraint firstItem="yA5-xg-015" firstAttribute="height" secondItem="FVv-I4-ejo" secondAttribute="height" id="6Kh-86-0Ge"/>
+                                            <constraint firstItem="xdg-Ta-Umr" firstAttribute="height" secondItem="FVv-I4-ejo" secondAttribute="height" id="7WP-j6-W4L"/>
+                                            <constraint firstItem="xdg-Ta-Umr" firstAttribute="width" secondItem="FVv-I4-ejo" secondAttribute="width" id="A2z-JB-0rM"/>
+                                            <constraint firstItem="hdj-u8-Zbx" firstAttribute="height" secondItem="FVv-I4-ejo" secondAttribute="height" id="HJP-aS-vje"/>
+                                            <constraint firstItem="lUZ-6S-2Qf" firstAttribute="width" secondItem="FVv-I4-ejo" secondAttribute="width" id="JM4-c1-a8K"/>
+                                            <constraint firstItem="ZeC-J6-pTV" firstAttribute="height" secondItem="FVv-I4-ejo" secondAttribute="height" id="OPx-p9-WUS"/>
+                                            <constraint firstItem="lt9-AA-b1o" firstAttribute="height" secondItem="lhS-NH-ACH" secondAttribute="height" id="PSg-nI-NsL"/>
+                                            <constraint firstItem="hdj-u8-Zbx" firstAttribute="width" secondItem="FVv-I4-ejo" secondAttribute="width" id="Tnp-V0-swd"/>
+                                            <constraint firstItem="ZeC-J6-pTV" firstAttribute="height" secondItem="lhS-NH-ACH" secondAttribute="height" id="Va4-Nq-4I5"/>
+                                            <constraint firstItem="yA5-xg-015" firstAttribute="width" secondItem="FVv-I4-ejo" secondAttribute="width" id="fQK-OB-rmq"/>
+                                            <constraint firstItem="ZeC-J6-pTV" firstAttribute="width" secondItem="lhS-NH-ACH" secondAttribute="width" id="gEQ-pT-jpd"/>
+                                            <constraint firstItem="rhJ-J6-tV2" firstAttribute="height" secondItem="lhS-NH-ACH" secondAttribute="height" id="iO7-Ls-wgN"/>
+                                            <constraint firstItem="s85-4M-KjF" firstAttribute="height" secondItem="FVv-I4-ejo" secondAttribute="height" id="jHh-19-0HO"/>
+                                            <constraint firstItem="lUZ-6S-2Qf" firstAttribute="height" secondItem="FVv-I4-ejo" secondAttribute="height" id="mlE-Hl-enz"/>
+                                            <constraint firstItem="rhJ-J6-tV2" firstAttribute="height" secondItem="FVv-I4-ejo" secondAttribute="height" id="oSL-ia-CdN"/>
+                                            <constraint firstItem="s85-4M-KjF" firstAttribute="width" secondItem="lhS-NH-ACH" secondAttribute="width" id="ocC-dy-ddE"/>
+                                            <constraint firstItem="lt9-AA-b1o" firstAttribute="width" secondItem="lhS-NH-ACH" secondAttribute="width" id="sa8-nB-H0o"/>
+                                            <constraint firstItem="s85-4M-KjF" firstAttribute="height" secondItem="lhS-NH-ACH" secondAttribute="height" id="se1-P5-gJX"/>
+                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BA0-yC-j59" userLabel="Stack View Text">
                                         <rect key="frame" x="0.0" y="412.5" width="343" height="112"/>
@@ -713,12 +782,27 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="XXi-fl-n6u" firstAttribute="trailing" secondItem="R6E-AB-CS4" secondAttribute="trailing" constant="16" id="3ZD-1B-2yg"/>
-                            <constraint firstItem="R6E-AB-CS4" firstAttribute="top" secondItem="XXi-fl-n6u" secondAttribute="top" constant="10" id="QfT-20-y1T"/>
+                            <constraint firstItem="R6E-AB-CS4" firstAttribute="top" secondItem="XXi-fl-n6u" secondAttribute="top" constant="41" id="MRS-6A-KGs"/>
                             <constraint firstItem="R6E-AB-CS4" firstAttribute="leading" secondItem="XXi-fl-n6u" secondAttribute="leading" constant="16" id="SJo-hu-hQQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XXi-fl-n6u"/>
                     </view>
                     <navigationItem key="navigationItem" id="JpM-GQ-Sx1"/>
+                    <connections>
+                        <outlet property="cityName" destination="Wuf-A5-uuh" id="rXd-Bb-9cr"/>
+                        <outlet property="department" destination="yQt-40-duj" id="G5e-cj-3GU"/>
+                        <outlet property="hourLastUpdated" destination="tvi-Mg-DiM" id="ehS-02-pQt"/>
+                        <outlet property="pollutantCO" destination="lhS-NH-ACH" id="sxW-7c-Ncr"/>
+                        <outlet property="pollutantNO" destination="sJj-lm-fnQ" id="6cH-tu-rsU"/>
+                        <outlet property="pollutantO3" destination="lt9-AA-b1o" id="mxc-VB-cXD"/>
+                        <outlet property="pollutantPM10" destination="s85-4M-KjF" id="Aeb-Rf-q0B"/>
+                        <outlet property="pollutantPM25" destination="ZeC-J6-pTV" id="sQW-76-0R6"/>
+                        <outlet property="pollutantSO2" destination="rhJ-J6-tV2" id="oLR-NJ-HgR"/>
+                        <outlet property="qualityImage" destination="JA7-GX-CDw" id="Mco-Ru-6b2"/>
+                        <outlet property="qualityIndicator" destination="9sH-Zs-IoK" id="MSg-DW-gjE"/>
+                        <outlet property="qualityName" destination="DHD-Ap-88Y" id="hm2-lH-zxo"/>
+                        <outlet property="sourceName" destination="4Tb-0Q-3g8" id="X2K-Cg-y66"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eEs-DP-pcU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

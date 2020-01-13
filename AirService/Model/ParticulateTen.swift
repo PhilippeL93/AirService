@@ -14,7 +14,7 @@ struct ParticulateTen {
     var indice = 0
     var value = 0.0
 
-    static let listParticulateTen = [
+    static let list = [
         ParticulateTen(indice: 1, value: 7),
         ParticulateTen(indice: 2, value: 14),
         ParticulateTen(indice: 3, value: 22),

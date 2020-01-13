@@ -83,7 +83,7 @@ extension CitiesViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         searchBar.text = ""
-        cities.removeAll()
+        self.cities.removeAll()
         self.tableView.reloadData()
         searchActive = false
     }
@@ -166,33 +166,13 @@ extension CitiesViewController: UITableViewDataSource {
         var location: String = ""
         var favorite: Bool = false
 
-        switch cities[indexPath.row].source {
-        case "city":
-            if cities[indexPath.row].country == "FR" || cities[indexPath.row].country == "DE" {
-                for indiceLocation in 0...cities[indexPath.row].locations.count-1
-                    where cities[indexPath.row].locations[indiceLocation] != cities[indexPath.row].location {
-                        city = cities[indexPath.row].locations[indiceLocation]
-                        location = cities[indexPath.row].city
-                }
-            } else {
-                city = cities[indexPath.row].city
-                location = cities[indexPath.row].location
-            }
-        case "location[]":
-            if cities[indexPath.row].country == "FR" || cities[indexPath.row].country == "DE" {
-                for indiceLocation in 0...cities[indexPath.row].locations.count-1
-                    where cities[indexPath.row].locations[indiceLocation] != cities[indexPath.row].location {
-                        city = cities[indexPath.row].locations[indiceLocation]
-                        location = cities[indexPath.row].city
-                }
-            } else {
-                city = cities[indexPath.row].city
-                location = cities[indexPath.row].location
-            }
-        default:
-            city = cities[indexPath.row].city
+        city = cities[indexPath.row].city
+        if cities[indexPath.row].country == "FR" || cities[indexPath.row].country == "DE" {
+            location = cities[indexPath.row].locations
+        } else {
             location = cities[indexPath.row].location
         }
+
         favorite = cities[indexPath.row].favorite
 
         cell.configure(with: city, location: location, favorite: favorite)
@@ -227,8 +207,8 @@ extension CitiesViewController: SettingsViewControllerDelegate {
             country = self.countryLabel.text!
         }
         searchBar.text = ""
-        cities.removeAll()
-        tableView.reloadData()
+        self.cities.removeAll()
+        self.tableView.reloadData()
     }
 
 }
