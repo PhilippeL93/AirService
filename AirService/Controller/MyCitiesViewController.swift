@@ -52,9 +52,6 @@ class MyCitiesViewController: UIViewController {
     var tagLatestMeasure: Bool = false
     var cityFavorite: [LatestMeasures] = []
 
-//    var latestMeasure: ListLatestMeasure
-//    var measures = ListLatestMeasuresService.shared.listLatestMeasures
-
     private let apiFetchMeasures = ApiServiceLatestMeasures()
 
     private func searchLatestMeasures(countryToSearch: String, locationToSearch: String, cityToSearch: String) {
@@ -77,6 +74,31 @@ class MyCitiesViewController: UIViewController {
 //                                                    }
         }
     }
+
+//    private func deleteFavorite(city: String, location: String) {
+////        citiesFavorite = SettingsService.favoriteCitiesList
+//        guard let countOfFavorites = citiesFavorite?.count else {
+//            return
+//        }
+//        for indice in 0...countOfFavorites-1
+//            where citiesFavorite?[indice].city == city
+//                && citiesFavorite?[indice].location == location {
+//                    citiesFavorite?.remove(at: indice)
+//                    SettingsService.favoriteCitiesList = (citiesFavorite ?? [])!
+//                    return
+//        }
+//    }
+
+    private func deleteFavorite(city: String, location: String) {
+        for indice in 0...ListLatestMeasuresService.shared.listLatestMeasures.count-1
+            where city ==
+                ListLatestMeasuresService.shared.listLatestMeasures[indice].city &&
+                location ==
+                ListLatestMeasuresService.shared.listLatestMeasures[indice].location {
+                    ListLatestMeasuresService.shared.removeFavorite(at: indice)
+                    return
+        }
+    }
 }
 
 // MARK: - extension Data for tableView
@@ -87,6 +109,7 @@ extension MyCitiesViewController: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
+        var indiceCity: Int = 0
         switch tagLatestMeasure {
         case false:
             return UITableViewCell()
@@ -95,32 +118,22 @@ extension MyCitiesViewController: UITableViewDataSource {
                 as? PresentFavoritesCell else {
                     return UITableViewCell()
             }
-//            guard let citiesFavorite = citiesFavorite?[indexPath.row] else {
-//                return UITableViewCell()
-//            }
-//            guard let
-//                cityFavorite = ListLatestMeasuresService.shared.listLatestMeasures[indexPath.row]
-//            else {
-//                return UITableViewCell()
-//            }
-//            ListLatestMeasuresService.shared.listLatestMeasures.count
-
-//            var latestMeasure: ListLatestMeasure
-//            for indice in 0...ListLatestMeasuresService.shared.listLatestMeasures.count-1
-//                where citiesFavorite.city == ListLatestMeasuresService.shared.listLatestMeasures[indice].city &&
-//                    citiesFavorite.location == ListLatestMeasuresService.shared.listLatestMeasures[indice].location {
-//                        latestMeasure = ListLatestMeasuresService.shared.listLatestMeasures[indice]
-//                        prepareDataForCell(citiesFavorite: citiesFavorite, latestMeasure: latestMeasure)
-            cell.configure(with: ListLatestMeasuresService.shared.listLatestMeasures[indexPath.row])
+            for indice in 0...ListLatestMeasuresService.shared.listLatestMeasures.count-1
+                where citiesFavorite?[indexPath.row].city ==
+                    ListLatestMeasuresService.shared.listLatestMeasures[indice].city &&
+                citiesFavorite?[indexPath.row].location ==
+                    ListLatestMeasuresService.shared.listLatestMeasures[indice].location {
+                indiceCity = indice
+            }
+//            cell.configure(with: ListLatestMeasuresService.shared.listLatestMeasures[indexPath.row])
+            cell.configure(with: ListLatestMeasuresService.shared.listLatestMeasures[indiceCity])
             return cell
-//            }
-//            return UITableViewCell()
         }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return citiesFavorite?.count ?? 0
-        return ListLatestMeasuresService.shared.listLatestMeasures.count
+//        return ListLatestMeasuresService.shared.listLatestMeasures.count
+        return citiesFavorite?.count ?? 0
     }
 }
 
@@ -134,19 +147,35 @@ extension MyCitiesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle,
                    forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+//            deleteFavorite(city: ListLatestMeasuresService.shared.listLatestMeasures[indexPath.row].city,
+//                           location: ListLatestMeasuresService.shared.listLatestMeasures[indexPath.row].location)
+//            ListLatestMeasuresService.shared.removeFavorite(at: indexPath.row)
+            guard let city = citiesFavorite?[indexPath.row].city,
+                let location = citiesFavorite?[indexPath.row].location else {
+                return
+            }
+            deleteFavorite(city: city, location: location)
             citiesFavorite?.remove(at: indexPath.row)
-            ListLatestMeasuresService.shared.removeFavorite(at: indexPath.row)
+            SettingsService.favoriteCitiesList = (citiesFavorite ?? [])!
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var indiceCity: Int = 0
         guard let destVC = storyboard?.instantiateViewController(withIdentifier: "cityDetail")
             as? CityDetailViewController else {
                 return
         }
-//        destVC.recipes = ListRecipeService.shared.listRecipes
-//        destVC.selectedRecipe = indexPath.item
+        for indice in 0...ListLatestMeasuresService.shared.listLatestMeasures.count-1
+            where citiesFavorite?[indexPath.row].city ==
+                ListLatestMeasuresService.shared.listLatestMeasures[indice].city &&
+            citiesFavorite?[indexPath.row].location ==
+                ListLatestMeasuresService.shared.listLatestMeasures[indice].location {
+            indiceCity = indice
+        }
+//        destVC.cityDetail = [ListLatestMeasuresService.shared.listLatestMeasures[indexPath.item]]
+        destVC.cityDetail = [ListLatestMeasuresService.shared.listLatestMeasures[indiceCity]]
         show(destVC, sender: self)
     }
 }

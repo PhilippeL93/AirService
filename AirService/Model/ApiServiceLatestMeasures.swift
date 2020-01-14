@@ -83,15 +83,19 @@ class ApiServiceLatestMeasures {
         do {
             for indice in 0...type.results.count-1 {
                 let measureFavorites = calculateIndice(latestMeasure: type.results[indice].measurements)
+                let locations = getFavorite(city: type.results[indice].city, location: type.results[indice].location)
                 let listLatestMeasures = ListLatestMeasure(
-                    location: type.results[indice].location,
-                    city: type.results[indice].city,
                     country: type.results[indice].country,
-                    qualityIndicator: measureFavorites.qualityIndicator ,
+                    city: type.results[indice].city,
+                    location: type.results[indice].location,
+                    locations: locations,
+                    qualityIndice: measureFavorites.qualityIndice,
+                    qualityIndicator: measureFavorites.qualityIndicator,
                     qualityName: measureFavorites.qualityName,
                     qualityColor: measureFavorites.qualityColor,
                     pollutant: measureFavorites.pollutant,
                     hourLastUpdated: measureFavorites.hourLastUpdated,
+                    sourceName: measureFavorites.sourceName,
                     measurements: type.results[indice].measurements
                 )
                     ListLatestMeasuresService.shared.add(listLatestMeasure: listLatestMeasures)
@@ -100,9 +104,20 @@ class ApiServiceLatestMeasures {
 //        print("ListLatestMeasuresService.shared \(ListLatestMeasuresService.shared.listLatestMeasures)")
     }
 
-    /// function createCountriesObjectWith
-    /// using JSONDecoder and structure Countries in order to deparse JSON recceived
-    ///
+    private func getFavorite(city: String, location: String) -> String {
+        guard let citiesFavorite = SettingsService.favoriteCitiesList as [CitiesFavorite]? else {
+            return ""
+        }
+        if citiesFavorite.count >= 1 {
+            for indiceFavorite in 0...citiesFavorite.count-1
+                where city == citiesFavorite[indiceFavorite].city &&
+                location == citiesFavorite[indiceFavorite].location{
+                    return citiesFavorite[indiceFavorite].locations
+            }
+        }
+        return ""
+    }
+
     private func createMeasurementsObjectWith(json: Data, completion: @escaping (_ data: LatestMeasures?) -> Void) {
         do {
             let decoder = JSONDecoder()
@@ -115,7 +130,7 @@ class ApiServiceLatestMeasures {
 
     private func calculateIndice(latestMeasure: [MeasuresDetail]) -> MeasuresFavorite {
         var indiceAtmo: Int = 0
-        var indiceAtmoMax: Int = 0
+//        var indiceAtmoMax: Int = 0
         var pollutantMax: String = ""
         var valuePollutant: Double = 0
         var valueAtmoMax: Double = 0
@@ -124,13 +139,10 @@ class ApiServiceLatestMeasures {
         var qualityIndicator: Double = 0
         var qualityName: String = ""
         var qualityColor: String = ""
+        var sourceNameMax: String = ""
+        var qualityIndice: Int = 0
 
-        indiceAtmo = 0
-        indiceAtmoMax = 0
-        pollutantMax = ""
-        valueAtmoMax = 0
-        valueAtmo = 0
-        hourLastUpdateMax = ""
+        qualityIndice = 0
         for indice in 0...latestMeasure.count-1 {
             switch latestMeasure[indice].parameter {
             case "co":
@@ -150,16 +162,17 @@ class ApiServiceLatestMeasures {
                 indiceAtmo = 0
                 valueAtmo = 1
             }
-            if indiceAtmo > indiceAtmoMax {
-                indiceAtmoMax = indiceAtmo
+            if indiceAtmo > qualityIndice {
+                qualityIndice = indiceAtmo
                 pollutantMax = latestMeasure[indice].parameter
                 valuePollutant = latestMeasure[indice].value
                 valueAtmoMax = valueAtmo
                 hourLastUpdateMax = latestMeasure[indice].lastUpdated
+                sourceNameMax = latestMeasure[indice].sourceName
             }
         }
         for indice in 0...QualityLevel.list.count-1
-            where indiceAtmoMax == QualityLevel.list[indice].indice {
+            where qualityIndice == QualityLevel.list[indice].indice {
                 qualityName = QualityLevel.list[indice].name
                 qualityIndicator = Double(QualityLevel.list[indice].level * valuePollutant / valueAtmoMax)
                 qualityColor = QualityLevel.list[indice].color
@@ -167,9 +180,11 @@ class ApiServiceLatestMeasures {
         let measuresFavorite = MeasuresFavorite(
             qualityName: qualityName,
             qualityColor: qualityColor,
+            qualityIndice: qualityIndice,
             qualityIndicator: qualityIndicator,
             pollutant: pollutantMax,
-            hourLastUpdated: hourLastUpdateMax)
+            hourLastUpdated: hourLastUpdateMax,
+            sourceName: sourceNameMax)
         return measuresFavorite
     }
     private func searchIndicePollutantCO(value: Double) -> (Int, Double) {

@@ -361,7 +361,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2bD-4T-z4h" userLabel="Stack View Detail">
                                                             <rect key="frame" x="90" y="0.0" width="243" height="140"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TZ6-jx-bw1" userLabel="City Name">
+                                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TZ6-jx-bw1" userLabel="City Name">
                                                                     <rect key="frame" x="0.0" y="0.0" width="243" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="243" id="n7u-eZ-fe0"/>
@@ -370,7 +370,7 @@
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
-                                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q2A-1d-hbd" userLabel="Department">
+                                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Department" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q2A-1d-hbd" userLabel="Department">
                                                                     <rect key="frame" x="0.0" y="40" width="243" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="243" id="DeP-DR-LoA"/>
@@ -379,7 +379,7 @@
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
-                                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cWf-l9-caD" userLabel="Pollutant">
+                                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="main pollutant" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cWf-l9-caD" userLabel="Pollutant">
                                                                     <rect key="frame" x="0.0" y="80" width="243" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="Sf2-WY-w9d"/>
@@ -388,7 +388,7 @@
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
-                                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qmW-Zh-hTF" userLabel="Hour">
+                                                                <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="hour last updated" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qmW-Zh-hTF" userLabel="HourLastUpdated">
                                                                     <rect key="frame" x="0.0" y="120" width="243" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="smr-XK-rj1"/>
@@ -802,6 +802,7 @@
                         <outlet property="qualityIndicator" destination="9sH-Zs-IoK" id="MSg-DW-gjE"/>
                         <outlet property="qualityName" destination="DHD-Ap-88Y" id="hm2-lH-zxo"/>
                         <outlet property="sourceName" destination="4Tb-0Q-3g8" id="X2K-Cg-y66"/>
+                        <outlet property="viewQuality" destination="7vY-Rp-s9c" id="rX3-IQ-fg3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eEs-DP-pcU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

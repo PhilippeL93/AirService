@@ -36,7 +36,8 @@ class PresentCitiesCell: UITableViewCell {
                 return
             }
             for indice in 0...countOfFavorites-1
-                where citiesFavorite?[indice].city == citiesLabel.text && citiesFavorite?[indice].locations == locationLabel.text {
+                where citiesFavorite?[indice].city == citiesLabel.text
+                    && citiesFavorite?[indice].location == locationLabel.text {
                     citiesFavorite?.remove(at: indice)
                     SettingsService.favoriteCitiesList = (citiesFavorite ?? [])!
                     return

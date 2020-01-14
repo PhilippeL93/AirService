@@ -153,20 +153,6 @@ class ApiServiceCities {
         }
     }
 
-    private func getFavorite(ident: String) -> Bool {
-        guard let citiesFavorite = SettingsService.favoriteCitiesList as [CitiesFavorite]? else {
-            return false
-        }
-
-        if citiesFavorite.count >= 1 {
-            for indiceFavorite in 0...citiesFavorite.count-1
-                where ident == citiesFavorite[indiceFavorite].ident {
-                    return true
-            }
-        }
-        return false
-    }
-
     private func getFRValues(type: ResultsDataCities) {
 
         var duplicateFound: Bool = false
@@ -285,6 +271,20 @@ class ApiServiceCities {
             )
             ListCitiesService.shared.add(listCitie: listCities)
         }
+    }
+
+    private func getFavorite(ident: String) -> Bool {
+        guard let citiesFavorite = SettingsService.favoriteCitiesList as [CitiesFavorite]? else {
+            return false
+        }
+
+        if citiesFavorite.count >= 1 {
+            for indiceFavorite in 0...citiesFavorite.count-1
+                where ident == citiesFavorite[indiceFavorite].ident {
+                    return true
+            }
+        }
+        return false
     }
 
     private func containsOnlyLetters(location: String, charToCheck: String) -> Bool {

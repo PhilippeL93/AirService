@@ -28,16 +28,45 @@ class PresentFavoritesCell: UITableViewCell {
     ///
     func configure(with cityFavorite: ListLatestMeasure) {
 
-        var color: UIColor
+        let cityFavorite = cityFavorite
 
         qualityName.text = cityFavorite.qualityName
         qualityIndicator.text = String(format: "%.0f", cityFavorite.qualityIndicator)
         cityName.text = cityFavorite.city
-        department.text = cityFavorite.location
+
         pollutant.text = cityFavorite.pollutant
         hourLastUpdated.text = cityFavorite.hourLastUpdated
 
-        switch cityFavorite.qualityColor {
+        if cityFavorite.country == "FR" || cityFavorite.country == "DE" {
+            department.text = cityFavorite.locations
+        } else {
+            department.text = cityFavorite.location
+        }
+        setQualityImage(qualityIndice: cityFavorite.qualityIndice)
+        setColor(qualityColor: cityFavorite.qualityColor)
+    }
+
+    func setQualityImage(qualityIndice: Int) {
+        switch qualityIndice {
+        case 1, 2:
+            qualityImage.image = #imageLiteral(resourceName: "icone_VeryGood.png")
+        case 3, 4:
+            qualityImage.image = #imageLiteral(resourceName: "icone_Good.png")
+        case 5:
+            qualityImage.image = #imageLiteral(resourceName: "icone_Medium.png")
+        case 6:
+            qualityImage.image = #imageLiteral(resourceName: "icone_Poor.png")
+        case 7, 8:
+            qualityImage.image = #imageLiteral(resourceName: "icone_Bad.png")
+        case 9:
+            qualityImage.image = #imageLiteral(resourceName: "icone_VeryBad.png")
+        default:
+            print("")
+        }
+    }
+    private func setColor(qualityColor: String) {
+        var color: UIColor
+        switch qualityColor {
         case "green" :
             color = UIColor.green
         case "yellow" :
@@ -51,8 +80,8 @@ class PresentFavoritesCell: UITableViewCell {
         default:
             color = UIColor.white
         }
-        qualityName.layer.backgroundColor = color.cgColor
+        qualityName.backgroundColor = color
         qualityImage.layer.backgroundColor = color.cgColor
-        qualityIndicator.layer.backgroundColor = color.cgColor
+        qualityIndicator.backgroundColor = color
     }
 }

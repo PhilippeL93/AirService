@@ -9,14 +9,17 @@
 import Foundation
 
 struct ListLatestMeasure {
-    let location: String
-    let city: String
     let country: String
+    let city: String
+    let location: String
+    let locations: String
+    let qualityIndice: Int
     let qualityIndicator: Double
     let qualityName: String
     let qualityColor: String
     let pollutant: String
     let hourLastUpdated: String
+    let sourceName: String
     var measurements: [MeasuresDetail]
 }
 
