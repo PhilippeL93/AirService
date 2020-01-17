@@ -44,7 +44,7 @@ class SettingsViewController: UIViewController {
         }
     }
 
-        private let apiFetcher = ApiServiceCountries()
+        private let apiFetcherCountries = ApiServiceCountries()
 
         var countries = ListCountriesService.shared.listCountries
         weak var delegate: SettingsViewControllerDelegate?
@@ -52,7 +52,7 @@ class SettingsViewController: UIViewController {
     private func callAPI() {
         toggleActivityIndicator(shown: true)
 
-        self.apiFetcher.getApiCountries { (success, errors ) in
+        self.apiFetcherCountries.getApiCountries { (success, errors ) in
             DispatchQueue.main.async {
                 self.toggleActivityIndicator(shown: false)
                 if success {

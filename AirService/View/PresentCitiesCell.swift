@@ -29,22 +29,27 @@ class PresentCitiesCell: UITableViewCell {
     func manageFavorite() {
         citiesFavorite = SettingsService.favoriteCitiesList
 
-        if favoriteButton.tintColor == #colorLiteral(red: 0.2673686743, green: 0.5816780329, blue: 0.3659712374, alpha: 1) {
-            favoriteButton.tintColor = .white
+        if favoriteButton.currentTitleColor == #colorLiteral(red: 0.2673686743, green: 0.5816780329, blue: 0.3659712374, alpha: 1) {
+            favoriteButton.setTitleColor(.white, for: .normal)
 
             guard let countOfFavorites = citiesFavorite?.count else {
                 return
             }
             for indice in 0...countOfFavorites-1
-                where citiesFavorite?[indice].city == citiesLabel.text
-                    && citiesFavorite?[indice].location == locationLabel.text {
+                where (citiesFavorite?[indice].city == citiesLabel.text
+                    && citiesFavorite?[indice].location == locationLabel.text )
+                    || (citiesFavorite?[indice].locations == citiesLabel.text
+                    && citiesFavorite?[indice].city == locationLabel.text) {
                     citiesFavorite?.remove(at: indice)
                     SettingsService.favoriteCitiesList = (citiesFavorite ?? [])!
                     return
             }
         } else {
             for indice in 0...cities.count-1
-                where cities[indice].city == citiesLabel.text && cities[indice].locations == locationLabel.text {
+                where ( cities[indice].city == citiesLabel.text
+                    && cities[indice].locations == locationLabel.text )
+                    || ( cities[indice].locations == citiesLabel.text
+                    && cities[indice].city == locationLabel.text) {
                     let cityFavorite = CitiesFavorite(
                         ident: cities[indice].ident,
                         country: cities[indice].country,
@@ -55,19 +60,23 @@ class PresentCitiesCell: UITableViewCell {
                     citiesFavorite?.append(cityFavorite)
             }
             SettingsService.favoriteCitiesList = (citiesFavorite ?? [])!
-            favoriteButton.tintColor = #colorLiteral(red: 0.2673686743, green: 0.5816780329, blue: 0.3659712374, alpha: 1)
+            favoriteButton.setTitleColor(#colorLiteral(red: 0.2673686743, green: 0.5816780329, blue: 0.3659712374, alpha: 1), for: .normal)
         }
     }
     ///   function configure in order to display data in custom cell
     ///
-    func configure(with city: String, location: String, favorite: Bool) {
+    func configure(with country: String, city: String, location: String, favorite: Bool) {
 
         citiesLabel.text = city
         locationLabel.text = location
+        if country == "FR" {
+            locationLabel.text = city
+            citiesLabel.text = location
+        }
         if favorite == true {
-             favoriteButton.tintColor = #colorLiteral(red: 0.2673686743, green: 0.5816780329, blue: 0.3659712374, alpha: 1)
+            favoriteButton.setTitleColor(#colorLiteral(red: 0.2673686743, green: 0.5816780329, blue: 0.3659712374, alpha: 1), for: .normal)
         } else {
-            favoriteButton.tintColor = .white
+            favoriteButton.setTitleColor(.white, for: .normal)
         }
     }
 

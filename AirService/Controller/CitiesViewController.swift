@@ -172,10 +172,10 @@ extension CitiesViewController: UITableViewDataSource {
         } else {
             location = cities[indexPath.row].location
         }
-
+        let country = cities[indexPath.row].country
         favorite = cities[indexPath.row].favorite
 
-        cell.configure(with: city, location: location, favorite: favorite)
+        cell.configure(with: country, city: city, location: location, favorite: favorite)
 
         return cell
     }

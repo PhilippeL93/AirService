@@ -15,8 +15,22 @@ class MyCitiesViewController: UIViewController {
 //    override func viewDidLoad() {
 //        print("viewDidLoad")
 //        super.viewDidLoad()
-//        tableView.reloadData()
-//        KeySelectedIndexes
+//        tagLatestMeasure = false
+//        ListLatestMeasuresService.shared.removeAll()
+//        citiesFavorite = SettingsService.favoriteCitiesList
+//        guard let countOfFavorites = citiesFavorite?.count else {
+//            return
+//        }
+//        for indice in 0...countOfFavorites-1 {
+//            guard let country = citiesFavorite?[indice].country ,
+//                let location = citiesFavorite?[indice].location ,
+//                let city = citiesFavorite?[indice].city else {
+//                    return
+//            }
+//            searchLatestMeasures(countryToSearch: country,
+//                                 locationToSearch: location,
+//                                 cityToSearch: city)
+//        }
 //    }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -26,27 +40,46 @@ class MyCitiesViewController: UIViewController {
         ListLatestMeasuresService.shared.removeAll()
         citiesFavorite = SettingsService.favoriteCitiesList
 
-        guard let countOfFavorites = citiesFavorite?.count else {
+        guard let countOfFavorites = citiesFavorite?.count, countOfFavorites > 0 else {
             return
         }
+//        print("avant searchLatestMeasures")
         for indice in 0...countOfFavorites-1 {
             guard let country = citiesFavorite?[indice].country ,
                 let location = citiesFavorite?[indice].location ,
                 let city = citiesFavorite?[indice].city else {
                     return
             }
+//            print("debut searchLatestMeasures")
             searchLatestMeasures(countryToSearch: country,
                                  locationToSearch: location,
                                  cityToSearch: city)
-
+//            print("fin searchLatestMeasures")
         }
-        tableView.reloadData()
+//        print("apres searchLatestMeasures")
+//        tableView.reloadData()
     }
 
-    //    override func viewDidAppear(_ animated: Bool) {
-    //
-    //        tableView.reloadData()
-    //    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        tagLatestMeasure = false
+//        ListLatestMeasuresService.shared.removeAll()
+//        citiesFavorite = SettingsService.favoriteCitiesList
+//
+//        guard let countOfFavorites = citiesFavorite?.count else {
+//            return
+//        }
+//        for indice in 0...countOfFavorites-1 {
+//            guard let country = citiesFavorite?[indice].country ,
+//                let location = citiesFavorite?[indice].location ,
+//                let city = citiesFavorite?[indice].city else {
+//                    return
+//            }
+//            searchLatestMeasures(countryToSearch: country,
+//                                 locationToSearch: location,
+//                                 cityToSearch: city)
+//        }
+//    }
 
     var citiesFavorite: [CitiesFavorite]?
     var tagLatestMeasure: Bool = false
@@ -55,39 +88,32 @@ class MyCitiesViewController: UIViewController {
     private let apiFetchMeasures = ApiServiceLatestMeasures()
 
     private func searchLatestMeasures(countryToSearch: String, locationToSearch: String, cityToSearch: String) {
-        self.apiFetchMeasures.getApiLatestMeasures(countryToSearch: countryToSearch,
-                                                   locationToSearch: locationToSearch,
-                                                   cityToSearch: cityToSearch) { (success, errors ) in
-//                                                    DispatchQueue.main.async {
-                                                    if success {
-                                                        if self.citiesFavorite?.count ==
-                                                            ListLatestMeasuresService.shared.listLatestMeasures.count {
-                                                            self.tagLatestMeasure = true
-                                                            self.citiesFavorite = SettingsService.favoriteCitiesList
-                                                            self.tableView.reloadData()
-                                                        }
-                                                    } else {
-                                                        guard let errors = errors else {
-                                                            return }
-                                                        self.getErrors(type: errors)
-                                                    }
-//                                                    }
+        self.apiFetchMeasures.getApiLatestMeasures(
+            countryToSearch: countryToSearch,
+            locationToSearch: locationToSearch,
+            cityToSearch: cityToSearch
+        ) { (success, errors) in
+            DispatchQueue.main.async {
+                if success {
+//                    print("success")
+                    self.getAllMeasures()
+                } else {
+                    guard let errors = errors else {
+                        return }
+                    self.getErrors(type: errors)
+                }
+            }
         }
     }
 
-//    private func deleteFavorite(city: String, location: String) {
-////        citiesFavorite = SettingsService.favoriteCitiesList
-//        guard let countOfFavorites = citiesFavorite?.count else {
-//            return
-//        }
-//        for indice in 0...countOfFavorites-1
-//            where citiesFavorite?[indice].city == city
-//                && citiesFavorite?[indice].location == location {
-//                    citiesFavorite?.remove(at: indice)
-//                    SettingsService.favoriteCitiesList = (citiesFavorite ?? [])!
-//                    return
-//        }
-//    }
+    private func getAllMeasures() {
+        if ListLatestMeasuresService.shared.listLatestMeasures.count ==
+            self.citiesFavorite?.count {
+            self.tagLatestMeasure = true
+            self.citiesFavorite = SettingsService.favoriteCitiesList
+            self.tableView.reloadData()
+        }
+    }
 
     private func deleteFavorite(city: String, location: String) {
         for indice in 0...ListLatestMeasuresService.shared.listLatestMeasures.count-1
@@ -109,7 +135,6 @@ extension MyCitiesViewController: UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        var indiceCity: Int = 0
         switch tagLatestMeasure {
         case false:
             return UITableViewCell()
@@ -118,15 +143,16 @@ extension MyCitiesViewController: UITableViewDataSource {
                 as? PresentFavoritesCell else {
                     return UITableViewCell()
             }
+            var indiceCity: Int = 0
             for indice in 0...ListLatestMeasuresService.shared.listLatestMeasures.count-1
                 where citiesFavorite?[indexPath.row].city ==
                     ListLatestMeasuresService.shared.listLatestMeasures[indice].city &&
-                citiesFavorite?[indexPath.row].location ==
+                    citiesFavorite?[indexPath.row].location ==
                     ListLatestMeasuresService.shared.listLatestMeasures[indice].location {
-                indiceCity = indice
+                        indiceCity = indice
             }
-//            cell.configure(with: ListLatestMeasuresService.shared.listLatestMeasures[indexPath.row])
             cell.configure(with: ListLatestMeasuresService.shared.listLatestMeasures[indiceCity])
+//            print("============== cell")
             return cell
         }
     }

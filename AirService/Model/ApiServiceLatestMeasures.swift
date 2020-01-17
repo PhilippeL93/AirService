@@ -12,9 +12,6 @@ import Alamofire
 // MARK: - class
 class ApiServiceLatestMeasures {
 
-//    https://api.openaq.org/v1/latest?         location="FR09404"
-//                                              country="XX"
-
     private let apiServiceUrl = "https://api.openaq.org/v1/latest?"
 
     // MARK: - functions
@@ -111,7 +108,7 @@ class ApiServiceLatestMeasures {
         if citiesFavorite.count >= 1 {
             for indiceFavorite in 0...citiesFavorite.count-1
                 where city == citiesFavorite[indiceFavorite].city &&
-                location == citiesFavorite[indiceFavorite].location{
+                location == citiesFavorite[indiceFavorite].location {
                     return citiesFavorite[indiceFavorite].locations
             }
         }
@@ -130,7 +127,6 @@ class ApiServiceLatestMeasures {
 
     private func calculateIndice(latestMeasure: [MeasuresDetail]) -> MeasuresFavorite {
         var indiceAtmo: Int = 0
-//        var indiceAtmoMax: Int = 0
         var pollutantMax: String = ""
         var valuePollutant: Double = 0
         var valueAtmoMax: Double = 0
@@ -166,6 +162,9 @@ class ApiServiceLatestMeasures {
                 qualityIndice = indiceAtmo
                 pollutantMax = latestMeasure[indice].parameter
                 valuePollutant = latestMeasure[indice].value
+                if latestMeasure[indice].unit == "ppm" {
+                    valuePollutant *= 1000
+                }
                 valueAtmoMax = valueAtmo
                 hourLastUpdateMax = latestMeasure[indice].lastUpdated
                 sourceNameMax = latestMeasure[indice].sourceName

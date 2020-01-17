@@ -13,9 +13,6 @@ import Alamofire
 class ApiServiceCountries {
 
     private let apiServiceUrl = "https://api.openaq.org/v1/countries?"
-//    https://api.openaq.org/v1/countries       limit=9999
-//    https://api.openaq.org/v1/parameters
-//    https://api.openaq.org/v1/locations?      country=FR    limit=9999
 
     // MARK: - functions
     /// function getApiCountries generate a call to API with Alamofire

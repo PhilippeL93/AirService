@@ -9,34 +9,6 @@
 import Foundation
 import Alamofire
 
-//extension String {
-//
-//  var length: Int {
-//    return count
-//  }
-//
-//  subscript (indice: Int) -> String {
-//    return self[indice ..< indice + 1]
-//  }
-//
-//  func substring(fromIndex: Int) -> String {
-//    return self[min(fromIndex, length) ..< length]
-//  }
-//
-//  func substring(toIndex: Int) -> String {
-//    return self[0 ..< max(0, toIndex)]
-//  }
-//
-//  subscript (rangeToExamine: Range<Int>) -> String {
-//    let range = Range(uncheckedBounds: (lower: max(0, min(length, rangeToExamine.lowerBound)),
-//                                        upper: min(length, max(0, rangeToExamine.upperBound))))
-//    let start = index(startIndex, offsetBy: range.lowerBound)
-//    let end = index(start, offsetBy: range.upperBound - range.lowerBound)
-//    return String(self[start ..< end])
-//  }
-//
-//}
-
 // MARK: - class
 class ApiServiceCities {
 
@@ -84,7 +56,6 @@ class ApiServiceCities {
 
         if typeOfSearch == "location[]" {
             ListCitiesService.shared.removeAll()
-//            request?.cancel()
         }
         request?.cancel()
 
@@ -108,9 +79,14 @@ class ApiServiceCities {
                     completion(true, nil)
                 }
                 )
-            case .failure:
-                completion(false, .noInternetConnection)
-            }
+            case .failure(let reason):
+                switch reason {
+                case .explicitlyCancelled:
+                    print("explicatlycancelled")
+                default:
+                    completion(false, .noInternetConnection)
+                }
+        }
         }
     }
 

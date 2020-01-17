@@ -1,0 +1,3056 @@
+{
+    "meta": {
+        "name": "openaq-api",
+        "license": "CC BY 4.0",
+        "website": "https://docs.openaq.org/",
+        "page": 1,
+        "limit": 9999,
+        "found": 22
+    },
+    "results": [
+        {
+            "id": "FR-193",
+            "country": "FR",
+            "city": "Paris",
+            "cities": [
+                "AIRPARIF",
+                "Paris"
+            ],
+            "location": "FR04004",
+            "locations": [
+                "PARIS 18eme",
+                "FR04004"
+            ],
+            "sourceName": "EEA France",
+            "sourceNames": [
+                "EEA France"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 2.34667,
+                "latitude": 48.89167
+            },
+            "firstUpdated": "2016-11-21T12:00:00.000Z",
+            "lastUpdated": "2020-01-15T03:00:00.000Z",
+            "parameters": [
+                "no2",
+                "o3",
+                "pm10"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 19805
+                },
+                {
+                    "parameter": "o3",
+                    "count": 19793
+                },
+                {
+                    "parameter": "pm10",
+                    "count": 19693
+                }
+            ],
+            "count": 59291
+        },
+        {
+            "id": "FR-224",
+            "country": "FR",
+            "city": "Paris",
+            "cities": [
+                "AIRPARIF",
+                "Paris"
+            ],
+            "location": "FR04012",
+            "locations": [
+                "Place Victor Basch",
+                "FR04012"
+            ],
+            "sourceName": "EEA France",
+            "sourceNames": [
+                "EEA France"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 2.3275,
+                "latitude": 48.82778
+            },
+            "firstUpdated": "2016-11-21T12:00:00.000Z",
+            "lastUpdated": "2018-06-25T08:00:00.000Z",
+            "parameters": [
+                "co",
+                "no2",
+                "pm10"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "co",
+                    "count": 7769
+                },
+                {
+                    "parameter": "no2",
+                    "count": 7712
+                },
+                {
+                    "parameter": "pm10",
+                    "count": 7557
+                }
+            ],
+            "count": 23038
+        },
+        {
+            "id": "FR-218",
+            "country": "FR",
+            "city": "Paris",
+            "cities": [
+                "AIRPARIF",
+                "Paris"
+            ],
+            "location": "FR04014",
+            "locations": [
+                "PARIS 12eme",
+                "FR04014"
+            ],
+            "sourceName": "EEA France",
+            "sourceNames": [
+                "EEA France"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 2.3939,
+                "latitude": 48.83724
+            },
+            "firstUpdated": "2016-11-21T12:00:00.000Z",
+            "lastUpdated": "2020-01-15T03:00:00.000Z",
+            "parameters": [
+                "no2"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 16344
+                }
+            ],
+            "count": 16344
+        },
+        {
+            "id": "FR-707",
+            "country": "FR",
+            "city": "Paris",
+            "cities": [
+                "Paris"
+            ],
+            "location": "FR04014",
+            "locations": [
+                "FR04014"
+            ],
+            "sourceName": "EEA France",
+            "sourceNames": [
+                "EEA France"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 2.3939,
+                "latitude": 48.83722
+            },
+            "firstUpdated": "2017-09-20T15:00:00.000Z",
+            "lastUpdated": "2018-04-25T00:00:00.000Z",
+            "parameters": [
+                "no2"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 3641
+                }
+            ],
+            "count": 3641
+        },
+        {
+            "id": "FR-691",
+            "country": "FR",
+            "city": "Paris",
+            "cities": [
+                "Paris"
+            ],
+            "location": "FR04031",
+            "locations": [
+                "FR04031"
+            ],
+            "sourceName": "EEA France",
+            "sourceNames": [
+                "EEA France"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 2.31194,
+                "latitude": 48.86889
+            },
+            "firstUpdated": "2017-09-20T14:00:00.000Z",
+            "lastUpdated": "2018-04-25T00:00:00.000Z",
+            "parameters": [
+                "no2",
+                "pm10"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 3630
+                },
+                {
+                    "parameter": "pm10",
+                    "count": 3620
+                }
+            ],
+            "count": 7250
+        },
+        {
+            "id": "FR-348",
+            "country": "FR",
+            "city": "Paris",
+            "cities": [
+                "AIRPARIF",
+                "Paris"
+            ],
+            "location": "FR04031",
+            "locations": [
+                "Av Champs Elysees",
+                "FR04031"
+            ],
+            "sourceName": "EEA France",
+            "sourceNames": [
+                "EEA France"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 2.31194,
+                "latitude": 48.86887
+            },
+            "firstUpdated": "2016-11-21T12:00:00.000Z",
+            "lastUpdated": "2020-01-15T03:00:00.000Z",
+            "parameters": [
+                "no2",
+                "pm10"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 15893
+                },
+                {
+                    "parameter": "pm10",
+                    "count": 15889
+                }
+            ],
+            "count": 31782
+        },
+        {
+            "id": "FR-251",
+            "country": "FR",
+            "city": "Paris",
+            "cities": [
+                "AIRPARIF",
+                "Paris"
+            ],
+            "location": "FR04037",
+            "locations": [
+                "PARIS 13eme",
+                "FR04037"
+            ],
+            "sourceName": "EEA France",
+            "sourceNames": [
+                "EEA France"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 2.36028,
+                "latitude": 48.82861
+            },
+            "firstUpdated": "2016-11-21T12:00:00.000Z",
+            "lastUpdated": "2020-01-15T03:00:00.000Z",
+            "parameters": [
+                "no2",
+                "o3"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 19626
+                },
+                {
+                    "parameter": "o3",
+                    "count": 19590
+                }
+            ],
+            "count": 39216
+        },
+        {
+            "id": "FR-741",
+            "country": "FR",
+            "city": "Paris",
+            "cities": [
+                "Paris"
+            ],
+            "location": "FR04060",
+            "locations": [
+                "FR04060"
+            ],
+            "sourceName": "EEA France",
+            "sourceNames": [
+                "EEA France"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 2.2933,
+                "latitude": 48.8572
+            },
+            "firstUpdated": "2017-09-20T15:00:00.000Z",
+            "lastUpdated": "2020-01-15T03:00:00.000Z",
+            "parameters": [
+                "no2"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 16672
+                }
+            ],
+            "count": 16672
+        },
+        {
+            "id": "FR-708",
+            "country": "FR",
+            "city": "Paris",
+            "cities": [
+                "Paris"
+            ],
+            "location": "FR04071",
+            "locations": [
+                "FR04071"
+            ],
+            "sourceName": "EEA France",
+            "sourceNames": [
+                "EEA France"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 2.33528,
+                "latitude": 48.85639
+            },
+            "firstUpdated": "2017-09-20T15:00:00.000Z",
+            "lastUpdated": "2018-04-24T22:00:00.000Z",
+            "parameters": [
+                "no2"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 3680
+                }
+            ],
+            "count": 3680
+        },
+        {
+            "id": "FR-258",
+            "country": "FR",
+            "city": "Paris",
+            "cities": [
+                "AIRPARIF",
+                "Paris"
+            ],
+            "location": "FR04071",
+            "locations": [
+                "Rue Bonaparte",
+                "FR04071"
+            ],
+            "sourceName": "EEA France",
+            "sourceNames": [
+                "EEA France"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 2.33528,
+                "latitude": 48.8564
+            },
+            "firstUpdated": "2016-11-21T12:00:00.000Z",
+            "lastUpdated": "2020-01-15T03:00:00.000Z",
+            "parameters": [
+                "no2"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 16180
+                }
+            ],
+            "count": 16180
+        },
+        {
+            "id": "FR-203",
+            "country": "FR",
+            "city": "Paris",
+            "cities": [
+                "AIRPARIF",
+                "Paris"
+            ],
+            "location": "FR04118",
+            "locations": [
+                "Place de l'Opéra",
+                "Place de l'Op�ra",
+                "FR04118"
+            ],
+            "sourceName": "EEA France",
+            "sourceNames": [
+                "EEA France"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 2.3325,
+                "latitude": 48.87029
+            },
+            "firstUpdated": "2016-11-21T12:00:00.000Z",
+            "lastUpdated": "2020-01-15T03:00:00.000Z",
+            "parameters": [
+                "no2",
+                "pm10"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 15671
+                },
+                {
+                    "parameter": "pm10",
+                    "count": 14722
+                }
+            ],
+            "count": 30393
+        },
+        {
+            "id": "FR-789",
+            "country": "FR",
+            "city": "Paris",
+            "cities": [
+                "Paris"
+            ],
+            "location": "FR04118",
+            "locations": [
+                "FR04118"
+            ],
+            "sourceName": "EEA France",
+            "sourceNames": [
+                "EEA France"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 2.3325,
+                "latitude": 48.87027
+            },
+            "firstUpdated": "2017-09-20T19:00:00.000Z",
+            "lastUpdated": "2018-04-25T00:00:00.000Z",
+            "parameters": [
+                "no2",
+                "pm10"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 3121
+                },
+                {
+                    "parameter": "pm10",
+                    "count": 3072
+                }
+            ],
+            "count": 6193
+        },
+        {
+            "id": "FR-689",
+            "country": "FR",
+            "city": "Paris",
+            "cities": [
+                "Paris"
+            ],
+            "location": "FR04131",
+            "locations": [
+                "FR04131"
+            ],
+            "sourceName": "EEA France",
+            "sourceNames": [
+                "EEA France"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 2.33028,
+                "latitude": 48.87333
+            },
+            "firstUpdated": "2017-09-20T14:00:00.000Z",
+            "lastUpdated": "2020-01-15T03:00:00.000Z",
+            "parameters": [
+                "no2",
+                "pm10"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 17121
+                },
+                {
+                    "parameter": "pm10",
+                    "count": 16918
+                }
+            ],
+            "count": 34039
+        },
+        {
+            "id": "FR-888",
+            "country": "FR",
+            "city": "Paris",
+            "cities": [
+                "Paris"
+            ],
+            "location": "FR04135",
+            "locations": [
+                "FR04135"
+            ],
+            "sourceName": "EEA France",
+            "sourceNames": [
+                "EEA France"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 2.40806,
+                "latitude": 48.83796
+            },
+            "firstUpdated": "2017-09-20T21:00:00.000Z",
+            "lastUpdated": "2018-04-25T00:00:00.000Z",
+            "parameters": [
+                "no2"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 3931
+                }
+            ],
+            "count": 3931
+        },
+        {
+            "id": "FR-282",
+            "country": "FR",
+            "city": "Paris",
+            "cities": [
+                "AIRPARIF",
+                "Paris"
+            ],
+            "location": "FR04135",
+            "locations": [
+                "Boulevard Soult",
+                "FR04135"
+            ],
+            "sourceName": "EEA France",
+            "sourceNames": [
+                "EEA France"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 2.40806,
+                "latitude": 48.83795
+            },
+            "firstUpdated": "2016-11-21T12:00:00.000Z",
+            "lastUpdated": "2020-01-15T03:00:00.000Z",
+            "parameters": [
+                "no2"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 16099
+                }
+            ],
+            "count": 16099
+        },
+        {
+            "id": "FR-339",
+            "country": "FR",
+            "city": "Paris",
+            "cities": [
+                "AIRPARIF",
+                "Paris"
+            ],
+            "location": "FR04141",
+            "locations": [
+                "Quai des Celestins",
+                "FR04141"
+            ],
+            "sourceName": "EEA France",
+            "sourceNames": [
+                "EEA France"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 2.36056,
+                "latitude": 48.85279
+            },
+            "firstUpdated": "2016-11-21T12:00:00.000Z",
+            "lastUpdated": "2020-01-15T03:00:00.000Z",
+            "parameters": [
+                "no2"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 16195
+                }
+            ],
+            "count": 16195
+        },
+        {
+            "id": "FR-722",
+            "country": "FR",
+            "city": "Paris",
+            "cities": [
+                "Paris"
+            ],
+            "location": "FR04141",
+            "locations": [
+                "FR04141"
+            ],
+            "sourceName": "EEA France",
+            "sourceNames": [
+                "EEA France"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 2.36056,
+                "latitude": 48.85278
+            },
+            "firstUpdated": "2017-09-20T15:00:00.000Z",
+            "lastUpdated": "2018-04-25T00:00:00.000Z",
+            "parameters": [
+                "no2"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 3693
+                }
+            ],
+            "count": 3693
+        },
+        {
+            "id": "FR-351",
+            "country": "FR",
+            "city": "Paris",
+            "cities": [
+                "AIRPARIF",
+                "Paris"
+            ],
+            "location": "FR04143",
+            "locations": [
+                "PARIS Centre",
+                "FR04143"
+            ],
+            "sourceName": "EEA France",
+            "sourceNames": [
+                "EEA France"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 2.351,
+                "latitude": 48.859
+            },
+            "firstUpdated": "2016-11-21T12:00:00.000Z",
+            "lastUpdated": "2019-09-23T08:00:00.000Z",
+            "parameters": [
+                "co",
+                "no2",
+                "o3",
+                "pm10",
+                "pm25"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "co",
+                    "count": 13543
+                },
+                {
+                    "parameter": "no2",
+                    "count": 13637
+                },
+                {
+                    "parameter": "o3",
+                    "count": 13616
+                },
+                {
+                    "parameter": "pm10",
+                    "count": 13532
+                },
+                {
+                    "parameter": "pm25",
+                    "count": 13507
+                }
+            ],
+            "count": 67835
+        },
+        {
+            "id": "FR-637",
+            "country": "FR",
+            "city": "Paris",
+            "cities": [
+                "Paris"
+            ],
+            "location": "FR04143",
+            "locations": [
+                "FR04143"
+            ],
+            "sourceName": "EEA France",
+            "sourceNames": [
+                "EEA France"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 2.35111,
+                "latitude": 48.85944
+            },
+            "firstUpdated": "2017-09-20T08:00:00.000Z",
+            "lastUpdated": "2018-04-25T00:00:00.000Z",
+            "parameters": [
+                "co",
+                "no2",
+                "o3",
+                "pm10",
+                "pm25"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "co",
+                    "count": 3683
+                },
+                {
+                    "parameter": "no2",
+                    "count": 3668
+                },
+                {
+                    "parameter": "o3",
+                    "count": 3740
+                },
+                {
+                    "parameter": "pm10",
+                    "count": 3651
+                },
+                {
+                    "parameter": "pm25",
+                    "count": 3599
+                }
+            ],
+            "count": 18341
+        },
+        {
+            "id": "FR-509",
+            "country": "FR",
+            "city": "Paris",
+            "cities": [
+                "AIRPARIF",
+                "Paris"
+            ],
+            "location": "FR04179",
+            "locations": [
+                "PARIS Stade Lenglen",
+                "FR04179"
+            ],
+            "sourceName": "EEA France",
+            "sourceNames": [
+                "EEA France"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 2.26989,
+                "latitude": 48.83038
+            },
+            "firstUpdated": "2017-02-18T08:00:00.000Z",
+            "lastUpdated": "2020-01-15T03:00:00.000Z",
+            "parameters": [
+                "no2",
+                "pm10"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 18923
+                },
+                {
+                    "parameter": "pm10",
+                    "count": 18607
+                }
+            ],
+            "count": 37530
+        },
+        {
+            "id": "FR-687",
+            "country": "FR",
+            "city": "Paris",
+            "cities": [
+                "Paris"
+            ],
+            "location": "FR04329",
+            "locations": [
+                "FR04329"
+            ],
+            "sourceName": "EEA France",
+            "sourceNames": [
+                "EEA France"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 2.41278,
+                "latitude": 48.83862
+            },
+            "firstUpdated": "2017-09-20T14:00:00.000Z",
+            "lastUpdated": "2018-04-25T00:00:00.000Z",
+            "parameters": [
+                "no2",
+                "pm10",
+                "pm25"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 3664
+                },
+                {
+                    "parameter": "pm10",
+                    "count": 3662
+                },
+                {
+                    "parameter": "pm25",
+                    "count": 3579
+                }
+            ],
+            "count": 10905
+        },
+        {
+            "id": "FR-307",
+            "country": "FR",
+            "city": "Paris",
+            "cities": [
+                "AIRPARIF",
+                "Paris"
+            ],
+            "location": "FR04329",
+            "locations": [
+                "Bld peripherique Est",
+                "FR04329"
+            ],
+            "sourceName": "EEA France",
+            "sourceNames": [
+                "EEA France"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 2.41279,
+                "latitude": 48.8386
+            },
+            "firstUpdated": "2016-11-21T12:00:00.000Z",
+            "lastUpdated": "2020-01-15T03:00:00.000Z",
+            "parameters": [
+                "no2",
+                "pm10",
+                "pm25"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 16278
+                },
+                {
+                    "parameter": "pm10",
+                    "count": 16001
+                },
+                {
+                    "parameter": "pm25",
+                    "count": 16027
+                }
+            ],
+            "count": 48306
+        }
+    ]
+}
+{
+    "meta": {
+        "name": "openaq-api",
+        "license": "CC BY 4.0",
+        "website": "https://docs.openaq.org/",
+        "page": 1,
+        "limit": 9999,
+        "found": 16
+    },
+    "results": [
+        {
+            "id": "DE-363",
+            "country": "DE",
+            "city": "Berlin",
+            "cities": [
+                "Rainer Nothard",
+                "Berlin"
+            ],
+            "location": "DEBE010",
+            "locations": [
+                "B Wedding-Amrumer Str.",
+                "DEBE010"
+            ],
+            "sourceName": "EEA Germany",
+            "sourceNames": [
+                "EEA Germany"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 13.34933,
+                "latitude": 52.54304
+            },
+            "firstUpdated": "2016-11-21T13:00:00.000Z",
+            "lastUpdated": "2020-01-15T01:00:00.000Z",
+            "parameters": [
+                "no2",
+                "o3",
+                "pm10"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 9242
+                },
+                {
+                    "parameter": "o3",
+                    "count": 9543
+                },
+                {
+                    "parameter": "pm10",
+                    "count": 9358
+                }
+            ],
+            "count": 28143
+        },
+        {
+            "id": "DE-362",
+            "country": "DE",
+            "city": "Berlin",
+            "cities": [
+                "Rainer Nothard",
+                "Berlin"
+            ],
+            "location": "DEBE018",
+            "locations": [
+                "B Schöneberg-Belziger Straße",
+                "B Sch�neberg-Belziger Stra�e",
+                "DEBE018"
+            ],
+            "sourceName": "EEA Germany",
+            "sourceNames": [
+                "EEA Germany"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 13.34877,
+                "latitude": 52.48581
+            },
+            "firstUpdated": "2016-11-21T13:00:00.000Z",
+            "lastUpdated": "2020-01-15T01:00:00.000Z",
+            "parameters": [
+                "no2"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 9210
+                }
+            ],
+            "count": 9210
+        },
+        {
+            "id": "DE-354",
+            "country": "DE",
+            "city": "Berlin",
+            "cities": [
+                "Rainer Nothard",
+                "Berlin"
+            ],
+            "location": "DEBE027",
+            "locations": [
+                "B Marienfelde-Schichauweg",
+                "DEBE027"
+            ],
+            "sourceName": "EEA Germany",
+            "sourceNames": [
+                "EEA Germany"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 13.3681,
+                "latitude": 52.39841
+            },
+            "firstUpdated": "2016-11-21T13:00:00.000Z",
+            "lastUpdated": "2020-01-15T01:00:00.000Z",
+            "parameters": [
+                "no2",
+                "o3"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 8934
+                },
+                {
+                    "parameter": "o3",
+                    "count": 9128
+                }
+            ],
+            "count": 18062
+        },
+        {
+            "id": "DE-358",
+            "country": "DE",
+            "city": "Berlin",
+            "cities": [
+                "Rainer Nothard",
+                "Berlin"
+            ],
+            "location": "DEBE032",
+            "locations": [
+                "B Grunewald (3.5 m)",
+                "DEBE032"
+            ],
+            "sourceName": "EEA Germany",
+            "sourceNames": [
+                "EEA Germany"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 13.22514,
+                "latitude": 52.47319
+            },
+            "firstUpdated": "2016-11-21T13:00:00.000Z",
+            "lastUpdated": "2020-01-15T01:00:00.000Z",
+            "parameters": [
+                "no2",
+                "o3",
+                "pm10"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 9152
+                },
+                {
+                    "parameter": "o3",
+                    "count": 9535
+                },
+                {
+                    "parameter": "pm10",
+                    "count": 9141
+                }
+            ],
+            "count": 27828
+        },
+        {
+            "id": "DE-281",
+            "country": "DE",
+            "city": "Berlin",
+            "cities": [
+                "Rainer Nothard",
+                "Berlin"
+            ],
+            "location": "DEBE034",
+            "locations": [
+                "B Neukölln-Nansenstraße",
+                "B Neuk�lln-Nansenstra�e",
+                "DEBE034"
+            ],
+            "sourceName": "EEA Germany",
+            "sourceNames": [
+                "EEA Germany"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 13.43084,
+                "latitude": 52.48945
+            },
+            "firstUpdated": "2016-11-21T11:00:00.000Z",
+            "lastUpdated": "2020-01-15T01:00:00.000Z",
+            "parameters": [
+                "no2",
+                "o3",
+                "pm10"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 9167
+                },
+                {
+                    "parameter": "o3",
+                    "count": 9464
+                },
+                {
+                    "parameter": "pm10",
+                    "count": 9293
+                }
+            ],
+            "count": 27924
+        },
+        {
+            "id": "DE-51",
+            "country": "DE",
+            "city": "Berlin",
+            "cities": [
+                "Rainer Nothard",
+                "Berlin"
+            ],
+            "location": "DEBE051",
+            "locations": [
+                "B Buch",
+                "DEBE051"
+            ],
+            "sourceName": "EEA Germany",
+            "sourceNames": [
+                "EEA Germany"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 13.48953,
+                "latitude": 52.64352
+            },
+            "firstUpdated": "2016-11-21T11:00:00.000Z",
+            "lastUpdated": "2020-01-15T01:00:00.000Z",
+            "parameters": [
+                "no2",
+                "o3",
+                "pm10"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 9006
+                },
+                {
+                    "parameter": "o3",
+                    "count": 9364
+                },
+                {
+                    "parameter": "pm10",
+                    "count": 9264
+                }
+            ],
+            "count": 27634
+        },
+        {
+            "id": "DE-69",
+            "country": "DE",
+            "city": "Berlin",
+            "cities": [
+                "Rainer Nothard",
+                "Berlin"
+            ],
+            "location": "DEBE056",
+            "locations": [
+                "B Friedrichshagen",
+                "DEBE056"
+            ],
+            "sourceName": "EEA Germany",
+            "sourceNames": [
+                "EEA Germany"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 13.64705,
+                "latitude": 52.4477
+            },
+            "firstUpdated": "2016-11-21T11:00:00.000Z",
+            "lastUpdated": "2020-01-15T01:00:00.000Z",
+            "parameters": [
+                "no2",
+                "o3",
+                "pm10"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 8966
+                },
+                {
+                    "parameter": "o3",
+                    "count": 9323
+                },
+                {
+                    "parameter": "pm10",
+                    "count": 9135
+                }
+            ],
+            "count": 27424
+        },
+        {
+            "id": "DE-242",
+            "country": "DE",
+            "city": "Berlin",
+            "cities": [
+                "Rainer Nothard",
+                "Berlin"
+            ],
+            "location": "DEBE061",
+            "locations": [
+                "B Steglitz-Schildhornstr.",
+                "DEBE061"
+            ],
+            "sourceName": "EEA Germany",
+            "sourceNames": [
+                "EEA Germany"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 13.31825,
+                "latitude": 52.46361
+            },
+            "firstUpdated": "2016-11-21T11:00:00.000Z",
+            "lastUpdated": "2020-01-15T01:00:00.000Z",
+            "parameters": [
+                "co",
+                "no2",
+                "pm10"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "co",
+                    "count": 9850
+                },
+                {
+                    "parameter": "no2",
+                    "count": 9117
+                },
+                {
+                    "parameter": "pm10",
+                    "count": 9372
+                }
+            ],
+            "count": 28339
+        },
+        {
+            "id": "DE-356",
+            "country": "DE",
+            "city": "Berlin",
+            "cities": [
+                "Rainer Nothard",
+                "Berlin"
+            ],
+            "location": "DEBE062",
+            "locations": [
+                "B Frohnau, Funkturm (3.5 m)",
+                "DEBE062"
+            ],
+            "sourceName": "EEA Germany",
+            "sourceNames": [
+                "EEA Germany"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 13.29608,
+                "latitude": 52.65327
+            },
+            "firstUpdated": "2016-11-21T13:00:00.000Z",
+            "lastUpdated": "2020-01-15T01:00:00.000Z",
+            "parameters": [
+                "no2",
+                "o3"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 9218
+                },
+                {
+                    "parameter": "o3",
+                    "count": 9526
+                }
+            ],
+            "count": 18744
+        },
+        {
+            "id": "DE-87",
+            "country": "DE",
+            "city": "Berlin",
+            "cities": [
+                "Rainer Nothard",
+                "Berlin"
+            ],
+            "location": "DEBE063",
+            "locations": [
+                "B Neukölln-Silbersteinstr.",
+                "B Neuk�lln-Silbersteinstr.",
+                "DEBE063"
+            ],
+            "sourceName": "EEA Germany",
+            "sourceNames": [
+                "EEA Germany"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 13.44165,
+                "latitude": 52.46753
+            },
+            "firstUpdated": "2016-11-21T11:00:00.000Z",
+            "lastUpdated": "2020-01-15T01:00:00.000Z",
+            "parameters": [
+                "no2",
+                "pm10"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 9190
+                },
+                {
+                    "parameter": "pm10",
+                    "count": 9316
+                }
+            ],
+            "count": 18506
+        },
+        {
+            "id": "DE-252",
+            "country": "DE",
+            "city": "Berlin",
+            "cities": [
+                "Rainer Nothard",
+                "Berlin"
+            ],
+            "location": "DEBE064",
+            "locations": [
+                "B Neukölln-Karl-Marx-Str. 76",
+                "B Neuk�lln-Karl-Marx-Str. 76",
+                "DEBE064"
+            ],
+            "sourceName": "EEA Germany",
+            "sourceNames": [
+                "EEA Germany"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 13.43397,
+                "latitude": 52.48171
+            },
+            "firstUpdated": "2016-11-21T11:00:00.000Z",
+            "lastUpdated": "2020-01-15T01:00:00.000Z",
+            "parameters": [
+                "no2",
+                "pm10"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 9148
+                },
+                {
+                    "parameter": "pm10",
+                    "count": 9324
+                }
+            ],
+            "count": 18472
+        },
+        {
+            "id": "DE-262",
+            "country": "DE",
+            "city": "Berlin",
+            "cities": [
+                "Rainer Nothard",
+                "Berlin"
+            ],
+            "location": "DEBE065",
+            "locations": [
+                "B Friedrichshain-Frankfurter Allee",
+                "DEBE065"
+            ],
+            "sourceName": "EEA Germany",
+            "sourceNames": [
+                "EEA Germany"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 13.46993,
+                "latitude": 52.51407
+            },
+            "firstUpdated": "2016-11-21T11:00:00.000Z",
+            "lastUpdated": "2020-01-15T01:00:00.000Z",
+            "parameters": [
+                "co",
+                "no2",
+                "o3",
+                "pm10",
+                "so2"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "co",
+                    "count": 9564
+                },
+                {
+                    "parameter": "no2",
+                    "count": 9056
+                },
+                {
+                    "parameter": "o3",
+                    "count": 626
+                },
+                {
+                    "parameter": "pm10",
+                    "count": 9193
+                },
+                {
+                    "parameter": "so2",
+                    "count": 8783
+                }
+            ],
+            "count": 37222
+        },
+        {
+            "id": "DE-2",
+            "country": "DE",
+            "city": "Berlin",
+            "cities": [
+                "Rainer Nothard",
+                "Berlin"
+            ],
+            "location": "DEBE066",
+            "locations": [
+                "B Karlshorst-Rheingoldstr./Königswinterstr.",
+                "B Karlshorst-Rheingoldstr./K�nigswinterstr.",
+                "DEBE066"
+            ],
+            "sourceName": "EEA Germany",
+            "sourceNames": [
+                "EEA Germany"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 13.5295,
+                "latitude": 52.48529
+            },
+            "firstUpdated": "2016-11-21T11:00:00.000Z",
+            "lastUpdated": "2020-01-15T01:00:00.000Z",
+            "parameters": [
+                "no2",
+                "so2"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 9144
+                },
+                {
+                    "parameter": "so2",
+                    "count": 7235
+                }
+            ],
+            "count": 16379
+        },
+        {
+            "id": "DE-199",
+            "country": "DE",
+            "city": "Berlin",
+            "cities": [
+                "Rainer Nothard",
+                "Berlin"
+            ],
+            "location": "DEBE067",
+            "locations": [
+                "B Hardenbergplatz",
+                "DEBE067"
+            ],
+            "sourceName": "EEA Germany",
+            "sourceNames": [
+                "EEA Germany"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 13.33297,
+                "latitude": 52.5066
+            },
+            "firstUpdated": "2016-11-21T11:00:00.000Z",
+            "lastUpdated": "2020-01-15T00:00:00.000Z",
+            "parameters": [
+                "no2"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 9155
+                }
+            ],
+            "count": 9155
+        },
+        {
+            "id": "DE-178",
+            "country": "DE",
+            "city": "Berlin",
+            "cities": [
+                "Rainer Nothard",
+                "Berlin"
+            ],
+            "location": "DEBE068",
+            "locations": [
+                "B Mitte, Brückenstraße",
+                "B Mitte, Br�ckenstra�e",
+                "DEBE068"
+            ],
+            "sourceName": "EEA Germany",
+            "sourceNames": [
+                "EEA Germany"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 13.41883,
+                "latitude": 52.51361
+            },
+            "firstUpdated": "2016-11-21T11:00:00.000Z",
+            "lastUpdated": "2020-01-15T01:00:00.000Z",
+            "parameters": [
+                "no2",
+                "pm10"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 9224
+                },
+                {
+                    "parameter": "pm10",
+                    "count": 9397
+                }
+            ],
+            "count": 18621
+        },
+        {
+            "id": "DE-124",
+            "country": "DE",
+            "city": "Berlin",
+            "cities": [
+                "Rainer Nothard",
+                "Berlin"
+            ],
+            "location": "DEBE069",
+            "locations": [
+                "B Mariendorf, Mariendorfer Damm",
+                "DEBE069"
+            ],
+            "sourceName": "EEA Germany",
+            "sourceNames": [
+                "EEA Germany"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": 13.38772,
+                "latitude": 52.43811
+            },
+            "firstUpdated": "2016-11-21T11:00:00.000Z",
+            "lastUpdated": "2020-01-15T01:00:00.000Z",
+            "parameters": [
+                "no2",
+                "pm10"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 9217
+                },
+                {
+                    "parameter": "pm10",
+                    "count": 9293
+                }
+            ],
+            "count": 18510
+        }
+    ]
+}
+{
+    "meta": {
+        "name": "openaq-api",
+        "license": "CC BY 4.0",
+        "website": "https://docs.openaq.org/",
+        "page": 1,
+        "limit": 9999,
+        "found": 34
+    },
+    "results": [
+        {
+            "id": "US-1337",
+            "country": "US",
+            "city": "NEW YORK",
+            "cities": [
+                "NEW YORK"
+            ],
+            "location": "PS 19",
+            "locations": [
+                "PS 19"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -73.98446,
+                "latitude": 40.73
+            },
+            "firstUpdated": "2016-03-10T07:00:00.000Z",
+            "lastUpdated": "2017-12-18T09:00:00.000Z",
+            "parameters": [
+                "pm25"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "pm25",
+                    "count": 5157
+                }
+            ],
+            "count": 5157
+        },
+        {
+            "id": "US-1410",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Babylon",
+            "locations": [
+                "Babylon"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -73.4061,
+                "latitude": 40.7356
+            },
+            "firstUpdated": "2016-03-12T01:00:00.000Z",
+            "lastUpdated": "2020-01-15T06:00:00.000Z",
+            "parameters": [
+                "o3"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "o3",
+                    "count": 13964
+                }
+            ],
+            "count": 13964
+        },
+        {
+            "id": "US-833",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Bayonne",
+            "locations": [
+                "Bayonne"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -74.12608,
+                "latitude": 40.67025
+            },
+            "firstUpdated": "2016-03-06T19:00:00.000Z",
+            "lastUpdated": "2020-01-15T06:00:00.000Z",
+            "parameters": [
+                "no2",
+                "o3",
+                "so2"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 25892
+                },
+                {
+                    "parameter": "o3",
+                    "count": 23949
+                },
+                {
+                    "parameter": "so2",
+                    "count": 25302
+                }
+            ],
+            "count": 75143
+        },
+        {
+            "id": "US-1376",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Bklyn - PS274",
+            "locations": [
+                "Brooklyn - PS274",
+                "Bklyn - PS274"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -73.9286,
+                "latitude": 40.6944
+            },
+            "firstUpdated": "2016-03-10T07:00:00.000Z",
+            "lastUpdated": "2020-01-15T06:00:00.000Z",
+            "parameters": [
+                "pm25"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "pm25",
+                    "count": 14613
+                }
+            ],
+            "count": 14613
+        },
+        {
+            "id": "US-1348",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Bronx - IS52",
+            "locations": [
+                "IS52",
+                "Bronx - IS52"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -73.9022,
+                "latitude": 40.8161
+            },
+            "firstUpdated": "2016-03-10T07:00:00.000Z",
+            "lastUpdated": "2020-01-15T06:00:00.000Z",
+            "parameters": [
+                "o3",
+                "pm10",
+                "pm25"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "o3",
+                    "count": 14883
+                },
+                {
+                    "parameter": "pm10",
+                    "count": 11992
+                },
+                {
+                    "parameter": "pm25",
+                    "count": 5306
+                }
+            ],
+            "count": 32181
+        },
+        {
+            "id": "US-1316",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Bronx - IS74",
+            "locations": [
+                "Bronx - IS74"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -73.8867,
+                "latitude": 40.8147
+            },
+            "firstUpdated": "2016-03-10T07:00:00.000Z",
+            "lastUpdated": "2020-01-15T06:00:00.000Z",
+            "parameters": [
+                "pm25"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "pm25",
+                    "count": 8136
+                }
+            ],
+            "count": 8136
+        },
+        {
+            "id": "US-1417",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "CCNY",
+            "locations": [
+                "CCNY"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -73.9481,
+                "latitude": 40.8197
+            },
+            "firstUpdated": "2016-03-12T08:00:00.000Z",
+            "lastUpdated": "2020-01-15T06:00:00.000Z",
+            "parameters": [
+                "o3",
+                "pm25"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "o3",
+                    "count": 12241
+                },
+                {
+                    "parameter": "pm25",
+                    "count": 12707
+                }
+            ],
+            "count": 24948
+        },
+        {
+            "id": "US-1035",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Chester",
+            "locations": [
+                "Chester"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -74.6763,
+                "latitude": 40.78763
+            },
+            "firstUpdated": "2016-03-06T19:00:00.000Z",
+            "lastUpdated": "2020-01-15T06:00:00.000Z",
+            "parameters": [
+                "no2",
+                "o3",
+                "so2"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 26138
+                },
+                {
+                    "parameter": "o3",
+                    "count": 24296
+                },
+                {
+                    "parameter": "so2",
+                    "count": 24746
+                }
+            ],
+            "count": 75180
+        },
+        {
+            "id": "US-1344",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Colliers Mills",
+            "locations": [
+                "Colliers Mills"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -74.44406,
+                "latitude": 40.06485
+            },
+            "firstUpdated": "2016-03-10T07:00:00.000Z",
+            "lastUpdated": "2019-11-06T12:00:00.000Z",
+            "parameters": [
+                "o3"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "o3",
+                    "count": 18214
+                }
+            ],
+            "count": 18214
+        },
+        {
+            "id": "US-1339",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Division Street",
+            "locations": [
+                "Division Street"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -73.995,
+                "latitude": 40.7142
+            },
+            "firstUpdated": "2016-03-10T07:00:00.000Z",
+            "lastUpdated": "2020-01-15T06:00:00.000Z",
+            "parameters": [
+                "pm25"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "pm25",
+                    "count": 13523
+                }
+            ],
+            "count": 13523
+        },
+        {
+            "id": "US-752",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "East Orange",
+            "locations": [
+                "East Orange"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -74.2005,
+                "latitude": 40.7575
+            },
+            "firstUpdated": "2016-03-06T19:00:00.000Z",
+            "lastUpdated": "2016-07-24T07:00:00.000Z",
+            "parameters": [
+                "co",
+                "no2"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "co",
+                    "count": 2718
+                },
+                {
+                    "parameter": "no2",
+                    "count": 1845
+                }
+            ],
+            "count": 4563
+        },
+        {
+            "id": "US-1365",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Eisenhower Park",
+            "locations": [
+                "Eisenhower Park"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -73.5869,
+                "latitude": 40.7447
+            },
+            "firstUpdated": "2016-03-10T07:00:00.000Z",
+            "lastUpdated": "2020-01-15T06:00:00.000Z",
+            "parameters": [
+                "pm25"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "pm25",
+                    "count": 15681
+                }
+            ],
+            "count": 15681
+        },
+        {
+            "id": "US-1104",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Elizabeth Trailer",
+            "locations": [
+                "Elizabeth Trailer"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -74.20837,
+                "latitude": 40.64144
+            },
+            "firstUpdated": "2016-03-06T19:00:00.000Z",
+            "lastUpdated": "2020-01-15T06:00:00.000Z",
+            "parameters": [
+                "co",
+                "no2",
+                "pm25",
+                "so2"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "co",
+                    "count": 25894
+                },
+                {
+                    "parameter": "no2",
+                    "count": 25697
+                },
+                {
+                    "parameter": "pm25",
+                    "count": 22563
+                },
+                {
+                    "parameter": "so2",
+                    "count": 25240
+                }
+            ],
+            "count": 99394
+        },
+        {
+            "id": "US-901",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Flemington",
+            "locations": [
+                "Flemington"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -74.80676,
+                "latitude": 40.51525
+            },
+            "firstUpdated": "2016-03-06T19:00:00.000Z",
+            "lastUpdated": "2020-01-15T06:00:00.000Z",
+            "parameters": [
+                "o3",
+                "pm25"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "o3",
+                    "count": 23755
+                },
+                {
+                    "parameter": "pm25",
+                    "count": 22437
+                }
+            ],
+            "count": 46192
+        },
+        {
+            "id": "US-767",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Fort Lee Near Road",
+            "locations": [
+                "Fort Lee Near Road"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -73.9661,
+                "latitude": 40.85355
+            },
+            "firstUpdated": "2016-03-06T19:00:00.000Z",
+            "lastUpdated": "2020-01-15T06:00:00.000Z",
+            "parameters": [
+                "co",
+                "no2",
+                "pm25"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "co",
+                    "count": 24051
+                },
+                {
+                    "parameter": "no2",
+                    "count": 25062
+                },
+                {
+                    "parameter": "pm25",
+                    "count": 23864
+                }
+            ],
+            "count": 72977
+        },
+        {
+            "id": "US-1340",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Fresh Kills",
+            "locations": [
+                "FKILL",
+                "Fresh Kills"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -74.1994,
+                "latitude": 40.5802
+            },
+            "firstUpdated": "2016-03-10T07:00:00.000Z",
+            "lastUpdated": "2020-01-15T06:00:00.000Z",
+            "parameters": [
+                "o3",
+                "pm25"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "o3",
+                    "count": 4643
+                },
+                {
+                    "parameter": "pm25",
+                    "count": 13981
+                }
+            ],
+            "count": 18624
+        },
+        {
+            "id": "US-1322",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Holtsville",
+            "locations": [
+                "Holtsville"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -73.0575,
+                "latitude": 40.8278
+            },
+            "firstUpdated": "2016-03-10T07:00:00.000Z",
+            "lastUpdated": "2020-01-15T06:00:00.000Z",
+            "parameters": [
+                "o3",
+                "pm25"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "o3",
+                    "count": 14350
+                },
+                {
+                    "parameter": "pm25",
+                    "count": 15551
+                }
+            ],
+            "count": 29901
+        },
+        {
+            "id": "US-1023",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Jersey City",
+            "locations": [
+                "Jersey City"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -74.06657,
+                "latitude": 40.73169
+            },
+            "firstUpdated": "2016-03-06T19:00:00.000Z",
+            "lastUpdated": "2020-01-15T06:00:00.000Z",
+            "parameters": [
+                "co",
+                "no2",
+                "so2"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "co",
+                    "count": 24772
+                },
+                {
+                    "parameter": "no2",
+                    "count": 14878
+                },
+                {
+                    "parameter": "so2",
+                    "count": 25053
+                }
+            ],
+            "count": 64703
+        },
+        {
+            "id": "US-1024",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Jersey City FH",
+            "locations": [
+                "Jersey City FH"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -74.05229,
+                "latitude": 40.72545
+            },
+            "firstUpdated": "2016-03-06T19:00:00.000Z",
+            "lastUpdated": "2020-01-15T06:00:00.000Z",
+            "parameters": [
+                "pm25"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "pm25",
+                    "count": 22155
+                }
+            ],
+            "count": 22155
+        },
+        {
+            "id": "US-1324",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Leonia",
+            "locations": [
+                "Leonia"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -73.992,
+                "latitude": 40.87044
+            },
+            "firstUpdated": "2016-03-10T07:00:00.000Z",
+            "lastUpdated": "2019-11-06T17:00:00.000Z",
+            "parameters": [
+                "o3"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "o3",
+                    "count": 19282
+                }
+            ],
+            "count": 19282
+        },
+        {
+            "id": "US-1347",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Manhattan/IS143",
+            "locations": [
+                "IS143",
+                "Manhattan/IS143"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -73.9319,
+                "latitude": 40.8492
+            },
+            "firstUpdated": "2016-03-10T07:00:00.000Z",
+            "lastUpdated": "2020-01-15T06:00:00.000Z",
+            "parameters": [
+                "pm25"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "pm25",
+                    "count": 15035
+                }
+            ],
+            "count": 15035
+        },
+        {
+            "id": "US-1370",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Maspeth",
+            "locations": [
+                "MSPTH",
+                "Maspeth"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -73.8933,
+                "latitude": 40.7269
+            },
+            "firstUpdated": "2016-03-10T07:00:00.000Z",
+            "lastUpdated": "2020-01-15T06:00:00.000Z",
+            "parameters": [
+                "pm25"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "pm25",
+                    "count": 15549
+                }
+            ],
+            "count": 15549
+        },
+        {
+            "id": "US-1404",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Monmouth University",
+            "locations": [
+                "Monmouth University"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -74.0051,
+                "latitude": 40.27765
+            },
+            "firstUpdated": "2016-03-11T15:00:00.000Z",
+            "lastUpdated": "2019-11-08T17:00:00.000Z",
+            "parameters": [
+                "o3"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "o3",
+                    "count": 19287
+                }
+            ],
+            "count": 19287
+        },
+        {
+            "id": "US-1345",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Mt Ninham",
+            "locations": [
+                "Mt Ninham"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -73.7103,
+                "latitude": 41.4561
+            },
+            "firstUpdated": "2016-03-10T07:00:00.000Z",
+            "lastUpdated": "2020-01-15T06:00:00.000Z",
+            "parameters": [
+                "o3"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "o3",
+                    "count": 12970
+                }
+            ],
+            "count": 12970
+        },
+        {
+            "id": "US-819",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Newark Firehouse",
+            "locations": [
+                "Newark Firehouse"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -74.19289,
+                "latitude": 40.72099
+            },
+            "firstUpdated": "2016-03-06T19:00:00.000Z",
+            "lastUpdated": "2020-01-15T06:00:00.000Z",
+            "parameters": [
+                "co",
+                "no2",
+                "o3",
+                "pm25",
+                "so2"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "co",
+                    "count": 24544
+                },
+                {
+                    "parameter": "no2",
+                    "count": 24938
+                },
+                {
+                    "parameter": "o3",
+                    "count": 23349
+                },
+                {
+                    "parameter": "pm25",
+                    "count": 22469
+                },
+                {
+                    "parameter": "so2",
+                    "count": 24136
+                }
+            ],
+            "count": 119436
+        },
+        {
+            "id": "US-1346",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Pfizer Lab",
+            "locations": [
+                "Pfizer Lab"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -73.8782,
+                "latitude": 40.868
+            },
+            "firstUpdated": "2016-03-10T07:00:00.000Z",
+            "lastUpdated": "2020-01-15T06:00:00.000Z",
+            "parameters": [
+                "o3"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "o3",
+                    "count": 14829
+                }
+            ],
+            "count": 14829
+        },
+        {
+            "id": "US-1378",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Queens",
+            "locations": [
+                "Queens"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -73.8244,
+                "latitude": 40.7375
+            },
+            "firstUpdated": "2016-03-10T07:00:00.000Z",
+            "lastUpdated": "2020-01-15T06:00:00.000Z",
+            "parameters": [
+                "o3",
+                "pm25"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "o3",
+                    "count": 14586
+                },
+                {
+                    "parameter": "pm25",
+                    "count": 15530
+                }
+            ],
+            "count": 30116
+        },
+        {
+            "id": "US-2629",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Queens Near-road",
+            "locations": [
+                "Queens Near-road"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -73.8177,
+                "latitude": 40.73927
+            },
+            "firstUpdated": "2018-03-16T15:00:00.000Z",
+            "lastUpdated": "2020-01-15T06:00:00.000Z",
+            "parameters": [
+                "pm25"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "pm25",
+                    "count": 9514
+                }
+            ],
+            "count": 9514
+        },
+        {
+            "id": "US-867",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Rahway PM",
+            "locations": [
+                "Rahway PM"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -74.27618,
+                "latitude": 40.60394
+            },
+            "firstUpdated": "2016-03-06T19:00:00.000Z",
+            "lastUpdated": "2020-01-15T06:00:00.000Z",
+            "parameters": [
+                "pm25"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "pm25",
+                    "count": 19991
+                }
+            ],
+            "count": 19991
+        },
+        {
+            "id": "US-1369",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Ramapo",
+            "locations": [
+                "Ramapo"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -74.25555,
+                "latitude": 41.05862
+            },
+            "firstUpdated": "2016-03-10T07:00:00.000Z",
+            "lastUpdated": "2019-11-06T13:00:00.000Z",
+            "parameters": [
+                "o3"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "o3",
+                    "count": 18799
+                }
+            ],
+            "count": 18799
+        },
+        {
+            "id": "US-1521",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Riverhead",
+            "locations": [
+                "Riverhead"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -72.715,
+                "latitude": 40.9617
+            },
+            "firstUpdated": "2016-03-30T05:00:00.000Z",
+            "lastUpdated": "2019-11-01T21:00:00.000Z",
+            "parameters": [
+                "o3"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "o3",
+                    "count": 9659
+                }
+            ],
+            "count": 9659
+        },
+        {
+            "id": "US-842",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Rutgers University",
+            "locations": [
+                "Rutgers University"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -74.42944,
+                "latitude": 40.46218
+            },
+            "firstUpdated": "2016-03-06T19:00:00.000Z",
+            "lastUpdated": "2020-01-15T06:00:00.000Z",
+            "parameters": [
+                "no2",
+                "o3",
+                "pm25"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "no2",
+                    "count": 21615
+                },
+                {
+                    "parameter": "o3",
+                    "count": 23636
+                },
+                {
+                    "parameter": "pm25",
+                    "count": 22939
+                }
+            ],
+            "count": 68190
+        },
+        {
+            "id": "US-1498",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "Susan Wagner",
+            "locations": [
+                "Susan Wagner"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -74.1264,
+                "latitude": 40.5969
+            },
+            "firstUpdated": "2016-03-25T03:00:00.000Z",
+            "lastUpdated": "2017-11-15T21:00:00.000Z",
+            "parameters": [
+                "o3"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "o3",
+                    "count": 3621
+                }
+            ],
+            "count": 3621
+        },
+        {
+            "id": "US-1350",
+            "country": "US",
+            "city": "New York-Northern New Jersey-Long Island",
+            "cities": [
+                "New York-Northern New Jersey-Long Island"
+            ],
+            "location": "White Plains",
+            "locations": [
+                "White Plains"
+            ],
+            "sourceName": "AirNow",
+            "sourceNames": [
+                "AirNow"
+            ],
+            "sourceType": "government",
+            "sourceTypes": [
+                "government"
+            ],
+            "coordinates": {
+                "longitude": -73.7642,
+                "latitude": 41.0522
+            },
+            "firstUpdated": "2016-03-10T07:00:00.000Z",
+            "lastUpdated": "2020-01-15T06:00:00.000Z",
+            "parameters": [
+                "o3",
+                "pm25"
+            ],
+            "countsByMeasurement": [
+                {
+                    "parameter": "o3",
+                    "count": 15114
+                },
+                {
+                    "parameter": "pm25",
+                    "count": 15878
+                }
+            ],
+            "count": 30992
+        }
+    ]
+}

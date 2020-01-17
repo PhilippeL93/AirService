@@ -35,50 +35,45 @@ class PresentFavoritesCell: UITableViewCell {
         cityName.text = cityFavorite.city
 
         pollutant.text = cityFavorite.pollutant
-        hourLastUpdated.text = cityFavorite.hourLastUpdated
 
-        if cityFavorite.country == "FR" || cityFavorite.country == "DE" {
+         if cityFavorite.country == "DE" {
             department.text = cityFavorite.locations
         } else {
             department.text = cityFavorite.location
         }
-        setQualityImage(qualityIndice: cityFavorite.qualityIndice)
-        setColor(qualityColor: cityFavorite.qualityColor)
-    }
-
-    func setQualityImage(qualityIndice: Int) {
-        switch qualityIndice {
-        case 1, 2:
-            qualityImage.image = #imageLiteral(resourceName: "icone_VeryGood.png")
-        case 3, 4:
-            qualityImage.image = #imageLiteral(resourceName: "icone_Good.png")
-        case 5:
-            qualityImage.image = #imageLiteral(resourceName: "icone_Medium.png")
-        case 6:
-            qualityImage.image = #imageLiteral(resourceName: "icone_Poor.png")
-        case 7, 8:
-            qualityImage.image = #imageLiteral(resourceName: "icone_Bad.png")
-        case 9:
-            qualityImage.image = #imageLiteral(resourceName: "icone_VeryBad.png")
-        default:
-            print("")
+        if cityFavorite.country == "FR" {
+            department.text = cityFavorite.city
+            cityName.text = cityFavorite.locations
         }
+
+        setQualityAndColorImage(qualityIndice: cityFavorite.qualityIndice)
+
+        hourLastUpdated.text = " \(String(cityFavorite.hourLastUpdated[0 ..< 10]))" +
+                                " à : \(String(cityFavorite.hourLastUpdated[11 ..< 19]))"
     }
-    private func setColor(qualityColor: String) {
-        var color: UIColor
-        switch qualityColor {
-        case "green" :
-            color = UIColor.green
-        case "yellow" :
-            color = UIColor.yellow
-        case "orange" :
-            color = UIColor.orange
-        case "red" :
-            color = UIColor.red
-        case "purple" :
-            color = UIColor.purple
+    private func setQualityAndColorImage(qualityIndice: Int) {
+        var color: UIColor = UIColor.white
+        switch qualityIndice {
+        case 1:
+            color = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+        case 2:
+            color = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+        case 3:
+            color = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+        case 4:
+            color = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+        case 5:
+            color = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+        case 6:
+            color = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+        case 7:
+            color = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
+        case 8:
+            color = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+        case 9:
+            color = #colorLiteral(red: 0.3098039329, green: 0.01568627544, blue: 0.1294117719, alpha: 1)
         default:
-            color = UIColor.white
+            print("erreur")
         }
         qualityName.backgroundColor = color
         qualityImage.layer.backgroundColor = color.cgColor

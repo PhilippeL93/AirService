@@ -9,13 +9,13 @@
 import Foundation
 
 class SettingsService {
+
     private struct Keys {
         static let countryISO = "countryISO"
         static let localization = "localization"
         static let favoriteCities = "favoriteCities"
         private var favoriteCitiesList: [CitiesFavorite]?
     }
-
     static var countryISO: String {
         get {
             return UserDefaults.standard.string(forKey: Keys.countryISO) ?? "FR"

@@ -24,17 +24,18 @@ class CityDetailViewController: UIViewController {
 
     @IBOutlet weak var sourceName: UITextField!
 
-    @IBOutlet weak var pollutantCO: UITextField!
-
-    @IBOutlet weak var pollutantNO: UITextField!
-
-    @IBOutlet weak var pollutantO3: UITextField!
-
-    @IBOutlet weak var pollutantPM25: UITextField!
-
-    @IBOutlet weak var pollutantPM10: UITextField!
-
-    @IBOutlet weak var pollutantSO2: UITextField!
+    @IBOutlet weak var pollutantOne: UITextField!
+    @IBOutlet weak var pollutantOneValue: UITextField!
+    @IBOutlet weak var pollutantTwo: UITextField!
+    @IBOutlet weak var pollutantTwoValue: UITextField!
+    @IBOutlet weak var pollutantThree: UITextField!
+    @IBOutlet weak var pollutantThreeValue: UITextField!
+    @IBOutlet weak var pollutantFour: UITextField!
+    @IBOutlet weak var pollutantFourValue: UITextField!
+    @IBOutlet weak var pollutantFive: UITextField!
+    @IBOutlet weak var pollutantFiveValue: UITextField!
+    @IBOutlet weak var pollutantSix: UITextField!
+    @IBOutlet weak var pollutantSixValue: UITextField!
 
     @IBOutlet weak var viewQuality: UIView!
 
@@ -44,17 +45,11 @@ class CityDetailViewController: UIViewController {
     override func viewDidLoad() {
         fillCityDetail()
         super.viewDidLoad()
-//        imageLabel.layer.addSublayer(gradientLayer)
-//        gradientLayer.frame = imageLabel.bounds
-//        existingFavoriteRecipe()
         }
 
     override func viewDidAppear(_ animated: Bool) {
         fillCityDetail()
         super.viewDidLoad()
-//        imageLabel.layer.addSublayer(gradientLayer)
-//        gradientLayer.frame = imageLabel.bounds
-//        existingFavoriteRecipe()
         }
 
     // MARK: - functions
@@ -64,57 +59,59 @@ class CityDetailViewController: UIViewController {
 
         cityName.text = cityDetail[0].city
 
-        if cityDetail[0].country == "FR" || cityDetail[0].country == "DE" {
+//        if cityDetail[0].country == "FR" || cityDetail[0].country == "DE" {
+        if cityDetail[0].country == "DE" {
             department.text = cityDetail[0].locations
         } else {
             department.text = cityDetail[0].location
         }
+        if cityDetail[0].country == "FR" {
+            department.text = cityDetail[0].city
+            cityName.text = cityDetail[0].locations
+        }
 
         qualityName.text = cityDetail[0].qualityName
         qualityIndicator.text = String(format: "%.0f", cityDetail[0].qualityIndicator)
-        hourLastUpdated.text = cityDetail[0].hourLastUpdated
+        hourLastUpdated.text = " \(String(cityDetail[0].hourLastUpdated[0 ..< 10]))" +
+                                " à : \(String(cityDetail[0].hourLastUpdated[11 ..< 19]))"
         sourceName.text = cityDetail[0].sourceName
-        setQualityImage()
-        setColor()
+        setQualityAndColorImage()
         setPollutant()
     }
 
-    private func setQualityImage() {
+    private func setQualityAndColorImage() {
+        var color: UIColor = UIColor.white
         switch cityDetail[0].qualityIndice {
-        case 1, 2:
-            qualityImage.image = #imageLiteral(resourceName: "icone_VeryGood.png")
-        case 3, 4:
-            qualityImage.image = #imageLiteral(resourceName: "icone_Good.png")
+        case 1:
+//            qualityImage.image = #imageLiteral(resourceName: "icone_VeryGood.png")
+            color = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+        case 2:
+//            qualityImage.image = #imageLiteral(resourceName: "icone_VeryGood.png")
+            color = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+        case 3:
+//            qualityImage.image = #imageLiteral(resourceName: "icone_Good.png")
+            color = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+        case 4:
+//            qualityImage.image = #imageLiteral(resourceName: "icone_Good.png")
+            color = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
         case 5:
-            qualityImage.image = #imageLiteral(resourceName: "icone_Medium.png")
+//            qualityImage.image = #imageLiteral(resourceName: "icone_Medium.png")
+            color = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
         case 6:
-            qualityImage.image = #imageLiteral(resourceName: "icone_Poor.png")
-        case 7, 8:
-            qualityImage.image = #imageLiteral(resourceName: "icone_Bad.png")
+//            qualityImage.image = #imageLiteral(resourceName: "icone_Poor.png")
+            color = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+        case 7:
+//            qualityImage.image = #imageLiteral(resourceName: "icone_Bad.png")
+            color = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
+        case 8:
+//            qualityImage.image = #imageLiteral(resourceName: "icone_Bad.png")
+            color = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
         case 9:
-            qualityImage.image = #imageLiteral(resourceName: "icone_VeryBad.png")
+//            qualityImage.image = #imageLiteral(resourceName: "icone_VeryBad.png")
+            color = #colorLiteral(red: 0.3098039329, green: 0.01568627544, blue: 0.1294117719, alpha: 1)
         default:
             print("erreur")
         }
-    }
-
-    private func setColor() {
-        var color: UIColor
-        switch cityDetail[0].qualityColor {
-        case "green" :
-            color = UIColor.green
-        case "yellow" :
-            color = UIColor.yellow
-        case "orange" :
-            color = UIColor.orange
-        case "red" :
-            color = UIColor.red
-        case "purple" :
-            color = UIColor.purple
-        default:
-            color = UIColor.white
-        }
-
         qualityName.backgroundColor = color
         qualityImage.layer.backgroundColor = color.cgColor
         qualityIndicator.backgroundColor = color
@@ -122,19 +119,31 @@ class CityDetailViewController: UIViewController {
     }
     private func setPollutant() {
         for indice in 0...cityDetail[0].measurements.count-1 {
-            switch cityDetail[0].measurements[indice].parameter {
-            case "co":
-                pollutantCO.text = String(cityDetail[0].measurements[indice].value)
-            case "no2":
-                pollutantNO.text = String(cityDetail[0].measurements[indice].value)
-            case "o3":
-                pollutantO3.text = String(cityDetail[0].measurements[indice].value)
-            case "pm10":
-                pollutantPM10.text = String(cityDetail[0].measurements[indice].value)
-            case "pm25":
-                pollutantPM25.text = String(cityDetail[0].measurements[indice].value)
-            case "so2":
-                pollutantSO2.text = String(cityDetail[0].measurements[indice].value)
+            switch indice {
+            case 0:
+                pollutantOne.text = " \(String(cityDetail[0].measurements[indice].parameter)) : "
+                pollutantOneValue.text =
+                " \(String(cityDetail[0].measurements[indice].value)) \(cityDetail[0].measurements[indice].unit)"
+            case 1:
+                pollutantTwo.text = " \(String(cityDetail[0].measurements[indice].parameter)) : "
+                pollutantTwoValue.text =
+                " \(String(cityDetail[0].measurements[indice].value)) \(cityDetail[0].measurements[indice].unit)"
+            case 2:
+                pollutantThree.text = " \(String(cityDetail[0].measurements[indice].parameter)) : "
+                pollutantThreeValue.text =
+                " \(String(cityDetail[0].measurements[indice].value)) \(cityDetail[0].measurements[indice].unit)"
+            case 3:
+                pollutantFour.text = " \(String(cityDetail[0].measurements[indice].parameter)) : "
+                pollutantFourValue.text =
+                " \(String(cityDetail[0].measurements[indice].value)) \(cityDetail[0].measurements[indice].unit)"
+            case 4:
+                pollutantFive.text = " \(String(cityDetail[0].measurements[indice].parameter)) : "
+                pollutantFiveValue.text =
+                " \(String(cityDetail[0].measurements[indice].value)) \(cityDetail[0].measurements[indice].unit)"
+            case 5:
+                pollutantSix.text = " \(String(cityDetail[0].measurements[indice].parameter)) : "
+                pollutantSixValue.text =
+                " \(String(cityDetail[0].measurements[indice].value)) \(cityDetail[0].measurements[indice].unit)"
             default:
                 print("")
             }

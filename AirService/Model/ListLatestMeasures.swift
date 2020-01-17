@@ -22,11 +22,3 @@ struct ListLatestMeasure {
     let sourceName: String
     var measurements: [MeasuresDetail]
 }
-
-//struct MeasuresDetail {
-//    var parameter: String
-//    var value: Double
-//    var lastUpdated: Date
-//    var unit: String
-//    var sourceName: String
-//}
