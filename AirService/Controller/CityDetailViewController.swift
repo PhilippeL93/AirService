@@ -11,19 +11,12 @@ import UIKit
 class CityDetailViewController: UIViewController {
 
     @IBOutlet weak var cityName: UITextField!
-
     @IBOutlet weak var department: UITextField!
-
     @IBOutlet weak var qualityName: UITextField!
-
     @IBOutlet weak var qualityImage: UIImageView!
-
     @IBOutlet weak var qualityIndicator: UITextField!
-
     @IBOutlet weak var hourLastUpdated: UITextField!
-
     @IBOutlet weak var sourceName: UITextField!
-
     @IBOutlet weak var pollutantOne: UITextField!
     @IBOutlet weak var pollutantOneValue: UITextField!
     @IBOutlet weak var pollutantTwo: UITextField!
@@ -40,7 +33,7 @@ class CityDetailViewController: UIViewController {
     @IBOutlet weak var viewQuality: UIView!
 
     var cityDetail = [ListLatestMeasure]()
-//    var selectedCity = Int()
+    var locationsName: String = ""
 
     override func viewDidLoad() {
         fillCityDetail()
@@ -59,15 +52,20 @@ class CityDetailViewController: UIViewController {
 
         cityName.text = cityDetail[0].city
 
-//        if cityDetail[0].country == "FR" || cityDetail[0].country == "DE" {
         if cityDetail[0].country == "DE" {
             department.text = cityDetail[0].locations
+            if cityDetail[0].locations.isEmpty {
+                department.text = locationsName
+            }
         } else {
             department.text = cityDetail[0].location
         }
         if cityDetail[0].country == "FR" {
             department.text = cityDetail[0].city
             cityName.text = cityDetail[0].locations
+            if cityDetail[0].locations.isEmpty {
+                cityName.text = locationsName
+            }
         }
 
         qualityName.text = cityDetail[0].qualityName

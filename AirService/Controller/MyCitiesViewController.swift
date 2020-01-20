@@ -12,29 +12,7 @@ class MyCitiesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-//    override func viewDidLoad() {
-//        print("viewDidLoad")
-//        super.viewDidLoad()
-//        tagLatestMeasure = false
-//        ListLatestMeasuresService.shared.removeAll()
-//        citiesFavorite = SettingsService.favoriteCitiesList
-//        guard let countOfFavorites = citiesFavorite?.count else {
-//            return
-//        }
-//        for indice in 0...countOfFavorites-1 {
-//            guard let country = citiesFavorite?[indice].country ,
-//                let location = citiesFavorite?[indice].location ,
-//                let city = citiesFavorite?[indice].city else {
-//                    return
-//            }
-//            searchLatestMeasures(countryToSearch: country,
-//                                 locationToSearch: location,
-//                                 cityToSearch: city)
-//        }
-//    }
-
     override func viewWillAppear(_ animated: Bool) {
-//        print("viewWillAppear")
         super.viewWillAppear(animated)
         tagLatestMeasure = false
         ListLatestMeasuresService.shared.removeAll()
@@ -55,27 +33,6 @@ class MyCitiesViewController: UIViewController {
         }
     }
 
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        tagLatestMeasure = false
-//        ListLatestMeasuresService.shared.removeAll()
-//        citiesFavorite = SettingsService.favoriteCitiesList
-//
-//        guard let countOfFavorites = citiesFavorite?.count else {
-//            return
-//        }
-//        for indice in 0...countOfFavorites-1 {
-//            guard let country = citiesFavorite?[indice].country ,
-//                let location = citiesFavorite?[indice].location ,
-//                let city = citiesFavorite?[indice].city else {
-//                    return
-//            }
-//            searchLatestMeasures(countryToSearch: country,
-//                                 locationToSearch: location,
-//                                 cityToSearch: city)
-//        }
-//    }
-
     var citiesFavorite: [CitiesFavorite]?
     var tagLatestMeasure: Bool = false
     var cityFavorite: [LatestMeasures] = []
@@ -91,7 +48,6 @@ class MyCitiesViewController: UIViewController {
         ) { (success, errors) in
             DispatchQueue.main.async {
                 if success {
-//                    print("success")
                     self.getAllMeasures()
                 } else {
                     guard let errors = errors else {
@@ -148,13 +104,11 @@ extension MyCitiesViewController: UITableViewDataSource {
                         indiceCity = indice
             }
             cell.configure(with: ListLatestMeasuresService.shared.listLatestMeasures[indiceCity])
-//            print("============== cell")
             return cell
         }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return ListLatestMeasuresService.shared.listLatestMeasures.count
         return citiesFavorite?.count ?? 0
     }
 }
@@ -169,9 +123,6 @@ extension MyCitiesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle,
                    forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-//            deleteFavorite(city: ListLatestMeasuresService.shared.listLatestMeasures[indexPath.row].city,
-//                           location: ListLatestMeasuresService.shared.listLatestMeasures[indexPath.row].location)
-//            ListLatestMeasuresService.shared.removeFavorite(at: indexPath.row)
             guard let city = citiesFavorite?[indexPath.row].city,
                 let location = citiesFavorite?[indexPath.row].location else {
                 return
@@ -196,7 +147,6 @@ extension MyCitiesViewController: UITableViewDelegate {
                 ListLatestMeasuresService.shared.listLatestMeasures[indice].location {
             indiceCity = indice
         }
-//        destVC.cityDetail = [ListLatestMeasuresService.shared.listLatestMeasures[indexPath.item]]
         destVC.cityDetail = [ListLatestMeasuresService.shared.listLatestMeasures[indiceCity]]
         show(destVC, sender: self)
     }

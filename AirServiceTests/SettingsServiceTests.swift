@@ -11,23 +11,17 @@ import XCTest
 
 class SettingsServiceTests: XCTestCase {
 
-//    private var citiesFavorite: [CitiesFavorite]?
-//    override func setUp() {
-//        let mockSettingsContainer = MockSettingsContainer()
-//        let userDefaultsService = SettingsService(settingsContainer: mockSettingsContainer)
-//    }
-
     func testGivenGeoLocalization_WhenGetUserDefault_thenUserDefaultsEqualGeolocalization() {
         
         let mockSettingsContainer = MockSettingsContainer()
         let userDefaultsService = SettingsService(settingsContainer: mockSettingsContainer)
-            // Given
+        // Given
         userDefaultsService.localization = "GeoLocalization"
-            
-            // When
-            let localization = userDefaultsService.localization
-            
-            // Then
+        
+        // When
+        let localization = userDefaultsService.localization
+        
+        // Then
         XCTAssertEqual(localization, "GeoLocalization")
     }
 
@@ -52,10 +46,11 @@ class SettingsServiceTests: XCTestCase {
         
         let mockSettingsContainer = MockSettingsContainer()
         let userDefaultsService = SettingsService(settingsContainer: mockSettingsContainer)
-        var citiesFavorite: [CitiesFavorite]? = []
-        var citiesFavoriteCountBefore: Int = 0
-        citiesFavorite = userDefaultsService.favoriteCitiesList
         // Given
+        var citiesFavorite: [CitiesFavorite]?
+        let settingsService = SettingsService()
+        citiesFavorite = settingsService.favoriteCitiesList
+        var citiesFavoriteCountBefore: Int = 0
         citiesFavoriteCountBefore = citiesFavorite?.count ?? 0
         
         // When
@@ -66,8 +61,10 @@ class SettingsServiceTests: XCTestCase {
             location: "location",
             locations: "locations"
         )
-        citiesFavorite.append(cityFavorite)
-        let citiesFavoriteCountAfter = userDefaultsService.favoriteCitiesList?.count
+        citiesFavorite?.append(cityFavorite)
+        userDefaultsService.favoriteCitiesList = (citiesFavorite ?? [])!
+        
+        let citiesFavoriteCountAfter = citiesFavorite?.count
         
         // Then
         XCTAssertEqual(citiesFavoriteCountAfter, citiesFavoriteCountBefore+1)

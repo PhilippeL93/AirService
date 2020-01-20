@@ -16,7 +16,7 @@ class SettingsViewController: UIViewController {
 
     @IBAction func saveSettings(_ sender: Any) {
         let localizationIndex = choiceOfLocalization.selectedSegmentIndex
-        
+
         settingsService.localization = (localizationIndex == 0) ? "GeoLocalization" : "country"
         if settingsService.localization == "country" {
             settingsService.countryISO = getSelectedCountry()
@@ -110,7 +110,22 @@ extension SettingsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         return countries.count
     }
 
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return countries[row].name + " (" + countries[row].code + ")"
+    func pickerView(_ pickerView: UIPickerView,
+                    viewForRow row: Int,
+                    forComponent component: Int,
+                    reusing view: UIView?) -> UIView {
+
+        var label: UILabel
+        if let view = view as? UILabel {
+            label = view
+        } else {
+            label = UILabel()
+        }
+
+        label.textColor = UIColor.white
+        label.font = UIFont (name: "Raleway", size: 22)
+        label.text =  countries[row].name + " (" + countries[row].code + ")"
+        label.textAlignment = .center
+        return label
     }
 }

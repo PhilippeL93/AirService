@@ -47,7 +47,6 @@ class ApiServiceLatestMeasures {
         let api = apiServiceUrl
         guard let url = URL(string: api)?.appendParameters(params: queryParams)
             else { return completion(false, .noURL) }
-//        print("url ==================   \(url)")
         AF.request(url).responseJSON { response in
             switch response.result {
             case .success:
@@ -99,7 +98,6 @@ class ApiServiceLatestMeasures {
                     ListLatestMeasuresService.shared.add(listLatestMeasure: listLatestMeasures)
             }
         }
-//        print("ListLatestMeasuresService.shared \(ListLatestMeasuresService.shared.listLatestMeasures)")
     }
 
     private func getFavorite(city: String, location: String) -> String {

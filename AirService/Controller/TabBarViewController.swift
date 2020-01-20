@@ -21,16 +21,6 @@ class TabBarViewController: UITabBarController {
     }
 
     func setTabBarItems() {
-//        var newFrame = myTabBar.frame
-//        newFrame.size.width = 24
-//        newFrame.size.height = 24
-//        myTabBar.frame = newFrame
-//        let tabBarItemSize = __CGSizeEqualToSize(24, 24)
-//let tabBarHeight = tabBarController?.tabBar.frame.size.height ?? 0
-//        let tabBarWidth = tabBarController?.tabBar.frame.size.width ?? 0
-//
-//        tabBarController?.tabBar.frame.size.height = 15
-//        tabBarController?.tabBarItem.
         let myTabBarItem1 = (self.tabBar.items?[0])! as UITabBarItem
         myTabBarItem1.image = UIImage(awesomeType: .search, size: 15)
         myTabBarItem1.title = "Villes"
@@ -43,13 +33,3 @@ class TabBarViewController: UITabBarController {
 
     }
 }
-
-//extension UITabBar {
-//
-//    override public func sizeThatFits(_ size: CGSize) -> CGSize {
-//        super.sizeThatFits(size)
-//        var sizeThatFits = super.sizeThatFits(size)
-//        sizeThatFits.height = 40
-//        return sizeThatFits
-//    }
-//}

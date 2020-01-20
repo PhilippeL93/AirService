@@ -262,7 +262,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uDS-Fh-JyL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="gKR-Pu-zO1">
                     <connections>
-                        <action selector="dismissKeyboard:" destination="dsc-MN-zQQ" id="wZa-Vf-1ha"/>
+                        <action selector="dismissKeyBoard:" destination="dsc-MN-zQQ" id="BEU-uQ-8e3"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -287,33 +287,42 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sélectionnez le pays ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7w-2I-EHy" userLabel="Question">
-                                <rect key="frame" x="103" y="78" width="169" height="20"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                <rect key="frame" x="102.5" y="78" width="170" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gjE-bD-t87" userLabel="Countries Picker View">
                                 <rect key="frame" x="16" y="215.5" width="343" height="216"/>
-                                <color key="backgroundColor" red="0.089870072566819781" green="0.44204950976761054" blue="0.63596631659836067" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.18429291249999999" green="0.1882483959" blue="0.1960500479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="dP0-bp-gZW" id="z9X-OK-36p"/>
                                     <outlet property="delegate" destination="dP0-bp-gZW" id="WwT-4g-uVj"/>
                                 </connections>
                             </pickerView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tbT-Rh-Udo">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tbT-Rh-Udo" customClass="SegmentedController" customModule="AirService" customModuleProvider="target">
                                 <rect key="frame" x="64" y="517" width="247" height="32"/>
+                                <color key="backgroundColor" red="0.18429291249999999" green="0.1882483959" blue="0.1960500479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <segments>
-                                    <segment title="Geo Localisation"/>
+                                    <segment title="Géo Localisation"/>
                                     <segment title="Pays sélectionné"/>
                                 </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="selectedSegmentTintColor" red="0.75287443399999998" green="0.75298398730000005" blue="0.75285047289999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2jB-C1-fgr">
-                                <rect key="frame" x="144" y="581" width="87" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Sauvegarder">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="129.5" y="581" width="116" height="30"/>
+                                <color key="backgroundColor" red="0.18429291249999999" green="0.1882483959" blue="0.1960500479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="  Sauvegarder  ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="saveSettings:" destination="dP0-bp-gZW" eventType="touchUpInside" id="qAr-fU-Qlq"/>
                                 </connections>
@@ -323,7 +332,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" red="0.31097954509999998" green="0.62962019440000005" blue="0.89022809270000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.18429291249999999" green="0.1882483959" blue="0.1960500479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8C2-y0-OOF" firstAttribute="leading" secondItem="y6i-VF-cfw" secondAttribute="leading" constant="24" id="C7b-ep-ACr"/>
@@ -400,7 +409,7 @@
                                                                 <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LQF-h3-cBw" userLabel="Quality Name">
                                                                     <rect key="frame" x="0.0" y="0.0" width="70" height="63"/>
                                                                     <color key="backgroundColor" red="0.54255888149999998" green="0.91535598039999999" blue="0.29812567400000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="14"/>
+                                                                    <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="12"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
                                                                 <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xzw-sq-Efv" userLabel="Indicator Q">

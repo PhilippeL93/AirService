@@ -30,8 +30,7 @@ class CitiesViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBAction func settingCountry(_ sender: Any) {
     }
-
-    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+    @IBAction func dismissKeyBoard(_ sender: UITapGestureRecognizer) {
         searchBar.resignFirstResponder()
     }
 
@@ -56,8 +55,12 @@ class CitiesViewController: UIViewController, CLLocationManagerDelegate {
     var country = ""
     var errorsLocation: Errors?
     let settingsService = SettingsService()
+//    var countryLocate: String {
+//        return
+//    }
 
     private let apiFetchCities = ApiServiceCities()
+    private let apiFetchMeasures = ApiServiceLatestMeasures()
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.locationManager.stopUpdatingLocation()
@@ -163,6 +166,30 @@ extension CitiesViewController: UISearchBarDelegate {
         self.tableView.reloadData()
     }
 
+    private func searchLatestMeasures(countryToSearch: String,
+                                      locationToSearch: String, locationsName: String, cityToSearch: String) {
+        self.apiFetchMeasures.getApiLatestMeasures(
+            countryToSearch: countryToSearch,
+            locationToSearch: locationToSearch,
+            cityToSearch: cityToSearch
+        ) { (success, errors) in
+            DispatchQueue.main.async {
+                if success {
+                    guard let destVC = self.storyboard?.instantiateViewController(withIdentifier: "cityDetail")
+                        as? CityDetailViewController else {
+                            return
+                    }
+                    destVC.locationsName = locationsName
+                    destVC.cityDetail = [ListLatestMeasuresService.shared.listLatestMeasures[0]]
+                    self.show(destVC, sender: self)
+                } else {
+                    guard let errors = errors else {
+                        return }
+                    self.getErrors(type: errors)
+                }
+            }
+        }
+    }
 }
 
 // MARK: - extension Data for tableView
@@ -199,25 +226,30 @@ extension CitiesViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - extension Delegate
+extension CitiesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let size = tableView.frame.height / 6
+        return size
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        ListLatestMeasuresService.shared.removeAll()
+        searchLatestMeasures(countryToSearch: isoCountryCodeToSearch,
+                             locationToSearch: cities[indexPath.row].location,
+                             locationsName: cities[indexPath.row].locations,
+                             cityToSearch: cities[indexPath.row].city)
+    }
+}
+
 extension CitiesViewController: SettingsViewControllerDelegate {
 
     func refresh() {
         if settingsService.localization == "GeoLocalization" {
-            if CLLocationManager.locationServicesEnabled() == true {
-                if CLLocationManager.authorizationStatus() == .restricted ||
-                    CLLocationManager.authorizationStatus() == .denied ||
-                    CLLocationManager.authorizationStatus() == .notDetermined {
-                    locationManager.requestWhenInUseAuthorization()
-                }
-                locationManager.desiredAccuracy = kCLLocationAccuracyBest
-                locationManager.delegate = self
-                locationManager.startUpdatingLocation()
-            } else {
-                print("PLease turn on location services or GPS")
-            }
+            localizeiPhone()
         } else {
             isoCountryCodeToSearch = settingsService.countryISO ?? "FR"
-//            countryLabel.text = Locale.current.localizedString(forRegionCode: settingsService.countryISO)!
             countryLabel.text = Locale.current.localizedString(forRegionCode: isoCountryCodeToSearch)
             country = self.countryLabel.text!
         }
@@ -226,4 +258,18 @@ extension CitiesViewController: SettingsViewControllerDelegate {
         self.tableView.reloadData()
     }
 
+    private func localizeiPhone() {
+        if CLLocationManager.locationServicesEnabled() == true {
+            if CLLocationManager.authorizationStatus() == .restricted ||
+                CLLocationManager.authorizationStatus() == .denied ||
+                CLLocationManager.authorizationStatus() == .notDetermined {
+                locationManager.requestWhenInUseAuthorization()
+            }
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.delegate = self
+            locationManager.startUpdatingLocation()
+        } else {
+            print("PLease turn on location services or GPS")
+        }
+    }
 }
