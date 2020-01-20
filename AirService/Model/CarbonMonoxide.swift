@@ -23,6 +23,6 @@ struct CarbonMonoxide {
         CarbonMonoxide(indice: 6, value: 9999),
         CarbonMonoxide(indice: 7, value: 14999),
         CarbonMonoxide(indice: 8, value: 19999),
-        CarbonMonoxide(indice: 9, value: 999999999)
+        CarbonMonoxide(indice: 9, value: 99999)
     ]
 }

@@ -182,7 +182,7 @@ class ApiServiceLatestMeasuresTests: XCTestCase {
         XCTAssertEqual(numberOfMeasuresAfter, numberOfMeasuresBefore-1)
     }
 
-    func testGivenRemoveAllMeasure_WhenDeletedAllFavorites_thenCountOfListLatestMeasureEqualZero() {
+    func testGivenRemoveAllMeasure_WhenDeletedAllMeasures_thenCountOfListLatestMeasureEqualZero() {
         // Given
         initFavorite()
         let numberOfMeasuresBefore = ListLatestMeasuresService.shared.listLatestMeasures.count

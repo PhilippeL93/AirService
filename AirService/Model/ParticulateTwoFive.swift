@@ -23,6 +23,6 @@ struct ParticulateTwoFive {
         ParticulateTwoFive(indice: 6, value: 54),
         ParticulateTwoFive(indice: 7, value: 81),
         ParticulateTwoFive(indice: 8, value: 109),
-        ParticulateTwoFive(indice: 9, value: 999999999)
+        ParticulateTwoFive(indice: 9, value: 999)
     ]
 }

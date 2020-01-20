@@ -13,6 +13,7 @@ import Alamofire
 class ApiServiceLatestMeasures {
 
     private let apiServiceUrl = "https://api.openaq.org/v1/latest?"
+    let settingsService = SettingsService()
 
     // MARK: - functions
     /// function getApiLatestMeasures generate a call to API with Alamofire
@@ -102,7 +103,7 @@ class ApiServiceLatestMeasures {
     }
 
     private func getFavorite(city: String, location: String) -> String {
-        guard let citiesFavorite = SettingsService.favoriteCitiesList as [CitiesFavorite]? else {
+        guard let citiesFavorite = settingsService.favoriteCitiesList as [CitiesFavorite]? else {
             return ""
         }
         if citiesFavorite.count >= 1 {
@@ -124,67 +125,75 @@ class ApiServiceLatestMeasures {
             return completion(nil)
         }
     }
-
     private func calculateIndice(latestMeasure: [MeasuresDetail]) -> MeasuresFavorite {
-        var indiceAtmo: Int = 0
-        var pollutantMax: String = ""
-        var valuePollutant: Double = 0
-        var valueAtmoMax: Double = 0
-        var valueAtmo: Double = 0
-        var hourLastUpdateMax: String = ""
+
         var qualityIndicator: Double = 0
         var qualityName: String = ""
         var qualityColor: String = ""
-        var sourceNameMax: String = ""
-        var qualityIndice: Int = 0
+        var indices: IndicesMax
 
-        qualityIndice = 0
-        for indice in 0...latestMeasure.count-1 {
-            switch latestMeasure[indice].parameter {
-            case "co":
-                (indiceAtmo, valueAtmo) = searchIndicePollutantCO(value: latestMeasure[indice].value)
-            case "no2":
-                (indiceAtmo, valueAtmo) =  searchIndicePollutantNO(value: latestMeasure[indice].value)
-            case "o3":
-                (indiceAtmo, valueAtmo) = searchIndicePollutantO(value: latestMeasure[indice].value)
-            case "pm10":
-                (indiceAtmo, valueAtmo) = searchIndicePollutantPMTen(value: latestMeasure[indice].value)
-            case "pm25":
-                (indiceAtmo, valueAtmo) = searchIndicePollutantPMTwoFive(value:
-                    latestMeasure[indice].value)
-            case "so2":
-                (indiceAtmo, valueAtmo) = searchIndicePollutantSO(value: latestMeasure[indice].value)
-            default:
-                indiceAtmo = 0
-                valueAtmo = 1
-            }
-            if indiceAtmo > qualityIndice {
-                qualityIndice = indiceAtmo
-                pollutantMax = latestMeasure[indice].parameter
-                valuePollutant = latestMeasure[indice].value
-                if latestMeasure[indice].unit == "ppm" {
-                    valuePollutant *= 1000
-                }
-                valueAtmoMax = valueAtmo
-                hourLastUpdateMax = latestMeasure[indice].lastUpdated
-                sourceNameMax = latestMeasure[indice].sourceName
-            }
-        }
+        indices = calculateIndiceAtmoMax(latestMeasure: latestMeasure)
+
         for indice in 0...QualityLevel.list.count-1
-            where qualityIndice == QualityLevel.list[indice].indice {
+            where indices.indiceAtmoMax == QualityLevel.list[indice].indice {
                 qualityName = QualityLevel.list[indice].name
-                qualityIndicator = Double(QualityLevel.list[indice].level * valuePollutant / valueAtmoMax)
+                qualityIndicator = Double(QualityLevel.list[indice].level
+                    * latestMeasure[indices.indiceMax].value / indices.valueAtmoMax)
+                if latestMeasure[indices.indiceMax].unit == "ppm" {
+                    qualityIndicator *= 1000
+                }
                 qualityColor = QualityLevel.list[indice].color
         }
         let measuresFavorite = MeasuresFavorite(
             qualityName: qualityName,
             qualityColor: qualityColor,
-            qualityIndice: qualityIndice,
+            qualityIndice: indices.indiceAtmoMax,
             qualityIndicator: qualityIndicator,
-            pollutant: pollutantMax,
-            hourLastUpdated: hourLastUpdateMax,
-            sourceName: sourceNameMax)
+            pollutant: latestMeasure[indices.indiceMax].parameter,
+            hourLastUpdated: latestMeasure[indices.indiceMax].lastUpdated,
+            sourceName: latestMeasure[indices.indiceMax].sourceName)
         return measuresFavorite
+    }
+
+    private func calculateIndiceAtmoMax(latestMeasure: [MeasuresDetail]) -> (IndicesMax) {
+        var indiceMax: Int = 0
+        var indiceAtmoMax: Int = 0
+        var indiceAtmo: Int = 0
+        var valueAtmoMax: Double = 0
+        var valueAtmo: Double = 0
+
+        indiceAtmoMax = 0
+        indiceMax = 0
+        for indice in 0...latestMeasure.count-1 {
+            var valueToCheck = latestMeasure[indice].value
+            if latestMeasure[indice].unit == "ppm" {
+                valueToCheck *= 1000
+            }
+            switch latestMeasure[indice].parameter {
+            case "co":
+                (indiceAtmo, valueAtmo) = searchIndicePollutantCO(value: valueToCheck)
+            case "no2":
+                (indiceAtmo, valueAtmo) = searchIndicePollutantNO(value: valueToCheck)
+            case "o3":
+                (indiceAtmo, valueAtmo) = searchIndicePollutantO(value: valueToCheck)
+            case "pm10":
+                (indiceAtmo, valueAtmo) = searchIndicePollutantPMTen(value: valueToCheck)
+            case "pm25":
+                (indiceAtmo, valueAtmo) = searchIndicePollutantPMTwoFive(value: valueToCheck)
+            case "so2":
+                (indiceAtmo, valueAtmo) = searchIndicePollutantSO(value: valueToCheck)
+            default:
+                indiceAtmo = 0
+                valueAtmo = 1
+            }
+            if indiceAtmo > indiceAtmoMax {
+                indiceAtmoMax = indiceAtmo
+                indiceMax = indice
+                valueAtmoMax = valueAtmo
+            }
+        }
+        let indices = IndicesMax(indiceAtmoMax: indiceAtmoMax, indiceMax: indiceMax, valueAtmoMax: valueAtmoMax)
+        return indices
     }
     private func searchIndicePollutantCO(value: Double) -> (Int, Double) {
         for indice in 0...CarbonMonoxide.list.count-1

@@ -21,14 +21,14 @@ class PresentCitiesCell: UITableViewCell {
     }
 
     var cities = ListCitiesService.shared.listCities
-//    var favoriteCities = SettingsService.favoriteCitiesList
     var citiesFavorite: [CitiesFavorite]?
+    let settingsService = SettingsService()
 
     // MARK: - function
 
     func manageFavorite() {
-        citiesFavorite = SettingsService.favoriteCitiesList
-
+        citiesFavorite = settingsService.favoriteCitiesList
+        cities = ListCitiesService.shared.listCities
         if favoriteButton.currentTitleColor == #colorLiteral(red: 0.2673686743, green: 0.5816780329, blue: 0.3659712374, alpha: 1) {
             favoriteButton.setTitleColor(.white, for: .normal)
 
@@ -41,7 +41,7 @@ class PresentCitiesCell: UITableViewCell {
                     || (citiesFavorite?[indice].locations == citiesLabel.text
                     && citiesFavorite?[indice].city == locationLabel.text) {
                     citiesFavorite?.remove(at: indice)
-                    SettingsService.favoriteCitiesList = (citiesFavorite ?? [])!
+                    settingsService.favoriteCitiesList = (citiesFavorite ?? [])!
                     return
             }
         } else {
@@ -59,7 +59,7 @@ class PresentCitiesCell: UITableViewCell {
                     )
                     citiesFavorite?.append(cityFavorite)
             }
-            SettingsService.favoriteCitiesList = (citiesFavorite ?? [])!
+            settingsService.favoriteCitiesList = (citiesFavorite ?? [])!
             favoriteButton.setTitleColor(#colorLiteral(red: 0.2673686743, green: 0.5816780329, blue: 0.3659712374, alpha: 1), for: .normal)
         }
     }

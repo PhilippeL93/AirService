@@ -23,6 +23,6 @@ struct QualityLevel {
         QualityLevel(indice: 6, name: "Médiocre", color: "orangeSix", level: 75),
         QualityLevel(indice: 7, name: "Mauvais", color: "redSeven", level: 87.5),
         QualityLevel(indice: 8, name: "Mauvais", color: "redEight", level: 100),
-        QualityLevel(indice: 9, name: "Très mauvais", color: "redNine", level: 9999999)
+        QualityLevel(indice: 9, name: "Très mauvais", color: "redNine", level: 999)
     ]
 }

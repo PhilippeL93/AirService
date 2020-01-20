@@ -16,9 +16,10 @@ class SettingsViewController: UIViewController {
 
     @IBAction func saveSettings(_ sender: Any) {
         let localizationIndex = choiceOfLocalization.selectedSegmentIndex
-        SettingsService.localization = (localizationIndex == 0) ? "GeoLocalization" : "country"
-        if SettingsService.localization == "country" {
-            SettingsService.countryISO = getSelectedCountry()
+        
+        settingsService.localization = (localizationIndex == 0) ? "GeoLocalization" : "country"
+        if settingsService.localization == "country" {
+            settingsService.countryISO = getSelectedCountry()
         }
         self.delegate?.refresh()
         dismiss(animated: true, completion: nil)
@@ -37,17 +38,17 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         callAPI()
-        if SettingsService.localization == "GeoLocalization" {
+        if settingsService.localization == "GeoLocalization" {
             choiceOfLocalization.selectedSegmentIndex = 0
         } else {
             choiceOfLocalization.selectedSegmentIndex = 1
         }
     }
 
-        private let apiFetcherCountries = ApiServiceCountries()
-
-        var countries = ListCountriesService.shared.listCountries
-        weak var delegate: SettingsViewControllerDelegate?
+    private let apiFetcherCountries = ApiServiceCountries()
+    let settingsService = SettingsService()
+    var countries = ListCountriesService.shared.listCountries
+    weak var delegate: SettingsViewControllerDelegate?
 
     private func callAPI() {
         toggleActivityIndicator(shown: true)
@@ -84,7 +85,7 @@ class SettingsViewController: UIViewController {
 
     private func getSelectedRow() -> Int {
         for indice in 0...countries.count-1
-            where countries[indice].code == SettingsService.countryISO {
+            where countries[indice].code == settingsService.countryISO {
                 return indice
         }
         return -1

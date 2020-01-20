@@ -26,6 +26,8 @@ class CitiesViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
 
+    @IBOutlet weak var message: UILabel!
+
     @IBAction func settingCountry(_ sender: Any) {
     }
 
@@ -36,7 +38,9 @@ class CitiesViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         refresh()
+        message.isHidden = true
         self.searchBar.delegate = self
+        self.tableView.rowHeight = 80
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -51,6 +55,7 @@ class CitiesViewController: UIViewController, CLLocationManagerDelegate {
     var isoCountryCodeToSearch = ""
     var country = ""
     var errorsLocation: Errors?
+    let settingsService = SettingsService()
 
     private let apiFetchCities = ApiServiceCities()
 
@@ -93,6 +98,7 @@ extension CitiesViewController: UISearchBarDelegate {
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        message.isHidden = true
         if searchText.count <= 2 {
             searchActive = false
             self.cities.removeAll()
@@ -118,35 +124,43 @@ extension CitiesViewController: UISearchBarDelegate {
     }
 
     func searchAPIWithCity(searchText: String) {
-        self.apiFetchCities.getApiCities(countryToSearch: self.isoCountryCodeToSearch,
-                                         cityToSearch: searchText,
-                                         typeOfSearch: "city") { (success, errors ) in
-                                            DispatchQueue.main.async {
-                                                if success {
-                                                    self.cities = ListCitiesService.shared.listCities
-                                                    if self.cities.count >= 1 {
-                                                        self.tableView.reloadData()
-                                                    } else {
-                                                        self.getErrors(type: .noCities)
-                                                    }
-                                                } else {
-                                                    if self.errorsLocation == nil {
-                                                        self.cities = ListCitiesService.shared.listCities
-                                                        if self.cities.count >= 1 {
-                                                            self.tableView.reloadData()
-                                                        } else {
-                                                            self.getErrors(type: .noCities)
-                                                        }
-                                                    } else {
-                                                        guard let errors = errors else {
-                                                            return }
-                                                        if self.errorsLocation != nil {
-                                                            self.getErrors(type: errors)
-                                                        }
-                                                    }
-                                                }
-                                            }
+        self.apiFetchCities.getApiCities(
+            countryToSearch: self.isoCountryCodeToSearch,
+            cityToSearch: searchText,
+            typeOfSearch: "city") { (success, errors ) in
+                DispatchQueue.main.async {
+                    if success {
+                        self.cities = ListCitiesService.shared.listCities
+                        if self.cities.count >= 1 {
+                            self.tableView.reloadData()
+                        } else {
+                            self.displayMessage(error: .noCities)
+                        }
+                    } else {
+                        if self.errorsLocation == nil {
+                            self.cities = ListCitiesService.shared.listCities
+                            if self.cities.count >= 1 {
+                                self.tableView.reloadData()
+                            } else {
+                                self.displayMessage(error: .noCities)
+                            }
+                        } else {
+                            guard let errors = errors else {
+                                return }
+                            if self.errorsLocation != nil {
+                                self.displayMessage(error: errors)
+                            }
+                        }
+                    }
+                }
         }
+    }
+
+    private func displayMessage(error: Errors) {
+        self.message.text = " \(self.getErrorsText(type: error))"
+        self.message.isHidden = false
+        self.cities.removeAll()
+        self.tableView.reloadData()
     }
 
 }
@@ -188,7 +202,7 @@ extension CitiesViewController: UITableViewDataSource {
 extension CitiesViewController: SettingsViewControllerDelegate {
 
     func refresh() {
-        if SettingsService.localization == "GeoLocalization" {
+        if settingsService.localization == "GeoLocalization" {
             if CLLocationManager.locationServicesEnabled() == true {
                 if CLLocationManager.authorizationStatus() == .restricted ||
                     CLLocationManager.authorizationStatus() == .denied ||
@@ -202,8 +216,9 @@ extension CitiesViewController: SettingsViewControllerDelegate {
                 print("PLease turn on location services or GPS")
             }
         } else {
-            isoCountryCodeToSearch = SettingsService.countryISO
-            countryLabel.text = Locale.current.localizedString(forRegionCode: SettingsService.countryISO)!
+            isoCountryCodeToSearch = settingsService.countryISO ?? "FR"
+//            countryLabel.text = Locale.current.localizedString(forRegionCode: settingsService.countryISO)!
+            countryLabel.text = Locale.current.localizedString(forRegionCode: isoCountryCodeToSearch)
             country = self.countryLabel.text!
         }
         searchBar.text = ""

@@ -38,26 +38,21 @@ class MyCitiesViewController: UIViewController {
         super.viewWillAppear(animated)
         tagLatestMeasure = false
         ListLatestMeasuresService.shared.removeAll()
-        citiesFavorite = SettingsService.favoriteCitiesList
+        citiesFavorite = settingsService.favoriteCitiesList
 
         guard let countOfFavorites = citiesFavorite?.count, countOfFavorites > 0 else {
             return
         }
-//        print("avant searchLatestMeasures")
         for indice in 0...countOfFavorites-1 {
             guard let country = citiesFavorite?[indice].country ,
                 let location = citiesFavorite?[indice].location ,
                 let city = citiesFavorite?[indice].city else {
                     return
             }
-//            print("debut searchLatestMeasures")
             searchLatestMeasures(countryToSearch: country,
                                  locationToSearch: location,
                                  cityToSearch: city)
-//            print("fin searchLatestMeasures")
         }
-//        print("apres searchLatestMeasures")
-//        tableView.reloadData()
     }
 
 //    override func viewDidAppear(_ animated: Bool) {
@@ -84,6 +79,7 @@ class MyCitiesViewController: UIViewController {
     var citiesFavorite: [CitiesFavorite]?
     var tagLatestMeasure: Bool = false
     var cityFavorite: [LatestMeasures] = []
+    let settingsService = SettingsService()
 
     private let apiFetchMeasures = ApiServiceLatestMeasures()
 
@@ -110,7 +106,7 @@ class MyCitiesViewController: UIViewController {
         if ListLatestMeasuresService.shared.listLatestMeasures.count ==
             self.citiesFavorite?.count {
             self.tagLatestMeasure = true
-            self.citiesFavorite = SettingsService.favoriteCitiesList
+            self.citiesFavorite = settingsService.favoriteCitiesList
             self.tableView.reloadData()
         }
     }
@@ -182,7 +178,7 @@ extension MyCitiesViewController: UITableViewDelegate {
             }
             deleteFavorite(city: city, location: location)
             citiesFavorite?.remove(at: indexPath.row)
-            SettingsService.favoriteCitiesList = (citiesFavorite ?? [])!
+            settingsService.favoriteCitiesList = (citiesFavorite ?? [])!
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }

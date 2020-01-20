@@ -56,23 +56,6 @@ class ApiServiceCountriesTests: XCTestCase {
         wait(for: [expectation], timeout: 10)
     }
 
-//    func testGetCountris_ShouldPostFailedCallBack_IfNoErrorAndDataNoCountriesFound() {
-//        // Given
-//        let body = [String: String]
-//        
-//        // Define Stub
-//        stub(everything, json(body))
-//        // When
-//        let expectation = XCTestExpectation(description: "Wait for queue change.")
-//        apiFetcherCountries.getApiCountries() { (success, errors ) in
-//            // Then
-//            XCTAssertFalse(success)
-//            XCTAssertEqual(errors, .dataNotCompliant)
-//            expectation.fulfill()
-//        }
-//        wait(for: [expectation], timeout: 10)
-//    }
-
     func testGetCountris_ShouldPostFailedCallBack_IfNoInternetConnection() {
         // Given
         let error = NSError(domain: "com.cocoacasts.network", code: 1, userInfo: nil)

@@ -14,6 +14,7 @@ class ApiServiceCities {
 
     private let apiServiceUrl = "https://api.openaq.org/v1/locations?"
     private var request: DataRequest?
+    let settingsService = SettingsService()
 
     // MARK: - functions
     /// function getApiCities generate a call to API with Alamofire
@@ -250,7 +251,7 @@ class ApiServiceCities {
     }
 
     private func getFavorite(ident: String) -> Bool {
-        guard let citiesFavorite = SettingsService.favoriteCitiesList as [CitiesFavorite]? else {
+        guard let citiesFavorite = settingsService.favoriteCitiesList as [CitiesFavorite]? else {
             return false
         }
 

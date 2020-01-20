@@ -113,7 +113,7 @@ class CityDetailViewController: UIViewController {
             print("erreur")
         }
         qualityName.backgroundColor = color
-        qualityImage.layer.backgroundColor = color.cgColor
+//        qualityImage.layer.backgroundColor = color.cgColor
         qualityIndicator.backgroundColor = color
         viewQuality.layer.backgroundColor = color.cgColor
     }
