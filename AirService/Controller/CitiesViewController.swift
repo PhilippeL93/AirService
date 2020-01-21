@@ -28,24 +28,31 @@ class CitiesViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var message: UILabel!
 
-    @IBAction func settingCountry(_ sender: Any) {
-    }
     @IBAction func dismissKeyBoard(_ sender: UITapGestureRecognizer) {
         searchBar.resignFirstResponder()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidLoad()
+        refresh()
+//        cities = ListCitiesService.shared.listCities
+//        tableView.reloadData()
+        message.isHidden = true
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         refresh()
+        searchBar.text = ""
+//        cities = ListCitiesService.shared.listCities
+//        tableView.reloadData()
         message.isHidden = true
-        self.searchBar.delegate = self
-        self.tableView.rowHeight = 80
     }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let settings = segue.destination as? SettingsViewController
-        settings?.delegate = self
-    }
+//
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let settings = segue.destination as? SettingsViewController
+//        settings?.delegate = self
+//    }
 
     var locationManager = CLLocationManager()
     var cities = ListCitiesService.shared.listCities
@@ -55,9 +62,7 @@ class CitiesViewController: UIViewController, CLLocationManagerDelegate {
     var country = ""
     var errorsLocation: Errors?
     let settingsService = SettingsService()
-//    var countryLocate: String {
-//        return
-//    }
+    var oldIsoCountryCode: String = ""
 
     private let apiFetchCities = ApiServiceCities()
     private let apiFetchMeasures = ApiServiceLatestMeasures()
@@ -73,7 +78,9 @@ class CitiesViewController: UIViewController, CLLocationManagerDelegate {
             self.isoCountryCodeToSearch = isoCountryCode
             self.country = country
             self.countryLabel.text = country
+            self.checkUpdateIsoCountryCode(oldIsoCountryCode: self.oldIsoCountryCode)
         }
+//        checkUpdateIsoCountryCode(oldIsoCountryCode: self.oldIsoCountryCode)
     }
 }
 
@@ -190,6 +197,47 @@ extension CitiesViewController: UISearchBarDelegate {
             }
         }
     }
+
+    private func refresh() {
+        oldIsoCountryCode = isoCountryCodeToSearch
+        if settingsService.localization == "GeoLocalization" {
+            localizeiPhone()
+            checkUpdateIsoCountryCode(oldIsoCountryCode: oldIsoCountryCode)
+        } else {
+            isoCountryCodeToSearch = settingsService.countryISO ?? "FR"
+            countryLabel.text = Locale.current.localizedString(forRegionCode: isoCountryCodeToSearch)
+            country = self.countryLabel.text!
+            checkUpdateIsoCountryCode(oldIsoCountryCode: oldIsoCountryCode)
+        }
+    }
+
+    private func localizeiPhone() {
+        if CLLocationManager.locationServicesEnabled() == true {
+            if CLLocationManager.authorizationStatus() == .restricted ||
+                CLLocationManager.authorizationStatus() == .denied ||
+                CLLocationManager.authorizationStatus() == .notDetermined {
+                locationManager.requestWhenInUseAuthorization()
+            }
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.delegate = self
+            locationManager.startUpdatingLocation()
+        } else {
+            print("PLease turn on location services or GPS")
+        }
+        self.searchBar.delegate = self
+        self.tableView.rowHeight = 80
+    }
+
+    private func checkUpdateIsoCountryCode(oldIsoCountryCode: String) {
+        if oldIsoCountryCode != isoCountryCodeToSearch {
+            searchBar.text = ""
+            cities.removeAll()
+            tableView.reloadData()
+        } else {
+            cities = ListCitiesService.shared.listCities
+            tableView.reloadData()
+        }
+    }
 }
 
 // MARK: - extension Data for tableView
@@ -243,33 +291,11 @@ extension CitiesViewController: UITableViewDelegate {
     }
 }
 
-extension CitiesViewController: SettingsViewControllerDelegate {
-
-    func refresh() {
-        if settingsService.localization == "GeoLocalization" {
-            localizeiPhone()
-        } else {
-            isoCountryCodeToSearch = settingsService.countryISO ?? "FR"
-            countryLabel.text = Locale.current.localizedString(forRegionCode: isoCountryCodeToSearch)
-            country = self.countryLabel.text!
-        }
-        searchBar.text = ""
-        self.cities.removeAll()
-        self.tableView.reloadData()
-    }
-
-    private func localizeiPhone() {
-        if CLLocationManager.locationServicesEnabled() == true {
-            if CLLocationManager.authorizationStatus() == .restricted ||
-                CLLocationManager.authorizationStatus() == .denied ||
-                CLLocationManager.authorizationStatus() == .notDetermined {
-                locationManager.requestWhenInUseAuthorization()
-            }
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.delegate = self
-            locationManager.startUpdatingLocation()
-        } else {
-            print("PLease turn on location services or GPS")
-        }
-    }
-}
+//extension CitiesViewController: SettingsViewControllerDelegate {
+//
+//    func refreshData() {
+//        searchBar.text = ""
+//        self.cities.removeAll()
+//        self.tableView.reloadData()
+//    }
+//}

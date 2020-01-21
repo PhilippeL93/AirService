@@ -31,5 +31,9 @@ class TabBarViewController: UITabBarController {
         myTabBarItem2.title = "Mes Villes"
         myTabBarItem2.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
 
+        let myTabBarItem3 = (self.tabBar.items?[2])! as UITabBarItem
+        myTabBarItem3.image = UIImage(awesomeType: .cog, size: 15)
+        myTabBarItem3.title = "Paramètres"
+        myTabBarItem3.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 }

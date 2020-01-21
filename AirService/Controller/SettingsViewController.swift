@@ -7,10 +7,10 @@
 //
 
 import UIKit
-
-protocol SettingsViewControllerDelegate: AnyObject {
-    func refresh()
-}
+//
+//protocol SettingsViewControllerDelegate: AnyObject {
+//    func refreshData()
+//}
 
 class SettingsViewController: UIViewController {
 
@@ -21,12 +21,8 @@ class SettingsViewController: UIViewController {
         if settingsService.localization == "country" {
             settingsService.countryISO = getSelectedCountry()
         }
-        self.delegate?.refresh()
-        dismiss(animated: true, completion: nil)
-    }
-
-    @IBAction func dismiss() {
-        dismiss(animated: true, completion: nil)
+//        self.delegate?.refreshData()
+//        dismiss(animated: true, completion: nil)
     }
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -48,7 +44,7 @@ class SettingsViewController: UIViewController {
     private let apiFetcherCountries = ApiServiceCountries()
     let settingsService = SettingsService()
     var countries = ListCountriesService.shared.listCountries
-    weak var delegate: SettingsViewControllerDelegate?
+//    weak var delegate: SettingsViewControllerDelegate?
 
     private func callAPI() {
         toggleActivityIndicator(shown: true)

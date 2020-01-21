@@ -9,18 +9,8 @@
 import Foundation
 
 struct Cities: Decodable {
-//    let meta: MetaDataCities
     let results: [ResultsDataCities]
 }
-
-//struct MetaDataCities: Decodable {
-//    var name: String
-//    var license: String
-//    var website: URL
-//    var page: Double
-//    var limit: Double
-//    var found: Double
-//}
 
 struct ResultsDataCities {
     let ident: String
