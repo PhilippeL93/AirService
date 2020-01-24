@@ -21,8 +21,6 @@ class SettingsViewController: UIViewController {
         if settingsService.localization == "country" {
             settingsService.countryISO = getSelectedCountry()
         }
-//        self.delegate?.refreshData()
-//        dismiss(animated: true, completion: nil)
     }
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!

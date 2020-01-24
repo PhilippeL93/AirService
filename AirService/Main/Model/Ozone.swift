@@ -24,6 +24,6 @@ struct Ozone {
         Ozone(indice: 6, value: 179),
         Ozone(indice: 7, value: 209),
         Ozone(indice: 8, value: 239),
-        Ozone(indice: 9, value: 999)
+        Ozone(indice: 9, value: 360)
     ]
 }

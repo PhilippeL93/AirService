@@ -24,6 +24,6 @@ struct ParticulateTen {
         ParticulateTen(indice: 6, value: 49),
         ParticulateTen(indice: 7, value: 74),
         ParticulateTen(indice: 8, value: 99),
-        ParticulateTen(indice: 9, value: 999)
+        ParticulateTen(indice: 9, value: 150)
     ]
 }

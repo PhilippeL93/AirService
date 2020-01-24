@@ -150,7 +150,6 @@ class ApiServiceLatestMeasures {
     private func calculateIndice(latestMeasure: [MeasuresDetail]) -> MeasuresFavorite {
         var qualityIndicator: Double = 0
         var qualityName: String = ""
-//        var qualityColor: String = ""
         var indices: IndicesMax
 
         indices = calculateIndiceAtmoMax(latestMeasure: latestMeasure)
@@ -163,11 +162,9 @@ class ApiServiceLatestMeasures {
                 if latestMeasure[indices.indiceMax].unit == "ppm" {
                     qualityIndicator *= 1000
                 }
-//                qualityColor = QualityLevel.list[indice].color
         }
         let measuresFavorite = MeasuresFavorite(
             qualityName: qualityName,
-//            qualityColor: qualityColor,
             qualityIndice: indices.indiceAtmoMax,
             qualityIndicator: qualityIndicator,
             pollutant: latestMeasure[indices.indiceMax].parameter,
@@ -205,6 +202,9 @@ class ApiServiceLatestMeasures {
             if latestMeasure[indice].unit == "ppm" {
                 valueToCheck *= 1000
             }
+//            (indiceAtmo, valueAtmo) =
+//            searchIndicePollutant(value: valueToCheck, pollutantToCheck: latestMeasure[indice].parameter)
+
             switch latestMeasure[indice].parameter {
             case "co":
                 (indiceAtmo, valueAtmo) = searchIndicePollutantCO(value: valueToCheck)
@@ -231,6 +231,61 @@ class ApiServiceLatestMeasures {
         let indices = IndicesMax(indiceAtmoMax: indiceAtmoMax, indiceMax: indiceMax, valueAtmoMax: valueAtmoMax)
         return indices
     }
+
+//    private func searchIndicePollutant(value: Double, pollutantToCheck: String) -> (Int, Double) {
+//        var pollutantBis: [indice: Int, value: Double]
+//        switch pollutantToCheck {
+//        case "co":
+//           let pollutant = CarbonMonoxide.list
+//           pollutantBis = CarbonMonoxide.list
+//            for indice in 0...pollutant.count-1
+//                where value <= pollutant[indice].value {
+//                    return (pollutant[indice].indice, pollutant[indice].value)
+//            }
+//            for indice in 0...pollutantBis.count-1
+//                where value <= pollutantBis[indice].value {
+//                    return (pollutantBis[indice].indice, pollutantBis[indice].value)
+//            }
+//        case "no2":
+//            let pollutant = NitrogenDioxide.list
+//            pollutantBis = NitrogenDioxide.list
+//            for indice in 0...pollutant.count-1
+//                where value <= pollutant[indice].value {
+//                    return (pollutant[indice].indice, pollutant[indice].value)
+//            }
+//        case "o3":
+//            let pollutant = Ozone.list
+//            pollutantBis = Ozone.list
+//            for indice in 0...pollutant.count-1
+//                where value <= pollutant[indice].value {
+//                    return (pollutant[indice].indice, pollutant[indice].value)
+//            }
+//        case "pm10":
+//            let pollutant = ParticulateTen.list
+//            pollutantBis = ParticulateTen.list
+//            for indice in 0...pollutant.count-1
+//                where value <= pollutant[indice].value {
+//                    return (pollutant[indice].indice, pollutant[indice].value)
+//            }
+//        case "pm25":
+//            let pollutant = ParticulateTwoFive.list
+//            pollutantBis = ParticulateTwoFive.list
+//            for indice in 0...pollutant.count-1
+//                where value <= pollutant[indice].value {
+//                    return (pollutant[indice].indice, pollutant[indice].value)
+//            }
+//        case "so2":
+//            let pollutant = SulfurDioxide.list
+//            pollutantBis = SulfurDioxide.list
+//            for indice in 0...pollutant.count-1
+//                where value <= pollutant[indice].value {
+//                    return (pollutant[indice].indice, pollutant[indice].value)
+//            }
+//        default:
+//            return (0, 1)
+//        }
+//        return (0, 1)
+//    }
 
     /// function searchIndicePollutantCO in order determine level of Carbon Monoxide
     ///  - loop in structure CarbonMonoxide

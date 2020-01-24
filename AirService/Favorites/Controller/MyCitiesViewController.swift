@@ -117,7 +117,7 @@ extension MyCitiesViewController: UITableViewDataSource {
 // MARK: - extension Delegate
 extension MyCitiesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let size = tableView.frame.height / 3
+        let size = tableView.frame.height / 4
         return size
     }
 

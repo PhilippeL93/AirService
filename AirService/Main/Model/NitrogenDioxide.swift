@@ -24,6 +24,6 @@ struct NitrogenDioxide {
         NitrogenDioxide(indice: 6, value: 199),
         NitrogenDioxide(indice: 7, value: 299),
         NitrogenDioxide(indice: 8, value: 399),
-        NitrogenDioxide(indice: 9, value: 999)
+        NitrogenDioxide(indice: 9, value: 600)
     ]
 }

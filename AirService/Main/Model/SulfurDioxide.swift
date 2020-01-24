@@ -24,6 +24,6 @@ struct SulfurDioxide {
         SulfurDioxide(indice: 6, value: 349),
         SulfurDioxide(indice: 7, value: 424),
         SulfurDioxide(indice: 8, value: 499),
-        SulfurDioxide(indice: 9, value: 999)
+        SulfurDioxide(indice: 9, value: 750)
     ]
 }
