@@ -15,7 +15,7 @@
 		372F026623D04A9B006DB894 /* Raleway-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 372F026523D04A9B006DB894 /* Raleway-Medium.ttf */; };
 		372F026823D04AAA006DB894 /* Raleway-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 372F026723D04AAA006DB894 /* Raleway-Light.ttf */; };
 		372F026A23D06B33006DB894 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F026923D06B33006DB894 /* TabBarViewController.swift */; };
-		372F026C23D1B4EC006DB894 /* ViewQualityBlack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F026B23D1B4EC006DB894 /* ViewQualityBlack.swift */; };
+		372F026C23D1B4EC006DB894 /* ViewQualityWhite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F026B23D1B4EC006DB894 /* ViewQualityWhite.swift */; };
 		372F026E23D1B938006DB894 /* ViewCitiesBlack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F026D23D1B937006DB894 /* ViewCitiesBlack.swift */; };
 		37325C9623C472ED007EE0B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37325C9523C472ED007EE0B9 /* GoogleService-Info.plist */; };
 		37325C9723C472ED007EE0B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37325C9523C472ED007EE0B9 /* GoogleService-Info.plist */; };
@@ -84,7 +84,7 @@
 		372F026523D04A9B006DB894 /* Raleway-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Raleway-Medium.ttf"; path = "../../../../../../../Desktop/Raleway/Raleway-Medium.ttf"; sourceTree = "<group>"; };
 		372F026723D04AAA006DB894 /* Raleway-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Raleway-Light.ttf"; path = "../../../../../../../Desktop/Raleway/Raleway-Light.ttf"; sourceTree = "<group>"; };
 		372F026923D06B33006DB894 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		372F026B23D1B4EC006DB894 /* ViewQualityBlack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewQualityBlack.swift; sourceTree = "<group>"; };
+		372F026B23D1B4EC006DB894 /* ViewQualityWhite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewQualityWhite.swift; sourceTree = "<group>"; };
 		372F026D23D1B937006DB894 /* ViewCitiesBlack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCitiesBlack.swift; sourceTree = "<group>"; };
 		37325C9523C472ED007EE0B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		37325CA023C723A2007EE0B9 /* MyCitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCitiesViewController.swift; sourceTree = "<group>"; };
@@ -257,7 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				37325CA223C7326E007EE0B9 /* PresentFavoritesCell.swift */,
-				372F026B23D1B4EC006DB894 /* ViewQualityBlack.swift */,
+				372F026B23D1B4EC006DB894 /* ViewQualityWhite.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -332,6 +332,7 @@
 		37CC410E23A76FB200CC1D19 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				37524B3623CC816F00EFFA79 /* MeasuresFavorite.swift */,
 				37C8315923BB9A440030FE9B /* SharedURL.swift */,
 				37C8316123BCD5E20030FE9B /* SulfurDioxide.swift */,
 				37C8316523BCD64A0030FE9B /* NitrogenDioxide.swift */,
@@ -340,7 +341,6 @@
 				37C8316323BCD6290030FE9B /* CarbonMonoxide.swift */,
 				37C8316923BCD69A0030FE9B /* ParticulateTwoFive.swift */,
 				37C8316B23BCDB860030FE9B /* QualityLevel.swift */,
-				37524B3623CC816F00EFFA79 /* MeasuresFavorite.swift */,
 				37F60C7923D384B7001C5399 /* IndicesMax.swift */,
 				37524B3423C9B72700EFFA79 /* StringShared.swift */,
 			);
@@ -652,7 +652,7 @@
 				37325CA123C723A2007EE0B9 /* MyCitiesViewController.swift in Sources */,
 				37C8316223BCD5E20030FE9B /* SulfurDioxide.swift in Sources */,
 				37C8315A23BB9A440030FE9B /* SharedURL.swift in Sources */,
-				372F026C23D1B4EC006DB894 /* ViewQualityBlack.swift in Sources */,
+				372F026C23D1B4EC006DB894 /* ViewQualityWhite.swift in Sources */,
 				37524B3523C9B72700EFFA79 /* StringShared.swift in Sources */,
 				37365A3123B11A410072EA90 /* ApiServiceCountries.swift in Sources */,
 				372F026E23D1B938006DB894 /* ViewCitiesBlack.swift in Sources */,

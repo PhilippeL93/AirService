@@ -48,6 +48,7 @@ class CityDetailViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
         fillCityDetail()
         initMainChart()
+        initCharts()
         super.viewDidLoad()
         }
 
@@ -84,6 +85,43 @@ class CityDetailViewController: UIViewController {
         indiceDataFull.value = 200 - cityDetail[0].qualityIndicator
         indiceDataEntries = [indiceData, indiceDataFull]
         updateChartData()
+    }
+
+    private func initCharts() {
+        pollutantOne.backgroundColor = .white
+        pollutantTwo.backgroundColor = .white
+        pollutantThree.backgroundColor = .white
+        pollutantFour.backgroundColor = .white
+        pollutantFive.backgroundColor = .white
+        pollutantSix.backgroundColor = .white
+
+        for indice in 1...6 {
+            switch indice {
+            case 1:
+                initChartDetail(typePol: pieChartPolOne)
+            case 2:
+                initChartDetail(typePol: pieChartPolTwo)
+            case 3:
+                initChartDetail(typePol: pieChartPolThree)
+            case 4:
+                initChartDetail(typePol: pieChartPolFour)
+            case 5:
+                initChartDetail(typePol: pieChartPolFive)
+            case 6:
+                initChartDetail(typePol: pieChartPolSix)
+            default:
+                initChartDetail(typePol: pieChartPolOne)
+            }
+        }
+    }
+
+    private func initChartDetail(typePol: PieChartView) {
+        typePol.noDataText = ""
+        typePol.holeColor = nil
+        typePol.legend.enabled = false
+        typePol.chartDescription?.text = ""
+        typePol.holeRadiusPercent = 0.90
+        typePol.rotationAngle = 90
     }
 
     private func updateChartData() {
@@ -125,37 +163,12 @@ class CityDetailViewController: UIViewController {
         hourLastUpdated.text = " \(String(cityDetail[0].hourLastUpdated[0 ..< 10]))" +
                                 " à : \(String(cityDetail[0].hourLastUpdated[11 ..< 19]))"
         sourceName.text = cityDetail[0].sourceName
-        setQualityAndColorImage()
+        let color = UIColor(named: String(cityDetail[0].qualityColor)) ?? .white
+        qualityName.backgroundColor = color
+        viewQuality.layer.backgroundColor = color.cgColor
         setPollutant()
     }
 
-    private func setQualityAndColorImage() {
-        var color: UIColor = UIColor.white
-        switch cityDetail[0].qualityIndice {
-        case 1:
-            color = UIColor(named: "colorLevelOne") ?? .white
-        case 2:
-            color = UIColor(named: "colorLevelTwo") ?? .white
-        case 3:
-            color = UIColor(named: "colorLevelThree") ?? .white
-        case 4:
-            color = UIColor(named: "colorLevelFour") ?? .white
-        case 5:
-            color = UIColor(named: "colorLevelFive") ?? .white
-        case 6:
-            color = UIColor(named: "colorLevelSix") ?? .white
-        case 7:
-            color = UIColor(named: "colorLevelSeven") ?? .white
-        case 8:
-            color = UIColor(named: "colorLevelEight") ?? .white
-        case 9:
-            color = UIColor(named: "colorLevelNine") ?? .white
-        default:
-            color = UIColor(named: "colorLevelDefault") ?? .white
-        }
-        qualityName.backgroundColor = color
-        viewQuality.layer.backgroundColor = color.cgColor
-    }
     private func setPollutant() {
         for indice in 0...cityDetail[0].measurements.count-1 {
             var pollutantValue: Double = 0
@@ -198,33 +211,36 @@ class CityDetailViewController: UIViewController {
         case 0:
             typePol = pieChartPolOne
             pollutantOne.text = parameter
+//            pollutantOne.backgroundColor = #colorLiteral(red: 0.752874434, green: 0.7529839873, blue: 0.7528504729, alpha: 1)
         case 1:
             typePol = pieChartPolTwo
             pollutantTwo.text = parameter
+//            pollutantTwo.backgroundColor = #colorLiteral(red: 0.752874434, green: 0.7529839873, blue: 0.7528504729, alpha: 1)
         case 2:
             typePol = pieChartPolThree
             pollutantThree.text = parameter
+//            pollutantThree.backgroundColor = #colorLiteral(red: 0.752874434, green: 0.7529839873, blue: 0.7528504729, alpha: 1)
         case 3:
             typePol = pieChartPolFour
             pollutantFour.text = parameter
+//            pollutantFour.backgroundColor = #colorLiteral(red: 0.752874434, green: 0.7529839873, blue: 0.7528504729, alpha: 1)
         case 4:
             typePol = pieChartPolFive
             pollutantFive.text = parameter
+//            pollutantFive.backgroundColor = #colorLiteral(red: 0.752874434, green: 0.7529839873, blue: 0.7528504729, alpha: 1)
         case 5:
             typePol = pieChartPolSix
             pollutantSix.text = parameter
+//            pollutantSix.backgroundColor = #colorLiteral(red: 0.752874434, green: 0.7529839873, blue: 0.7528504729, alpha: 1)
         default:
             print("")
         }
-        typePol.holeColor = nil
-        typePol.legend.enabled = false
-        typePol.chartDescription?.text = ""
-        typePol.holeRadiusPercent = 0.90
-        typePol.rotationAngle = 90
+        typePol.backgroundColor = #colorLiteral(red: 0.752874434, green: 0.7529839873, blue: 0.7528504729, alpha: 1)
         let raleway = NSUIFont (name: "Raleway", size: 14)
         typePol.centerAttributedText = NSAttributedString(string:
             String(format: "%.0f", pollutantValue),
                 attributes: [NSAttributedString.Key.font: raleway!])
+
         indiceData.value = pollutantValue
         indiceDataFull.value = valueMax - pollutantValue
         indiceDataEntries = [indiceData, indiceDataFull]

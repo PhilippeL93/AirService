@@ -369,7 +369,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="W4a-yj-Whl">
                                 <rect key="frame" x="0.0" y="44" width="375" height="583"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.18429291249999999" green="0.1882483959" blue="0.1960500479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListFavoritesCell" rowHeight="175.5" id="Rrd-vK-wdk" userLabel="List Favorites Cell" customClass="PresentFavoritesCell" customModule="AirService" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="175.5"/>
@@ -378,7 +378,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="175.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsb-mT-DIu" userLabel="View Quality Black" customClass="ViewQualityBlack" customModule="AirService" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsb-mT-DIu" userLabel="View Quality White" customClass="ViewQualityWhite" customModule="AirService" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="4" width="359" height="167.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="zrX-tg-rUQ">
@@ -498,7 +498,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" red="0.18429291249999999" green="0.1882483959" blue="0.1960500479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="bsb-mT-DIu" firstAttribute="top" secondItem="yu1-T2-0Ph" secondAttribute="top" constant="4" id="6ID-Fq-DWk"/>
                                                 <constraint firstAttribute="bottom" secondItem="bsb-mT-DIu" secondAttribute="bottom" constant="4" id="Cgh-iS-G2D"/>
@@ -506,6 +506,7 @@
                                                 <constraint firstItem="bsb-mT-DIu" firstAttribute="leading" secondItem="yu1-T2-0Ph" secondAttribute="leading" constant="8" id="FHN-Pz-hOd"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.18429291249999999" green="0.1882483959" blue="0.1960500479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="cityName" destination="TZ6-jx-bw1" id="nJA-oI-QpI"/>
                                             <outlet property="department" destination="q2A-1d-hbd" id="nKQ-nm-7Mc"/>
@@ -522,11 +523,18 @@
                                     <outlet property="delegate" destination="eOj-sp-9s0" id="PPb-aN-DGA"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="zqA-jC-AuY">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="color" red="0.18429291249999999" green="0.1882483959" blue="0.1960500479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.18429291249999999" green="0.1882483959" blue="0.1960500479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="W4a-yj-Whl" firstAttribute="trailing" secondItem="byH-bo-4lk" secondAttribute="trailing" id="1fr-xf-M41"/>
                             <constraint firstAttribute="bottom" secondItem="W4a-yj-Whl" secondAttribute="bottom" constant="40" id="IAH-pX-ecm"/>
+                            <constraint firstItem="zqA-jC-AuY" firstAttribute="centerY" secondItem="nlI-FD-ueY" secondAttribute="centerY" id="J2k-HE-ZGG"/>
+                            <constraint firstItem="zqA-jC-AuY" firstAttribute="centerX" secondItem="nlI-FD-ueY" secondAttribute="centerX" id="KcJ-WZ-6n1"/>
                             <constraint firstItem="W4a-yj-Whl" firstAttribute="leading" secondItem="byH-bo-4lk" secondAttribute="leading" id="izk-OV-VOt"/>
                             <constraint firstItem="W4a-yj-Whl" firstAttribute="top" secondItem="byH-bo-4lk" secondAttribute="top" id="m0Y-t2-TbF"/>
                         </constraints>
@@ -534,6 +542,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="dgB-tD-KUV"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="zqA-jC-AuY" id="7aJ-ag-D8C"/>
                         <outlet property="tableView" destination="W4a-yj-Whl" id="JdW-DE-iPe"/>
                     </connections>
                 </viewController>
@@ -549,8 +558,185 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="R6E-AB-CS4">
-                                <rect key="frame" x="0.0" y="41" width="375" height="331"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uyL-zi-C7P" userLabel="Stack View Pollutants">
+                                <rect key="frame" x="45" y="341" width="285" height="214"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="QgX-at-eNM" userLabel="Stack View Line One">
+                                        <rect key="frame" x="0.0" y="0.0" width="285" height="20"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kRb-qU-3TE" userLabel="PollutantOne">
+                                                <rect key="frame" x="0.0" y="0.0" width="75" height="20"/>
+                                                <color key="backgroundColor" red="0.99215686270000003" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="75" id="4ec-7h-w34" userLabel="width = 75"/>
+                                                    <constraint firstAttribute="height" constant="20" id="yyC-Dr-jcv"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="buR-4o-4ak" userLabel="PollutantTwo">
+                                                <rect key="frame" x="105" y="0.0" width="75" height="20"/>
+                                                <color key="backgroundColor" red="0.99215686270000003" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="BxF-zE-Rlv" userLabel="width = 75"/>
+                                                    <constraint firstAttribute="height" constant="20" id="xF7-WZ-Y6o"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CFR-BJ-BFa" userLabel="PollutantThree">
+                                                <rect key="frame" x="210" y="0.0" width="75" height="20"/>
+                                                <color key="backgroundColor" red="0.99215686270000003" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="75" id="7gc-eF-3K1" userLabel="width = 75"/>
+                                                    <constraint firstAttribute="height" constant="20" id="laE-Lj-0As"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="buR-4o-4ak" firstAttribute="height" secondItem="kRb-qU-3TE" secondAttribute="height" id="6wc-TG-t8Z"/>
+                                            <constraint firstItem="CFR-BJ-BFa" firstAttribute="height" secondItem="kRb-qU-3TE" secondAttribute="height" id="I7v-fw-uSK"/>
+                                            <constraint firstItem="buR-4o-4ak" firstAttribute="width" secondItem="kRb-qU-3TE" secondAttribute="width" id="NOc-QA-TI5"/>
+                                            <constraint firstItem="CFR-BJ-BFa" firstAttribute="width" secondItem="kRb-qU-3TE" secondAttribute="width" id="XrK-5j-Idf"/>
+                                            <constraint firstItem="CFR-BJ-BFa" firstAttribute="width" secondItem="kRb-qU-3TE" secondAttribute="width" id="kcv-t6-ZNl"/>
+                                            <constraint firstItem="buR-4o-4ak" firstAttribute="width" secondItem="kRb-qU-3TE" secondAttribute="width" id="tye-BN-F9s"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="0eT-GI-oko" userLabel="Stack View Chart One">
+                                        <rect key="frame" x="0.0" y="28" width="285" height="75"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N3d-Kp-9wv" userLabel="PieChartPollutantOne" customClass="PieChartView" customModule="Charts">
+                                                <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="E5I-vs-xHA" userLabel="height = 75"/>
+                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="75" id="SIW-xe-5Mc" userLabel="width = 75"/>
+                                                    <constraint firstAttribute="width" secondItem="N3d-Kp-9wv" secondAttribute="height" multiplier="1:1" id="g9g-n5-50q"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C8c-Jq-yBb" userLabel="PieChartPollutantTwo" customClass="PieChartView" customModule="Charts">
+                                                <rect key="frame" x="105" y="0.0" width="75" height="75"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="C8c-Jq-yBb" secondAttribute="height" multiplier="1:1" id="58E-bZ-qwd"/>
+                                                    <constraint firstAttribute="width" constant="75" id="FSd-Vp-IVZ"/>
+                                                    <constraint firstAttribute="height" constant="75" id="MEP-Ok-EzW"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hfg-aQ-GWU" userLabel="PieChartPollutantThree" customClass="PieChartView" customModule="Charts">
+                                                <rect key="frame" x="210" y="0.0" width="75" height="75"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="75" id="J9w-Tb-ipR"/>
+                                                    <constraint firstAttribute="width" constant="75" id="XBb-cs-vom"/>
+                                                    <constraint firstAttribute="width" secondItem="Hfg-aQ-GWU" secondAttribute="height" multiplier="1:1" id="g7l-if-xR5"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Hfg-aQ-GWU" firstAttribute="height" secondItem="N3d-Kp-9wv" secondAttribute="height" id="5OZ-7Q-sjy"/>
+                                            <constraint firstItem="C8c-Jq-yBb" firstAttribute="height" secondItem="N3d-Kp-9wv" secondAttribute="height" id="902-VM-tVa"/>
+                                            <constraint firstItem="C8c-Jq-yBb" firstAttribute="width" secondItem="N3d-Kp-9wv" secondAttribute="width" id="SZz-7W-22C"/>
+                                            <constraint firstItem="C8c-Jq-yBb" firstAttribute="height" secondItem="N3d-Kp-9wv" secondAttribute="height" id="SjJ-Ux-QXA"/>
+                                            <constraint firstItem="Hfg-aQ-GWU" firstAttribute="width" secondItem="N3d-Kp-9wv" secondAttribute="width" id="UIK-Mq-XZL"/>
+                                            <constraint firstItem="Hfg-aQ-GWU" firstAttribute="height" secondItem="N3d-Kp-9wv" secondAttribute="height" id="Z4u-gy-E5y"/>
+                                            <constraint firstItem="C8c-Jq-yBb" firstAttribute="width" secondItem="N3d-Kp-9wv" secondAttribute="width" id="jWZ-An-VOr"/>
+                                            <constraint firstItem="Hfg-aQ-GWU" firstAttribute="width" secondItem="N3d-Kp-9wv" secondAttribute="width" id="jeL-6J-vPp"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="PHG-7b-biB" userLabel="Stack View Line Two">
+                                        <rect key="frame" x="0.0" y="111" width="285" height="20"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6D3-fI-Gsc" userLabel="PollutantFour">
+                                                <rect key="frame" x="0.0" y="0.0" width="75" height="20"/>
+                                                <color key="backgroundColor" red="0.99215686270000003" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="2PU-ll-G0J"/>
+                                                    <constraint firstAttribute="width" constant="75" id="Dhc-Dr-L9i"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="GdN-Yo-ORl"/>
+                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="75" id="fUL-CU-5jI" userLabel="width = 75"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zqu-09-dQT" userLabel="PollutantFive">
+                                                <rect key="frame" x="105" y="0.0" width="75" height="20"/>
+                                                <color key="backgroundColor" red="0.99215686270000003" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="75" id="Gg8-Uv-GaT"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="bxB-n8-Tiq"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="d9w-9I-T0M" userLabel="width = 75"/>
+                                                    <constraint firstAttribute="height" constant="20" id="oNz-sf-lA9"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9B7-D6-j7f" userLabel="PollutantSix">
+                                                <rect key="frame" x="210" y="0.0" width="75" height="20"/>
+                                                <color key="backgroundColor" red="0.99215686270000003" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="75" id="FVc-SG-SND"/>
+                                                    <constraint firstAttribute="height" constant="20" id="N33-mM-NKj"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="Pf8-5d-n4q"/>
+                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="75" id="i7I-33-HcM" userLabel="width = 75"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="9B7-D6-j7f" firstAttribute="width" secondItem="6D3-fI-Gsc" secondAttribute="width" id="rYU-rK-IN2"/>
+                                            <constraint firstItem="zqu-09-dQT" firstAttribute="width" secondItem="6D3-fI-Gsc" secondAttribute="width" id="sz0-Rd-1eJ"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Lcv-dm-cwW" userLabel="Stack View Chart Two">
+                                        <rect key="frame" x="0.0" y="139" width="285" height="75"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1WJ-Ee-f0S" userLabel="PieChartPollutantFour" customClass="PieChartView" customModule="Charts">
+                                                <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="75" id="Pvl-Ni-Gmu"/>
+                                                    <constraint firstAttribute="width" secondItem="1WJ-Ee-f0S" secondAttribute="height" multiplier="1:1" id="sj2-2N-MsR"/>
+                                                    <constraint firstAttribute="width" constant="75" id="x6j-19-Dwf"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5xL-bR-J8Z" userLabel="PieChartPollutantFive" customClass="PieChartView" customModule="Charts">
+                                                <rect key="frame" x="105" y="0.0" width="75" height="75"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="75" id="0uO-xf-T9k"/>
+                                                    <constraint firstAttribute="height" constant="75" id="Egt-bw-8ug"/>
+                                                    <constraint firstAttribute="width" secondItem="5xL-bR-J8Z" secondAttribute="height" multiplier="1:1" id="YGk-Gb-deb"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DVh-vd-CU6" userLabel="PieChartPollutantSix" customClass="PieChartView" customModule="Charts">
+                                                <rect key="frame" x="210" y="0.0" width="75" height="75"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="DVh-vd-CU6" secondAttribute="height" multiplier="1:1" id="0X1-Y4-PW7"/>
+                                                    <constraint firstAttribute="height" constant="75" id="1bA-eC-2fC"/>
+                                                    <constraint firstAttribute="width" constant="75" id="Ari-41-JcS"/>
+                                                    <constraint firstAttribute="width" secondItem="DVh-vd-CU6" secondAttribute="height" multiplier="1:1" id="ENt-G3-XFo"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="Zo5-aq-kJH"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="5xL-bR-J8Z" firstAttribute="width" secondItem="N3d-Kp-9wv" secondAttribute="width" id="0Nw-3I-ov5"/>
+                                    <constraint firstItem="DVh-vd-CU6" firstAttribute="height" secondItem="N3d-Kp-9wv" secondAttribute="height" id="0nR-9y-Da1"/>
+                                    <constraint firstItem="5xL-bR-J8Z" firstAttribute="height" secondItem="N3d-Kp-9wv" secondAttribute="height" id="Tvy-ia-lja"/>
+                                    <constraint firstItem="1WJ-Ee-f0S" firstAttribute="width" secondItem="N3d-Kp-9wv" secondAttribute="width" id="f1F-ec-SmU"/>
+                                    <constraint firstItem="DVh-vd-CU6" firstAttribute="width" secondItem="N3d-Kp-9wv" secondAttribute="width" id="fMY-IR-uDE"/>
+                                    <constraint firstItem="1WJ-Ee-f0S" firstAttribute="height" secondItem="N3d-Kp-9wv" secondAttribute="height" id="gMl-xh-WMz"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="R6E-AB-CS4" userLabel="Stack View Top">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="331"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DlE-SY-HFg" userLabel="Stack View CD">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
@@ -632,7 +818,7 @@
                                                     <constraint firstAttribute="height" constant="1" id="I84-VJ-XZZ"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Polluants (en µg/m³)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OuL-Se-erE" userLabel="Pollutants">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Polluants (µg/m³)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OuL-Se-erE" userLabel="Pollutants">
                                                 <rect key="frame" x="0.0" y="73" width="375" height="20"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -670,180 +856,17 @@
                                     <action selector="showPollutants:" destination="Udi-L8-rwd" eventType="touchUpInside" id="b9G-De-iFg"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="49" translatesAutoresizingMaskIntoConstraints="NO" id="huj-bj-G9r" userLabel="Stack View Pollutants">
-                                <rect key="frame" x="45" y="380" width="285" height="166"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Fou-94-Pc4" userLabel="Stack View One Three five">
-                                        <rect key="frame" x="0.0" y="0.0" width="118" height="166"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BMX-a7-T4S" userLabel="Stack View One">
-                                                <rect key="frame" x="0.0" y="0.0" width="118" height="50"/>
-                                                <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kRb-qU-3TE" userLabel="PollutantOne">
-                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="60" id="YXH-Td-YXa" userLabel="width = 70"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N3d-Kp-9wv" userLabel="PieChartPollutantOne" customClass="PieChartView" customModule="Charts">
-                                                        <rect key="frame" x="68" y="0.0" width="50" height="50"/>
-                                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="N3d-Kp-9wv" secondAttribute="height" multiplier="1:1" id="F2y-VF-Vai"/>
-                                                            <constraint firstAttribute="height" constant="50" id="N07-Kp-Nkc"/>
-                                                            <constraint firstAttribute="width" constant="50" id="lZe-GM-s3S"/>
-                                                        </constraints>
-                                                    </view>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Vpg-j8-UE6" userLabel="Stack View Three">
-                                                <rect key="frame" x="0.0" y="58" width="118" height="50"/>
-                                                <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CFR-BJ-BFa" userLabel="PollutantThree">
-                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="60" id="GLX-UC-f3B"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hfg-aQ-GWU" userLabel="PieChartPollutantThree" customClass="PieChartView" customModule="Charts">
-                                                        <rect key="frame" x="68" y="0.0" width="50" height="50"/>
-                                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </view>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="Hfg-aQ-GWU" firstAttribute="height" secondItem="CFR-BJ-BFa" secondAttribute="height" id="Uws-h8-obk"/>
-                                                </constraints>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="n3a-kg-SVI" userLabel="Stack View Five">
-                                                <rect key="frame" x="0.0" y="116" width="118" height="50"/>
-                                                <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zqu-09-dQT" userLabel="PollutantFive">
-                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="60" id="mix-sD-vJd"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5xL-bR-J8Z" userLabel="PieChartPollutantFive" customClass="PieChartView" customModule="Charts">
-                                                        <rect key="frame" x="68" y="0.0" width="50" height="50"/>
-                                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </view>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="5xL-bR-J8Z" firstAttribute="height" secondItem="zqu-09-dQT" secondAttribute="height" id="dUU-lJ-d5n"/>
-                                                </constraints>
-                                            </stackView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="Hfg-aQ-GWU" firstAttribute="width" secondItem="N3d-Kp-9wv" secondAttribute="width" id="7hi-3B-ARf"/>
-                                            <constraint firstItem="5xL-bR-J8Z" firstAttribute="height" secondItem="N3d-Kp-9wv" secondAttribute="height" id="Mbq-ej-ERM"/>
-                                            <constraint firstItem="CFR-BJ-BFa" firstAttribute="width" secondItem="kRb-qU-3TE" secondAttribute="width" id="TAs-va-x0A"/>
-                                            <constraint firstItem="Hfg-aQ-GWU" firstAttribute="height" secondItem="N3d-Kp-9wv" secondAttribute="height" id="Yur-e5-zA7"/>
-                                            <constraint firstItem="CFR-BJ-BFa" firstAttribute="height" secondItem="kRb-qU-3TE" secondAttribute="height" id="g6s-cy-x2U"/>
-                                            <constraint firstItem="zqu-09-dQT" firstAttribute="width" secondItem="kRb-qU-3TE" secondAttribute="width" id="iFD-Ez-oyG"/>
-                                            <constraint firstItem="5xL-bR-J8Z" firstAttribute="width" secondItem="N3d-Kp-9wv" secondAttribute="width" id="mQL-qW-dac"/>
-                                            <constraint firstItem="zqu-09-dQT" firstAttribute="height" secondItem="kRb-qU-3TE" secondAttribute="height" id="saA-Yc-DrA"/>
-                                        </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="okm-mM-Wv8" userLabel="Stack View Two Four Six">
-                                        <rect key="frame" x="167" y="0.0" width="118" height="166"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ua3-OR-IB9" userLabel="Stack View Two">
-                                                <rect key="frame" x="0.0" y="0.0" width="118" height="50"/>
-                                                <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="buR-4o-4ak" userLabel="PollutantTwo">
-                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="60" id="pnT-tV-wOQ" userLabel="width = 70"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C8c-Jq-yBb" userLabel="PieChartPollutantTwo" customClass="PieChartView" customModule="Charts">
-                                                        <rect key="frame" x="68" y="0.0" width="50" height="50"/>
-                                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="C8c-Jq-yBb" secondAttribute="height" multiplier="1:1" id="cj1-js-kif"/>
-                                                        </constraints>
-                                                    </view>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fz7-Bq-737" userLabel="Stack View Four">
-                                                <rect key="frame" x="0.0" y="58" width="118" height="50"/>
-                                                <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6D3-fI-Gsc" userLabel="PollutantFour">
-                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="60" id="09H-Xz-MfE"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1WJ-Ee-f0S" userLabel="PieChartPollutantFour" customClass="PieChartView" customModule="Charts">
-                                                        <rect key="frame" x="68" y="0.0" width="50" height="50"/>
-                                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="1WJ-Ee-f0S" secondAttribute="height" multiplier="1:1" id="sj2-2N-MsR"/>
-                                                        </constraints>
-                                                    </view>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ylm-ul-7gE" userLabel="Stack View Six">
-                                                <rect key="frame" x="0.0" y="116" width="118" height="50"/>
-                                                <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9B7-D6-j7f" userLabel="PollutantSix">
-                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="60" id="kol-v7-HN1"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DVh-vd-CU6" userLabel="PieChartPollutantSix" customClass="PieChartView" customModule="Charts">
-                                                        <rect key="frame" x="68" y="0.0" width="50" height="50"/>
-                                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="DVh-vd-CU6" secondAttribute="height" multiplier="1:1" id="0X1-Y4-PW7"/>
-                                                        </constraints>
-                                                    </view>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="6D3-fI-Gsc" firstAttribute="width" secondItem="kRb-qU-3TE" secondAttribute="width" id="7YR-FD-Jei"/>
-                                    <constraint firstItem="buR-4o-4ak" firstAttribute="height" secondItem="kRb-qU-3TE" secondAttribute="height" id="Aos-qj-dWF"/>
-                                    <constraint firstItem="C8c-Jq-yBb" firstAttribute="height" secondItem="N3d-Kp-9wv" secondAttribute="height" id="C8v-Ht-yJr"/>
-                                    <constraint firstItem="DVh-vd-CU6" firstAttribute="height" secondItem="N3d-Kp-9wv" secondAttribute="height" id="LId-3V-Gr6"/>
-                                    <constraint firstItem="6D3-fI-Gsc" firstAttribute="height" secondItem="kRb-qU-3TE" secondAttribute="height" id="S4r-Fo-sOx"/>
-                                    <constraint firstItem="9B7-D6-j7f" firstAttribute="width" secondItem="kRb-qU-3TE" secondAttribute="width" id="TMr-en-h47"/>
-                                    <constraint firstItem="1WJ-Ee-f0S" firstAttribute="height" secondItem="N3d-Kp-9wv" secondAttribute="height" id="cGm-Xz-CiR"/>
-                                    <constraint firstItem="C8c-Jq-yBb" firstAttribute="width" secondItem="N3d-Kp-9wv" secondAttribute="width" id="mVH-Nn-ebj"/>
-                                    <constraint firstItem="1WJ-Ee-f0S" firstAttribute="width" secondItem="N3d-Kp-9wv" secondAttribute="width" id="sDj-Hm-Llw"/>
-                                    <constraint firstItem="DVh-vd-CU6" firstAttribute="width" secondItem="N3d-Kp-9wv" secondAttribute="width" id="uJl-3p-xRm"/>
-                                    <constraint firstItem="9B7-D6-j7f" firstAttribute="height" secondItem="kRb-qU-3TE" secondAttribute="height" id="uRg-kQ-7z3"/>
-                                    <constraint firstItem="buR-4o-4ak" firstAttribute="width" secondItem="kRb-qU-3TE" secondAttribute="width" id="unV-9X-dzS"/>
-                                </constraints>
-                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="RxX-Fi-vlc" firstAttribute="top" secondItem="XXi-fl-n6u" secondAttribute="top" constant="16" id="6G5-JB-ehE"/>
+                            <constraint firstItem="uyL-zi-C7P" firstAttribute="top" secondItem="R6E-AB-CS4" secondAttribute="bottom" constant="10" id="2p3-DG-gRx"/>
+                            <constraint firstItem="uyL-zi-C7P" firstAttribute="leading" secondItem="XXi-fl-n6u" secondAttribute="leading" constant="45" id="3CG-r5-Zqs"/>
+                            <constraint firstItem="XXi-fl-n6u" firstAttribute="trailing" secondItem="uyL-zi-C7P" secondAttribute="trailing" constant="45" id="HwD-54-1xg"/>
                             <constraint firstItem="RxX-Fi-vlc" firstAttribute="top" secondItem="XXi-fl-n6u" secondAttribute="top" constant="16" id="KLT-5P-bxN"/>
-                            <constraint firstItem="R6E-AB-CS4" firstAttribute="top" secondItem="XXi-fl-n6u" secondAttribute="top" constant="41" id="MRS-6A-KGs"/>
-                            <constraint firstItem="huj-bj-G9r" firstAttribute="top" secondItem="R6E-AB-CS4" secondAttribute="bottom" constant="8" id="QF0-Ua-1Qb"/>
                             <constraint firstItem="XXi-fl-n6u" firstAttribute="trailing" secondItem="RxX-Fi-vlc" secondAttribute="trailing" constant="16" id="WOX-8O-O3E"/>
                             <constraint firstItem="R6E-AB-CS4" firstAttribute="trailing" secondItem="XXi-fl-n6u" secondAttribute="trailing" id="XHf-QR-2St"/>
-                            <constraint firstItem="huj-bj-G9r" firstAttribute="leading" secondItem="XXi-fl-n6u" secondAttribute="leading" constant="45" id="jN2-Yc-P4j"/>
-                            <constraint firstItem="XXi-fl-n6u" firstAttribute="trailing" secondItem="huj-bj-G9r" secondAttribute="trailing" constant="45" id="pIk-Uq-e7n"/>
                             <constraint firstItem="R6E-AB-CS4" firstAttribute="leading" secondItem="XXi-fl-n6u" secondAttribute="leading" id="uCm-3i-uzM"/>
-                            <constraint firstItem="huj-bj-G9r" firstAttribute="centerX" secondItem="MSi-jO-K8f" secondAttribute="centerX" id="xT9-5y-2U5"/>
+                            <constraint firstItem="R6E-AB-CS4" firstAttribute="top" secondItem="XXi-fl-n6u" secondAttribute="top" id="xWn-3O-s5J"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XXi-fl-n6u"/>
                     </view>

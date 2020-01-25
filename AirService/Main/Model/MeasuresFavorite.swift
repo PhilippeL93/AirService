@@ -10,7 +10,7 @@ import Foundation
 
 struct MeasuresFavorite {
     let qualityName: String
-//    let qualityColor: String
+    let qualityColor: String
     let qualityIndice: Int
     let qualityIndicator: Double
     let pollutant: String

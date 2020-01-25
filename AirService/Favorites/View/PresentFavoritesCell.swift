@@ -40,37 +40,13 @@ class PresentFavoritesCell: UITableViewCell {
             cityName.text = cityFavorite.locations
         }
 
-        setQualityAndColorImage(qualityIndice: cityFavorite.qualityIndice)
+        let color = UIColor(named: String(cityFavorite.qualityColor)) ?? .white
+        qualityName.backgroundColor = color
+        qualityIndicator.backgroundColor = color
+        qualityView.backgroundColor = color
 
         hourLastUpdated.text = " \(String(cityFavorite.hourLastUpdated[0 ..< 10]))" +
                                 " à : \(String(cityFavorite.hourLastUpdated[11 ..< 19]))"
     }
-    private func setQualityAndColorImage(qualityIndice: Int) {
-        var color: UIColor = UIColor.white
-        switch qualityIndice {
-        case 1:
-            color = UIColor(named: "colorLevelOne") ?? .white
-        case 2:
-            color = UIColor(named: "colorLevelTwo") ?? .white
-        case 3:
-            color = UIColor(named: "colorLevelThree") ?? .white
-        case 4:
-            color = UIColor(named: "colorLevelFour") ?? .white
-        case 5:
-            color = UIColor(named: "colorLevelFive") ?? .white
-        case 6:
-            color = UIColor(named: "colorLevelSix") ?? .white
-        case 7:
-            color = UIColor(named: "colorLevelSeven") ?? .white
-        case 8:
-            color = UIColor(named: "colorLevelEight") ?? .white
-        case 9:
-            color = UIColor(named: "colorLevelNine") ?? .white
-        default:
-            color = UIColor(named: "colorLevelDefault") ?? .white
-        }
-        qualityName.backgroundColor = color
-        qualityIndicator.backgroundColor = color
-        qualityView.backgroundColor = color
-    }
+
 }

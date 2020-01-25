@@ -16,7 +16,7 @@ struct ListLatestMeasure {
     let qualityIndice: Int
     let qualityIndicator: Double
     let qualityName: String
-//    let qualityColor: String
+    let qualityColor: String
     let pollutant: String
     let hourLastUpdated: String
     let sourceName: String

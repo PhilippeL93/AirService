@@ -92,7 +92,7 @@ class ApiServiceLatestMeasures {
                     qualityIndice: measureFavorites.qualityIndice,
                     qualityIndicator: measureFavorites.qualityIndicator,
                     qualityName: measureFavorites.qualityName,
-//                    qualityColor: measureFavorites.qualityColor,
+                    qualityColor: measureFavorites.qualityColor,
                     pollutant: measureFavorites.pollutant,
                     hourLastUpdated: measureFavorites.hourLastUpdated,
                     sourceName: measureFavorites.sourceName,
@@ -150,6 +150,7 @@ class ApiServiceLatestMeasures {
     private func calculateIndice(latestMeasure: [MeasuresDetail]) -> MeasuresFavorite {
         var qualityIndicator: Double = 0
         var qualityName: String = ""
+        var qualityColor: String = ""
         var indices: IndicesMax
 
         indices = calculateIndiceAtmoMax(latestMeasure: latestMeasure)
@@ -157,6 +158,7 @@ class ApiServiceLatestMeasures {
         for indice in 0...QualityLevel.list.count-1
             where indices.indiceAtmoMax == QualityLevel.list[indice].indice {
                 qualityName = QualityLevel.list[indice].name
+                qualityColor = QualityLevel.list[indice].color
                 qualityIndicator = Double(QualityLevel.list[indice].level
                     * latestMeasure[indices.indiceMax].value / indices.valueAtmoMax)
                 if latestMeasure[indices.indiceMax].unit == "ppm" {
@@ -165,6 +167,7 @@ class ApiServiceLatestMeasures {
         }
         let measuresFavorite = MeasuresFavorite(
             qualityName: qualityName,
+            qualityColor: qualityColor,
             qualityIndice: indices.indiceAtmoMax,
             qualityIndicator: qualityIndicator,
             pollutant: latestMeasure[indices.indiceMax].parameter,

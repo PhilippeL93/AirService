@@ -1,5 +1,5 @@
 //
-//  ViewQualityBlack.swift
+//  ViewQualityWhite.swift
 //  AirService
 //
 //  Created by Philippe on 17/01/2020.
@@ -15,7 +15,7 @@ import UIKit
 ///    - put a border in color
 ///    - rounded corner
 ///
-class ViewQualityBlack: UIView {
+class ViewQualityWhite: UIView {
 
     @IBInspectable var cornerRadius: CGFloat = 0 {
         didSet {

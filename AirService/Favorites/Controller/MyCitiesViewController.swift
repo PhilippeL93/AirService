@@ -11,6 +11,7 @@ import UIKit
 class MyCitiesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -22,6 +23,7 @@ class MyCitiesViewController: UIViewController {
         guard let countOfFavorites = citiesFavorite?.count, countOfFavorites > 0 else {
             return
         }
+        toggleActivityIndicator(shown: true)
         for indice in 0...countOfFavorites-1 {
             guard let country = citiesFavorite?[indice].country ,
                 let location = citiesFavorite?[indice].location ,
@@ -65,6 +67,7 @@ class MyCitiesViewController: UIViewController {
             self.tagLatestMeasure = true
             self.citiesFavorite = settings.favoriteCitiesList
             self.tableView.reloadData()
+            self.toggleActivityIndicator(shown: false)
         }
     }
 
@@ -78,6 +81,16 @@ class MyCitiesViewController: UIViewController {
                     return
         }
     }
+
+    ///
+    /// function toggleActivityIndicator
+    ///     - depending of calling show :o
+    ///         - to unhidde/hidde activity indicator
+    ///
+    private func toggleActivityIndicator(shown: Bool) {
+        activityIndicator.isHidden = !shown
+    }
+
 }
 
 // MARK: - extension Data for tableView
