@@ -587,7 +587,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="0eT-GI-oko" userLabel="Stack View Chart One">
                                         <rect key="frame" x="0.0" y="0.0" width="285" height="75"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N3d-Kp-9wv" userLabel="PieChartPollutantOne" customClass="PieChartView" customModule="Charts">
+                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N3d-Kp-9wv" userLabel="PieChartPollutantOne" customClass="PieChartView" customModule="Charts">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -601,7 +601,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C8c-Jq-yBb" userLabel="PieChartPollutantTwo" customClass="PieChartView" customModule="Charts">
+                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C8c-Jq-yBb" userLabel="PieChartPollutantTwo" customClass="PieChartView" customModule="Charts">
                                                 <rect key="frame" x="105" y="0.0" width="75" height="75"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -610,7 +610,7 @@
                                                     <constraint firstAttribute="height" constant="75" id="MEP-Ok-EzW"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hfg-aQ-GWU" userLabel="PieChartPollutantThree" customClass="PieChartView" customModule="Charts">
+                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hfg-aQ-GWU" userLabel="PieChartPollutantThree" customClass="PieChartView" customModule="Charts">
                                                 <rect key="frame" x="210" y="0.0" width="75" height="75"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -677,7 +677,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Lcv-dm-cwW" userLabel="Stack View Chart Two">
                                         <rect key="frame" x="0.0" y="111" width="285" height="75"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1WJ-Ee-f0S" userLabel="PieChartPollutantFour" customClass="PieChartView" customModule="Charts">
+                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1WJ-Ee-f0S" userLabel="PieChartPollutantFour" customClass="PieChartView" customModule="Charts">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -686,7 +686,7 @@
                                                     <constraint firstAttribute="width" constant="75" id="x6j-19-Dwf"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5xL-bR-J8Z" userLabel="PieChartPollutantFive" customClass="PieChartView" customModule="Charts">
+                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5xL-bR-J8Z" userLabel="PieChartPollutantFive" customClass="PieChartView" customModule="Charts">
                                                 <rect key="frame" x="105" y="0.0" width="75" height="75"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -695,7 +695,7 @@
                                                     <constraint firstAttribute="width" secondItem="5xL-bR-J8Z" secondAttribute="height" multiplier="1:1" id="YGk-Gb-deb"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DVh-vd-CU6" userLabel="PieChartPollutantSix" customClass="PieChartView" customModule="Charts">
+                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DVh-vd-CU6" userLabel="PieChartPollutantSix" customClass="PieChartView" customModule="Charts">
                                                 <rect key="frame" x="210" y="0.0" width="75" height="75"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -802,7 +802,7 @@
                                                                 <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="22"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sNg-ZS-sdC" customClass="PieChartView" customModule="Charts">
+                                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sNg-ZS-sdC" customClass="PieChartView" customModule="Charts">
                                                                 <rect key="frame" x="207" y="0.0" width="128" height="128"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 <constraints>

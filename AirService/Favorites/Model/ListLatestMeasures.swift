@@ -20,13 +20,13 @@ struct ListLatestMeasure {
     let pollutant: String
     let hourLastUpdated: String
     let sourceName: String
-    var measurements: [MeasuresDetail]
+    var measurements: [ListLatestMeasuresDetail]
 }
-//struct ListMeasuresDetail: Decodable {
-//    var parameter: String
-//    var value: Double
-//    var lastUpdated: String
-//    var unit: String
-//    var sourceName: String
-//    var indiceAtmo: Int
-//}
+struct ListLatestMeasuresDetail {
+    var parameter: String
+    var value: Double
+    var lastUpdated: String
+    var unit: String
+    var sourceName: String
+    var indiceAtmo: Int
+}

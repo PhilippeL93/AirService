@@ -54,6 +54,7 @@
 		37C8316823BCD66B0030FE9B /* ParticulateTen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C8316723BCD66B0030FE9B /* ParticulateTen.swift */; };
 		37C8316A23BCD69A0030FE9B /* ParticulateTwoFive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C8316923BCD69A0030FE9B /* ParticulateTwoFive.swift */; };
 		37C8316C23BCDB860030FE9B /* QualityLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C8316B23BCDB860030FE9B /* QualityLevel.swift */; };
+		37CBDAB223DD83F2000B7A43 /* ListLatestMeasuresDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CBDAB123DD83F2000B7A43 /* ListLatestMeasuresDetailService.swift */; };
 		37CC40E923A767C000CC1D19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CC40E823A767C000CC1D19 /* AppDelegate.swift */; };
 		37CC40F023A767C000CC1D19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37CC40EE23A767C000CC1D19 /* Main.storyboard */; };
 		37CC40F523A767C200CC1D19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37CC40F423A767C200CC1D19 /* Assets.xcassets */; };
@@ -124,6 +125,7 @@
 		37C8316723BCD66B0030FE9B /* ParticulateTen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticulateTen.swift; sourceTree = "<group>"; };
 		37C8316923BCD69A0030FE9B /* ParticulateTwoFive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticulateTwoFive.swift; sourceTree = "<group>"; };
 		37C8316B23BCDB860030FE9B /* QualityLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualityLevel.swift; sourceTree = "<group>"; };
+		37CBDAB123DD83F2000B7A43 /* ListLatestMeasuresDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLatestMeasuresDetailService.swift; sourceTree = "<group>"; };
 		37CC40E523A767C000CC1D19 /* AirService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirService.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37CC40E823A767C000CC1D19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37CC40EF23A767C000CC1D19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				37365A2E23B0D4AB0072EA90 /* LatestMeasures.swift */,
 				37C8315D23BC97770030FE9B /* ListLatestMeasuresService.swift */,
 				37C8315B23BB9F470030FE9B /* ListLatestMeasures.swift */,
+				37CBDAB123DD83F2000B7A43 /* ListLatestMeasuresDetailService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -653,6 +656,7 @@
 				3799340023D9CFD600014238 /* PollutantsPopUpViewController.swift in Sources */,
 				37524B3323C8EEB100EFFA79 /* CityDetailViewController.swift in Sources */,
 				37325CA123C723A2007EE0B9 /* MyCitiesViewController.swift in Sources */,
+				37CBDAB223DD83F2000B7A43 /* ListLatestMeasuresDetailService.swift in Sources */,
 				37C8316223BCD5E20030FE9B /* SulfurDioxide.swift in Sources */,
 				37C8315A23BB9A440030FE9B /* SharedURL.swift in Sources */,
 				372F026C23D1B4EC006DB894 /* ViewQualityWhite.swift in Sources */,

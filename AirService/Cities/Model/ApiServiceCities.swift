@@ -150,20 +150,24 @@ class ApiServiceCities {
 
         duplicateFound = searchDuplicateCity(ident: type.ident)
 
-        if duplicateFound == false {
-            haveCharCountry(location: type.location, country: type.country, locations: type.locations)
-            if !locationsFound.isEmpty {
-                let listCities = ListCitie(
-                    ident: type.ident,
-                    country: type.country,
-                    city: type.city,
-                    location: type.location,
-                    locations: locationsFound,
-                    favorite: favorite
-                )
-                ListCitiesService.shared.add(listCitie: listCities)
-            }
+        guard duplicateFound == false else {
+            return
         }
+
+        haveCharCountry(location: type.location, country: type.country, locations: type.locations)
+
+        guard !locationsFound.isEmpty else {
+            return
+        }
+        let listCities = ListCitie(
+            ident: type.ident,
+            country: type.country,
+            city: type.city,
+            location: type.location,
+            locations: locationsFound,
+            favorite: favorite
+        )
+        ListCitiesService.shared.add(listCitie: listCities)
     }
 
     /// function getFRValues in order to prepare data for German country
@@ -178,18 +182,19 @@ class ApiServiceCities {
 
         duplicateFound = searchDuplicateCity(ident: type.ident)
 
-        if duplicateFound == false {
-            haveCharCountry(location: type.location, country: type.country, locations: type.locations)
-            let listCities = ListCitie(
-                ident: type.ident,
-                country: type.country,
-                city: type.city,
-                location: type.location,
-                locations: locationsFound,
-                favorite: favorite
-            )
-            ListCitiesService.shared.add(listCitie: listCities)
+        guard duplicateFound == false else {
+            return
         }
+        haveCharCountry(location: type.location, country: type.country, locations: type.locations)
+        let listCities = ListCitie(
+            ident: type.ident,
+            country: type.country,
+            city: type.city,
+            location: type.location,
+            locations: locationsFound,
+            favorite: favorite
+        )
+        ListCitiesService.shared.add(listCitie: listCities)
     }
 
     /// function getFRValues in order to prepare data for other countries
