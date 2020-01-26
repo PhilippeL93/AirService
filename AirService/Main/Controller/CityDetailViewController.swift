@@ -116,6 +116,9 @@ class CityDetailViewController: UIViewController {
     }
 
     private func initChartDetail(typePol: PieChartView) {
+        typePol.layer.cornerRadius = 10
+        typePol.layer.masksToBounds = false
+        typePol.clipsToBounds = true
         typePol.noDataText = ""
         typePol.holeColor = nil
         typePol.legend.enabled = false
@@ -176,66 +179,72 @@ class CityDetailViewController: UIViewController {
             if cityDetail[0].measurements[indice].unit == "ppm" {
                 pollutantValue *= 1000
             }
-            let valueMax = searchValueMaxPollutant(parameter: cityDetail[0].measurements[indice].parameter)
+            let parameter = cityDetail[0].measurements[indice].parameter
+            let (valueMax, indiceAtmo) =
+                searchValueMaxPollutant(parameter: parameter, valueToSearch: pollutantValue)
             initChartDetail(numPol: indice,
                             pollutantValue: pollutantValue,
                             valueMax: valueMax,
-                            parameter: cityDetail[0].measurements[indice].parameter)
+                            parameter: cityDetail[0].measurements[indice].parameter,
+                            indiceAtmo: indiceAtmo)
         }
     }
 
-    private func searchValueMaxPollutant(parameter: String) -> Double {
+    private func searchValueMaxPollutant(parameter: String, valueToSearch: Double) -> (Double, Int) {
         var value: Double = 0
+        var indiceAtmo: Int = 0
         switch parameter {
         case "co":
             value = CarbonMonoxide.list[7].value * 1.5
+            indiceAtmo = searchIndicePollutantCO(value: valueToSearch)
         case "no2":
             value = NitrogenDioxide.list[7].value * 1.5
+            indiceAtmo = searchIndicePollutantNO(value: valueToSearch)
         case "o3":
             value = Ozone.list[7].value * 1.5
+            indiceAtmo = searchIndicePollutantO(value: valueToSearch)
         case "pm10":
             value = ParticulateTen.list[7].value * 1.5
+            indiceAtmo = searchIndicePollutantPMTen(value: valueToSearch)
         case "pm25":
             value = ParticulateTwoFive.list[7].value * 1.5
+            indiceAtmo = searchIndicePollutantPMTwoFive(value: valueToSearch)
         case "so2":
             value = SulfurDioxide.list[7].value * 1.5
+            indiceAtmo = searchIndicePollutantSO(value: valueToSearch)
         default:
             value = 0
         }
-        return value
+        return (value, indiceAtmo)
     }
 
-    private func initChartDetail(numPol: Int, pollutantValue: Double, valueMax: Double, parameter: String) {
+    private func initChartDetail(
+        numPol: Int, pollutantValue: Double, valueMax: Double, parameter: String, indiceAtmo: Int) {
         var typePol: PieChartView = pieChartPolOne
         switch numPol {
         case 0:
             typePol = pieChartPolOne
             pollutantOne.text = parameter
-//            pollutantOne.backgroundColor = #colorLiteral(red: 0.752874434, green: 0.7529839873, blue: 0.7528504729, alpha: 1)
         case 1:
             typePol = pieChartPolTwo
             pollutantTwo.text = parameter
-//            pollutantTwo.backgroundColor = #colorLiteral(red: 0.752874434, green: 0.7529839873, blue: 0.7528504729, alpha: 1)
         case 2:
             typePol = pieChartPolThree
             pollutantThree.text = parameter
-//            pollutantThree.backgroundColor = #colorLiteral(red: 0.752874434, green: 0.7529839873, blue: 0.7528504729, alpha: 1)
         case 3:
             typePol = pieChartPolFour
             pollutantFour.text = parameter
-//            pollutantFour.backgroundColor = #colorLiteral(red: 0.752874434, green: 0.7529839873, blue: 0.7528504729, alpha: 1)
         case 4:
             typePol = pieChartPolFive
             pollutantFive.text = parameter
-//            pollutantFive.backgroundColor = #colorLiteral(red: 0.752874434, green: 0.7529839873, blue: 0.7528504729, alpha: 1)
         case 5:
             typePol = pieChartPolSix
             pollutantSix.text = parameter
-//            pollutantSix.backgroundColor = #colorLiteral(red: 0.752874434, green: 0.7529839873, blue: 0.7528504729, alpha: 1)
         default:
             print("")
         }
-        typePol.backgroundColor = #colorLiteral(red: 0.752874434, green: 0.7529839873, blue: 0.7528504729, alpha: 1)
+        let color = UIColor(named: String(QualityLevel.list[indiceAtmo].color))
+        typePol.backgroundColor = color
         let raleway = NSUIFont (name: "Raleway", size: 14)
         typePol.centerAttributedText = NSAttributedString(string:
             String(format: "%.0f", pollutantValue),
@@ -256,5 +265,77 @@ class CityDetailViewController: UIViewController {
         chartDataSet.colors = colors
         chartDataSet.label = ""
         typePol.data = chartData
+    }
+
+    /// function searchIndicePollutantCO in order determine level of Carbon Monoxide
+    ///  - loop in structure CarbonMonoxide
+    ///     - return indice and value
+    ///
+    private func searchIndicePollutantCO(value: Double) -> (Int) {
+        for indice in 0...CarbonMonoxide.list.count-1
+            where value <= CarbonMonoxide.list[indice].value {
+                return (indice)
+        }
+        return (0)
+    }
+
+    /// function searchIndicePollutantNO in order determine level of Nitrogen Dioxide
+    ///  - loop in structure CarbonMonoxide
+    ///     - return indice and value
+    ///
+    private func searchIndicePollutantNO(value: Double) -> (Int) {
+        for indice in 0...NitrogenDioxide.list.count-1
+            where value <= NitrogenDioxide.list[indice].value {
+                return (indice)
+        }
+        return (0)
+    }
+
+    /// function searchIndicePollutantO in order determine level of Ozone
+    ///  - loop in structure CarbonMonoxide
+    ///     - return indice and value
+    ///
+    private func searchIndicePollutantO(value: Double) -> (Int) {
+        for indice in 0...Ozone.list.count-1
+            where value <= Ozone.list[indice].value {
+                return (indice)
+        }
+        return (0)
+    }
+
+    /// function searchIndicePollutantPMTen in order determine level of PM10
+    ///  - loop in structure CarbonMonoxide
+    ///     - return indice and value
+    ///
+    private func searchIndicePollutantPMTen(value: Double) -> (Int) {
+        for indice in 0...ParticulateTen.list.count-1
+            where value <= ParticulateTen.list[indice].value {
+                return (indice)
+        }
+        return (0)
+    }
+
+    /// function searchIndicePollutantPMTwoFive in order determine level of PM2.5
+    ///  - loop in structure CarbonMonoxide
+    ///     - return indice and value
+    ///
+    private func searchIndicePollutantPMTwoFive(value: Double) -> (Int) {
+        for indice in 0...ParticulateTwoFive.list.count-1
+            where value <= ParticulateTwoFive.list[indice].value {
+                return (indice)
+        }
+        return (0)
+    }
+
+    /// function searchIndicePollutantSO in order determine level of Sulfur Dioxide
+    ///  - loop in structure CarbonMonoxide
+    ///     - return indice and value
+    ///
+    private func searchIndicePollutantSO(value: Double) -> (Int) {
+        for indice in 0...SulfurDioxide.list.count-1
+            where value <= SulfurDioxide.list[indice].value {
+                return (indice)
+        }
+        return (0)
     }
 }

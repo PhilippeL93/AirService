@@ -1,8 +1,8 @@
 //
-//  ViewQualityWhite.swift
+//  ViewQuality.swift
 //  AirService
 //
-//  Created by Philippe on 17/01/2020.
+//  Created by Philippe on 26/01/2020.
 //  Copyright © 2020 Philippe. All rights reserved.
 //
 
@@ -15,7 +15,7 @@ import UIKit
 ///    - put a border in color
 ///    - rounded corner
 ///
-class ViewQualityWhite: UIView {
+class ViewQuality: UIView {
 
     @IBInspectable var cornerRadius: CGFloat = 0 {
         didSet {

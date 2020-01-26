@@ -371,40 +371,40 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="583"/>
                                 <color key="backgroundColor" red="0.18429291249999999" green="0.1882483959" blue="0.1960500479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListFavoritesCell" rowHeight="175.5" id="Rrd-vK-wdk" userLabel="List Favorites Cell" customClass="PresentFavoritesCell" customModule="AirService" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="175.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListFavoritesCell" rowHeight="176" id="Rrd-vK-wdk" userLabel="List Favorites Cell" customClass="PresentFavoritesCell" customModule="AirService" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="176"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Rrd-vK-wdk" id="yu1-T2-0Ph" userLabel="View Quality">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="175.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="176"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsb-mT-DIu" userLabel="View Quality White" customClass="ViewQualityWhite" customModule="AirService" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="4" width="359" height="167.5"/>
+                                                    <rect key="frame" x="8" y="4" width="359" height="168"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="zrX-tg-rUQ">
-                                                            <rect key="frame" x="8" y="14.5" width="342" height="140"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GXX-za-vxC" userLabel="Stack View Quality Text">
+                                                            <rect key="frame" x="8" y="8" width="343" height="152"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="D0d-hQ-5aG" userLabel="Stack View Quality">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="70" height="140"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="70" height="152"/>
                                                                     <subviews>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lTt-28-fst" userLabel="View Quality">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="70" height="140"/>
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lTt-28-fst" userLabel="View Quality" customClass="ViewQuality" customModule="AirService" customModuleProvider="target">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="70" height="152"/>
                                                                             <subviews>
-                                                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="O7w-uZ-uFU">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="70" height="140"/>
+                                                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="O7w-uZ-uFU">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="70" height="152"/>
                                                                                     <subviews>
                                                                                         <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Quality  name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LQF-h3-cBw" userLabel="Quality Name">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="70" height="63"/>
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                             <constraints>
                                                                                                 <constraint firstAttribute="width" constant="70" id="E97-GA-R1O"/>
-                                                                                                <constraint firstAttribute="height" constant="63" id="csV-oX-eEC"/>
+                                                                                                <constraint firstAttribute="height" constant="70" id="Ej3-T6-ytD"/>
                                                                                             </constraints>
                                                                                             <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="12"/>
                                                                                             <textInputTraits key="textInputTraits"/>
                                                                                         </textField>
                                                                                         <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Quality Indice" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xzw-sq-Efv" userLabel="Indicator Q">
-                                                                                            <rect key="frame" x="0.0" y="77" width="70" height="63"/>
+                                                                                            <rect key="frame" x="0.0" y="82" width="70" height="70"/>
                                                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                             <constraints>
                                                                                                 <constraint firstAttribute="width" constant="70" id="ZoJ-yz-yZu"/>
@@ -414,15 +414,28 @@
                                                                                         </textField>
                                                                                     </subviews>
                                                                                     <constraints>
+                                                                                        <constraint firstItem="Xzw-sq-Efv" firstAttribute="top" secondItem="LQF-h3-cBw" secondAttribute="bottom" constant="12" id="2Vl-Yv-kqL"/>
                                                                                         <constraint firstItem="Xzw-sq-Efv" firstAttribute="height" secondItem="LQF-h3-cBw" secondAttribute="height" id="5lv-6R-LvX"/>
-                                                                                        <constraint firstItem="Xzw-sq-Efv" firstAttribute="top" secondItem="LQF-h3-cBw" secondAttribute="bottom" constant="14" id="mt9-Is-NmC"/>
+                                                                                        <constraint firstItem="Xzw-sq-Efv" firstAttribute="width" secondItem="LQF-h3-cBw" secondAttribute="width" id="Icm-Mi-rQ0"/>
                                                                                     </constraints>
                                                                                 </stackView>
                                                                             </subviews>
                                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                             <constraints>
+                                                                                <constraint firstAttribute="height" constant="152" id="gDk-Xw-wcP"/>
                                                                                 <constraint firstAttribute="width" constant="70" id="oU4-gv-o8t"/>
                                                                             </constraints>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                                    <integer key="value" value="1"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                    <integer key="value" value="10"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                                    <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                            </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                     </subviews>
                                                                     <color key="backgroundColor" red="0.69040905910000006" green="0.91535598039999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -430,39 +443,40 @@
                                                                         <constraint firstAttribute="width" constant="70" id="eQk-RR-GFa"/>
                                                                     </constraints>
                                                                 </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="x7f-11-Ayd" userLabel="Stack View Text">
-                                                                    <rect key="frame" x="82" y="0.0" width="260" height="140"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="x7f-11-Ayd" userLabel="Stack View Text">
+                                                                    <rect key="frame" x="78" y="0.0" width="265" height="152"/>
                                                                     <subviews>
                                                                         <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TZ6-jx-bw1" userLabel="City Name">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="260" height="20"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="265" height="32"/>
                                                                             <constraints>
+                                                                                <constraint firstAttribute="width" constant="265" id="Lv5-HD-pXk" userLabel="width = 265"/>
                                                                                 <constraint firstAttribute="height" constant="20" id="oXq-yl-muh"/>
-                                                                                <constraint firstAttribute="width" constant="260" id="zma-hl-x9P"/>
                                                                             </constraints>
                                                                             <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="17"/>
                                                                             <textInputTraits key="textInputTraits"/>
                                                                         </textField>
                                                                         <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Department" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q2A-1d-hbd" userLabel="Department">
-                                                                            <rect key="frame" x="0.0" y="40" width="260" height="20"/>
+                                                                            <rect key="frame" x="0.0" y="40" width="265" height="32"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="20" id="FZn-xi-4cJ"/>
-                                                                                <constraint firstAttribute="width" constant="260" id="hAy-C5-OWK"/>
+                                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="265" id="NeJ-h6-hJR" userLabel="width = 265"/>
                                                                             </constraints>
                                                                             <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="17"/>
                                                                             <textInputTraits key="textInputTraits"/>
                                                                         </textField>
                                                                         <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="main pollutant" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cWf-l9-caD" userLabel="Pollutant">
-                                                                            <rect key="frame" x="0.0" y="80" width="260" height="20"/>
+                                                                            <rect key="frame" x="0.0" y="80" width="265" height="32"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="width" constant="260" id="27V-q1-eoU"/>
                                                                                 <constraint firstAttribute="height" constant="20" id="Sf2-WY-w9d"/>
+                                                                                <constraint firstAttribute="width" constant="265" id="tQH-Zr-HHB"/>
                                                                             </constraints>
                                                                             <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="17"/>
                                                                             <textInputTraits key="textInputTraits"/>
                                                                         </textField>
                                                                         <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="hour last updated" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qmW-Zh-hTF" userLabel="HourLastUpdated">
-                                                                            <rect key="frame" x="0.0" y="120" width="260" height="20"/>
+                                                                            <rect key="frame" x="0.0" y="120" width="265" height="32"/>
                                                                             <constraints>
+                                                                                <constraint firstAttribute="width" constant="265" id="r38-fQ-yn8"/>
                                                                                 <constraint firstAttribute="height" constant="20" id="smr-XK-rj1"/>
                                                                             </constraints>
                                                                             <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="14"/>
@@ -481,10 +495,19 @@
                                                                     </constraints>
                                                                 </stackView>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="x7f-11-Ayd" firstAttribute="leading" secondItem="D0d-hQ-5aG" secondAttribute="trailing" constant="8" id="HI3-OO-Qwd"/>
+                                                            </constraints>
                                                         </stackView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="GXX-za-vxC" secondAttribute="bottom" constant="8" id="06G-M4-6g9"/>
+                                                        <constraint firstAttribute="trailing" secondItem="GXX-za-vxC" secondAttribute="trailing" constant="8" id="QQb-Qk-gI7"/>
+                                                        <constraint firstItem="GXX-za-vxC" firstAttribute="top" secondItem="bsb-mT-DIu" secondAttribute="top" constant="8" id="hKe-Sd-DA2"/>
+                                                        <constraint firstItem="GXX-za-vxC" firstAttribute="leading" secondItem="bsb-mT-DIu" secondAttribute="leading" constant="8" id="xTp-wM-OR8"/>
+                                                    </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                             <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -500,10 +523,10 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.18429291249999999" green="0.1882483959" blue="0.1960500479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstItem="bsb-mT-DIu" firstAttribute="top" secondItem="yu1-T2-0Ph" secondAttribute="top" constant="4" id="6ID-Fq-DWk"/>
-                                                <constraint firstAttribute="bottom" secondItem="bsb-mT-DIu" secondAttribute="bottom" constant="4" id="Cgh-iS-G2D"/>
-                                                <constraint firstAttribute="trailing" secondItem="bsb-mT-DIu" secondAttribute="trailing" constant="8" id="EHD-C9-rOM"/>
-                                                <constraint firstItem="bsb-mT-DIu" firstAttribute="leading" secondItem="yu1-T2-0Ph" secondAttribute="leading" constant="8" id="FHN-Pz-hOd"/>
+                                                <constraint firstItem="bsb-mT-DIu" firstAttribute="leading" secondItem="yu1-T2-0Ph" secondAttribute="leading" constant="8" id="36p-QT-WiR"/>
+                                                <constraint firstAttribute="trailing" secondItem="bsb-mT-DIu" secondAttribute="trailing" constant="8" id="cPs-Cb-84d"/>
+                                                <constraint firstItem="bsb-mT-DIu" firstAttribute="top" secondItem="yu1-T2-0Ph" secondAttribute="top" constant="4" id="nKu-qz-njt"/>
+                                                <constraint firstAttribute="bottom" secondItem="bsb-mT-DIu" secondAttribute="bottom" constant="4" id="sRn-K6-0iq"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.18429291249999999" green="0.1882483959" blue="0.1960500479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -561,8 +584,55 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uyL-zi-C7P" userLabel="Stack View Pollutants">
                                 <rect key="frame" x="45" y="341" width="285" height="214"/>
                                 <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="0eT-GI-oko" userLabel="Stack View Chart One">
+                                        <rect key="frame" x="0.0" y="0.0" width="285" height="75"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N3d-Kp-9wv" userLabel="PieChartPollutantOne" customClass="PieChartView" customModule="Charts">
+                                                <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="E5I-vs-xHA" userLabel="height = 75"/>
+                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="75" id="SIW-xe-5Mc" userLabel="width = 75"/>
+                                                    <constraint firstAttribute="width" secondItem="N3d-Kp-9wv" secondAttribute="height" multiplier="1:1" id="g9g-n5-50q"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C8c-Jq-yBb" userLabel="PieChartPollutantTwo" customClass="PieChartView" customModule="Charts">
+                                                <rect key="frame" x="105" y="0.0" width="75" height="75"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="C8c-Jq-yBb" secondAttribute="height" multiplier="1:1" id="58E-bZ-qwd"/>
+                                                    <constraint firstAttribute="width" constant="75" id="FSd-Vp-IVZ"/>
+                                                    <constraint firstAttribute="height" constant="75" id="MEP-Ok-EzW"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hfg-aQ-GWU" userLabel="PieChartPollutantThree" customClass="PieChartView" customModule="Charts">
+                                                <rect key="frame" x="210" y="0.0" width="75" height="75"/>
+                                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="75" id="J9w-Tb-ipR"/>
+                                                    <constraint firstAttribute="width" constant="75" id="XBb-cs-vom"/>
+                                                    <constraint firstAttribute="width" secondItem="Hfg-aQ-GWU" secondAttribute="height" multiplier="1:1" id="g7l-if-xR5"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Hfg-aQ-GWU" firstAttribute="height" secondItem="N3d-Kp-9wv" secondAttribute="height" id="5OZ-7Q-sjy"/>
+                                            <constraint firstItem="C8c-Jq-yBb" firstAttribute="height" secondItem="N3d-Kp-9wv" secondAttribute="height" id="902-VM-tVa"/>
+                                            <constraint firstItem="C8c-Jq-yBb" firstAttribute="width" secondItem="N3d-Kp-9wv" secondAttribute="width" id="SZz-7W-22C"/>
+                                            <constraint firstItem="C8c-Jq-yBb" firstAttribute="height" secondItem="N3d-Kp-9wv" secondAttribute="height" id="SjJ-Ux-QXA"/>
+                                            <constraint firstItem="Hfg-aQ-GWU" firstAttribute="width" secondItem="N3d-Kp-9wv" secondAttribute="width" id="UIK-Mq-XZL"/>
+                                            <constraint firstItem="Hfg-aQ-GWU" firstAttribute="height" secondItem="N3d-Kp-9wv" secondAttribute="height" id="Z4u-gy-E5y"/>
+                                            <constraint firstItem="C8c-Jq-yBb" firstAttribute="width" secondItem="N3d-Kp-9wv" secondAttribute="width" id="jWZ-An-VOr"/>
+                                            <constraint firstItem="Hfg-aQ-GWU" firstAttribute="width" secondItem="N3d-Kp-9wv" secondAttribute="width" id="jeL-6J-vPp"/>
+                                        </constraints>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="QgX-at-eNM" userLabel="Stack View Line One">
-                                        <rect key="frame" x="0.0" y="0.0" width="285" height="20"/>
+                                        <rect key="frame" x="0.0" y="83" width="285" height="20"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kRb-qU-3TE" userLabel="PollutantOne">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="20"/>
@@ -604,50 +674,42 @@
                                             <constraint firstItem="buR-4o-4ak" firstAttribute="width" secondItem="kRb-qU-3TE" secondAttribute="width" id="tye-BN-F9s"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="0eT-GI-oko" userLabel="Stack View Chart One">
-                                        <rect key="frame" x="0.0" y="28" width="285" height="75"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Lcv-dm-cwW" userLabel="Stack View Chart Two">
+                                        <rect key="frame" x="0.0" y="111" width="285" height="75"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N3d-Kp-9wv" userLabel="PieChartPollutantOne" customClass="PieChartView" customModule="Charts">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1WJ-Ee-f0S" userLabel="PieChartPollutantFour" customClass="PieChartView" customModule="Charts">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="75" id="E5I-vs-xHA" userLabel="height = 75"/>
-                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="75" id="SIW-xe-5Mc" userLabel="width = 75"/>
-                                                    <constraint firstAttribute="width" secondItem="N3d-Kp-9wv" secondAttribute="height" multiplier="1:1" id="g9g-n5-50q"/>
+                                                    <constraint firstAttribute="height" constant="75" id="Pvl-Ni-Gmu"/>
+                                                    <constraint firstAttribute="width" secondItem="1WJ-Ee-f0S" secondAttribute="height" multiplier="1:1" id="sj2-2N-MsR"/>
+                                                    <constraint firstAttribute="width" constant="75" id="x6j-19-Dwf"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C8c-Jq-yBb" userLabel="PieChartPollutantTwo" customClass="PieChartView" customModule="Charts">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5xL-bR-J8Z" userLabel="PieChartPollutantFive" customClass="PieChartView" customModule="Charts">
                                                 <rect key="frame" x="105" y="0.0" width="75" height="75"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="C8c-Jq-yBb" secondAttribute="height" multiplier="1:1" id="58E-bZ-qwd"/>
-                                                    <constraint firstAttribute="width" constant="75" id="FSd-Vp-IVZ"/>
-                                                    <constraint firstAttribute="height" constant="75" id="MEP-Ok-EzW"/>
+                                                    <constraint firstAttribute="width" constant="75" id="0uO-xf-T9k"/>
+                                                    <constraint firstAttribute="height" constant="75" id="Egt-bw-8ug"/>
+                                                    <constraint firstAttribute="width" secondItem="5xL-bR-J8Z" secondAttribute="height" multiplier="1:1" id="YGk-Gb-deb"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hfg-aQ-GWU" userLabel="PieChartPollutantThree" customClass="PieChartView" customModule="Charts">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DVh-vd-CU6" userLabel="PieChartPollutantSix" customClass="PieChartView" customModule="Charts">
                                                 <rect key="frame" x="210" y="0.0" width="75" height="75"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="75" id="J9w-Tb-ipR"/>
-                                                    <constraint firstAttribute="width" constant="75" id="XBb-cs-vom"/>
-                                                    <constraint firstAttribute="width" secondItem="Hfg-aQ-GWU" secondAttribute="height" multiplier="1:1" id="g7l-if-xR5"/>
+                                                    <constraint firstAttribute="width" secondItem="DVh-vd-CU6" secondAttribute="height" multiplier="1:1" id="0X1-Y4-PW7"/>
+                                                    <constraint firstAttribute="height" constant="75" id="1bA-eC-2fC"/>
+                                                    <constraint firstAttribute="width" constant="75" id="Ari-41-JcS"/>
+                                                    <constraint firstAttribute="width" secondItem="DVh-vd-CU6" secondAttribute="height" multiplier="1:1" id="ENt-G3-XFo"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="Zo5-aq-kJH"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="Hfg-aQ-GWU" firstAttribute="height" secondItem="N3d-Kp-9wv" secondAttribute="height" id="5OZ-7Q-sjy"/>
-                                            <constraint firstItem="C8c-Jq-yBb" firstAttribute="height" secondItem="N3d-Kp-9wv" secondAttribute="height" id="902-VM-tVa"/>
-                                            <constraint firstItem="C8c-Jq-yBb" firstAttribute="width" secondItem="N3d-Kp-9wv" secondAttribute="width" id="SZz-7W-22C"/>
-                                            <constraint firstItem="C8c-Jq-yBb" firstAttribute="height" secondItem="N3d-Kp-9wv" secondAttribute="height" id="SjJ-Ux-QXA"/>
-                                            <constraint firstItem="Hfg-aQ-GWU" firstAttribute="width" secondItem="N3d-Kp-9wv" secondAttribute="width" id="UIK-Mq-XZL"/>
-                                            <constraint firstItem="Hfg-aQ-GWU" firstAttribute="height" secondItem="N3d-Kp-9wv" secondAttribute="height" id="Z4u-gy-E5y"/>
-                                            <constraint firstItem="C8c-Jq-yBb" firstAttribute="width" secondItem="N3d-Kp-9wv" secondAttribute="width" id="jWZ-An-VOr"/>
-                                            <constraint firstItem="Hfg-aQ-GWU" firstAttribute="width" secondItem="N3d-Kp-9wv" secondAttribute="width" id="jeL-6J-vPp"/>
-                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="PHG-7b-biB" userLabel="Stack View Line Two">
-                                        <rect key="frame" x="0.0" y="111" width="285" height="20"/>
+                                        <rect key="frame" x="0.0" y="194" width="285" height="20"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6D3-fI-Gsc" userLabel="PollutantFour">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="20"/>
@@ -690,40 +752,6 @@
                                             <constraint firstItem="9B7-D6-j7f" firstAttribute="width" secondItem="6D3-fI-Gsc" secondAttribute="width" id="rYU-rK-IN2"/>
                                             <constraint firstItem="zqu-09-dQT" firstAttribute="width" secondItem="6D3-fI-Gsc" secondAttribute="width" id="sz0-Rd-1eJ"/>
                                         </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Lcv-dm-cwW" userLabel="Stack View Chart Two">
-                                        <rect key="frame" x="0.0" y="139" width="285" height="75"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1WJ-Ee-f0S" userLabel="PieChartPollutantFour" customClass="PieChartView" customModule="Charts">
-                                                <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
-                                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="75" id="Pvl-Ni-Gmu"/>
-                                                    <constraint firstAttribute="width" secondItem="1WJ-Ee-f0S" secondAttribute="height" multiplier="1:1" id="sj2-2N-MsR"/>
-                                                    <constraint firstAttribute="width" constant="75" id="x6j-19-Dwf"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5xL-bR-J8Z" userLabel="PieChartPollutantFive" customClass="PieChartView" customModule="Charts">
-                                                <rect key="frame" x="105" y="0.0" width="75" height="75"/>
-                                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="75" id="0uO-xf-T9k"/>
-                                                    <constraint firstAttribute="height" constant="75" id="Egt-bw-8ug"/>
-                                                    <constraint firstAttribute="width" secondItem="5xL-bR-J8Z" secondAttribute="height" multiplier="1:1" id="YGk-Gb-deb"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DVh-vd-CU6" userLabel="PieChartPollutantSix" customClass="PieChartView" customModule="Charts">
-                                                <rect key="frame" x="210" y="0.0" width="75" height="75"/>
-                                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="DVh-vd-CU6" secondAttribute="height" multiplier="1:1" id="0X1-Y4-PW7"/>
-                                                    <constraint firstAttribute="height" constant="75" id="1bA-eC-2fC"/>
-                                                    <constraint firstAttribute="width" constant="75" id="Ari-41-JcS"/>
-                                                    <constraint firstAttribute="width" secondItem="DVh-vd-CU6" secondAttribute="height" multiplier="1:1" id="ENt-G3-XFo"/>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="Zo5-aq-kJH"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
                                     </stackView>
                                 </subviews>
                                 <constraints>

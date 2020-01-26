@@ -21,6 +21,7 @@
 		37325C9723C472ED007EE0B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37325C9523C472ED007EE0B9 /* GoogleService-Info.plist */; };
 		37325CA123C723A2007EE0B9 /* MyCitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37325CA023C723A2007EE0B9 /* MyCitiesViewController.swift */; };
 		37325CA323C7326E007EE0B9 /* PresentFavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37325CA223C7326E007EE0B9 /* PresentFavoritesCell.swift */; };
+		37352ED123DD77A7004558D2 /* ViewQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37352ED023DD77A7004558D2 /* ViewQuality.swift */; };
 		37365A2923B0CCBE0072EA90 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37365A2823B0CCBE0072EA90 /* Countries.swift */; };
 		37365A2D23B0CFF50072EA90 /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37365A2C23B0CFF50072EA90 /* Cities.swift */; };
 		37365A2F23B0D4AB0072EA90 /* LatestMeasures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37365A2E23B0D4AB0072EA90 /* LatestMeasures.swift */; };
@@ -89,6 +90,7 @@
 		37325C9523C472ED007EE0B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		37325CA023C723A2007EE0B9 /* MyCitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCitiesViewController.swift; sourceTree = "<group>"; };
 		37325CA223C7326E007EE0B9 /* PresentFavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentFavoritesCell.swift; sourceTree = "<group>"; };
+		37352ED023DD77A7004558D2 /* ViewQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewQuality.swift; sourceTree = "<group>"; };
 		37365A2823B0CCBE0072EA90 /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		37365A2C23B0CFF50072EA90 /* Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
 		37365A2E23B0D4AB0072EA90 /* LatestMeasures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestMeasures.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 			children = (
 				37325CA223C7326E007EE0B9 /* PresentFavoritesCell.swift */,
 				372F026B23D1B4EC006DB894 /* ViewQualityWhite.swift */,
+				37352ED023DD77A7004558D2 /* ViewQuality.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -671,6 +674,7 @@
 				37F60C7C23D46113001C5399 /* Settings.swift in Sources */,
 				37CC40E923A767C000CC1D19 /* AppDelegate.swift in Sources */,
 				37A358F623D5E8790039A753 /* SegmentedController.swift in Sources */,
+				37352ED123DD77A7004558D2 /* ViewQuality.swift in Sources */,
 				379163E123B22411008A848F /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

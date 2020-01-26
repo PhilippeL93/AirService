@@ -98,7 +98,7 @@ class ApiServiceLatestMeasures {
                     sourceName: measureFavorites.sourceName,
                     measurements: type.results[indice].measurements
                 )
-                    ListLatestMeasuresService.shared.add(listLatestMeasure: listLatestMeasures)
+                ListLatestMeasuresService.shared.add(listLatestMeasure: listLatestMeasures)
             }
         }
     }
@@ -205,8 +205,6 @@ class ApiServiceLatestMeasures {
             if latestMeasure[indice].unit == "ppm" {
                 valueToCheck *= 1000
             }
-//            (indiceAtmo, valueAtmo) =
-//            searchIndicePollutant(value: valueToCheck, pollutantToCheck: latestMeasure[indice].parameter)
 
             switch latestMeasure[indice].parameter {
             case "co":
@@ -236,50 +234,39 @@ class ApiServiceLatestMeasures {
     }
 
 //    private func searchIndicePollutant(value: Double, pollutantToCheck: String) -> (Int, Double) {
-//        var pollutantBis: [indice: Int, value: Double]
 //        switch pollutantToCheck {
 //        case "co":
 //           let pollutant = CarbonMonoxide.list
-//           pollutantBis = CarbonMonoxide.list
 //            for indice in 0...pollutant.count-1
 //                where value <= pollutant[indice].value {
 //                    return (pollutant[indice].indice, pollutant[indice].value)
 //            }
-//            for indice in 0...pollutantBis.count-1
-//                where value <= pollutantBis[indice].value {
-//                    return (pollutantBis[indice].indice, pollutantBis[indice].value)
-//            }
 //        case "no2":
 //            let pollutant = NitrogenDioxide.list
-//            pollutantBis = NitrogenDioxide.list
 //            for indice in 0...pollutant.count-1
 //                where value <= pollutant[indice].value {
 //                    return (pollutant[indice].indice, pollutant[indice].value)
 //            }
 //        case "o3":
 //            let pollutant = Ozone.list
-//            pollutantBis = Ozone.list
 //            for indice in 0...pollutant.count-1
 //                where value <= pollutant[indice].value {
 //                    return (pollutant[indice].indice, pollutant[indice].value)
 //            }
 //        case "pm10":
 //            let pollutant = ParticulateTen.list
-//            pollutantBis = ParticulateTen.list
 //            for indice in 0...pollutant.count-1
 //                where value <= pollutant[indice].value {
 //                    return (pollutant[indice].indice, pollutant[indice].value)
 //            }
 //        case "pm25":
 //            let pollutant = ParticulateTwoFive.list
-//            pollutantBis = ParticulateTwoFive.list
 //            for indice in 0...pollutant.count-1
 //                where value <= pollutant[indice].value {
 //                    return (pollutant[indice].indice, pollutant[indice].value)
 //            }
 //        case "so2":
 //            let pollutant = SulfurDioxide.list
-//            pollutantBis = SulfurDioxide.list
 //            for indice in 0...pollutant.count-1
 //                where value <= pollutant[indice].value {
 //                    return (pollutant[indice].indice, pollutant[indice].value)
@@ -290,6 +277,12 @@ class ApiServiceLatestMeasures {
 //        return (0, 1)
 //    }
 
+//    private func test(pollutant: ) {
+//        for indice in 0...pollutant.count-1
+//            where value <= pollutant[indice].value {
+//                return (pollutant[indice].indice, pollutant[indice].value)
+//        }
+//    }
     /// function searchIndicePollutantCO in order determine level of Carbon Monoxide
     ///  - loop in structure CarbonMonoxide
     ///     - return indice and value

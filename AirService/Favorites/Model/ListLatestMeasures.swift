@@ -22,3 +22,11 @@ struct ListLatestMeasure {
     let sourceName: String
     var measurements: [MeasuresDetail]
 }
+//struct ListMeasuresDetail: Decodable {
+//    var parameter: String
+//    var value: Double
+//    var lastUpdated: String
+//    var unit: String
+//    var sourceName: String
+//    var indiceAtmo: Int
+//}
