@@ -8,19 +8,21 @@
 
 import UIKit
 
+// MARK: - class PollutantsPopUpViewController
 class PollutantsPopUpViewController: UIViewController {
+
+    // MARK: - outlets
+    ///   link between view elements and controller
+    ///
+    @IBAction func closePopUp(_ sender: UIButton) {
+        self.removeAnimate()
+        self.view.removeFromSuperview()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white.withAlphaComponent(0.8)
         self.showAnimate()
-
-        // Do any additional setup after loading the view.
-    }
-
-    @IBAction func closePopUp(_ sender: UIButton) {
-        self.removeAnimate()
-        self.view.removeFromSuperview()
     }
 
     func showAnimate() {

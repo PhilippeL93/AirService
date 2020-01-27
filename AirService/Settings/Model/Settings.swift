@@ -9,9 +9,11 @@
 import Foundation
 
 // MARK: - class
-
-// MARK: - class
 /// class SettingsService in order to manage userDefaults
+///  three user defaults are stored
+///   - one contening country prefered
+///   - one contening geolocalization or not
+///   - onr contening favorties
 ///
 
 class Settings {

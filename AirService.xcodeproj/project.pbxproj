@@ -275,6 +275,7 @@
 				37C8315D23BC97770030FE9B /* ListLatestMeasuresService.swift */,
 				37C8315B23BB9F470030FE9B /* ListLatestMeasures.swift */,
 				37CBDAB123DD83F2000B7A43 /* ListLatestMeasuresDetailService.swift */,
+				37524B3623CC816F00EFFA79 /* MeasuresFavorite.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -338,7 +339,6 @@
 		37CC410E23A76FB200CC1D19 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				37524B3623CC816F00EFFA79 /* MeasuresFavorite.swift */,
 				37C8315923BB9A440030FE9B /* SharedURL.swift */,
 				37C8316123BCD5E20030FE9B /* SulfurDioxide.swift */,
 				37C8316523BCD64A0030FE9B /* NitrogenDioxide.swift */,

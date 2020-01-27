@@ -8,6 +8,9 @@
 
 import Foundation
 
+// MARK: struct ListLatestMeasure
+///    contains measures extracted by ApiServiceLatestMeasures
+///
 struct ListLatestMeasure {
     let country: String
     let city: String

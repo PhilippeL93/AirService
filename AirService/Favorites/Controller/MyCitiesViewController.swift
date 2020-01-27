@@ -8,17 +8,40 @@
 
 import UIKit
 
+// MARK: class MyCitiesViewController
 class MyCitiesViewController: UIViewController {
 
+    // MARK: - outlets
+    ///   link between view elements and controller
+    ///
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
+        searchFavoritesMeasures()
+    }
+
+    // MARK: - variables
+    ///
+    var citiesFavorite: [CitiesFavorite]?
+    var tagLatestMeasure: Bool = false
+    var cityFavorite: [LatestMeasures] = []
+    let settings = Settings()
+    var numberOfCallMeasures: Int = 0
+    private let apiFetchMeasures = ApiServiceLatestMeasures()
+
+    // MARK: - functions
+    ///   function searchFavoritesMeasures in order to search measures for favorites
+    ///   - for each favorites
+    ///    - call func searchLatestMeasures in order to retrieve lastest measures
+    ///
+    private func searchFavoritesMeasures() {
         tagLatestMeasure = false
         ListLatestMeasuresService.shared.removeAll()
         citiesFavorite = settings.favoriteCitiesList
+        numberOfCallMeasures = 0
 
         guard let countOfFavorites = citiesFavorite?.count, countOfFavorites > 0 else {
             return
@@ -30,19 +53,20 @@ class MyCitiesViewController: UIViewController {
                 let city = citiesFavorite?[indice].city else {
                     return
             }
+            numberOfCallMeasures += 1
             searchLatestMeasures(countryToSearch: country,
                                  locationToSearch: location,
                                  cityToSearch: city)
         }
     }
 
-    var citiesFavorite: [CitiesFavorite]?
-    var tagLatestMeasure: Bool = false
-    var cityFavorite: [LatestMeasures] = []
-    let settings = Settings()
-
-    private let apiFetchMeasures = ApiServiceLatestMeasures()
-
+    ///   function searchLatestMeasures in order to search measures for favorites
+    ///    - call func apiFetchMeasures in order to retrieve lastest measures
+    ///    - if success
+    ///      - func getAllMeasures
+    ///    - else
+    ///      - display error message
+    ///
     private func searchLatestMeasures(countryToSearch: String, locationToSearch: String, cityToSearch: String) {
         self.apiFetchMeasures.getApiLatestMeasures(
             countryToSearch: countryToSearch,
@@ -61,8 +85,11 @@ class MyCitiesViewController: UIViewController {
         }
     }
 
+    ///   function getAllMeasures in order to verify
+    ///     that number of measure exatrcted = number of favorites
+    ///
     private func getAllMeasures() {
-        if ListLatestMeasuresService.shared.listLatestMeasures.count ==
+        if numberOfCallMeasures ==
             self.citiesFavorite?.count {
             self.tagLatestMeasure = true
             self.citiesFavorite = settings.favoriteCitiesList
@@ -71,6 +98,8 @@ class MyCitiesViewController: UIViewController {
         }
     }
 
+    ///   function deleteFavorite in order to delete favorite
+    ///
     private func deleteFavorite(city: String, location: String) {
         for indice in 0...ListLatestMeasuresService.shared.listLatestMeasures.count-1
             where city ==
@@ -82,7 +111,6 @@ class MyCitiesViewController: UIViewController {
         }
     }
 
-    ///
     /// function toggleActivityIndicator
     ///     - depending of calling show :o
     ///         - to unhidde/hidde activity indicator

@@ -7,32 +7,32 @@
 //
 
 import UIKit
-//
-//protocol SettingsViewControllerDelegate: AnyObject {
-//    func refreshData()
-//}
 
+// MARK: - class SettingsViewController
 class SettingsViewController: UIViewController {
 
+    // MARK: - buttons
+    ///   function saveSettings in order to save in userDefaults
+    ///
     @IBAction func saveSettings(_ sender: Any) {
         let localizationIndex = choiceOfLocalization.selectedSegmentIndex
-
         settingsService.localization = (localizationIndex == 0) ? "GeoLocalization" : "country"
         if settingsService.localization == "country" {
             settingsService.countryISO = getSelectedCountry()
         }
     }
 
+    // MARK: - outlets
+    ///   link between view elements and controller
+    ///
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-
     @IBOutlet weak var countryPickerView: UIPickerView!
-
     @IBOutlet weak var choiceOfLocalization: UISegmentedControl!
 
     override func viewDidLoad() {
         self.navigationController?.isNavigationBarHidden = true
         super.viewDidLoad()
-        callAPI()
+        callAPICountries()
         if settingsService.localization == "GeoLocalization" {
             choiceOfLocalization.selectedSegmentIndex = 0
         } else {
@@ -40,12 +40,21 @@ class SettingsViewController: UIViewController {
         }
     }
 
+    // MARK: - variables
+    ///
     private let apiFetcherCountries = ApiServiceCountries()
     let settingsService = Settings()
     var countries = ListCountriesService.shared.listCountries
-//    weak var delegate: SettingsViewControllerDelegate?
 
-    private func callAPI() {
+    // MARK: - functions
+    ///   function callAPICountries in order to retrieve all countries
+    ///    - call func apiFetcherCountries in order to retrieve countries
+    ///    - if success
+    ///      - func updateBeforeLoadView
+    ///    - else
+    ///      - display error message
+    ///
+    private func callAPICountries() {
         toggleActivityIndicator(shown: true)
 
         self.apiFetcherCountries.getApiCountries { (success, errors ) in
@@ -63,6 +72,8 @@ class SettingsViewController: UIViewController {
         }
     }
 
+    ///   function updateBeforeLoadView in order to prepare display data
+    ///
     private func updateBeforeLoadView() {
         countries = ListCountriesService.shared.listCountries
         countryPickerView.reloadAllComponents()
@@ -70,6 +81,8 @@ class SettingsViewController: UIViewController {
         countryPickerView.selectRow(row, inComponent: 0, animated: true)
     }
 
+    ///   function getSelectedCountry in order to return country selected by user
+    ///
     private func getSelectedCountry() -> String {
         if countries.count > 0 {
             let index = countryPickerView.selectedRow(inComponent: 0)
@@ -78,6 +91,8 @@ class SettingsViewController: UIViewController {
             return ""
     }
 
+    ///   function getSelectedRow in order to select country saved in userDefaults
+    ///
     private func getSelectedRow() -> Int {
         for indice in 0...countries.count-1
             where countries[indice].code == settingsService.countryISO {
@@ -86,7 +101,6 @@ class SettingsViewController: UIViewController {
         return -1
     }
 
-    ///
     /// function toggleActivityIndicator
     ///     - depending of calling show :o
     ///         - to unhidde/hidde activity indicator
@@ -96,6 +110,7 @@ class SettingsViewController: UIViewController {
     }
 }
 
+// MARK: - extension for UIPickerView
 extension SettingsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

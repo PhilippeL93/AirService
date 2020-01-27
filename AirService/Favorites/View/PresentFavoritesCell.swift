@@ -8,8 +8,12 @@
 
 import UIKit
 
+// MARK: class PresentFavoritesCell
 class PresentFavoritesCell: UITableViewCell {
 
+    // MARK: - outlets
+    ///   link between view elements and controller
+    ///
     @IBOutlet weak var qualityName: UITextField!
     @IBOutlet weak var qualityIndicator: UITextField!
     @IBOutlet weak var cityName: UITextField!

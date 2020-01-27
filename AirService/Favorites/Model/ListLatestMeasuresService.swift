@@ -8,16 +8,14 @@
 
 import Foundation
 
-// MARK: class ListCountriesService
+// MARK: class ListLatestMeasuresService
 class ListLatestMeasuresService {
 
     // MARK: - variables
-    /*    variables
-            
-     */
+    ///    variables
+    ///
     static let shared = ListLatestMeasuresService()
     private init() {}
-
     private(set) var listLatestMeasures: [ListLatestMeasure] = []
 
     // MARK: - functions

@@ -27,12 +27,16 @@ class ApiServiceLatestMeasuresTests: XCTestCase {
     }
     func initFavorite() {
         ListLatestMeasuresService.shared.removeAll()
-        let measuresDetailOne = MeasuresDetail(
+        ListLatestMeasuresDetailService.shared.removeAll()
+        let measuresDetailOne = ListLatestMeasuresDetail(
             parameter: "co",
             value: 10,
             lastUpdated: "2020-01-15T08:00:00.000Z",
             unit: "µg/m³",
-            sourceName: "EEA France")
+            sourceName: "EEA France",
+            indiceAtmo: 1)
+        ListLatestMeasuresDetailService.shared.add(listLatestMeasureDetail: measuresDetailOne)
+
         let listLatestMeasuresOne = ListLatestMeasure(
             country: "countryOne",
             city: "cityOne",
@@ -49,12 +53,15 @@ class ApiServiceLatestMeasuresTests: XCTestCase {
         )
         ListLatestMeasuresService.shared.add(listLatestMeasure: listLatestMeasuresOne)
         
-        let measuresDetailTwo = MeasuresDetail(
+        let measuresDetailTwo = ListLatestMeasuresDetail(
             parameter: "co",
             value: 10,
             lastUpdated: "2020-01-15T08:00:00.000Z",
             unit: "µg/m³",
-            sourceName: "EEA France")
+            sourceName: "EEA France",
+            indiceAtmo: 1)
+        ListLatestMeasuresDetailService.shared.add(listLatestMeasureDetail: measuresDetailTwo)
+
         let listLatestMeasuresTwo = ListLatestMeasure(
             country: "countryTwo",
             city: "cityTwo",
@@ -71,12 +78,15 @@ class ApiServiceLatestMeasuresTests: XCTestCase {
         )
         ListLatestMeasuresService.shared.add(listLatestMeasure: listLatestMeasuresTwo)
         
-        let measuresDetailThree = MeasuresDetail(
+        let measuresDetailThree = ListLatestMeasuresDetail(
             parameter: "co",
             value: 10,
             lastUpdated: "2020-01-15T08:00:00.000Z",
             unit: "µg/m³",
-            sourceName: "EEA France")
+            sourceName: "EEA France",
+            indiceAtmo: 1)
+        ListLatestMeasuresDetailService.shared.add(listLatestMeasureDetail: measuresDetailThree)
+
         let listLatestMeasuresThree = ListLatestMeasure(
             country: "countryThree",
             city: "cityThree",

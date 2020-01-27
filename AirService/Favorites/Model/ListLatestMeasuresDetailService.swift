@@ -12,9 +12,8 @@ import Foundation
 class ListLatestMeasuresDetailService {
 
     // MARK: - variables
-    /*    variables
-            
-     */
+    ///    variables
+    ///
     static let shared = ListLatestMeasuresDetailService()
     private init() {}
 

@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-// MARK: - class
+// MARK: - class ApiServiceLatestMeasures
 class ApiServiceLatestMeasures {
 
     private let apiServiceUrl = "https://api.openaq.org/v1/latest?"

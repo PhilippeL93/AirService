@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - class SegmentedController
 class SegmentedController: UISegmentedControl {
 
     var sortedViews: [UIView]!

@@ -9,6 +9,9 @@
 import UIKit
 import CoreLocation
 
+// MARK: extension
+/// in order to retrieve ISO country code of location based on latitude and longitude of iPhone localization
+///
 extension CLLocation {
     func fetchCityAndCountry(completion: @escaping
          (_ country: String?, _ isoCountryCode: String?, _ error: Error?) -> Void) {
@@ -18,16 +21,16 @@ extension CLLocation {
     }
 }
 
+// MARK: class CitiesViewController
 class CitiesViewController: UIViewController, CLLocationManagerDelegate {
 
+    // MARK: - outlets
+    ///   link between view elements and controller
+    ///
     @IBOutlet weak var countryLabel: UILabel!
-
     @IBOutlet weak var searchBar: UISearchBar!
-
     @IBOutlet weak var tableView: UITableView!
-
     @IBOutlet weak var message: UILabel!
-
     @IBAction func dismissKeyBoard(_ sender: UITapGestureRecognizer) {
         searchBar.resignFirstResponder()
     }
@@ -47,6 +50,7 @@ class CitiesViewController: UIViewController, CLLocationManagerDelegate {
         message.isHidden = true
     }
 
+    // MARK: - variables
     var locationManager = CLLocationManager()
     var cities = ListCitiesService.shared.listCities
     var searchActive: Bool = false
@@ -60,6 +64,9 @@ class CitiesViewController: UIViewController, CLLocationManagerDelegate {
     private let apiFetchCities = ApiServiceCities()
     private let apiFetchMeasures = ApiServiceLatestMeasures()
 
+    // MARK: - functions
+    ///   function locationManager in order to manage localization of iPhone
+    ///
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.locationManager.stopUpdatingLocation()
         let userLocation = locations[0]
@@ -99,6 +106,16 @@ extension CitiesViewController: UISearchBarDelegate {
         searchActive = false
     }
 
+    // MARK: - functions
+    ///   function searchBar in order to manage characters filled in searchBar
+    ///    - if number of characters > 2
+    ///      - call apiFetchCities with call options = location
+    ///        - if success
+    ///          - func searchAPIWithCity
+    ///        - else
+    ///          - save error message
+    ///          - func searchAPIWithCity
+    ///
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         message.isHidden = true
         if searchText.count <= 2 {
@@ -125,6 +142,22 @@ extension CitiesViewController: UISearchBarDelegate {
         }
     }
 
+    ///   function searchAPIWithCity in order to manage characters filled in searchBar
+    ///    - call apiFetchCities with call options = city
+    ///      - if success
+    ///        - if number of cities found > 1
+    ///          - reload tableview
+    ///        - else
+    ///          - call func message with no cities found
+    ///      - else
+    ///        - if error message with call location is empty
+    ///          - if number of cities found > 1
+    ///            - reload tableview
+    ///          - else
+    ///            - call func message with no cities found
+    ///        - else
+    ///          - call func message with error message
+    ///
     func searchAPIWithCity(searchText: String) {
         self.apiFetchCities.getApiCities(
             countryToSearch: self.isoCountryCodeToSearch,
@@ -158,6 +191,8 @@ extension CitiesViewController: UISearchBarDelegate {
         }
     }
 
+    ///   function displayMessage in order to display error message
+    ///
     private func displayMessage(error: Errors) {
         self.message.text = " \(self.getErrorsText(type: error))"
         self.message.isHidden = false
@@ -165,8 +200,16 @@ extension CitiesViewController: UISearchBarDelegate {
         self.tableView.reloadData()
     }
 
-    private func searchLatestMeasures(countryToSearch: String,
-                                      locationToSearch: String, locationsName: String, cityToSearch: String) {
+    ///   function displayCityDetail
+    ///         in order to search latest measures of city selected and display detail of measures found
+    ///    - call apiFetchMeasures for city selected
+    ///     - if sucess
+    ///       - call screen City Detail in order to display detail of measures
+    ///     - else
+    ///       - display error message
+    ///
+    private func displayCityDetail(countryToSearch: String,
+                                   locationToSearch: String, locationsName: String, cityToSearch: String) {
         self.apiFetchMeasures.getApiLatestMeasures(
             countryToSearch: countryToSearch,
             locationToSearch: locationToSearch,
@@ -190,6 +233,8 @@ extension CitiesViewController: UISearchBarDelegate {
         }
     }
 
+    ///   function refresh in order to refresh screen depending on setting
+    ///
     private func refresh() {
         oldIsoCountryCode = isoCountryCodeToSearch
         if settings.localization == "GeoLocalization" {
@@ -203,6 +248,8 @@ extension CitiesViewController: UISearchBarDelegate {
         }
     }
 
+    ///   function localizeiPhone in order to localize iPhone depending on user choice
+    ///
     private func localizeiPhone() {
         if CLLocationManager.locationServicesEnabled() == true {
             if CLLocationManager.authorizationStatus() == .restricted ||
@@ -220,6 +267,8 @@ extension CitiesViewController: UISearchBarDelegate {
         self.tableView.rowHeight = 80
     }
 
+    ///   function checkUpdateIsoCountryCode in order to detect change of settings
+    ///
     private func checkUpdateIsoCountryCode(oldIsoCountryCode: String) {
         if oldIsoCountryCode != isoCountryCodeToSearch {
             searchBar.text = ""
@@ -276,9 +325,9 @@ extension CitiesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         ListLatestMeasuresService.shared.removeAll()
-        searchLatestMeasures(countryToSearch: isoCountryCodeToSearch,
-                             locationToSearch: cities[indexPath.row].location,
-                             locationsName: cities[indexPath.row].locations,
-                             cityToSearch: cities[indexPath.row].city)
+        displayCityDetail(countryToSearch: isoCountryCodeToSearch,
+                          locationToSearch: cities[indexPath.row].location,
+                          locationsName: cities[indexPath.row].locations,
+                          cityToSearch: cities[indexPath.row].city)
     }
 }

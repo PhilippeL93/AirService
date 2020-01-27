@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - class CircleButtonView
 class CircleButtonView: UIButton {
 
     @IBInspectable var cornerRadius: CGFloat = 0 {

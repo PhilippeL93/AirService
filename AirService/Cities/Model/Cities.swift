@@ -9,8 +9,8 @@
 import Foundation
 
 // MARK: - structure Cities
-/*    statement of JSON received by ApiServiceCities
- */
+///    statement of JSON received by ApiServiceCities
+///
 struct Cities: Decodable {
     let results: [ResultsDataCities]
 }

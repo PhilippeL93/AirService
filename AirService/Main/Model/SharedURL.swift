@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-// MARK: - extension
+// MARK: - extension URL
 ///    function appendParameters in order to create URL with URLQueryItem
 ///
 extension URL {

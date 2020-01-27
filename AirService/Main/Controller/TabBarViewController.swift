@@ -9,13 +9,13 @@
 import UIKit
 import FontAwesomeKit_Swift
 
+// MARK: - class TabBarViewController
 class TabBarViewController: UITabBarController {
 
     var myTabBar = UITabBar()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        myTabBar.tintColor = UIColor.white
         tabBarItem.title = ""
         setTabBarItems()
     }

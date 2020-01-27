@@ -41,22 +41,22 @@ extension UIViewController {
         }
     }
 
-        func getErrorsText(type: Errors ) -> String {
-            switch type {
-            case .noInternetConnection:
-                return Errors.noInternetConnection.rawValue
-            case .noCountries:
-                return Errors.noCountries.rawValue
-            case .noCities:
-                    return Errors.noCities.rawValue
-            case .noData:
-                return Errors.noData.rawValue
-            case .noURL:
-                return Errors.noURL.rawValue
-            case .dataNotCompliant:
-                return Errors.dataNotCompliant.rawValue
-            case .noMeasurements:
-                return Errors.noMeasurements.rawValue
-            }
+    func getErrorsText(type: Errors ) -> String {
+        switch type {
+        case .noInternetConnection:
+            return Errors.noInternetConnection.rawValue
+        case .noCountries:
+            return Errors.noCountries.rawValue
+        case .noCities:
+            return Errors.noCities.rawValue
+        case .noData:
+            return Errors.noData.rawValue
+        case .noURL:
+            return Errors.noURL.rawValue
+        case .dataNotCompliant:
+            return Errors.dataNotCompliant.rawValue
+        case .noMeasurements:
+            return Errors.noMeasurements.rawValue
         }
+    }
 }

@@ -10,11 +10,7 @@ import UIKit
 
 @IBDesignable
 
-// MARK: class ViewYield
-///    in order to
-///    - put a border in color
-///    - rounded corner
-///
+// MARK: class PopUpView
 class PopUpView: UIView {
 
     @IBInspectable var cornerRadius: CGFloat = 0 {

@@ -9,15 +9,15 @@
 import Foundation
 
 // MARK: class ListCitiesService
+///    in order to manage listCities
+///
 class ListCitiesService {
 
     // MARK: - variables
-    /*    variables
-            
-     */
+    ///   variables
+
     static let shared = ListCitiesService()
     private init() {}
-
     private(set) var listCities: [ListCitie] = []
 
     // MARK: - functions

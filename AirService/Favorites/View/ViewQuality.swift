@@ -10,9 +10,9 @@ import UIKit
 
 @IBDesignable
 
-// MARK: class ViewYield
-///    in order to
-///    - put a border in color
+// MARK: class ViewQuality
+///    in order to manage
+///    - border in color
 ///    - rounded corner
 ///
 class ViewQuality: UIView {

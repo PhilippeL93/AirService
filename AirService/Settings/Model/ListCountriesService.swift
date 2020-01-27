@@ -12,12 +12,10 @@ import Foundation
 class ListCountriesService {
 
     // MARK: - variables
-    /*    variables
-            
-     */
+    ///    variables
+    ///
     static let shared = ListCountriesService()
     private init() {}
-
     private(set) var listCountries: [ListCountrie] = []
 
     // MARK: - functions
