@@ -32,4 +32,6 @@ struct ListLatestMeasuresDetail {
     var unit: String
     var sourceName: String
     var indiceAtmo: Int
+    var valueMin: Double
+    var valueMax: Double
 }

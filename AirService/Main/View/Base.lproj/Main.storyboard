@@ -34,7 +34,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="59k-Sd-ou6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-116" y="506"/>
+            <point key="canvasLocation" x="-124" y="170"/>
         </scene>
         <!--Cities Item-->
         <scene sceneID="4gV-7S-xiK">
@@ -57,11 +57,11 @@
             </objects>
             <point key="canvasLocation" x="1151" y="170"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="JtO-ib-HEJ">
             <objects>
                 <navigationController id="btO-DT-W1D" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="1qU-vX-igO"/>
+                    <tabBarItem key="tabBarItem" title="" id="1qU-vX-igO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kpg-ek-Hyf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -582,7 +582,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uyL-zi-C7P" userLabel="Stack View Pollutants">
-                                <rect key="frame" x="45" y="341" width="285" height="214"/>
+                                <rect key="frame" x="45" y="351" width="285" height="214"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="0eT-GI-oko" userLabel="Stack View Chart One">
                                         <rect key="frame" x="0.0" y="0.0" width="285" height="75"/>
@@ -636,7 +636,7 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kRb-qU-3TE" userLabel="PollutantOne">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="20"/>
-                                                <color key="backgroundColor" red="0.99215686270000003" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="75" id="4ec-7h-w34" userLabel="width = 75"/>
                                                     <constraint firstAttribute="height" constant="20" id="yyC-Dr-jcv"/>
@@ -646,7 +646,7 @@
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="buR-4o-4ak" userLabel="PollutantTwo">
                                                 <rect key="frame" x="105" y="0.0" width="75" height="20"/>
-                                                <color key="backgroundColor" red="0.99215686270000003" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="BxF-zE-Rlv" userLabel="width = 75"/>
                                                     <constraint firstAttribute="height" constant="20" id="xF7-WZ-Y6o"/>
@@ -656,7 +656,7 @@
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CFR-BJ-BFa" userLabel="PollutantThree">
                                                 <rect key="frame" x="210" y="0.0" width="75" height="20"/>
-                                                <color key="backgroundColor" red="0.99215686270000003" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="75" id="7gc-eF-3K1" userLabel="width = 75"/>
                                                     <constraint firstAttribute="height" constant="20" id="laE-Lj-0As"/>
@@ -713,7 +713,7 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6D3-fI-Gsc" userLabel="PollutantFour">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="20"/>
-                                                <color key="backgroundColor" red="0.99215686270000003" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="2PU-ll-G0J"/>
                                                     <constraint firstAttribute="width" constant="75" id="Dhc-Dr-L9i"/>
@@ -725,7 +725,7 @@
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zqu-09-dQT" userLabel="PollutantFive">
                                                 <rect key="frame" x="105" y="0.0" width="75" height="20"/>
-                                                <color key="backgroundColor" red="0.99215686270000003" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="75" id="Gg8-Uv-GaT"/>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="bxB-n8-Tiq"/>
@@ -737,7 +737,7 @@
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9B7-D6-j7f" userLabel="PollutantSix">
                                                 <rect key="frame" x="210" y="0.0" width="75" height="20"/>
-                                                <color key="backgroundColor" red="0.99215686270000003" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="75" id="FVc-SG-SND"/>
                                                     <constraint firstAttribute="height" constant="20" id="N33-mM-NKj"/>
@@ -764,7 +764,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="R6E-AB-CS4" userLabel="Stack View Top">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="331"/>
+                                <rect key="frame" x="0.0" y="10" width="375" height="331"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DlE-SY-HFg" userLabel="Stack View CD">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
@@ -889,12 +889,12 @@
                         <constraints>
                             <constraint firstItem="uyL-zi-C7P" firstAttribute="top" secondItem="R6E-AB-CS4" secondAttribute="bottom" constant="10" id="2p3-DG-gRx"/>
                             <constraint firstItem="uyL-zi-C7P" firstAttribute="leading" secondItem="XXi-fl-n6u" secondAttribute="leading" constant="45" id="3CG-r5-Zqs"/>
+                            <constraint firstItem="R6E-AB-CS4" firstAttribute="top" secondItem="XXi-fl-n6u" secondAttribute="top" constant="10" id="7Jc-0O-v5X"/>
                             <constraint firstItem="XXi-fl-n6u" firstAttribute="trailing" secondItem="uyL-zi-C7P" secondAttribute="trailing" constant="45" id="HwD-54-1xg"/>
                             <constraint firstItem="RxX-Fi-vlc" firstAttribute="top" secondItem="XXi-fl-n6u" secondAttribute="top" constant="16" id="KLT-5P-bxN"/>
                             <constraint firstItem="XXi-fl-n6u" firstAttribute="trailing" secondItem="RxX-Fi-vlc" secondAttribute="trailing" constant="16" id="WOX-8O-O3E"/>
                             <constraint firstItem="R6E-AB-CS4" firstAttribute="trailing" secondItem="XXi-fl-n6u" secondAttribute="trailing" id="XHf-QR-2St"/>
                             <constraint firstItem="R6E-AB-CS4" firstAttribute="leading" secondItem="XXi-fl-n6u" secondAttribute="leading" id="uCm-3i-uzM"/>
-                            <constraint firstItem="R6E-AB-CS4" firstAttribute="top" secondItem="XXi-fl-n6u" secondAttribute="top" id="xWn-3O-s5J"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XXi-fl-n6u"/>
                     </view>

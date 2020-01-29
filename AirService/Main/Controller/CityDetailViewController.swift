@@ -49,7 +49,6 @@ class CityDetailViewController: UIViewController {
     var indiceDataFull = PieChartDataEntry(value: 0)
     var colorIndiceData: UIColor = UIColor(named: "colorIndiceData") ?? .white
     var colorIndiceDataFull: UIColor = UIColor(named: "colorIndiceDataFull") ?? .white
-
     var indiceDataEntries = [PieChartDataEntry]()
 
     override func viewDidLoad() {
@@ -86,19 +85,21 @@ class CityDetailViewController: UIViewController {
         pieChart.chartDescription?.text = ""
         pieChart.holeRadiusPercent = 0.90
         pieChart.rotationAngle = 90
-        let raleway = NSUIFont (name: "Raleway", size: 22)
+        guard let raleway = NSUIFont (name: "Raleway", size: 22) else {
+            return
+        }
         pieChart.centerAttributedText = NSAttributedString(string:
             String(format: "%.0f", cityDetail[0].qualityIndicator),
-                attributes: [NSAttributedString.Key.font: raleway!])
+                attributes: [NSAttributedString.Key.font: raleway])
         indiceData.value = cityDetail[0].qualityIndicator
         indiceDataFull.value = 200 - cityDetail[0].qualityIndicator
         indiceDataEntries = [indiceData, indiceDataFull]
-        updateChartData()
+        updateMainChartData()
     }
 
-    ///   function updateChartData in order to prepare data for main pie chart
+    ///   function updateMainChartData in order to prepare data for main pie chart
     ///
-    private func updateChartData() {
+    private func updateMainChartData() {
         let chartDataSet = PieChartDataSet(entries: indiceDataEntries, label: nil)
         let chartData = PieChartData(dataSet: chartDataSet)
         let colors = [NSUIColor(cgColor: colorIndiceData.cgColor),
@@ -108,18 +109,13 @@ class CityDetailViewController: UIViewController {
         chartDataSet.valueTextColor = (NSUIColor(cgColor: colorIndiceData.cgColor))
         chartDataSet.colors = colors
         chartDataSet.label = ""
+        chartDataSet.selectionShift = 0
         pieChart.data = chartData
     }
 
     ///   function initCharts in order to initialize pollutants pie chart
     ///
     private func initCharts() {
-        pollutantOne.backgroundColor = .white
-        pollutantTwo.backgroundColor = .white
-        pollutantThree.backgroundColor = .white
-        pollutantFour.backgroundColor = .white
-        pollutantFive.backgroundColor = .white
-        pollutantSix.backgroundColor = .white
 
         for indice in 1...6 {
             switch indice {
@@ -153,19 +149,19 @@ class CityDetailViewController: UIViewController {
         typePol.chartDescription?.text = ""
         typePol.holeRadiusPercent = 0.90
         typePol.rotationAngle = 90
+        typePol.backgroundColor = .white
     }
 
     ///   function fillCityDetail in order to prepare data
     ///
     private func fillCityDetail() {
         cityName.text = cityDetail[0].city
+        department.text = cityDetail[0].location
         if cityDetail[0].country == "DE" {
             department.text = cityDetail[0].locations
             if cityDetail[0].locations.isEmpty {
                 department.text = locationsName
             }
-        } else {
-            department.text = cityDetail[0].location
         }
         if cityDetail[0].country == "FR" {
             department.text = cityDetail[0].city
@@ -186,7 +182,6 @@ class CityDetailViewController: UIViewController {
 
     ///   function setPollutant in order to prepare data for pollutants
     ///    - loop in measurements
-    ///     - call searchValueMaxPollutant in order to have value max of pollutant
     ///     - call updateChartDetail in order to put data of each pollutant
     ///
     private func setPollutant() {
@@ -196,44 +191,52 @@ class CityDetailViewController: UIViewController {
             if cityDetail[0].measurements[indice].unit == "ppm" {
                 pollutantValue *= 1000
             }
-            let parameter = cityDetail[0].measurements[indice].parameter
-            let valueMax =
-                searchValueMaxPollutant(parameter: parameter, valueToSearch: pollutantValue)
-            updateChartDetail(numPol: indice,
-                            pollutantValue: pollutantValue,
-                            valueMax: valueMax,
-                            parameter: cityDetail[0].measurements[indice].parameter,
-                            indiceAtmo: cityDetail[0].measurements[indice].indiceAtmo - 1)
+            let typePol = defineTypePol(parameter: cityDetail[0].measurements[indice].parameter, numPol: indice)
+            updateChartDetail(typePol: typePol,
+                                 pollutantValue: pollutantValue,
+                                 valueMax: cityDetail[0].measurements[indice].valueMax,
+                                 indiceAtmo: cityDetail[0].measurements[indice].indiceAtmo - 1,
+                                 valueMin: cityDetail[0].measurements[indice].valueMin)
         }
-    }
-
- ///   function searchValueMaxPollutant in order to search pollutant value max by pollutant
- ///
-    private func searchValueMaxPollutant(parameter: String, valueToSearch: Double) -> (Double) {
-        var value: Double = 0
-        switch parameter {
-        case "co":
-            value = CarbonMonoxide.list[7].value * 1.5
-        case "no2":
-            value = NitrogenDioxide.list[7].value * 1.5
-        case "o3":
-            value = Ozone.list[7].value * 1.5
-        case "pm10":
-            value = ParticulateTen.list[7].value * 1.5
-        case "pm25":
-            value = ParticulateTwoFive.list[7].value * 1.5
-        case "so2":
-            value = SulfurDioxide.list[7].value * 1.5
-        default:
-            value = 0
-        }
-        return (value)
     }
 
     ///   function updateChartDetail in order in order to prepare data for pie chart by pollutant
     ///
     private func updateChartDetail(
-        numPol: Int, pollutantValue: Double, valueMax: Double, parameter: String, indiceAtmo: Int) {
+        typePol: PieChartView, pollutantValue: Double, valueMax: Double, indiceAtmo: Int, valueMin: Double) {
+
+        typePol.layer.borderWidth = 1
+        typePol.layer.borderColor = #colorLiteral(red: 0.752874434, green: 0.7529839873, blue: 0.7528504729, alpha: 1)
+
+        guard let color = UIColor(named: String(QualityLevel.list[indiceAtmo].color)) else {
+            return
+        }
+        guard let raleway = NSUIFont (name: "Raleway", size: 14) else {
+            return
+        }
+        typePol.centerAttributedText = NSAttributedString(string:
+            String(format: "%.1f", pollutantValue),
+                attributes: [NSAttributedString.Key.font: raleway])
+        if pollutantValue < valueMin {
+            indiceData.value = valueMin
+        } else {
+            indiceData.value = pollutantValue
+        }
+        indiceDataFull.value = valueMax - pollutantValue
+        indiceDataEntries = [indiceData, indiceDataFull]
+        let chartDataSet = PieChartDataSet(entries: indiceDataEntries, label: nil)
+        let chartData = PieChartData(dataSet: chartDataSet)
+        let colors = [NSUIColor(cgColor: color.cgColor),
+                      NSUIColor(cgColor: colorIndiceDataFull.cgColor)]
+        chartDataSet.drawValuesEnabled = false
+        chartDataSet.valueTextColor = (NSUIColor(cgColor: colorIndiceData.cgColor))
+        chartDataSet.colors = colors
+        chartDataSet.label = ""
+        chartDataSet.selectionShift = 3
+        typePol.data = chartData
+    }
+
+    private func defineTypePol(parameter: String, numPol: Int) -> PieChartView {
         var typePol: PieChartView = pieChartPolOne
         switch numPol {
         case 0:
@@ -257,26 +260,6 @@ class CityDetailViewController: UIViewController {
         default:
             print("")
         }
-        let color = UIColor(named: String(QualityLevel.list[indiceAtmo].color))
-        typePol.backgroundColor = color
-        let raleway = NSUIFont (name: "Raleway", size: 14)
-        typePol.centerAttributedText = NSAttributedString(string:
-            String(format: "%.0f", pollutantValue),
-                attributes: [NSAttributedString.Key.font: raleway!])
-
-        indiceData.value = pollutantValue
-        indiceDataFull.value = valueMax - pollutantValue
-        indiceDataEntries = [indiceData, indiceDataFull]
-
-        let chartDataSet = PieChartDataSet(entries: indiceDataEntries, label: nil)
-        let chartData = PieChartData(dataSet: chartDataSet)
-        let colors = [NSUIColor(cgColor: colorIndiceData.cgColor),
-                      NSUIColor(cgColor: colorIndiceDataFull.cgColor)]
-
-        chartDataSet.drawValuesEnabled = false
-        chartDataSet.valueTextColor = (NSUIColor(cgColor: colorIndiceData.cgColor))
-        chartDataSet.colors = colors
-        chartDataSet.label = ""
-        typePol.data = chartData
+        return typePol
     }
 }

@@ -14,6 +14,13 @@ class ApiServiceLatestMeasures {
 
     private let apiServiceUrl = "https://api.openaq.org/v1/latest?"
     let settings = Settings()
+    var indiceMax: Int = 0
+    var indiceAtmoMax: Int = 0
+    var indiceAtmo: Int = 0
+    var valueAtmoMax: Double = 0
+    var valueAtmo: Double = 0
+    var valueMin: Double = 0
+    var valueMax: Double = 0
 
     // MARK: - functions
     /// function getApiLatestMeasures generate a call to API with Alamofire
@@ -153,6 +160,7 @@ class ApiServiceLatestMeasures {
         var qualityColor: String = ""
         var indices: IndicesMax
 
+        ListLatestMeasuresDetailService.shared.removeAll()
         indices = calculateIndiceAtmoMax(latestMeasure: latestMeasure)
 
         for indice in 0...QualityLevel.list.count-1
@@ -179,66 +187,88 @@ class ApiServiceLatestMeasures {
     /// function calculateIndiceAtmoMax in order determine IndicesMax
     ///                     contening values of worst indice of air quality
     ///  - loop in order to search among measures the worst
-    ///     - call function depending of type of pollutants
-    ///         - co : Carbon Monoxide
-    ///         - no2 : Nitrogen Dioxide
-    ///         - o3 : Ozone
-    ///         - pm10 : Particulate matter less than 10 micrometers in diameter
-    ///         - pm25 : Particulate matter less than 2.5 micrometers in diameter
-    ///         - so2 : Sulfur Dioxide
+    ///     - call function searchPollutantsValues
     /// - compare previous indice max (indiceAtmoMax) with new indice
     ///     - if new indice > previous indice max
     ///         - new indice = previous indice max
     /// - return indices
     ///
     private func calculateIndiceAtmoMax(latestMeasure: [MeasuresDetail]) -> (IndicesMax) {
-        var indiceMax: Int = 0
-        var indiceAtmoMax: Int = 0
-        var indiceAtmo: Int = 0
-        var valueAtmoMax: Double = 0
-        var valueAtmo: Double = 0
-
-        ListLatestMeasuresDetailService.shared.removeAll()
-        indiceAtmoMax = 0
         indiceMax = 0
+        indiceAtmoMax = 0
+        indiceAtmo = 0
+        valueAtmoMax = 0
+        valueAtmo = 0
+        valueMin = 0
+        valueMax = 0
         for indice in 0...latestMeasure.count-1 {
             var valueToCheck = latestMeasure[indice].value
             if latestMeasure[indice].unit == "ppm" {
                 valueToCheck *= 1000
             }
+            searchPollutantsValues(valueToCheck: valueToCheck, parameter: latestMeasure[indice].parameter)
 
-            switch latestMeasure[indice].parameter {
-            case "co":
-                (indiceAtmo, valueAtmo) = searchIndicePollutantCO(value: valueToCheck)
-            case "no2":
-                (indiceAtmo, valueAtmo) = searchIndicePollutantNO(value: valueToCheck)
-            case "o3":
-                (indiceAtmo, valueAtmo) = searchIndicePollutantO(value: valueToCheck)
-            case "pm10":
-                (indiceAtmo, valueAtmo) = searchIndicePollutantPMTen(value: valueToCheck)
-            case "pm25":
-                (indiceAtmo, valueAtmo) = searchIndicePollutantPMTwoFive(value: valueToCheck)
-            case "so2":
-                (indiceAtmo, valueAtmo) = searchIndicePollutantSO(value: valueToCheck)
-            default:
-                indiceAtmo = 0
-                valueAtmo = 1
-            }
             if indiceAtmo > indiceAtmoMax {
                 indiceAtmoMax = indiceAtmo
                 indiceMax = indice
                 valueAtmoMax = valueAtmo
             }
             let listLatestMeasuresDetail = ListLatestMeasuresDetail(
-                parameter: latestMeasure[indice].parameter, value: latestMeasure[indice].value,
-                lastUpdated: latestMeasure[indice].lastUpdated, unit: latestMeasure[indice].unit,
-                sourceName: latestMeasure[indice].sourceName, indiceAtmo: indiceAtmo
+                parameter: latestMeasure[indice].parameter,
+                value: latestMeasure[indice].value,
+                lastUpdated: latestMeasure[indice].lastUpdated,
+                unit: latestMeasure[indice].unit,
+                sourceName: latestMeasure[indice].sourceName,
+                indiceAtmo: indiceAtmo, valueMin: valueMin, valueMax: valueMax
             )
             ListLatestMeasuresDetailService.shared.add(listLatestMeasureDetail: listLatestMeasuresDetail)
         }
         let indices = IndicesMax(indiceAtmoMax: indiceAtmoMax,
             indiceMax: indiceMax, valueAtmoMax: valueAtmoMax)
         return indices
+    }
+
+    /// function searchPollutantsValues in order to determine by pollutant
+    ///         indice air quality
+    ///         value pollutant
+    ///         value min pollutant
+    ///         value max pollutant
+    ///  - switch pollutant type
+    ///     - co : Carbon Monoxide
+    ///     - no2 : Nitrogen Dioxide
+    ///     - o3 : Ozone
+    ///     - pm10 : Particulate matter less than 10 micrometers in diameter
+    ///     - pm25 : Particulate matter less than 2.5 micrometers in diameter
+    ///     - so2 : Sulfur Dioxide
+    private func searchPollutantsValues(valueToCheck: Double, parameter: String) {
+        switch parameter {
+        case "co":
+            (indiceAtmo, valueAtmo) = searchIndicePollutantCO(value: valueToCheck)
+            valueMin = CarbonMonoxide.list[0].value
+            valueMax = CarbonMonoxide.list[7].value * 1.5
+        case "no2":
+            (indiceAtmo, valueAtmo) = searchIndicePollutantNO(value: valueToCheck)
+            valueMin = NitrogenDioxide.list[0].value
+            valueMax = NitrogenDioxide.list[7].value * 1.5
+        case "o3":
+            (indiceAtmo, valueAtmo) = searchIndicePollutantO(value: valueToCheck)
+            valueMin = Ozone.list[0].value
+            valueMax = Ozone.list[7].value * 1.5
+        case "pm10":
+            (indiceAtmo, valueAtmo) = searchIndicePollutantPMTen(value: valueToCheck)
+            valueMin = ParticulateTen.list[0].value
+            valueMax = ParticulateTen.list[7].value * 1.5
+        case "pm25":
+            (indiceAtmo, valueAtmo) = searchIndicePollutantPMTwoFive(value: valueToCheck)
+            valueMin = ParticulateTwoFive.list[0].value
+            valueMax = ParticulateTwoFive.list[7].value * 1.5
+        case "so2":
+            (indiceAtmo, valueAtmo) = searchIndicePollutantSO(value: valueToCheck)
+            valueMin = SulfurDioxide.list[0].value
+            valueMax = SulfurDioxide.list[7].value * 1.5
+        default:
+            indiceAtmo = 0
+        }
     }
 
     /// function searchIndicePollutantCO in order determine level of Carbon Monoxide

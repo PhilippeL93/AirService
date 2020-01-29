@@ -34,7 +34,9 @@ class ApiServiceLatestMeasuresTests: XCTestCase {
             lastUpdated: "2020-01-15T08:00:00.000Z",
             unit: "µg/m³",
             sourceName: "EEA France",
-            indiceAtmo: 1)
+            indiceAtmo: 1,
+            valueMin: 5,
+            valueMax: 120)
         ListLatestMeasuresDetailService.shared.add(listLatestMeasureDetail: measuresDetailOne)
 
         let listLatestMeasuresOne = ListLatestMeasure(
@@ -59,7 +61,9 @@ class ApiServiceLatestMeasuresTests: XCTestCase {
             lastUpdated: "2020-01-15T08:00:00.000Z",
             unit: "µg/m³",
             sourceName: "EEA France",
-            indiceAtmo: 1)
+            indiceAtmo: 1,
+            valueMin: 5,
+            valueMax: 120)
         ListLatestMeasuresDetailService.shared.add(listLatestMeasureDetail: measuresDetailTwo)
 
         let listLatestMeasuresTwo = ListLatestMeasure(
@@ -84,7 +88,9 @@ class ApiServiceLatestMeasuresTests: XCTestCase {
             lastUpdated: "2020-01-15T08:00:00.000Z",
             unit: "µg/m³",
             sourceName: "EEA France",
-            indiceAtmo: 1)
+            indiceAtmo: 1,
+            valueMin: 5,
+            valueMax: 120)
         ListLatestMeasuresDetailService.shared.add(listLatestMeasureDetail: measuresDetailThree)
 
         let listLatestMeasuresThree = ListLatestMeasure(
