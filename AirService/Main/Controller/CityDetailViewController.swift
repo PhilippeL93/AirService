@@ -27,8 +27,7 @@ class CityDetailViewController: UIViewController {
     @IBOutlet weak var pollutantFive: UITextField!
     @IBOutlet weak var pollutantSix: UITextField!
 
-    @IBOutlet weak var viewQuality: UIView!
-
+    @IBOutlet weak var qualityView: UIView!
     @IBAction func showPollutants(_ sender: Any) {
         showPopUp()
     }
@@ -176,7 +175,7 @@ class CityDetailViewController: UIViewController {
         sourceName.text = cityDetail[0].sourceName
         let color = UIColor(named: String(cityDetail[0].qualityColor)) ?? .white
         qualityName.backgroundColor = color
-        viewQuality.layer.backgroundColor = color.cgColor
+        qualityView.layer.backgroundColor = color.cgColor
         setPollutant()
     }
 
@@ -217,7 +216,7 @@ class CityDetailViewController: UIViewController {
         typePol.centerAttributedText = NSAttributedString(string:
             String(format: "%.1f", pollutantValue),
                 attributes: [NSAttributedString.Key.font: raleway])
-        if pollutantValue < valueMin {
+        if pollutantValue < valueMin && pollutantValue != 0 {
             indiceData.value = valueMin
         } else {
             indiceData.value = pollutantValue
@@ -232,7 +231,7 @@ class CityDetailViewController: UIViewController {
         chartDataSet.valueTextColor = (NSUIColor(cgColor: colorIndiceData.cgColor))
         chartDataSet.colors = colors
         chartDataSet.label = ""
-        chartDataSet.selectionShift = 3
+        chartDataSet.selectionShift = 8
         typePol.data = chartData
     }
 

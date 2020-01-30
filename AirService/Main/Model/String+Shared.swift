@@ -1,5 +1,5 @@
 //
-//  StringShared.swift
+//  String+Shared.swift
 //  AirService
 //
 //  Created by Philippe on 11/01/2020.

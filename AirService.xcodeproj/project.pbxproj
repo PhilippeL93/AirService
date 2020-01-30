@@ -15,13 +15,13 @@
 		372F026623D04A9B006DB894 /* Raleway-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 372F026523D04A9B006DB894 /* Raleway-Medium.ttf */; };
 		372F026823D04AAA006DB894 /* Raleway-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 372F026723D04AAA006DB894 /* Raleway-Light.ttf */; };
 		372F026A23D06B33006DB894 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F026923D06B33006DB894 /* TabBarViewController.swift */; };
-		372F026C23D1B4EC006DB894 /* ViewQualityWhite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F026B23D1B4EC006DB894 /* ViewQualityWhite.swift */; };
-		372F026E23D1B938006DB894 /* ViewCitiesBlack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F026D23D1B937006DB894 /* ViewCitiesBlack.swift */; };
+		372F026C23D1B4EC006DB894 /* QualityWhiteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F026B23D1B4EC006DB894 /* QualityWhiteView.swift */; };
+		372F026E23D1B938006DB894 /* CitiesBlackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372F026D23D1B937006DB894 /* CitiesBlackView.swift */; };
 		37325C9623C472ED007EE0B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37325C9523C472ED007EE0B9 /* GoogleService-Info.plist */; };
 		37325C9723C472ED007EE0B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37325C9523C472ED007EE0B9 /* GoogleService-Info.plist */; };
 		37325CA123C723A2007EE0B9 /* MyCitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37325CA023C723A2007EE0B9 /* MyCitiesViewController.swift */; };
 		37325CA323C7326E007EE0B9 /* PresentFavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37325CA223C7326E007EE0B9 /* PresentFavoritesCell.swift */; };
-		37352ED123DD77A7004558D2 /* ViewQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37352ED023DD77A7004558D2 /* ViewQuality.swift */; };
+		37352ED123DD77A7004558D2 /* QualityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37352ED023DD77A7004558D2 /* QualityView.swift */; };
 		37365A2923B0CCBE0072EA90 /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37365A2823B0CCBE0072EA90 /* Countries.swift */; };
 		37365A2D23B0CFF50072EA90 /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37365A2C23B0CFF50072EA90 /* Cities.swift */; };
 		37365A2F23B0D4AB0072EA90 /* LatestMeasures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37365A2E23B0D4AB0072EA90 /* LatestMeasures.swift */; };
@@ -32,10 +32,10 @@
 		3737AE0023D9DC160025E862 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3737ADFF23D9DC160025E862 /* PopUpView.swift */; };
 		3737AE0423D9FB7F0025E862 /* CircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3737AE0323D9FB7F0025E862 /* CircleButtonView.swift */; };
 		37524B3323C8EEB100EFFA79 /* CityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37524B3223C8EEB100EFFA79 /* CityDetailViewController.swift */; };
-		37524B3523C9B72700EFFA79 /* StringShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37524B3423C9B72700EFFA79 /* StringShared.swift */; };
+		37524B3523C9B72700EFFA79 /* String+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37524B3423C9B72700EFFA79 /* String+Shared.swift */; };
 		37524B3723CC816F00EFFA79 /* MeasuresFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37524B3623CC816F00EFFA79 /* MeasuresFavorite.swift */; };
 		379163E123B22411008A848F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379163E023B22411008A848F /* SettingsViewController.swift */; };
-		379163E323B24ED8008A848F /* SharedAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379163E223B24ED8008A848F /* SharedAlert.swift */; };
+		379163E323B24ED8008A848F /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379163E223B24ED8008A848F /* UIViewController+Alert.swift */; };
 		379163E523B4AA34008A848F /* ApiServiceCities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379163E423B4AA34008A848F /* ApiServiceCities.swift */; };
 		379163E923B4AA67008A848F /* ApiServiceLatestMeasures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379163E823B4AA67008A848F /* ApiServiceLatestMeasures.swift */; };
 		379163EB23B4AF8C008A848F /* ListCities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379163EA23B4AF8C008A848F /* ListCities.swift */; };
@@ -44,7 +44,7 @@
 		379163F123B4EDD7008A848F /* PresentCitiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379163F023B4EDD7008A848F /* PresentCitiesCell.swift */; };
 		3799340023D9CFD600014238 /* PollutantsPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379933FF23D9CFD600014238 /* PollutantsPopUpViewController.swift */; };
 		37A358F623D5E8790039A753 /* SegmentedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A358F523D5E8790039A753 /* SegmentedController.swift */; };
-		37C8315A23BB9A440030FE9B /* SharedURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C8315923BB9A440030FE9B /* SharedURL.swift */; };
+		37C8315A23BB9A440030FE9B /* URL+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C8315923BB9A440030FE9B /* URL+Shared.swift */; };
 		37C8315C23BB9F470030FE9B /* ListLatestMeasures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C8315B23BB9F470030FE9B /* ListLatestMeasures.swift */; };
 		37C8315E23BC97770030FE9B /* ListLatestMeasuresService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C8315D23BC97770030FE9B /* ListLatestMeasuresService.swift */; };
 		37C8316023BCD3C30030FE9B /* Ozone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C8315F23BCD3C30030FE9B /* Ozone.swift */; };
@@ -86,12 +86,12 @@
 		372F026523D04A9B006DB894 /* Raleway-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Raleway-Medium.ttf"; path = "../../../../../../../Desktop/Raleway/Raleway-Medium.ttf"; sourceTree = "<group>"; };
 		372F026723D04AAA006DB894 /* Raleway-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Raleway-Light.ttf"; path = "../../../../../../../Desktop/Raleway/Raleway-Light.ttf"; sourceTree = "<group>"; };
 		372F026923D06B33006DB894 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		372F026B23D1B4EC006DB894 /* ViewQualityWhite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewQualityWhite.swift; sourceTree = "<group>"; };
-		372F026D23D1B937006DB894 /* ViewCitiesBlack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCitiesBlack.swift; sourceTree = "<group>"; };
+		372F026B23D1B4EC006DB894 /* QualityWhiteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualityWhiteView.swift; sourceTree = "<group>"; };
+		372F026D23D1B937006DB894 /* CitiesBlackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesBlackView.swift; sourceTree = "<group>"; };
 		37325C9523C472ED007EE0B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		37325CA023C723A2007EE0B9 /* MyCitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCitiesViewController.swift; sourceTree = "<group>"; };
 		37325CA223C7326E007EE0B9 /* PresentFavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentFavoritesCell.swift; sourceTree = "<group>"; };
-		37352ED023DD77A7004558D2 /* ViewQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewQuality.swift; sourceTree = "<group>"; };
+		37352ED023DD77A7004558D2 /* QualityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualityView.swift; sourceTree = "<group>"; };
 		37365A2823B0CCBE0072EA90 /* Countries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countries.swift; sourceTree = "<group>"; };
 		37365A2C23B0CFF50072EA90 /* Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
 		37365A2E23B0D4AB0072EA90 /* LatestMeasures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestMeasures.swift; sourceTree = "<group>"; };
@@ -102,10 +102,10 @@
 		3737ADFF23D9DC160025E862 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		3737AE0323D9FB7F0025E862 /* CircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonView.swift; sourceTree = "<group>"; };
 		37524B3223C8EEB100EFFA79 /* CityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailViewController.swift; sourceTree = "<group>"; };
-		37524B3423C9B72700EFFA79 /* StringShared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringShared.swift; sourceTree = "<group>"; };
+		37524B3423C9B72700EFFA79 /* String+Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Shared.swift"; sourceTree = "<group>"; };
 		37524B3623CC816F00EFFA79 /* MeasuresFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasuresFavorite.swift; sourceTree = "<group>"; };
 		379163E023B22411008A848F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		379163E223B24ED8008A848F /* SharedAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedAlert.swift; sourceTree = "<group>"; };
+		379163E223B24ED8008A848F /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		379163E423B4AA34008A848F /* ApiServiceCities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceCities.swift; sourceTree = "<group>"; };
 		379163E823B4AA67008A848F /* ApiServiceLatestMeasures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceLatestMeasures.swift; sourceTree = "<group>"; };
 		379163EA23B4AF8C008A848F /* ListCities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCities.swift; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 		379933FF23D9CFD600014238 /* PollutantsPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollutantsPopUpViewController.swift; sourceTree = "<group>"; };
 		37A358F523D5E8790039A753 /* SegmentedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedController.swift; sourceTree = "<group>"; };
 		37B15CBBA4D1FEAF1D7F1CB2 /* Pods-AirServiceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirServiceTests.debug.xcconfig"; path = "Target Support Files/Pods-AirServiceTests/Pods-AirServiceTests.debug.xcconfig"; sourceTree = "<group>"; };
-		37C8315923BB9A440030FE9B /* SharedURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedURL.swift; sourceTree = "<group>"; };
+		37C8315923BB9A440030FE9B /* URL+Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Shared.swift"; sourceTree = "<group>"; };
 		37C8315B23BB9F470030FE9B /* ListLatestMeasures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLatestMeasures.swift; sourceTree = "<group>"; };
 		37C8315D23BC97770030FE9B /* ListLatestMeasuresService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLatestMeasuresService.swift; sourceTree = "<group>"; };
 		37C8315F23BCD3C30030FE9B /* Ozone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ozone.swift; sourceTree = "<group>"; };
@@ -233,7 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				379163F023B4EDD7008A848F /* PresentCitiesCell.swift */,
-				372F026D23D1B937006DB894 /* ViewCitiesBlack.swift */,
+				372F026D23D1B937006DB894 /* CitiesBlackView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -261,8 +261,8 @@
 			isa = PBXGroup;
 			children = (
 				37325CA223C7326E007EE0B9 /* PresentFavoritesCell.swift */,
-				372F026B23D1B4EC006DB894 /* ViewQualityWhite.swift */,
-				37352ED023DD77A7004558D2 /* ViewQuality.swift */,
+				372F026B23D1B4EC006DB894 /* QualityWhiteView.swift */,
+				37352ED023DD77A7004558D2 /* QualityView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -339,7 +339,8 @@
 		37CC410E23A76FB200CC1D19 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				37C8315923BB9A440030FE9B /* SharedURL.swift */,
+				37524B3423C9B72700EFFA79 /* String+Shared.swift */,
+				37C8315923BB9A440030FE9B /* URL+Shared.swift */,
 				37C8316123BCD5E20030FE9B /* SulfurDioxide.swift */,
 				37C8316523BCD64A0030FE9B /* NitrogenDioxide.swift */,
 				37C8315F23BCD3C30030FE9B /* Ozone.swift */,
@@ -348,7 +349,6 @@
 				37C8316923BCD69A0030FE9B /* ParticulateTwoFive.swift */,
 				37C8316B23BCDB860030FE9B /* QualityLevel.swift */,
 				37F60C7923D384B7001C5399 /* IndicesMax.swift */,
-				37524B3423C9B72700EFFA79 /* StringShared.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -359,9 +359,9 @@
 				372F026923D06B33006DB894 /* TabBarViewController.swift */,
 				37524B3223C8EEB100EFFA79 /* CityDetailViewController.swift */,
 				379933FF23D9CFD600014238 /* PollutantsPopUpViewController.swift */,
-				379163E223B24ED8008A848F /* SharedAlert.swift */,
-				37365A3223B11ACE0072EA90 /* Errors.swift */,
 				3737ADFF23D9DC160025E862 /* PopUpView.swift */,
+				379163E223B24ED8008A848F /* UIViewController+Alert.swift */,
+				37365A3223B11ACE0072EA90 /* Errors.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -641,7 +641,7 @@
 				37365A3523B132070072EA90 /* ListCountries.swift in Sources */,
 				379163EB23B4AF8C008A848F /* ListCities.swift in Sources */,
 				37524B3723CC816F00EFFA79 /* MeasuresFavorite.swift in Sources */,
-				379163E323B24ED8008A848F /* SharedAlert.swift in Sources */,
+				379163E323B24ED8008A848F /* UIViewController+Alert.swift in Sources */,
 				372F026A23D06B33006DB894 /* TabBarViewController.swift in Sources */,
 				37365A2D23B0CFF50072EA90 /* Cities.swift in Sources */,
 				37365A2F23B0D4AB0072EA90 /* LatestMeasures.swift in Sources */,
@@ -658,11 +658,11 @@
 				37325CA123C723A2007EE0B9 /* MyCitiesViewController.swift in Sources */,
 				37CBDAB223DD83F2000B7A43 /* ListLatestMeasuresDetailService.swift in Sources */,
 				37C8316223BCD5E20030FE9B /* SulfurDioxide.swift in Sources */,
-				37C8315A23BB9A440030FE9B /* SharedURL.swift in Sources */,
-				372F026C23D1B4EC006DB894 /* ViewQualityWhite.swift in Sources */,
-				37524B3523C9B72700EFFA79 /* StringShared.swift in Sources */,
+				37C8315A23BB9A440030FE9B /* URL+Shared.swift in Sources */,
+				372F026C23D1B4EC006DB894 /* QualityWhiteView.swift in Sources */,
+				37524B3523C9B72700EFFA79 /* String+Shared.swift in Sources */,
 				37365A3123B11A410072EA90 /* ApiServiceCountries.swift in Sources */,
-				372F026E23D1B938006DB894 /* ViewCitiesBlack.swift in Sources */,
+				372F026E23D1B938006DB894 /* CitiesBlackView.swift in Sources */,
 				37F60C7A23D384B7001C5399 /* IndicesMax.swift in Sources */,
 				37C8316C23BCDB860030FE9B /* QualityLevel.swift in Sources */,
 				37365A3323B11ACE0072EA90 /* Errors.swift in Sources */,
@@ -678,7 +678,7 @@
 				37F60C7C23D46113001C5399 /* Settings.swift in Sources */,
 				37CC40E923A767C000CC1D19 /* AppDelegate.swift in Sources */,
 				37A358F623D5E8790039A753 /* SegmentedController.swift in Sources */,
-				37352ED123DD77A7004558D2 /* ViewQuality.swift in Sources */,
+				37352ED123DD77A7004558D2 /* QualityView.swift in Sources */,
 				379163E123B22411008A848F /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

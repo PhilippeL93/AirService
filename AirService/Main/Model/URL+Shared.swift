@@ -1,5 +1,5 @@
 //
-//  SharedURL.swift
+//  URL+Shared.swift
 //  AirService
 //
 //  Created by Philippe on 31/12/2019.

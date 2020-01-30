@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FontAwesome_swift
 
 // MARK: - class PollutantsPopUpViewController
 class PollutantsPopUpViewController: UIViewController {
@@ -14,6 +15,7 @@ class PollutantsPopUpViewController: UIViewController {
     // MARK: - outlets
     ///   link between view elements and controller
     ///
+    @IBOutlet weak var buttonClose: UIButton!
     @IBAction func closePopUp(_ sender: UIButton) {
         self.removeAnimate()
         self.view.removeFromSuperview()
@@ -22,6 +24,8 @@ class PollutantsPopUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white.withAlphaComponent(0.8)
+        buttonClose.titleLabel?.font = UIFont.fontAwesome(ofSize: 30, style: .solid)
+        buttonClose.setTitle(String.fontAwesomeIcon(name: .timesCircle), for: .normal)
         self.showAnimate()
     }
 

@@ -1,5 +1,5 @@
 //
-//  SharedAlert.swift
+//  UIViewController+Alert.swift
 //  AirService
 //
 //  Created by Philippe on 24/12/2019.

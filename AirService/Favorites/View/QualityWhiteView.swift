@@ -1,5 +1,5 @@
 //
-//  ViewCitiesBlack.swift
+//  QualityWhiteView.swift
 //  AirService
 //
 //  Created by Philippe on 17/01/2020.
@@ -10,12 +10,12 @@ import UIKit
 
 @IBDesignable
 
-// MARK: class ViewCitiesBlack
+// MARK: class QualityWhiteView
 ///    in order to manage
 ///    - border in color
 ///    - rounded corner
 ///
-class ViewCitiesBlack: UIView {
+class QualityWhiteView: UIView {
 
     @IBInspectable var cornerRadius: CGFloat = 0 {
         didSet {

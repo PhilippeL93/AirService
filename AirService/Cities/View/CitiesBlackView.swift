@@ -1,8 +1,8 @@
 //
-//  ViewQuality.swift
+//  CitiesBlackView.swift
 //  AirService
 //
-//  Created by Philippe on 26/01/2020.
+//  Created by Philippe on 17/01/2020.
 //  Copyright © 2020 Philippe. All rights reserved.
 //
 
@@ -10,12 +10,12 @@ import UIKit
 
 @IBDesignable
 
-// MARK: class ViewQuality
+// MARK: class ViewCitiesBlack
 ///    in order to manage
 ///    - border in color
 ///    - rounded corner
 ///
-class ViewQuality: UIView {
+class CitiesBlackView: UIView {
 
     @IBInspectable var cornerRadius: CGFloat = 0 {
         didSet {
