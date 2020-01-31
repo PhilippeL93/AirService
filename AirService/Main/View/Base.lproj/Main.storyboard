@@ -124,7 +124,7 @@
                                                                             <color key="highlightedColor" red="0.18429291249999999" green="0.1882483959" blue="0.1960500479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <size key="shadowOffset" width="0.0" height="0.0"/>
                                                                         </label>
-                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGU-kk-FuY" customClass="FontAwesomeButton" customModule="FontAwesomeKit_Swift">
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGU-kk-FuY">
                                                                             <rect key="frame" x="319" y="0.0" width="24" height="24"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="gGU-kk-FuY" secondAttribute="height" multiplier="1:1" id="ANQ-kO-P5r"/>
@@ -144,6 +144,7 @@
                                                                     </subviews>
                                                                 </stackView>
                                                             </subviews>
+                                                            <gestureRecognizers/>
                                                             <constraints>
                                                                 <constraint firstItem="h86-bK-hu5" firstAttribute="height" secondItem="wl4-xG-AT3" secondAttribute="height" id="Yel-EW-XCe"/>
                                                                 <constraint firstItem="gGU-kk-FuY" firstAttribute="height" secondItem="wl4-xG-AT3" secondAttribute="height" id="Zns-fD-f75"/>
@@ -180,6 +181,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.89479488129999996" green="0.9522739053" blue="0.98824220900000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="citiesLabel" destination="wl4-xG-AT3" id="ZRx-4J-Fq7"/>
                                             <outlet property="favoriteButton" destination="gGU-kk-FuY" id="hU0-S7-DDa"/>
@@ -251,7 +253,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uDS-Fh-JyL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="gKR-Pu-zO1">
                     <connections>
-                        <action selector="dismissKeyBoard:" destination="dsc-MN-zQQ" id="BEU-uQ-8e3"/>
+                        <action selector="dismissKeyBoard:" destination="dsc-MN-zQQ" id="jJI-FQ-9Pd"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

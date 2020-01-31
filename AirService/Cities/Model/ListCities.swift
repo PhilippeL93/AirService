@@ -12,10 +12,10 @@ import Foundation
 ///    contains cities extracted by APIServiceCities
 ///
 struct ListCitie {
-    let ident: String
-    let country: String
-    let city: String
-    let location: String
-    let locations: String
-    let favorite: Bool
+    var ident: String
+    var country: String
+    var city: String
+    var location: String
+    var locations: String
+    var favorite: Bool
 }

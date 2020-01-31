@@ -16,7 +16,7 @@ class ListCitiesService {
     // MARK: - variables
     ///   variables
 
-    static let shared = ListCitiesService()
+    static var shared = ListCitiesService()
     private init() {}
     private(set) var listCities: [ListCitie] = []
 

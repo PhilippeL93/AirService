@@ -32,45 +32,61 @@ class PresentCitiesCell: UITableViewCell {
 
     // MARK: - functions
     ///   function manageFavorite in order manage add or remove city in favorite
-    ///   - if 
+    ///   - if  favorite
+    ///      - call function suppressFavorite in order to suppress favorite
+    ///   - else
+    ///     - call function addNewFavorite in order to add to favorite
     ///
     func manageFavorite() {
         citiesFavorite = settings.favoriteCitiesList
         cities = ListCitiesService.shared.listCities
-        if favoriteButton.currentTitleColor == #colorLiteral(red: 0.752874434, green: 0.7529839873, blue: 0.7528504729, alpha: 1) {
-            favoriteButton.setTitleColor(.white, for: .normal)
-
-            guard let countOfFavorites = citiesFavorite?.count else {
-                return
-            }
-            for indice in 0...countOfFavorites-1
-                where (citiesFavorite?[indice].city == citiesLabel.text
-                    && citiesFavorite?[indice].location == locationLabel.text )
-                    || (citiesFavorite?[indice].locations == citiesLabel.text
-                    && citiesFavorite?[indice].city == locationLabel.text) {
-                    citiesFavorite?.remove(at: indice)
-                    settings.favoriteCitiesList = (citiesFavorite ?? [])!
-                    return
-            }
+        if favoriteButton.currentTitleColor == #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1) {
+            favoriteButton.setTitleColor(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1), for: .normal)
+            suppressFavorite()
         } else {
-            for indice in 0...cities.count-1
-                where ( cities[indice].city == citiesLabel.text
-                    && cities[indice].locations == locationLabel.text )
-                    || ( cities[indice].locations == citiesLabel.text
-                    && cities[indice].city == locationLabel.text) {
-                    let cityFavorite = CitiesFavorite(
-                        ident: cities[indice].ident,
-                        country: cities[indice].country,
-                        city: cities[indice].city,
-                        location: cities[indice].location,
-                        locations: cities[indice].locations
-                    )
-                    citiesFavorite?.append(cityFavorite)
-            }
-            settings.favoriteCitiesList = (citiesFavorite ?? [])!
             favoriteButton.setTitleColor(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), for: .normal)
+            addNewFavorite()
+            settings.favoriteCitiesList = (citiesFavorite ?? [])!
+            citiesFavorite = settings.favoriteCitiesList
         }
     }
+
+    ///   function addNewFavorite in order to add  city in favorite
+    ///
+    private func addNewFavorite() {
+        for indice in 0...cities.count-1
+            where ( cities[indice].city == citiesLabel.text
+                && cities[indice].locations == locationLabel.text )
+                || ( cities[indice].locations == citiesLabel.text
+                && cities[indice].city == locationLabel.text) {
+                let cityFavorite = CitiesFavorite(
+                    ident: cities[indice].ident,
+                    country: cities[indice].country,
+                    city: cities[indice].city,
+                    location: cities[indice].location,
+                    locations: cities[indice].locations
+                )
+                citiesFavorite?.append(cityFavorite)
+        }
+    }
+
+    ///   function suppressFavorite in order suppress city from favorite
+    ///
+    private func suppressFavorite() {
+        guard let countOfFavorites = citiesFavorite?.count else {
+            return
+        }
+        for indice in 0...countOfFavorites-1
+            where (citiesFavorite?[indice].city == citiesLabel.text
+                && citiesFavorite?[indice].location == locationLabel.text )
+                || (citiesFavorite?[indice].locations == citiesLabel.text
+                && citiesFavorite?[indice].city == locationLabel.text) {
+                citiesFavorite?.remove(at: indice)
+                settings.favoriteCitiesList = (citiesFavorite ?? [])!
+                return
+        }
+    }
+
     ///   function configure in order to display data in custom cell
     ///
     func configure(with country: String, city: String, location: String, favorite: Bool) {
@@ -81,6 +97,8 @@ class PresentCitiesCell: UITableViewCell {
             locationLabel.text = city
             citiesLabel.text = location
         }
+        favoriteButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 17, style: .solid)
+        favoriteButton.setTitle(String.fontAwesomeIcon(name: .star), for: .normal)
         if favorite == true {
             favoriteButton.setTitleColor(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), for: .normal)
         } else {

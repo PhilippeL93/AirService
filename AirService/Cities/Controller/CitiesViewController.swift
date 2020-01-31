@@ -31,11 +31,14 @@ class CitiesViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var message: UILabel!
+
     @IBAction func dismissKeyBoard(_ sender: UITapGestureRecognizer) {
         searchBar.resignFirstResponder()
     }
-
     override func viewWillAppear(_ animated: Bool) {
+        if let index = self.tableView.indexPathForSelectedRow {
+            self.tableView.deselectRow(at: index, animated: true)
+        }
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         refresh()
@@ -52,13 +55,14 @@ class CitiesViewController: UIViewController, CLLocationManagerDelegate {
 
     // MARK: - variables
     var locationManager = CLLocationManager()
+    var citiesFavorite: [CitiesFavorite]?
+    let settings = Settings()
     var cities = ListCitiesService.shared.listCities
     var searchActive: Bool = false
     var filtered: [String] = []
     var isoCountryCodeToSearch = ""
     var country = ""
     var errorsLocation: Errors?
-    let settings = Settings()
     var oldIsoCountryCode: String = ""
 
     private let apiFetchCities = ApiServiceCities()
@@ -95,11 +99,11 @@ extension CitiesViewController: UISearchBarDelegate {
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        searchBar.text = ""
-        self.cities.removeAll()
-        self.tableView.reloadData()
+        cities.removeAll()
+        tableView.reloadData()
         searchActive = false
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -275,9 +279,31 @@ extension CitiesViewController: UISearchBarDelegate {
             cities.removeAll()
             tableView.reloadData()
         } else {
-            cities = ListCitiesService.shared.listCities
-            tableView.reloadData()
+            guard let countOfCities = cities.count as Int? else {
+                return
+            }
+            if countOfCities > 0 {
+            for indice in 0...countOfCities-1 {
+                let favoriteFound = getFavorite(indice: indice)
+                cities[indice].favorite = favoriteFound
+            }
+                tableView.reloadData()
+            }
         }
+    }
+
+    ///   function getFavorite in order to detect change of favorites
+    ///
+    private func getFavorite(indice: Int) -> Bool {
+        citiesFavorite = settings.favoriteCitiesList as [CitiesFavorite]?
+        guard let countOfFavorites = citiesFavorite?.count else {
+            return false
+        }
+        for indiceFavorite in 0...countOfFavorites-1
+            where citiesFavorite?[indiceFavorite].ident == cities[indice].ident {
+                return true
+        }
+        return false
     }
 }
 
@@ -288,7 +314,7 @@ extension CitiesViewController: UITableViewDataSource {
         return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ListCitiesCell", for: indexPath)
+          guard let cell = tableView.dequeueReusableCell(withIdentifier: "ListCitiesCell", for: indexPath)
             as? PresentCitiesCell else {
                 return UITableViewCell()
         }
@@ -321,9 +347,7 @@ extension CitiesViewController: UITableViewDelegate {
         let size = tableView.frame.height / 6
         return size
     }
-
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
         ListLatestMeasuresService.shared.removeAll()
         displayCityDetail(countryToSearch: isoCountryCodeToSearch,
                           locationToSearch: cities[indexPath.row].location,
