@@ -9,12 +9,13 @@
 import Foundation
 import Alamofire
 
-// MARK: - class
+// MARK: - class ApiServiceCities
 class ApiServiceCities {
 
     private let apiServiceUrl = "https://api.openaq.org/v1/locations?"
     private var request: DataRequest?
     let settings = Settings()
+    let checkCountry = CheckCountry()
 
     var duplicateFound: Bool = false
     var locationsFound: String = ""
@@ -100,26 +101,30 @@ class ApiServiceCities {
 
     /// function createListCountries
     ///     - loop in order to create listCountries contening contries found
-    ///         - depending on country
-
+    ///     - call function searchDuplicateCity
+    ///     - if duplicate not found
+    ///         - call function getFavorite in order to know if city already in favorites
+    ///         - depending on country type
+    ///             - call function getValuesCountryTypeOne
+    ///             - call function getValuesCountryTypeTwo
+    ///             - call function getValuesCountryOther
+    ///
     private func createListCities(type: Cities, typeOfSearch: String) {
-        let date = Date()
-        let formatter = DateFormatter()
-//        formatter.dateFormat = "yyyy-MM-dd"
-        formatter.dateFormat = "yyyy-MM"
-        let currentDateCompare = formatter.string(from: date)
-
         do {
-            for indice in 0...type.results.count-1
-                where type.results[indice].lastUpdated.hasPrefix(currentDateCompare) {
-                    switch type.results[indice].country {
-                    case "FR":
-                        getFRValues(type: type.results[indice])
-                    case "DE":
-                        getDEValues(type: type.results[indice])
+            for indice in 0...type.results.count-1 {
+                duplicateFound = searchDuplicateCity(ident: type.results[indice].ident)
+                if duplicateFound == false {
+                    favorite = getFavorite(ident: type.results[indice].ident)
+                    let typeCountry = checkCountry.checkCountry(country: type.results[indice].country)
+                    switch typeCountry {
+                    case "countryTypeOne":
+                        getValuesCountryTypeOne(type: type.results[indice])
+                    case "countryTypeTwo":
+                        getValuesCountryTypeTwo(type: type.results[indice])
                     default:
-                        getValues(type: type.results[indice])
+                        getValuesCountryOther(type: type.results[indice])
                     }
+                }
             }
         }
     }
@@ -137,22 +142,11 @@ class ApiServiceCities {
         }
     }
 
-    /// function getFRValues in order to prepare data for French country
-    ///  - call function getFavorite in order to display if city already in favorites
-    ///  - call function searchDuplicateCity in order to suppress duplicate in API
-    ///  - if no duplicate
-    ///     - call function haveCharCountry in order to have locationName
-    ///     - if location found not empty
-    ///         - add entry found in list of cities
+    /// function getValuesCountryTypeOne in order to prepare data for specifics countries
+    ///  - if location found not empty
+    ///      - create new entrie in ListCitie
     ///
-    private func getFRValues(type: ResultsDataCities) {
-        favorite = getFavorite(ident: type.ident)
-
-        duplicateFound = searchDuplicateCity(ident: type.ident)
-
-        guard duplicateFound == false else {
-            return
-        }
+    private func getValuesCountryTypeOne(type: ResultsDataCities) {
 
         haveCharCountry(location: type.location, country: type.country, locations: type.locations)
 
@@ -170,22 +164,14 @@ class ApiServiceCities {
         ListCitiesService.shared.add(listCitie: listCities)
     }
 
-    /// function getFRValues in order to prepare data for German country
-    ///  - call function getFavorite in order to display if city already in favorites
-    ///  - call function searchDuplicateCity in order to suppress duplicate in API
-    ///  - if no duplicate
-    ///     - call function haveCharCountry in order to have locationName
-    ///     - add entry found in list of cities
+    /// function getValuesCountryTypeTwo in order to prepare data for specifics countries
+    ///  - call function haveCharCountry in order to have locationName
+    ///  - create new entrie in ListCitie
     ///
-    private func getDEValues(type: ResultsDataCities) {
-        favorite = getFavorite(ident: type.ident)
+    private func getValuesCountryTypeTwo(type: ResultsDataCities) {
 
-        duplicateFound = searchDuplicateCity(ident: type.ident)
-
-        guard duplicateFound == false else {
-            return
-        }
         haveCharCountry(location: type.location, country: type.country, locations: type.locations)
+
         let listCities = ListCitie(
             ident: type.ident,
             country: type.country,
@@ -197,28 +183,24 @@ class ApiServiceCities {
         ListCitiesService.shared.add(listCitie: listCities)
     }
 
-    /// function getFRValues in order to prepare data for other countries
-    ///  - call function getFavorite in order to display if city already in favorites
-    ///  - call function searchDuplicateCity in order to suppress duplicate in API
-    ///  - if no duplicate
-    ///     - add entry found in list of cities
+    /// function getValuesCountryOther in order to prepare data for other countries
+    ///  - create new entrie in ListCitie
     ///
-    private func getValues(type: ResultsDataCities) {
-        favorite = getFavorite(ident: type.ident)
+    private func getValuesCountryOther(type: ResultsDataCities) {
 
-        duplicateFound = searchDuplicateCity(ident: type.ident)
+        let listCities = ListCitie(
+            ident: type.ident,
+            country: type.country,
+            city: type.city,
+            location: type.location,
+            locations: type.location,
+            favorite: favorite
+        )
+        ListCitiesService.shared.add(listCitie: listCities)
+    }
 
-        if duplicateFound == false {
-            let listCities = ListCitie(
-                ident: type.ident,
-                country: type.country,
-                city: type.city,
-                location: type.location,
-                locations: type.location,
-                favorite: favorite
-            )
-            ListCitiesService.shared.add(listCitie: listCities)
-        }
+    private func test() -> Bool {
+        return false
     }
 
     /// function getFavorite in order to verify if entry already existing in list of cities
@@ -251,17 +233,20 @@ class ApiServiceCities {
     ///     - search location name in locations equal to location
     ///
     private func haveCharCountry(location: String, country: String, locations: [String] ) {
-        let haveChar = containsOnlyLetters(location: location, charToCheck: country)
-        switch haveChar {
+        let haveCharCountry = containsOnlyLetters(location: location, charToCheck: country)
+        locationsFound = ""
+        switch haveCharCountry {
         case true:
             for indiceLocation in 0...locations.count-1
                 where locations[indiceLocation] != location {
                     locationsFound = locations[indiceLocation]
+                    return
             }
         case false:
             for indiceLocation in 0...locations.count-1
                 where locations[indiceLocation] == location {
                     locationsFound = locations[indiceLocation]
+                    return
             }
         }
     }

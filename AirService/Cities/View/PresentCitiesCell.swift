@@ -46,7 +46,7 @@ class PresentCitiesCell: UITableViewCell {
         } else {
             favoriteButton.setTitleColor(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), for: .normal)
             addNewFavorite()
-            settings.favoriteCitiesList = (citiesFavorite ?? [])!
+            settings.favoriteCitiesList = (citiesFavorite ?? [])
             citiesFavorite = settings.favoriteCitiesList
         }
     }
@@ -82,7 +82,7 @@ class PresentCitiesCell: UITableViewCell {
                 || (citiesFavorite?[indice].locations == citiesLabel.text
                 && citiesFavorite?[indice].city == locationLabel.text) {
                 citiesFavorite?.remove(at: indice)
-                settings.favoriteCitiesList = (citiesFavorite ?? [])!
+                settings.favoriteCitiesList = (citiesFavorite ?? [])
                 return
         }
     }

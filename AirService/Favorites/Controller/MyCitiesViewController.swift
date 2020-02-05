@@ -171,7 +171,7 @@ extension MyCitiesViewController: UITableViewDelegate {
             }
             deleteFavorite(city: city, location: location)
             citiesFavorite?.remove(at: indexPath.row)
-            settings.favoriteCitiesList = (citiesFavorite ?? [])!
+            settings.favoriteCitiesList = (citiesFavorite ?? [])
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }

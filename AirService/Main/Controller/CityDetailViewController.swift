@@ -49,18 +49,13 @@ class CityDetailViewController: UIViewController {
     var colorIndiceData: UIColor = UIColor(named: "colorIndiceData") ?? .white
     var colorIndiceDataFull: UIColor = UIColor(named: "colorIndiceDataFull") ?? .white
     var indiceDataEntries = [PieChartDataEntry]()
+    let checkCountry = CheckCountry()
 
     override func viewDidLoad() {
         self.navigationController?.isNavigationBarHidden = false
         fillCityDetail()
         initMainChart()
         initCharts()
-        super.viewDidLoad()
-        }
-
-    override func viewDidAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = false
-        fillCityDetail()
         super.viewDidLoad()
         }
 
@@ -156,19 +151,24 @@ class CityDetailViewController: UIViewController {
     private func fillCityDetail() {
         cityName.text = cityDetail[0].city
         department.text = cityDetail[0].location
-        if cityDetail[0].country == "DE" {
-            department.text = cityDetail[0].locations
-            if cityDetail[0].locations.isEmpty {
-                department.text = locationsName
-            }
-        }
-        if cityDetail[0].country == "FR" {
+
+        let typeCountry = checkCountry.checkCountry(country: cityDetail[0].country)
+        switch typeCountry {
+        case "countryTypeOne":
             department.text = cityDetail[0].city
             cityName.text = cityDetail[0].locations
             if cityDetail[0].locations.isEmpty {
                 cityName.text = locationsName
             }
+        case "countryTypeTwo":
+            department.text = cityDetail[0].locations
+            if cityDetail[0].locations.isEmpty {
+                department.text = locationsName
+            }
+        default:
+            department.text = cityDetail[0].location
         }
+
         qualityName.text = cityDetail[0].qualityName
         hourLastUpdated.text = " \(String(cityDetail[0].hourLastUpdated[0 ..< 10]))" +
                                 " à : \(String(cityDetail[0].hourLastUpdated[11 ..< 19]))"
@@ -199,7 +199,7 @@ class CityDetailViewController: UIViewController {
         }
     }
 
-    ///   function updateChartDetail in order in order to prepare data for pie chart by pollutant
+    ///   function updateChartDetail in order to prepare data for pie chart by pollutant
     ///
     private func updateChartDetail(
         typePol: PieChartView, pollutantValue: Double, valueMax: Double, indiceAtmo: Int, valueMin: Double) {
@@ -235,6 +235,8 @@ class CityDetailViewController: UIViewController {
         typePol.data = chartData
     }
 
+    ///   function defineTypePol in order to initialize pollutant and pollutant text
+    ///
     private func defineTypePol(parameter: String, numPol: Int) -> PieChartView {
         var typePol: PieChartView = pieChartPolOne
         switch numPol {

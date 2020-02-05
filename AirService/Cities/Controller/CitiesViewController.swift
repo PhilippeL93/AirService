@@ -45,14 +45,6 @@ class CitiesViewController: UIViewController, CLLocationManagerDelegate {
         message.isHidden = true
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
-        refresh()
-        searchBar.text = ""
-        message.isHidden = true
-    }
-
     // MARK: - variables
     var locationManager = CLLocationManager()
     var citiesFavorite: [CitiesFavorite]?
@@ -64,6 +56,7 @@ class CitiesViewController: UIViewController, CLLocationManagerDelegate {
     var country = ""
     var errorsLocation: Errors?
     var oldIsoCountryCode: String = ""
+    let checkCountry = CheckCountry()
 
     private let apiFetchCities = ApiServiceCities()
     private let apiFetchMeasures = ApiServiceLatestMeasures()
@@ -238,18 +231,59 @@ extension CitiesViewController: UISearchBarDelegate {
     }
 
     ///   function refresh in order to refresh screen depending on setting
+    ///   - check userDefaults already existing
+    ///   - if true
+    ///     - take in account of userDefaults setting
+    ///   - else
+    ///     - call function localizeiPhone
     ///
     private func refresh() {
-        oldIsoCountryCode = isoCountryCodeToSearch
-        if settings.localization == "GeoLocalization" {
+        let userDefaults = checkUserDefaults()
+        switch userDefaults {
+        case true:
+            oldIsoCountryCode = isoCountryCodeToSearch
+            if settings.localization == "GeoLocalization" {
+                localizeiPhone()
+                checkUpdateIsoCountryCode(oldIsoCountryCode: oldIsoCountryCode)
+            } else {
+                isoCountryCodeToSearch = settings.countryISO ?? "FR"
+                countryLabel.text = Locale.current.localizedString(forRegionCode: isoCountryCodeToSearch)
+                country = self.countryLabel.text!
+                checkUpdateIsoCountryCode(oldIsoCountryCode: oldIsoCountryCode)
+            }
+        case false:
             localizeiPhone()
-            checkUpdateIsoCountryCode(oldIsoCountryCode: oldIsoCountryCode)
-        } else {
-            isoCountryCodeToSearch = settings.countryISO ?? "FR"
-            countryLabel.text = Locale.current.localizedString(forRegionCode: isoCountryCodeToSearch)
-            country = self.countryLabel.text!
-            checkUpdateIsoCountryCode(oldIsoCountryCode: oldIsoCountryCode)
         }
+    }
+
+    ///   function checkUserDefaults in order to detect existing of userDefaults
+    ///
+    private func checkUserDefaults() -> Bool {
+        let userDefaultsGeolocalization = checkUserDefaultsGeoLocalization()
+        let userDefaultsCountryIso = checkUserDefaultsIsoCountryCodeSetting()
+        if userDefaultsGeolocalization == true || userDefaultsCountryIso == true {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    ///   function checkUserDefaultsGeoLocalization in order to detect userDefaults for geo localization
+    ///
+    private func checkUserDefaultsGeoLocalization() -> Bool {
+        guard settings.localization != nil else {
+            return false
+        }
+        return true
+    }
+
+    ///   function checkUserDefaultsIsoCountryCodeSetting in order to detect userDefaults for country
+    ///
+    private func checkUserDefaultsIsoCountryCodeSetting() -> Bool {
+        guard settings.countryISO != nil else {
+            return false
+        }
+        return true
     }
 
     ///   function localizeiPhone in order to localize iPhone depending on user choice
@@ -323,12 +357,18 @@ extension CitiesViewController: UITableViewDataSource {
         var favorite: Bool = false
 
         city = cities[indexPath.row].city
-        if cities[indexPath.row].country == "FR" || cities[indexPath.row].country == "DE" {
+
+        let country = cities[indexPath.row].country
+        let typeCountry = checkCountry.checkCountry(country: country)
+        switch typeCountry {
+        case "countryTypeOne":
             location = cities[indexPath.row].locations
-        } else {
+        case "countryTypeTwo":
+            location = cities[indexPath.row].locations
+        default:
             location = cities[indexPath.row].location
         }
-        let country = cities[indexPath.row].country
+
         favorite = cities[indexPath.row].favorite
 
         cell.configure(with: country, city: city, location: location, favorite: favorite)

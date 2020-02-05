@@ -29,7 +29,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var countryPickerView: UIPickerView!
     @IBOutlet weak var choiceOfLocalization: UISegmentedControl!
 
-    override func viewDidLoad() {
+    override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
         super.viewDidLoad()
         callAPICountries()

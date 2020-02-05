@@ -22,6 +22,8 @@ class PresentFavoritesCell: UITableViewCell {
     @IBOutlet weak var hourLastUpdated: UITextField!
     @IBOutlet weak var qualityView: UIView!
 
+    let checkCountry = CheckCountry()
+
     ///   function configure in order to display data in custom cell
     ///
     func configure(with cityFavorite: ListLatestMeasure) {
@@ -34,14 +36,15 @@ class PresentFavoritesCell: UITableViewCell {
 
         pollutant.text = cityFavorite.pollutant
 
-         if cityFavorite.country == "DE" {
-            department.text = cityFavorite.locations
-        } else {
-            department.text = cityFavorite.location
-        }
-        if cityFavorite.country == "FR" {
+        let typeCountry = checkCountry.checkCountry(country: cityFavorite.country)
+        switch typeCountry {
+        case "countryTypeOne":
             department.text = cityFavorite.city
             cityName.text = cityFavorite.locations
+        case "countryTypeTwo":
+            department.text = cityFavorite.locations
+        default:
+            department.text = cityFavorite.location
         }
 
         let color = UIColor(named: String(cityFavorite.qualityColor)) ?? .white
