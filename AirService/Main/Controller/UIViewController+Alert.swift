@@ -38,6 +38,8 @@ extension UIViewController {
             alert(message: Errors.dataNotCompliant.rawValue, title: "Error")
         case .noMeasurements:
             alert(message: Errors.noMeasurements.rawValue, title: "Error")
+        case .noLocationServices:
+            alert(message: Errors.noLocationServices.rawValue, title: "Location Services")
         }
     }
 
@@ -57,6 +59,8 @@ extension UIViewController {
             return Errors.dataNotCompliant.rawValue
         case .noMeasurements:
             return Errors.noMeasurements.rawValue
+        case .noLocationServices:
+            return Errors.noLocationServices.rawValue
         }
     }
 }

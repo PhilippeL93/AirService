@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 // MARK: - class SettingsViewController
 class SettingsViewController: UIViewController {
@@ -15,11 +16,7 @@ class SettingsViewController: UIViewController {
     ///   function saveSettings in order to save in userDefaults
     ///
     @IBAction func saveSettings(_ sender: Any) {
-        let localizationIndex = choiceOfLocalization.selectedSegmentIndex
-        settingsService.localization = (localizationIndex == 0) ? "GeoLocalization" : "country"
-        if settingsService.localization == "country" {
-            settingsService.countryISO = getSelectedCountry()
-        }
+        saveUserDefaults()
     }
 
     // MARK: - outlets
@@ -99,6 +96,31 @@ class SettingsViewController: UIViewController {
                 return indice
         }
         return -1
+    }
+
+    ///   function saveUserDefaults in order to save userDefaults
+    ///    - if geolocalization and location service is disabled
+    ///      - message to activate location services
+    ///    - else
+    ///      - save userDefaults
+    ///
+    private func saveUserDefaults() {
+        let localizationIndex = choiceOfLocalization.selectedSegmentIndex
+        let choiceOfLocalization = (localizationIndex == 0) ? "GeoLocalization" : "country"
+
+        if choiceOfLocalization == "GeoLocalization" {
+            if CLLocationManager.locationServicesEnabled() == true {
+                if CLLocationManager.authorizationStatus() == .restricted ||
+                    CLLocationManager.authorizationStatus() == .denied {
+                    getErrors(type: .noLocationServices)
+                    return
+                }
+            }
+        }
+//        else {
+            settingsService.countryISO = getSelectedCountry()
+            settingsService.localization = (localizationIndex == 0) ? "GeoLocalization" : "country"
+//        }
     }
 
     /// function toggleActivityIndicator

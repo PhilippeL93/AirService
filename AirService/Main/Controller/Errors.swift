@@ -17,4 +17,5 @@ enum Errors: String {
     case noMeasurements = "No measure found"
     case noCities = "No cities found"
     case noURL = "URL not compliant"
+    case noLocationServices = "Please enable Location Services in Settings"
 }

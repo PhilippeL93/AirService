@@ -22,7 +22,7 @@ extension CLLocation {
 }
 
 // MARK: class CitiesViewController
-class CitiesViewController: UIViewController, CLLocationManagerDelegate {
+class CitiesViewController: UIViewController {
 
     // MARK: - outlets
     ///   link between view elements and controller
@@ -41,7 +41,7 @@ class CitiesViewController: UIViewController, CLLocationManagerDelegate {
         }
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
-        refresh()
+        checkRefreshView()
         message.isHidden = true
     }
 
@@ -61,23 +61,6 @@ class CitiesViewController: UIViewController, CLLocationManagerDelegate {
     private let apiFetchCities = ApiServiceCities()
     private let apiFetchMeasures = ApiServiceLatestMeasures()
 
-    // MARK: - functions
-    ///   function locationManager in order to manage localization of iPhone
-    ///
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        self.locationManager.stopUpdatingLocation()
-        let userLocation = locations[0]
-        let location = CLLocation(latitude: userLocation.coordinate.latitude,
-                                  longitude: userLocation.coordinate.longitude)
-        location.fetchCityAndCountry { country, isoCountryCode, error in
-            guard let country = country, let isoCountryCode = isoCountryCode,
-                error == nil else { return }
-            self.isoCountryCodeToSearch = isoCountryCode
-            self.country = country
-            self.countryLabel.text = country
-            self.checkUpdateIsoCountryCode(oldIsoCountryCode: self.oldIsoCountryCode)
-        }
-    }
 }
 
 // MARK: - extension Delegate for searchBar
@@ -106,12 +89,7 @@ extension CitiesViewController: UISearchBarDelegate {
     // MARK: - functions
     ///   function searchBar in order to manage characters filled in searchBar
     ///    - if number of characters > 2
-    ///      - call apiFetchCities with call options = location
-    ///        - if success
-    ///          - func searchAPIWithCity
-    ///        - else
-    ///          - save error message
-    ///          - func searchAPIWithCity
+    ///      - call searchAPIWithLocation
     ///
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         message.isHidden = true
@@ -120,25 +98,45 @@ extension CitiesViewController: UISearchBarDelegate {
             self.cities.removeAll()
             self.tableView.reloadData()
         } else {
-            self.errorsLocation = nil
-            self.apiFetchCities.getApiCities(countryToSearch: isoCountryCodeToSearch,
-                                             cityToSearch: searchText,
-                                             typeOfSearch: "location[]") { (success, errors ) in
-                                                if success {
-                                                    self.searchAPIWithCity(searchText: searchText)
-                                                } else {
-                                                    self.errorsLocation = errors
-                                                    self.searchAPIWithCity(searchText: searchText)
-                                                }
-            }
-            if(filtered.count == 0) {
-                searchActive = false
-            } else {
-                searchActive = true
-            }
+            searchAPIWithLocation(searchText: searchText)
         }
     }
 
+    ///   function searchAPIWithLocation
+    ///    -
+    ///      - call apiFetchCities with call options = location
+    ///        - if success
+    ///          - func searchAPIWithCity
+    ///        - else
+    ///          - save error message
+    ///          - func searchAPIWithCity
+    private func searchAPIWithLocation(searchText: String) {
+        if settings.localization == "GeoLocalization" {
+            if CLLocationManager.locationServicesEnabled() == true {
+                if CLLocationManager.authorizationStatus() == .restricted ||
+                    CLLocationManager.authorizationStatus() == .denied {
+                    getErrors(type: .noLocationServices)
+                    return
+                }
+            }
+        }
+        self.errorsLocation = nil
+        self.apiFetchCities.getApiCities(countryToSearch: isoCountryCodeToSearch,
+                                         cityToSearch: searchText,
+                                         typeOfSearch: "location[]") { (success, errors ) in
+                                            if success {
+                                                self.searchAPIWithCity(searchText: searchText)
+                                            } else {
+                                                self.errorsLocation = errors
+                                                self.searchAPIWithCity(searchText: searchText)
+                                            }
+        }
+        if(filtered.count == 0) {
+            searchActive = false
+        } else {
+            searchActive = true
+        }
+    }
     ///   function searchAPIWithCity in order to manage characters filled in searchBar
     ///    - call apiFetchCities with call options = city
     ///      - if success
@@ -230,27 +228,18 @@ extension CitiesViewController: UISearchBarDelegate {
         }
     }
 
-    ///   function refresh in order to refresh screen depending on setting
+    ///   function checkRefreshView in order to determine refreshing view depending on setting
     ///   - check userDefaults already existing
-    ///   - if true
-    ///     - take in account of userDefaults setting
+    ///   - if true (existing)
+    ///     - call function checkSettingForRefreshView
     ///   - else
-    ///     - call function localizeiPhone
+    ///     - call function localizeiPhone (first launching of app)
     ///
-    private func refresh() {
+    private func checkRefreshView() {
         let userDefaults = checkUserDefaults()
         switch userDefaults {
         case true:
-            oldIsoCountryCode = isoCountryCodeToSearch
-            if settings.localization == "GeoLocalization" {
-                localizeiPhone()
-                checkUpdateIsoCountryCode(oldIsoCountryCode: oldIsoCountryCode)
-            } else {
-                isoCountryCodeToSearch = settings.countryISO ?? "FR"
-                countryLabel.text = Locale.current.localizedString(forRegionCode: isoCountryCodeToSearch)
-                country = self.countryLabel.text!
-                checkUpdateIsoCountryCode(oldIsoCountryCode: oldIsoCountryCode)
-            }
+            checkSettingForRefreshView()
         case false:
             localizeiPhone()
         }
@@ -286,13 +275,34 @@ extension CitiesViewController: UISearchBarDelegate {
         return true
     }
 
-    ///   function localizeiPhone in order to localize iPhone depending on user choice
+    ///   function checkSettingForRefreshView in order to refresh view depending on setting
+    ///   - if geo localisation
+    ///     - call function localizeiPhone
+    ///   - else
+    ///     - changing of country stored i userdefault
+    ///   - call function checkUpdateIsoCountryCode
+    private func checkSettingForRefreshView() {
+        oldIsoCountryCode = isoCountryCodeToSearch
+        if settings.localization == "GeoLocalization" {
+            localizeiPhone()
+        } else {
+            isoCountryCodeToSearch = settings.countryISO ?? "FR"
+            countryLabel.text = Locale.current.localizedString(forRegionCode: isoCountryCodeToSearch)
+            country = self.countryLabel.text!
+        }
+        checkUpdateIsoCountryCode(oldIsoCountryCode: oldIsoCountryCode)
+    }
+
+    ///   function localizeiPhone
     ///
     private func localizeiPhone() {
         if CLLocationManager.locationServicesEnabled() == true {
             if CLLocationManager.authorizationStatus() == .restricted ||
-                CLLocationManager.authorizationStatus() == .denied ||
-                CLLocationManager.authorizationStatus() == .notDetermined {
+                CLLocationManager.authorizationStatus() == .denied {
+                getErrors(type: .noLocationServices)
+                return
+            }
+            if CLLocationManager.authorizationStatus() == .notDetermined {
                 locationManager.requestWhenInUseAuthorization()
             }
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -333,9 +343,11 @@ extension CitiesViewController: UISearchBarDelegate {
         guard let countOfFavorites = citiesFavorite?.count else {
             return false
         }
-        for indiceFavorite in 0...countOfFavorites-1
-            where citiesFavorite?[indiceFavorite].ident == cities[indice].ident {
-                return true
+        if countOfFavorites >= 1 {
+            for indiceFavorite in 0...countOfFavorites-1
+                where citiesFavorite?[indiceFavorite].ident == cities[indice].ident {
+                    return true
+            }
         }
         return false
     }
@@ -393,5 +405,25 @@ extension CitiesViewController: UITableViewDelegate {
                           locationToSearch: cities[indexPath.row].location,
                           locationsName: cities[indexPath.row].locations,
                           cityToSearch: cities[indexPath.row].city)
+    }
+}
+
+extension CitiesViewController: CLLocationManagerDelegate {
+    // MARK: - functions
+    ///   function locationManager in order to manage localization of iPhone
+    ///
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        self.locationManager.stopUpdatingLocation()
+        let userLocation = locations[0]
+        let location = CLLocation(latitude: userLocation.coordinate.latitude,
+                                  longitude: userLocation.coordinate.longitude)
+        location.fetchCityAndCountry { country, isoCountryCode, error in
+            guard let country = country, let isoCountryCode = isoCountryCode,
+                error == nil else { return }
+            self.isoCountryCodeToSearch = isoCountryCode
+            self.country = country
+            self.countryLabel.text = country
+            self.checkUpdateIsoCountryCode(oldIsoCountryCode: self.oldIsoCountryCode)
+        }
     }
 }
