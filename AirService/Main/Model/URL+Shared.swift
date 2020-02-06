@@ -10,8 +10,7 @@ import Foundation
 import Alamofire
 
 // MARK: - extension URL
-///    function appendParameters in order to create URL with URLQueryItem
-///
+///    appendParameters in order to create URL with URLQueryItem
 extension URL {
     func appendParameters( params: Parameters) -> URL? {
         var components = URLComponents(string: self.absoluteString)

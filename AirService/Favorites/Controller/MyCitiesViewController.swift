@@ -13,7 +13,6 @@ class MyCitiesViewController: UIViewController {
 
     // MARK: - outlets
     ///   link between view elements and controller
-    ///
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
@@ -24,7 +23,6 @@ class MyCitiesViewController: UIViewController {
     }
 
     // MARK: - variables
-    ///
     var citiesFavorite: [CitiesFavorite]?
     var tagLatestMeasure: Bool = false
     var cityFavorite: [LatestMeasures] = []
@@ -33,10 +31,9 @@ class MyCitiesViewController: UIViewController {
     private let apiFetchMeasures = ApiServiceLatestMeasures()
 
     // MARK: - functions
-    ///   function searchFavoritesMeasures in order to search measures for favorites
+    ///   searchFavoritesMeasures in order to search measures for favorites
     ///   - for each favorites
-    ///    - call func searchLatestMeasures in order to retrieve lastest measures
-    ///
+    ///    - searchLatestMeasures in order to retrieve lastest measures
     private func searchFavoritesMeasures() {
         tagLatestMeasure = false
         ListLatestMeasuresService.shared.removeAll()
@@ -60,13 +57,12 @@ class MyCitiesViewController: UIViewController {
         }
     }
 
-    ///   function searchLatestMeasures in order to search measures for favorites
-    ///    - call func apiFetchMeasures in order to retrieve lastest measures
+    ///   searchLatestMeasures in order to search measures for favorites
+    ///    - apiFetchMeasures in order to retrieve lastest measures
     ///    - if success
-    ///      - func getAllMeasures
+    ///      - getAllMeasures
     ///    - else
     ///      - display error message
-    ///
     private func searchLatestMeasures(countryToSearch: String, locationToSearch: String, cityToSearch: String) {
         self.apiFetchMeasures.getApiLatestMeasures(
             countryToSearch: countryToSearch,
@@ -85,9 +81,7 @@ class MyCitiesViewController: UIViewController {
         }
     }
 
-    ///   function getAllMeasures in order to verify
-    ///     that number of measure exatrcted = number of favorites
-    ///
+    ///   getAllMeasures in order to verify that number of measure exatrcted = number of favorites
     private func getAllMeasures() {
         if numberOfCallMeasures ==
             self.citiesFavorite?.count {
@@ -98,8 +92,7 @@ class MyCitiesViewController: UIViewController {
         }
     }
 
-    ///   function deleteFavorite in order to delete favorite
-    ///
+    ///   deleteFavorite in order to delete favorite
     private func deleteFavorite(city: String, location: String) {
         for indice in 0...ListLatestMeasuresService.shared.listLatestMeasures.count-1
             where city ==
@@ -111,10 +104,8 @@ class MyCitiesViewController: UIViewController {
         }
     }
 
-    /// function toggleActivityIndicator
-    ///     - depending of calling show :o
-    ///         - to unhidde/hidde activity indicator
-    ///
+    /// toggleActivityIndicator
+    ///     - depending of calling show to unhidde/hidde activity indicator
     private func toggleActivityIndicator(shown: Bool) {
         activityIndicator.isHidden = !shown
     }

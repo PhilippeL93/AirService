@@ -13,21 +13,18 @@ class ListLatestMeasuresDetailService {
 
     // MARK: - variables
     ///    variables
-    ///
     static let shared = ListLatestMeasuresDetailService()
     private init() {}
 
     private(set) var listLatestMeasuresDetail: [ListLatestMeasuresDetail] = []
 
     // MARK: - functions
-    ///    function add in order to add country to list of countries
-    ///
+    ///    add in order to add country to list of countries
     func add(listLatestMeasureDetail: ListLatestMeasuresDetail) {
         listLatestMeasuresDetail.append(listLatestMeasureDetail)
     }
 
-    ///    function removeAll in order to remove all cities found
-    ///
+    ///    removeAll in order to remove all cities found
     func removeAll() {
         listLatestMeasuresDetail.removeAll()
     }

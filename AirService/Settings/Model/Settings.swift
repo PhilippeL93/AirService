@@ -14,7 +14,6 @@ import Foundation
 ///   - one contening country prefered
 ///   - one contening geolocalization or not
 ///   - onr contening favorties
-///
 
 class Settings {
     private var settingsContainer: SettingsContainer
@@ -58,7 +57,6 @@ struct CitiesFavorite: Codable {
 
 /// protocol SettingsContainer in order to manage mock for userDefaults
 ///   required for tests
-///
 protocol SettingsContainer {
     var countryISO: String? { get set }
     var localization: String? { get set }

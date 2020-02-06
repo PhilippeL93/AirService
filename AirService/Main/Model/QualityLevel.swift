@@ -10,7 +10,6 @@ import Foundation
 
 // MARK: - structure QualityLevel
 ///    values for Air Quality level
-///
 struct QualityLevel {
     var indice = 0
     var name = ""

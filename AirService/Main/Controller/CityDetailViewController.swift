@@ -14,7 +14,6 @@ class CityDetailViewController: UIViewController {
 
     // MARK: - outlets
     ///   link between view elements and controller
-    ///
     @IBOutlet weak var cityName: UITextField!
     @IBOutlet weak var department: UITextField!
     @IBOutlet weak var qualityName: UITextField!
@@ -41,7 +40,6 @@ class CityDetailViewController: UIViewController {
     @IBOutlet weak var pieChartPolSix: PieChartView!
 
     // MARK: - variables
-    ///
     var cityDetail = [ListLatestMeasure]()
     var locationsName: String = ""
     var indiceData = PieChartDataEntry(value: 0)
@@ -60,8 +58,7 @@ class CityDetailViewController: UIViewController {
         }
 
     // MARK: - functions
-    ///   function showPopUp in order to call popUp contening detail of pollutants
-    ///
+    ///   showPopUp in order to call popUp contening detail of pollutants
     private func showPopUp() {
         let popOverVC = UIStoryboard(
             name: "Main", bundle: nil).instantiateViewController(withIdentifier: "pollutantsPopUp")
@@ -71,8 +68,7 @@ class CityDetailViewController: UIViewController {
         popOverVC.didMove(toParent: self)
     }
 
-    ///   function initMainChart in order to initialize main pie chart
-    ///
+    ///   initMainChart in order to initialize main pie chart
     private func initMainChart() {
         pieChart.holeColor = nil
         pieChart.legend.enabled = false
@@ -91,8 +87,7 @@ class CityDetailViewController: UIViewController {
         updateMainChartData()
     }
 
-    ///   function updateMainChartData in order to prepare data for main pie chart
-    ///
+    ///   updateMainChartData in order to prepare data for main pie chart
     private func updateMainChartData() {
         let chartDataSet = PieChartDataSet(entries: indiceDataEntries, label: nil)
         let chartData = PieChartData(dataSet: chartDataSet)
@@ -107,10 +102,8 @@ class CityDetailViewController: UIViewController {
         pieChart.data = chartData
     }
 
-    ///   function initCharts in order to initialize pollutants pie chart
-    ///
+    ///   initCharts in order to initialize pollutants pie chart
     private func initCharts() {
-
         for indice in 1...6 {
             switch indice {
             case 1:
@@ -131,8 +124,7 @@ class CityDetailViewController: UIViewController {
         }
     }
 
-    ///   function initCharts in order to initialize pollutants pie chart
-    ///
+    ///   initCharts in order to initialize pollutants pie chart
     private func initChartDetail(typePol: PieChartView) {
         typePol.layer.cornerRadius = 10
         typePol.layer.masksToBounds = false
@@ -146,8 +138,7 @@ class CityDetailViewController: UIViewController {
         typePol.backgroundColor = .white
     }
 
-    ///   function fillCityDetail in order to prepare data
-    ///
+    ///   fillCityDetail in order to prepare data
     private func fillCityDetail() {
         cityName.text = cityDetail[0].city
         department.text = cityDetail[0].location
@@ -168,7 +159,6 @@ class CityDetailViewController: UIViewController {
         default:
             department.text = cityDetail[0].location
         }
-
         qualityName.text = cityDetail[0].qualityName
         hourLastUpdated.text = " \(String(cityDetail[0].hourLastUpdated[0 ..< 10]))" +
                                 " à : \(String(cityDetail[0].hourLastUpdated[11 ..< 19]))"
@@ -179,10 +169,9 @@ class CityDetailViewController: UIViewController {
         setPollutant()
     }
 
-    ///   function setPollutant in order to prepare data for pollutants
+    ///   setPollutant in order to prepare data for pollutants
     ///    - loop in measurements
-    ///     - call updateChartDetail in order to put data of each pollutant
-    ///
+    ///     - updateChartDetail in order to put data of each pollutant
     private func setPollutant() {
         for indice in 0...cityDetail[0].measurements.count-1 {
             var pollutantValue: Double = 0
@@ -199,8 +188,7 @@ class CityDetailViewController: UIViewController {
         }
     }
 
-    ///   function updateChartDetail in order to prepare data for pie chart by pollutant
-    ///
+    ///   updateChartDetail in order to prepare data for pie chart by pollutant
     private func updateChartDetail(
         typePol: PieChartView, pollutantValue: Double, valueMax: Double, indiceAtmo: Int, valueMin: Double) {
 
@@ -235,8 +223,7 @@ class CityDetailViewController: UIViewController {
         typePol.data = chartData
     }
 
-    ///   function defineTypePol in order to initialize pollutant and pollutant text
-    ///
+    ///   defineTypePol in order to initialize pollutant and pollutant text
     private func defineTypePol(parameter: String, numPol: Int) -> PieChartView {
         var typePol: PieChartView = pieChartPolOne
         switch numPol {

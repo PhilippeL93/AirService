@@ -10,7 +10,6 @@ import Foundation
 
 // MARK: - structure NitrogenDioxide
 ///    values for NO2 Nitrogen Dioxide
-///
 struct NitrogenDioxide {
     var indice = 0
     var value = 0.0

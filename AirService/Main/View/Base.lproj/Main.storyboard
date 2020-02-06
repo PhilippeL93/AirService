@@ -102,9 +102,6 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wl4-xG-AT3" userLabel="Citiy Name">
                                                                     <rect key="frame" x="0.0" y="0.0" width="343" height="24"/>
                                                                     <color key="backgroundColor" red="0.18429291249999999" green="0.1882483959" blue="0.1960500479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="24" id="2oF-Vd-WVH" userLabel="height = 24"/>
-                                                                    </constraints>
                                                                     <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="17"/>
                                                                     <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                                     <color key="highlightedColor" red="0.18429291249999999" green="0.1882483959" blue="0.1960500479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -116,9 +113,6 @@
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h86-bK-hu5" userLabel="Location Name">
                                                                             <rect key="frame" x="0.0" y="0.0" width="311" height="24"/>
                                                                             <color key="backgroundColor" red="0.18429291249999999" green="0.1882483959" blue="0.1960500479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="height" constant="24" id="Imi-Ii-pYR"/>
-                                                                            </constraints>
                                                                             <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="17"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <color key="highlightedColor" red="0.18429291249999999" green="0.1882483959" blue="0.1960500479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -128,15 +122,11 @@
                                                                             <rect key="frame" x="319" y="0.0" width="24" height="24"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="gGU-kk-FuY" secondAttribute="height" multiplier="1:1" id="ANQ-kO-P5r"/>
-                                                                                <constraint firstAttribute="height" constant="24" id="F0z-qU-BlB"/>
                                                                             </constraints>
                                                                             <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="17"/>
                                                                             <state key="normal">
                                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             </state>
-                                                                            <userDefinedRuntimeAttributes>
-                                                                                <userDefinedRuntimeAttribute type="string" keyPath="normalUnicode" value="f005"/>
-                                                                            </userDefinedRuntimeAttributes>
                                                                             <connections>
                                                                                 <action selector="manageFavoriteButton:" destination="bIm-I4-ax3" eventType="touchUpInside" id="7Yb-TE-cOK"/>
                                                                             </connections>
@@ -424,7 +414,6 @@
                                                                             </subviews>
                                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="height" constant="152" id="gDk-Xw-wcP"/>
                                                                                 <constraint firstAttribute="width" constant="70" id="oU4-gv-o8t"/>
                                                                             </constraints>
                                                                             <userDefinedRuntimeAttributes>
@@ -452,7 +441,6 @@
                                                                             <rect key="frame" x="0.0" y="0.0" width="265" height="32"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="265" id="Lv5-HD-pXk" userLabel="width = 265"/>
-                                                                                <constraint firstAttribute="height" constant="20" id="oXq-yl-muh"/>
                                                                             </constraints>
                                                                             <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="17"/>
                                                                             <textInputTraits key="textInputTraits"/>
@@ -460,7 +448,6 @@
                                                                         <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Department" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q2A-1d-hbd" userLabel="Department">
                                                                             <rect key="frame" x="0.0" y="40" width="265" height="32"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="height" constant="20" id="FZn-xi-4cJ"/>
                                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="265" id="NeJ-h6-hJR" userLabel="width = 265"/>
                                                                             </constraints>
                                                                             <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="17"/>
@@ -469,7 +456,6 @@
                                                                         <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="main pollutant" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cWf-l9-caD" userLabel="Pollutant">
                                                                             <rect key="frame" x="0.0" y="80" width="265" height="32"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="height" constant="20" id="Sf2-WY-w9d"/>
                                                                                 <constraint firstAttribute="width" constant="265" id="tQH-Zr-HHB"/>
                                                                             </constraints>
                                                                             <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="17"/>
@@ -479,7 +465,6 @@
                                                                             <rect key="frame" x="0.0" y="120" width="265" height="32"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="265" id="r38-fQ-yn8"/>
-                                                                                <constraint firstAttribute="height" constant="20" id="smr-XK-rj1"/>
                                                                             </constraints>
                                                                             <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="14"/>
                                                                             <textInputTraits key="textInputTraits"/>

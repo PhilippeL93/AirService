@@ -14,7 +14,6 @@ class PollutantsPopUpViewController: UIViewController {
 
     // MARK: - outlets
     ///   link between view elements and controller
-    ///
     @IBOutlet weak var buttonClose: UIButton!
     @IBAction func closePopUp(_ sender: UIButton) {
         self.removeAnimate()
@@ -29,6 +28,8 @@ class PollutantsPopUpViewController: UIViewController {
         self.showAnimate()
     }
 
+    // MARK: - functions
+    ///   showAnimate in order animate pollutants view when it's apperaed
     func showAnimate() {
         self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
         self.view.alpha = 0.0
@@ -39,6 +40,7 @@ class PollutantsPopUpViewController: UIViewController {
         )
     }
 
+///   removeAnimate in order animate pollutants view when it's disapperaed
     func removeAnimate() {
         UIView.animate(withDuration: 0.5, animations: {
             self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
@@ -47,6 +49,7 @@ class PollutantsPopUpViewController: UIViewController {
             if (finished) {
                 self.view.removeFromSuperview()
             }
-        })
+        }
+        )
     }
 }

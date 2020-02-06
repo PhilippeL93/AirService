@@ -10,7 +10,6 @@ import Foundation
 
 // MARK: - structure SulfurDioxide
 ///    values for SO2 Sulfur Dioxide
-///
 struct SulfurDioxide {
     var indice = 0
     var value = 0.0

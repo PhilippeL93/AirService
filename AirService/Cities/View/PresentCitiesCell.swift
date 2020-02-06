@@ -13,7 +13,6 @@ class PresentCitiesCell: UITableViewCell {
 
     // MARK: - outlets
     ///   link between view elements and controller
-    ///
     @IBOutlet weak var citiesLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
@@ -25,18 +24,16 @@ class PresentCitiesCell: UITableViewCell {
     /// - cities : contains list of cities found
     /// - citiesFavorite : contains list of cities in favorite
     /// - settingsService : in order to access at userDefaults
-    ///
     var cities = ListCitiesService.shared.listCities
     var citiesFavorite: [CitiesFavorite]?
     let settings = Settings()
 
     // MARK: - functions
-    ///   function manageFavorite in order manage add or remove city in favorite
+    ///   manageFavorite in order manage add or remove city in favorite
     ///   - if  favorite
-    ///      - call function suppressFavorite in order to suppress favorite
+    ///      - suppressFavorite in order to suppress favorite
     ///   - else
-    ///     - call function addNewFavorite in order to add to favorite
-    ///
+    ///     - addNewFavorite in order to add to favorite
     func manageFavorite() {
         citiesFavorite = settings.favoriteCitiesList
         cities = ListCitiesService.shared.listCities
@@ -51,8 +48,7 @@ class PresentCitiesCell: UITableViewCell {
         }
     }
 
-    ///   function addNewFavorite in order to add  city in favorite
-    ///
+    ///   addNewFavorite in order to add  city in favorite
     private func addNewFavorite() {
         for indice in 0...cities.count-1
             where ( cities[indice].city == citiesLabel.text
@@ -70,8 +66,7 @@ class PresentCitiesCell: UITableViewCell {
         }
     }
 
-    ///   function suppressFavorite in order suppress city from favorite
-    ///
+    ///   suppressFavorite in order suppress city from favorite
     private func suppressFavorite() {
         guard let countOfFavorites = citiesFavorite?.count else {
             return
@@ -87,10 +82,8 @@ class PresentCitiesCell: UITableViewCell {
         }
     }
 
-    ///   function configure in order to display data in custom cell
-    ///
+    ///   configure in order to display data in custom cell
     func configure(with country: String, city: String, location: String, favorite: Bool) {
-
         citiesLabel.text = city
         locationLabel.text = location
         if country == "FR" {

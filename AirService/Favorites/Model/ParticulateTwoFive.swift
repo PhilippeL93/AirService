@@ -10,7 +10,6 @@ import Foundation
 
 // MARK: - structure ParticulateTwoFive
 ///    values for PM2.5 Particulate matter less than 2.5 micrometers in diameter
-///
 struct ParticulateTwoFive {
     var indice = 0
     var value = 0.0

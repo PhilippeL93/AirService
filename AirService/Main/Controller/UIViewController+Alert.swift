@@ -11,8 +11,7 @@ import UIKit
 extension UIViewController {
 
     // MARK: - extension
-    ///   common function alert in order to display message
-    ///
+    ///   alert in order to display message
     func alert(message: String, title: String ) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -20,8 +19,7 @@ extension UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
 
-    ///    commopn function getErrors in order to display message
-    ///
+    ///    getErrors in order to display message
     func getErrors(type: Errors ) {
         switch type {
         case .noInternetConnection:
@@ -43,6 +41,7 @@ extension UIViewController {
         }
     }
 
+    ///    getErrorsText in order to know text for error
     func getErrorsText(type: Errors ) -> String {
         switch type {
         case .noInternetConnection:

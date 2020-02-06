@@ -15,9 +15,9 @@ class ApiServiceCountries {
     private let apiServiceUrl = "https://api.openaq.org/v1/countries?"
 
     // MARK: - functions
-    /// function getApiCountries generate a call to API with Alamofire
+    /// getApiCountries generate a call to API with Alamofire
     /// - preparing var for call
-    /// - call function request of Alamofire (AF.request(url).responseJSON)
+    /// - request of Alamofire (AF.request(url).responseJSON)
     /// - at call return
     /// - switch result = success ok
     ///     - call createCountriesObjectWith in order to deparse JSON
@@ -29,12 +29,10 @@ class ApiServiceCountries {
     ///             - continue
     ///         - else
     ///             - exit of call with completion = false
-    ///         - call function createListCountries
+    ///         - createListCountries
     ///         - exit of call with completion = true
     /// - other exit of call with completion = false
-    ///
     func getApiCountries(completion: @escaping (Bool, Errors?) -> Void) {
-
         let queryParams: [String: String] = [
             "limit": "9999"
         ]
@@ -68,9 +66,8 @@ class ApiServiceCountries {
             }
     }
 
-    /// function createListCountries
+    /// createListCountries
     ///     - loop in order to create listCountries contening contries found
-    ///
     private func createListCountries(type: Countries) {
         do {
             for indice in 0...type.results.count-1 {
@@ -86,9 +83,8 @@ class ApiServiceCountries {
         }
     }
 
-    /// function createCountriesObjectWith
-    /// using JSONDecoder and structure Countries in order to deparse JSON recceived
-    ///
+    /// createCountriesObjectWith
+    ///   using JSONDecoder and structure Countries in order to deparse JSON recceived
     private func createCountriesObjectWith(json: Data, completion: @escaping (_ data: Countries?) -> Void) {
         do {
             let decoder = JSONDecoder()

@@ -13,7 +13,6 @@ class PresentFavoritesCell: UITableViewCell {
 
     // MARK: - outlets
     ///   link between view elements and controller
-    ///
     @IBOutlet weak var qualityName: UITextField!
     @IBOutlet weak var qualityIndicator: UITextField!
     @IBOutlet weak var cityName: UITextField!
@@ -24,8 +23,7 @@ class PresentFavoritesCell: UITableViewCell {
 
     let checkCountry = CheckCountry()
 
-    ///   function configure in order to display data in custom cell
-    ///
+    ///   configure in order to display data in custom cell
     func configure(with cityFavorite: ListLatestMeasure) {
 
         let cityFavorite = cityFavorite

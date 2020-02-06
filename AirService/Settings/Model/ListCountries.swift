@@ -10,7 +10,6 @@ import Foundation
 
 // MARK: struct ListCountrie
 ///    contains countries extracted by ApiServiceCountries
-///
 struct ListCountrie {
     var code: String
     var count: Int

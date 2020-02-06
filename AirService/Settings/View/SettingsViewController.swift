@@ -13,15 +13,13 @@ import CoreLocation
 class SettingsViewController: UIViewController {
 
     // MARK: - buttons
-    ///   function saveSettings in order to save in userDefaults
-    ///
+    ///   saveSettings in order to save in userDefaults
     @IBAction func saveSettings(_ sender: Any) {
         saveUserDefaults()
     }
 
     // MARK: - outlets
     ///   link between view elements and controller
-    ///
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var countryPickerView: UIPickerView!
     @IBOutlet weak var choiceOfLocalization: UISegmentedControl!
@@ -38,19 +36,17 @@ class SettingsViewController: UIViewController {
     }
 
     // MARK: - variables
-    ///
     private let apiFetcherCountries = ApiServiceCountries()
     let settingsService = Settings()
     var countries = ListCountriesService.shared.listCountries
 
     // MARK: - functions
-    ///   function callAPICountries in order to retrieve all countries
-    ///    - call func apiFetcherCountries in order to retrieve countries
+    ///   callAPICountries in order to retrieve all countries
+    ///    - apiFetcherCountries in order to retrieve countries
     ///    - if success
-    ///      - func updateBeforeLoadView
+    ///      - updateBeforeLoadView
     ///    - else
     ///      - display error message
-    ///
     private func callAPICountries() {
         toggleActivityIndicator(shown: true)
 
@@ -69,8 +65,7 @@ class SettingsViewController: UIViewController {
         }
     }
 
-    ///   function updateBeforeLoadView in order to prepare display data
-    ///
+    ///   updateBeforeLoadView in order to prepare display data
     private func updateBeforeLoadView() {
         countries = ListCountriesService.shared.listCountries
         countryPickerView.reloadAllComponents()
@@ -78,8 +73,7 @@ class SettingsViewController: UIViewController {
         countryPickerView.selectRow(row, inComponent: 0, animated: true)
     }
 
-    ///   function getSelectedCountry in order to return country selected by user
-    ///
+    ///   getSelectedCountry in order to return country selected by user
     private func getSelectedCountry() -> String {
         if countries.count > 0 {
             let index = countryPickerView.selectedRow(inComponent: 0)
@@ -88,8 +82,7 @@ class SettingsViewController: UIViewController {
             return ""
     }
 
-    ///   function getSelectedRow in order to select country saved in userDefaults
-    ///
+    ///   getSelectedRow in order to select country saved in userDefaults
     private func getSelectedRow() -> Int {
         for indice in 0...countries.count-1
             where countries[indice].code == settingsService.countryISO {
@@ -98,12 +91,11 @@ class SettingsViewController: UIViewController {
         return -1
     }
 
-    ///   function saveUserDefaults in order to save userDefaults
+    ///   saveUserDefaults in order to save userDefaults
     ///    - if geolocalization and location service is disabled
     ///      - message to activate location services
-    ///    - else
-    ///      - save userDefaults
-    ///
+    ///      - exit
+    ///    - save userDefaults
     private func saveUserDefaults() {
         let localizationIndex = choiceOfLocalization.selectedSegmentIndex
         let choiceOfLocalization = (localizationIndex == 0) ? "GeoLocalization" : "country"
@@ -117,16 +109,12 @@ class SettingsViewController: UIViewController {
                 }
             }
         }
-//        else {
-            settingsService.countryISO = getSelectedCountry()
-            settingsService.localization = (localizationIndex == 0) ? "GeoLocalization" : "country"
-//        }
+        settingsService.countryISO = getSelectedCountry()
+        settingsService.localization = (localizationIndex == 0) ? "GeoLocalization" : "country"
     }
 
-    /// function toggleActivityIndicator
-    ///     - depending of calling show :o
-    ///         - to unhidde/hidde activity indicator
-    ///
+    /// toggleActivityIndicator
+    ///     - depending of calling show to unhidde/hidde activity indicator
     private func toggleActivityIndicator(shown: Bool) {
         activityIndicator.isHidden = !shown
     }

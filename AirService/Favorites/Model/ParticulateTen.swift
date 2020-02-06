@@ -10,7 +10,6 @@ import Foundation
 
 // MARK: - structure ParticulateTen
 ///    values for PM10 Particulate matter less than 10 micrometers in diameter
-///
 struct ParticulateTen {
     var indice = 0
     var value = 0.0

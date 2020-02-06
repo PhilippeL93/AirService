@@ -10,7 +10,6 @@ import Foundation
 
 // MARK: - structure Ozone
 ///    values for O3 Ozon
-///
 struct Ozone {
     var indice = 0
     var value = 0.0

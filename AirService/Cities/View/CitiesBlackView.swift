@@ -14,7 +14,6 @@ import UIKit
 ///    in order to manage
 ///    - border in color
 ///    - rounded corner
-///
 class CitiesBlackView: UIView {
 
     @IBInspectable var cornerRadius: CGFloat = 0 {

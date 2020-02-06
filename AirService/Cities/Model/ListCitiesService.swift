@@ -10,25 +10,22 @@ import Foundation
 
 // MARK: class ListCitiesService
 ///    in order to manage listCities
-///
 class ListCitiesService {
 
     // MARK: - variables
     ///   variables
-
     static var shared = ListCitiesService()
     private init() {}
     private(set) var listCities: [ListCitie] = []
 
     // MARK: - functions
-    ///    function add in order to add city to list of cities
+    ///    add in order to add city to list of cities
     ///
     func add(listCitie: ListCitie) {
         listCities.append(listCitie)
     }
 
-    ///    function removeAll in order to remove all cities found
-    ///
+    ///    removeAll in order to remove all cities found
     func removeAll() {
         listCities.removeAll()
     }

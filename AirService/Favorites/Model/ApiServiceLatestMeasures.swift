@@ -23,12 +23,12 @@ class ApiServiceLatestMeasures {
     var valueMax: Double = 0
 
     // MARK: - functions
-    /// function getApiLatestMeasures generate a call to API with Alamofire
+    /// getApiLatestMeasures generate a call to API with Alamofire
     /// - preparing var for call
-    /// - call function request of Alamofire (AF.request(url).responseJSON)
+    /// - request of Alamofire (AF.request(url).responseJSON)
     /// - at call return
     /// - switch result = success ok
-    ///     - call createMeasurementsObjectWith in order to deparse JSON
+    ///     - createMeasurementsObjectWith in order to deparse JSON
     ///         - if data like measurements
     ///             - continue
     ///         - else
@@ -37,10 +37,9 @@ class ApiServiceLatestMeasures {
     ///             - continue
     ///         - else
     ///             - exit of call with completion = false
-    ///         - call function createListMeasurements
+    ///         - createListMeasurements
     ///         - exit of call with completion = true
     /// - other exit of call with completion = false
-    ///
     func getApiLatestMeasures(countryToSearch: String, locationToSearch: String,
                               cityToSearch: String, completion: @escaping
         (Bool, Errors?) -> Void) {
@@ -80,12 +79,11 @@ class ApiServiceLatestMeasures {
         }
     }
 
-    /// function createListMeasurements
+    /// createListMeasurements
     ///     - loop in order to create ListLatestMeasures contening measures found
-    ///     - call function calculateIndice in order to calculate quality indice
-    ///     - call function getFavorite in order to retrieve locationName
+    ///     - calculateIndice in order to calculate quality indice
+    ///     - getFavorite in order to retrieve locationName
     ///     - add new entry in ListLatestMeasures
-    ///
     private func createListMeasurements(type: LatestMeasures) {
         do {
             for indice in 0...type.results.count-1 {
@@ -110,14 +108,13 @@ class ApiServiceLatestMeasures {
         }
     }
 
-    /// function getFavorite in order to retrieve locationName
+    /// getFavorite in order to retrieve locationName
     ///     - verify that citiesFavorites is not empty
     ///     - loop in order to found locationName
     ///         - if found
     ///             - return locationName
     ///         - else
     ///             - return empty string
-    ///
     private func getFavorite(city: String, location: String) -> String {
         guard let citiesFavorite = settings.favoriteCitiesList as [CitiesFavorite]? else {
             return ""
@@ -132,9 +129,8 @@ class ApiServiceLatestMeasures {
         return ""
     }
 
-    /// function createMeasurementsObjectWith
-    /// using JSONDecoder and structure LatestMeasures in order to deparse JSON recceived
-    ///
+    /// createMeasurementsObjectWith
+    ///     using JSONDecoder and structure LatestMeasures in order to deparse JSON recceived
     private func createMeasurementsObjectWith(json: Data, completion: @escaping (_ data: LatestMeasures?) -> Void) {
         do {
             let decoder = JSONDecoder()
@@ -145,15 +141,14 @@ class ApiServiceLatestMeasures {
         }
     }
 
-    /// function calculateIndice in order to determine worst indice of air quality
-    ///  - call function calculateIndiceAtmoMax in order to determine indices (IndicesMax)
+    /// calculateIndice in order to determine worst indice of air quality
+    ///  - calculateIndiceAtmoMax in order to determine indices (IndicesMax)
     ///                     contening values of worst indice of air quality
     ///  - loop in order to
     ///     - determine quality level
     ///     - calculate indice
     ///     - transform indice when unit = ppm instead of µg/m³
     ///  - create mesaure with quality indicators
-    ///
     private func calculateIndice(latestMeasure: [MeasuresDetail]) -> MeasuresFavorite {
         var qualityIndicator: Double = 0
         var qualityName: String = ""
@@ -184,15 +179,13 @@ class ApiServiceLatestMeasures {
         return measuresFavorite
     }
 
-    /// function calculateIndiceAtmoMax in order determine IndicesMax
-    ///                     contening values of worst indice of air quality
+    /// calculateIndiceAtmoMax in order determine IndicesMax contening values of worst indice of air quality
     ///  - loop in order to search among measures the worst
-    ///     - call function searchPollutantsValues
+    ///     - searchPollutantsValues
     /// - compare previous indice max (indiceAtmoMax) with new indice
     ///     - if new indice > previous indice max
     ///         - new indice = previous indice max
     /// - return indices
-    ///
     private func calculateIndiceAtmoMax(latestMeasure: [MeasuresDetail]) -> (IndicesMax) {
         indiceMax = 0
         indiceAtmoMax = 0
@@ -228,7 +221,7 @@ class ApiServiceLatestMeasures {
         return indices
     }
 
-    /// function searchPollutantsValues in order to determine by pollutant
+    /// searchPollutantsValues in order to determine by pollutant
     ///         indice air quality
     ///         value pollutant
     ///         value min pollutant
@@ -271,10 +264,9 @@ class ApiServiceLatestMeasures {
         }
     }
 
-    /// function searchIndicePollutantCO in order determine level of Carbon Monoxide
+    /// searchIndicePollutantCO in order determine level of Carbon Monoxide
     ///  - loop in structure CarbonMonoxide
     ///     - return indice and value
-    ///
     private func searchIndicePollutantCO(value: Double) -> (Int, Double) {
         for indice in 0...CarbonMonoxide.list.count-1
             where value <= CarbonMonoxide.list[indice].value {
@@ -283,10 +275,9 @@ class ApiServiceLatestMeasures {
         return (0, 0)
     }
 
-    /// function searchIndicePollutantNO in order determine level of Nitrogen Dioxide
+    /// searchIndicePollutantNO in order determine level of Nitrogen Dioxide
     ///  - loop in structure CarbonMonoxide
     ///     - return indice and value
-    ///
     private func searchIndicePollutantNO(value: Double) -> (Int, Double) {
         for indice in 0...NitrogenDioxide.list.count-1
             where value <= NitrogenDioxide.list[indice].value {
@@ -295,10 +286,9 @@ class ApiServiceLatestMeasures {
         return (0, 0)
     }
 
-    /// function searchIndicePollutantO in order determine level of Ozone
+    /// searchIndicePollutantO in order determine level of Ozone
     ///  - loop in structure CarbonMonoxide
     ///     - return indice and value
-    ///
     private func searchIndicePollutantO(value: Double) -> (Int, Double) {
         for indice in 0...Ozone.list.count-1
             where value <= Ozone.list[indice].value {
@@ -307,10 +297,9 @@ class ApiServiceLatestMeasures {
         return (0, 0)
     }
 
-    /// function searchIndicePollutantPMTen in order determine level of PM10
+    /// searchIndicePollutantPMTen in order determine level of PM10
     ///  - loop in structure CarbonMonoxide
     ///     - return indice and value
-    ///
     private func searchIndicePollutantPMTen(value: Double) -> (Int, Double) {
         for indice in 0...ParticulateTen.list.count-1
             where value <= ParticulateTen.list[indice].value {
@@ -319,10 +308,9 @@ class ApiServiceLatestMeasures {
         return (0, 0)
     }
 
-    /// function searchIndicePollutantPMTwoFive in order determine level of PM2.5
+    /// searchIndicePollutantPMTwoFive in order determine level of PM2.5
     ///  - loop in structure CarbonMonoxide
     ///     - return indice and value
-    ///
     private func searchIndicePollutantPMTwoFive(value: Double) -> (Int, Double) {
         for indice in 0...ParticulateTwoFive.list.count-1
             where value <= ParticulateTwoFive.list[indice].value {
@@ -331,10 +319,9 @@ class ApiServiceLatestMeasures {
         return (0, 0)
     }
 
-    /// function searchIndicePollutantSO in order determine level of Sulfur Dioxide
+    /// searchIndicePollutantSO in order determine level of Sulfur Dioxide
     ///  - loop in structure CarbonMonoxide
     ///     - return indice and value
-    ///
     private func searchIndicePollutantSO(value: Double) -> (Int, Double) {
         for indice in 0...SulfurDioxide.list.count-1
             where value <= SulfurDioxide.list[indice].value {

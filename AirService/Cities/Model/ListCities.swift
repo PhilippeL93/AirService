@@ -10,7 +10,6 @@ import Foundation
 
 // MARK: struct ListCitie
 ///    contains cities extracted by APIServiceCities
-///
 struct ListCitie {
     var ident: String
     var country: String

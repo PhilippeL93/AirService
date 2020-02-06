@@ -10,7 +10,6 @@ import Foundation
 
 // MARK: - structure CarbonMonoxide
 ///    values for CO Carbon Monoxide
-///
 struct CarbonMonoxide {
     var indice = 0
     var value = 0.0
